@@ -441,6 +441,19 @@ class BornoInputController: IMKInputController {
             return false
         }
 
+        // Handle Numpad Decimal (keyCode 65 - the '.' next to 0 on numeric keypad):
+        // Always insert literal English '.' directly, regardless of active layout or output encoding.
+        if keyCode == 65 {
+            if riti_context_ongoing_input_session(engineCtx) {
+                commitTopCandidate(client: client)
+            }
+            client.insertText(
+                "." as NSString,
+                replacementRange: NSRange(location: NSNotFound, length: NSNotFound)
+            )
+            return true
+        }
+
         // Handle digit keys: if no active session, insert Bengali digit directly
         if !riti_context_ongoing_input_session(engineCtx),
            let chars = event.characters,
@@ -880,18 +893,7 @@ class BornoInputController: IMKInputController {
         return result
     }
 
-    // MARK: - Input Method Menu & Modes
-
-    override func modes(_ sender: Any!) -> [AnyHashable : Any]! {
-        return [
-            "tsInputModeListKey": [
-                "com.borno.inputmethod.Borno": [
-                    "tsInputModeIsVisibleKey": true,
-                    "tsInputModeDefaultStateKey": true
-                ]
-            ]
-        ]
-    }
+    // MARK: - Input Method Menu
 
     override func menu() -> NSMenu! {
         let menu = NSMenu(title: "Borno")
@@ -904,17 +906,17 @@ class BornoInputController: IMKInputController {
         // Layouts section
         let currentLayout = BornoInputController.currentKeyboardLayout()
 
-        let phoneticItem = NSMenuItem(title: "Borno (Phonetic)", action: #selector(setLayoutPhonetic), keyEquivalent: "")
+        let phoneticItem = NSMenuItem(title: "Borno (Phonetic)", action: #selector(setLayoutPhonetic(_:)), keyEquivalent: "")
         phoneticItem.target = self
         phoneticItem.state = (currentLayout == "avro_phonetic") ? .on : .off
         menu.addItem(phoneticItem)
 
-        let nationalItem = NSMenuItem(title: "National / Bijoy (জাতীয়)", action: #selector(setLayoutNational), keyEquivalent: "")
+        let nationalItem = NSMenuItem(title: "National / Bijoy (জাতীয়)", action: #selector(setLayoutNational(_:)), keyEquivalent: "")
         nationalItem.target = self
         nationalItem.state = (currentLayout == "National") ? .on : .off
         menu.addItem(nationalItem)
 
-        let probhatItem = NSMenuItem(title: "Probhat (প্রভাত)", action: #selector(setLayoutProbhat), keyEquivalent: "")
+        let probhatItem = NSMenuItem(title: "Probhat (প্রভাত)", action: #selector(setLayoutProbhat(_:)), keyEquivalent: "")
         probhatItem.target = self
         probhatItem.state = (currentLayout == "Probhat") ? .on : .off
         menu.addItem(probhatItem)
@@ -923,50 +925,50 @@ class BornoInputController: IMKInputController {
 
         // Encodings section
         let isANSI = (BornoInputController.currentOutputEncoding() == .ansi)
-        let unicodeItem = NSMenuItem(title: "Unicode", action: #selector(setOutputUnicode), keyEquivalent: "")
+        let unicodeItem = NSMenuItem(title: "Unicode", action: #selector(setOutputUnicode(_:)), keyEquivalent: "")
         unicodeItem.target = self
         unicodeItem.state = isANSI ? .off : .on
         menu.addItem(unicodeItem)
 
-        let ansiItem = NSMenuItem(title: "ANSI", action: #selector(setOutputANSI), keyEquivalent: "")
+        let ansiItem = NSMenuItem(title: "ANSI", action: #selector(setOutputANSI(_:)), keyEquivalent: "")
         ansiItem.target = self
         ansiItem.state = isANSI ? .on : .off
         menu.addItem(ansiItem)
 
         menu.addItem(NSMenuItem.separator())
 
-        let startItem = NSMenuItem(title: "Getting Started...", action: #selector(openWelcomeWindow), keyEquivalent: "")
+        let startItem = NSMenuItem(title: "Getting Started...", action: #selector(openGettingStarted(_:)), keyEquivalent: "")
         startItem.target = self
         menu.addItem(startItem)
 
-        let layoutItem = NSMenuItem(title: "Borno Keyboard Layout...", action: #selector(openWelcomeWindow), keyEquivalent: "")
+        let layoutItem = NSMenuItem(title: "Borno Keyboard Layout...", action: #selector(openLayoutGuide(_:)), keyEquivalent: "")
         layoutItem.target = self
         menu.addItem(layoutItem)
 
-        let settingsItem = NSMenuItem(title: "Settings & Preferences...", action: #selector(openWelcomeWindow), keyEquivalent: "")
+        let settingsItem = NSMenuItem(title: "Settings & Preferences...", action: #selector(openSettingsWindow(_:)), keyEquivalent: "")
         settingsItem.target = self
         menu.addItem(settingsItem)
 
         menu.addItem(NSMenuItem.separator())
 
-        let aboutItem = NSMenuItem(title: "About Borno", action: #selector(openWelcomeWindow), keyEquivalent: "")
+        let aboutItem = NSMenuItem(title: "About Borno", action: #selector(openAboutWindow(_:)), keyEquivalent: "")
         aboutItem.target = self
         menu.addItem(aboutItem)
 
         return menu
     }
 
-    @objc func setLayoutPhonetic() {
+    @objc func setLayoutPhonetic(_ sender: Any? = nil) {
         UserDefaults.standard.set("avro_phonetic", forKey: BornoInputController.keyboardLayoutKey)
         NotificationCenter.default.post(name: .bornoLayoutChanged, object: nil)
     }
 
-    @objc func setLayoutNational() {
+    @objc func setLayoutNational(_ sender: Any? = nil) {
         UserDefaults.standard.set("National", forKey: BornoInputController.keyboardLayoutKey)
         NotificationCenter.default.post(name: .bornoLayoutChanged, object: nil)
     }
 
-    @objc func setLayoutProbhat() {
+    @objc func setLayoutProbhat(_ sender: Any? = nil) {
         UserDefaults.standard.set("Probhat", forKey: BornoInputController.keyboardLayoutKey)
         NotificationCenter.default.post(name: .bornoLayoutChanged, object: nil)
     }
@@ -975,18 +977,30 @@ class BornoInputController: IMKInputController {
         rebuildEngine()
     }
 
-    @objc func setOutputUnicode() {
+    @objc func setOutputUnicode(_ sender: Any? = nil) {
         UserDefaults.standard.set("Unicode", forKey: BornoInputController.outputEncodingKey)
         NotificationCenter.default.post(name: .bornoEncodingChanged, object: nil)
     }
 
-    @objc func setOutputANSI() {
+    @objc func setOutputANSI(_ sender: Any? = nil) {
         UserDefaults.standard.set("ANSI", forKey: BornoInputController.outputEncodingKey)
         NotificationCenter.default.post(name: .bornoEncodingChanged, object: nil)
     }
 
-    @objc func openWelcomeWindow() {
-        WelcomeWindowController.shared.showWindow()
+    @objc func openGettingStarted(_ sender: Any? = nil) {
+        WelcomeWindowController.shared.showWindow(tab: 0)
+    }
+
+    @objc func openLayoutGuide(_ sender: Any? = nil) {
+        WelcomeWindowController.shared.showWindow(tab: 1)
+    }
+
+    @objc func openSettingsWindow(_ sender: Any? = nil) {
+        WelcomeWindowController.shared.showWindow(tab: 2)
+    }
+
+    @objc func openAboutWindow(_ sender: Any? = nil) {
+        WelcomeWindowController.shared.showWindow(tab: 3)
     }
 }
 

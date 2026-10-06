@@ -24,9 +24,42 @@
 
     <style>
         @font-face {
+            font-family: 'Bornomala';
+            src: url('../fonts/Bornomala-Regular.woff2') format('woff2'),
+                 url('../fonts/Bornomala-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Bornomala';
+            src: url('../fonts/Bornomala-Bold.ttf') format('truetype');
+            font-weight: bold;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
             font-family: 'BornomalaUnicode';
-            src: url('../fonts/NahidaBornomala.woff2') format('woff2'),
-                 url('../fonts/NahidaBornomala.woff') format('woff');
+            src: url('../fonts/Bornomala-Regular.woff2') format('woff2'),
+                 url('../fonts/Bornomala-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'BornomalaUnicode';
+            src: url('../fonts/Bornomala-Bold.ttf') format('truetype');
+            font-weight: bold;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'BornomalaANSI';
+            src: url('../fonts/BornomalaANSI.ttf') format('truetype');
             font-weight: normal;
             font-style: normal;
             font-display: swap;
@@ -34,9 +67,8 @@
 
         @font-face {
             font-family: 'BornomalaANSI';
-            src: url('../fonts/BornomalaANSI.ttf') format('truetype'),
-                 url('../fonts/SutonnyMJ-Regular.ttf') format('truetype');
-            font-weight: normal;
+            src: url('../fonts/BornomalaANSI-Bold.ttf') format('truetype');
+            font-weight: bold;
             font-style: normal;
             font-display: swap;
         }
@@ -414,7 +446,7 @@
             font-size: 1.25rem;
             line-height: 1.65;
             resize: vertical;
-            font-family: 'BornomalaUnicode', 'Hind Siliguri', 'Anek Bangla', sans-serif;
+            font-family: 'Bornomala', 'BornomalaUnicode', 'Hind Siliguri', 'Anek Bangla', sans-serif;
         }
 
         .editor-textarea.ansi-box {
@@ -681,7 +713,6 @@
                 <div class="editor-topbar">
                     <div class="editor-title">
                         <span id="ansi-panel-title">অ্যানসি V1</span>
-                        <span class="editor-tag" id="ansi-panel-tag">বিজয় / সুতন্নিএমজে</span>
                     </div>
                     <div class="editor-actions">
                         <button class="btn-act" id="btn-font-mode" onclick="toggleFontMode()" title="বাংলা ফন্ট প্রিভিউ এবং র অ্যানসি কোডের মধ্যে পরিবর্তন করুন">
@@ -777,7 +808,7 @@
             });
             const meta = versionMeta[ver] || versionMeta['v1'];
             document.getElementById('ansi-panel-title').innerText = meta.name;
-            document.getElementById('ansi-panel-tag').innerText = meta.tag;
+            const tagEl = document.getElementById('ansi-panel-tag'); if (tagEl) tagEl.innerText = meta.tag || '';
 
             applyAnsiFont();
             onUnicodeInput();

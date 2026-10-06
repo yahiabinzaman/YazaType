@@ -7,7 +7,7 @@ class WelcomeWindowController: NSObject, NSWindowDelegate {
 
     private var window: NSWindow?
 
-    func showWindow() {
+    func showWindow(tab: Int = 0) {
         DispatchQueue.main.async {
             NSApp.setActivationPolicy(.regular)
 
@@ -35,6 +35,9 @@ class WelcomeWindowController: NSObject, NSWindowDelegate {
             }
 
             guard let win = self.window else { return }
+            if let container = win.contentView as? ModernSplitContainerView {
+                container.selectTab(tab)
+            }
             win.setFrame(NSRect(origin: win.frame.origin, size: NSSize(width: 920, height: 620)), display: true)
             win.center()
             win.setIsVisible(true)
@@ -106,6 +109,10 @@ class ModernSplitContainerView: NSView {
         }
 
         displayTab(0)
+    }
+
+    func selectTab(_ index: Int) {
+        sidebarView.selectTab(index)
     }
 
     private func displayTab(_ index: Int) {
@@ -310,7 +317,7 @@ class ModernSidebarView: NSVisualEffectView {
         return label
     }
 
-    private func selectTab(_ index: Int) {
+    func selectTab(_ index: Int) {
         selectedIndex = index
         for btn in navButtons {
             btn.isSelected = (btn.index == index)
