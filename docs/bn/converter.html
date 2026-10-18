@@ -1338,36 +1338,79 @@
                 targetMouseY = (e.clientY - height / 2) * 0.04;
             });
 
-            const count = Math.min(68, Math.max(28, Math.floor(width / 24)));
+            // Safe position finder to guarantee zero overlap on spawn
+            function findSafePosition(size) {
+                for (let attempt = 0; attempt < 30; attempt++) {
+                    const candidateX = 50 + Math.random() * (width - 100);
+                    const candidateY = Math.random() * height;
+                    let safe = true;
+                    for (let i = 0; i < particles.length; i++) {
+                        const other = particles[i];
+                        const dx = candidateX - other.x;
+                        const dy = candidateY - other.y;
+                        const minDist = (size + other.size) * 0.95 + 40;
+                        if (dx * dx + dy * dy < minDist * minDist) {
+                            safe = false;
+                            break;
+                        }
+                    }
+                    if (safe) return { x: candidateX, y: candidateY };
+                }
+                return { x: 50 + Math.random() * (width - 100), y: Math.random() * height };
+            }
+
+            function findSafeBottomX(size) {
+                for (let attempt = 0; attempt < 25; attempt++) {
+                    const candidateX = 50 + Math.random() * (width - 100);
+                    let safe = true;
+                    for (let i = 0; i < particles.length; i++) {
+                        const other = particles[i];
+                        if (other.y > height - 150) {
+                            const dx = candidateX - other.x;
+                            if (Math.abs(dx) < (size + other.size) + 40) {
+                                safe = false;
+                                break;
+                            }
+                        }
+                    }
+                    if (safe) return candidateX;
+                }
+                return 50 + Math.random() * (width - 100);
+            }
+
+            // Balanced particle count to provide abundant breathing room and prevent crowding
+            const count = Math.min(32, Math.max(16, Math.floor(width / 52)));
             for (let i = 0; i < count; i++) {
                 const layer = Math.random();
                 let size, baseOpacity, speedY, colorRgb, glow;
                 if (layer < 0.45) {
-                    size = 18 + Math.random() * 16;
-                    baseOpacity = 0.05 + Math.random() * 0.06;
-                    speedY = -0.15 - Math.random() * 0.25;
+                    size = 20 + Math.random() * 14;
+                    baseOpacity = 0.06 + Math.random() * 0.05;
+                    speedY = -0.18 - Math.random() * 0.22;
                     colorRgb = '226, 232, 240';
                     glow = false;
                 } else if (layer < 0.8) {
-                    size = 32 + Math.random() * 22;
-                    baseOpacity = 0.09 + Math.random() * 0.08;
-                    speedY = -0.3 - Math.random() * 0.35;
+                    size = 34 + Math.random() * 18;
+                    baseOpacity = 0.09 + Math.random() * 0.07;
+                    speedY = -0.28 - Math.random() * 0.3;
                     colorRgb = '186, 230, 253';
                     glow = true;
                 } else {
-                    size = 52 + Math.random() * 26;
-                    baseOpacity = 0.14 + Math.random() * 0.10;
-                    speedY = -0.45 - Math.random() * 0.45;
+                    size = 50 + Math.random() * 22;
+                    baseOpacity = 0.14 + Math.random() * 0.08;
+                    speedY = -0.4 - Math.random() * 0.35;
                     colorRgb = '240, 246, 255';
                     glow = true;
                 }
 
+                const pos = findSafePosition(size);
+
                 particles.push({
                     char: glyphs[Math.floor(Math.random() * glyphs.length)],
-                    x: Math.random() * width,
-                    y: Math.random() * height,
+                    x: pos.x,
+                    y: pos.y,
                     size: size,
-                    speedX: (Math.random() - 0.5) * 0.25,
+                    speedX: (Math.random() - 0.5) * 0.2,
                     speedY: speedY,
                     opacity: baseOpacity,
                     pulseSpeed: 0.015 + Math.random() * 0.025,
@@ -1393,6 +1436,31 @@
 
                     const isLight = document.documentElement.getAttribute('data-theme') === 'light';
 
+                    // 1. Anti-Overlap Physics: Gentle mutual repulsion between all particles
+                    for (let i = 0; i < particles.length; i++) {
+                        const p1 = particles[i];
+                        for (let j = i + 1; j < particles.length; j++) {
+                            const p2 = particles[j];
+                            const dx = p1.x - p2.x;
+                            const dy = p1.y - p2.y;
+                            const distSq = dx * dx + dy * dy;
+                            // Generous minimum distance to prevent any visual overlap
+                            const minDist = (p1.size + p2.size) * 0.95 + 25;
+                            if (distSq < minDist * minDist && distSq > 0) {
+                                const dist = Math.sqrt(distSq);
+                                const overlap = (minDist - dist) / minDist;
+                                const nx = dx / dist;
+                                const ny = dy / dist;
+                                const push = overlap * 1.25;
+                                p1.x += nx * push;
+                                p1.y += ny * push * 0.5;
+                                p2.x -= nx * push;
+                                p2.y -= ny * push * 0.5;
+                            }
+                        }
+                    }
+
+                    // 2. Update and render particles
                     for (let i = 0; i < particles.length; i++) {
                         const p = particles[i];
                         p.y += p.speedY;
@@ -1400,18 +1468,20 @@
                         p.rot += p.rotSpeed;
                         p.pulseAngle += p.pulseSpeed;
 
+                        // Mouse proximity repulsion
                         const dx = (p.x + mouseX * p.depth) - cursorActualX;
                         const dy = (p.y + mouseY * p.depth) - cursorActualY;
                         const dist = Math.sqrt(dx * dx + dy * dy);
-                        if (dist < 120 && dist > 0) {
-                            const force = (120 - dist) / 120 * 0.6;
+                        if (dist < 130 && dist > 0) {
+                            const force = (130 - dist) / 130 * 0.7;
                             p.x += (dx / dist) * force;
                             p.y += (dy / dist) * force;
                         }
 
-                        if (p.y < -60) {
-                            p.y = height + 50;
-                            p.x = Math.random() * width;
+                        // Respawn at bottom with collision-free X coordinate
+                        if (p.y < -70) {
+                            p.y = height + 50 + Math.random() * 30;
+                            p.x = findSafeBottomX(p.size);
                             p.char = glyphs[Math.floor(Math.random() * glyphs.length)];
                         }
                         if (p.x < -60) p.x = width + 50;
