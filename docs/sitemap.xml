@@ -24,4 +24,16 @@
     <xhtml:link rel="alternate" hreflang="bn" href="https://yahiabinzaman.github.io/yazatype/bn/converter.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://yahiabinzaman.github.io/yazatype/converter.html" />
   </url>
+  <url>
+    <loc>https://yahiabinzaman.github.io/yazatype/about.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahiabinzaman.github.io/yazatype/about.html" />
+    <xhtml:link rel="alternate" hreflang="bn" href="https://yahiabinzaman.github.io/yazatype/bn/about.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahiabinzaman.github.io/yazatype/about.html" />
+  </url>
+  <url>
+    <loc>https://yahiabinzaman.github.io/yazatype/bn/about.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahiabinzaman.github.io/yazatype/about.html" />
+    <xhtml:link rel="alternate" hreflang="bn" href="https://yahiabinzaman.github.io/yazatype/bn/about.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahiabinzaman.github.io/yazatype/about.html" />
+  </url>
 </urlset>
