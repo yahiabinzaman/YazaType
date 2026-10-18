@@ -1,10 +1,13 @@
 <!doctype html>
 <html lang="bn">
 <head>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>YazaType by Yahia — ম্যাক ও উইন্ডোজের বাংলা কীবোর্ড</title>
-    <meta name="description" content="ম্যাক ও উইন্ডোজে বাংলা লিখুন। ফোনেটিক, জাতীয় ও প্রভাত লেআউট, ইউনিকোড ও অ্যানসি আউটপুট এবং বিনামূল্যে অনলাইন বাংলা কনভার্টার।" />
+    <title>YazaType by Yahia — ম্যাক ও উইন্ডোজের জন্য আধুনিক বাংলা কীবোর্ড</title>
+    <meta name="description" content="ম্যাক ও উইন্ডোজের জন্য দ্রুততম ও নির্ভুল বাংলা কীবোর্ড ইঞ্জিন। ফোনেটিক, জাতীয় ও প্রভাত লেআউট, ইউনিকোড এবং অ্যাডোবি আনসি সরাসরি আউটপুট।" />
 
     <link rel="canonical" href="https://yahiabinzaman.github.io/yazatype/bn/" />
     <link rel="alternate" hreflang="en" href="https://yahiabinzaman.github.io/yazatype/" />
@@ -12,15 +15,15 @@
     <link rel="alternate" hreflang="x-default" href="https://yahiabinzaman.github.io/yazatype/" />
     <meta property="og:locale" content="bn_BD" />
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="YazaType by Yahia — ম্যাক ও উইন্ডোজের বাংলা কীবোর্ড" />
-    <meta name="twitter:description" content="ম্যাক ও উইন্ডোজে বাংলা লিখুন। ফোনেটিক, জাতীয় ও প্রভাত লেআউট, ইউনিকোড ও অ্যানসি আউটপুট এবং বিনামূল্যে অনলাইন বাংলা কনভার্টার।" />
+    <meta name="twitter:title" content="YazaType — ম্যাক ও উইন্ডোজের জন্য আধুনিক বাংলা কীবোর্ড" />
+    <meta name="twitter:description" content="ম্যাক ও উইন্ডোজের জন্য দ্রুততম ও নির্ভুল বাংলা কীবোর্ড ইঞ্জিন। ইউনিকোড ও অ্যাডোবি আনসি সম্পূর্ণ সমর্থিত।" />
     <meta name="twitter:image" content="https://yahiabinzaman.github.io/yazatype/yazatype-icon.png" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://yahiabinzaman.github.io/yazatype/bn/" />
-    <meta property="og:title" content="YazaType by Yahia — ম্যাক ও উইন্ডোজের বাংলা কীবোর্ড" />
-    <meta property="og:description" content="ম্যাক ও উইন্ডোজে বাংলা লিখুন। ফোনেটিক, জাতীয় ও প্রভাত লেআউট, ইউনিকোড ও অ্যানসি আউটপুট এবং বিনামূল্যে অনলাইন বাংলা কনভার্টার।" />
+    <meta property="og:title" content="YazaType — ম্যাক ও উইন্ডোজের জন্য আধুনিক বাংলা কীবোর্ড" />
+    <meta property="og:description" content="ম্যাক ও উইন্ডোজের জন্য দ্রুততম ও নির্ভুল বাংলা কীবোর্ড ইঞ্জিন। ইউনিকোড ও অ্যাডোবি আনসি সম্পূর্ণ সমর্থিত।" />
     <meta property="og:image" content="https://yahiabinzaman.github.io/yazatype/yazatype-icon.png" />
 
     <!-- Favicon -->
@@ -34,16 +37,20 @@
     <style>
         :root {
             --bg: #030305;
-            --bg-subtle: #08080c;
-            --card-bg: rgba(18, 18, 24, 0.7);
-            --card-border: rgba(255, 255, 255, 0.08);
-            --card-border-hover: rgba(255, 255, 255, 0.22);
+            --bg-surface: #08080d;
+            --bg-card: rgba(13, 13, 20, 0.72);
+            --bg-card-hover: rgba(19, 19, 30, 0.88);
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --border-hover: rgba(255, 255, 255, 0.22);
+            --border-accent: rgba(59, 130, 246, 0.4);
+            --accent-blue: #3b82f6;
+            --accent-cyan: #38bdf8;
+            --accent-green: #22c55e;
             --text-primary: #f8fafc;
             --text-secondary: #94a3b8;
             --text-muted: #64748b;
-            --accent-glow: rgba(255, 255, 255, 0.06);
-            --font-heading: "Anek Bangla", "Hind Siliguri", -apple-system, sans-serif;
-            --font-main: "Hind Siliguri", "Anek Bangla", "Plus Jakarta Sans", -apple-system, sans-serif;
+            --font-main: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-bangla: "Anek Bangla", "Hind Siliguri", -apple-system, sans-serif;
             --font-mono: "JetBrains Mono", SFMono-Regular, monospace;
         }
 
@@ -65,112 +72,130 @@
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
             position: relative;
+            min-height: 100vh;
         }
 
-        /* Pure Dark Stealth Horizon Lighting */
-        .ambient-glow {
+        /* Ambient Bengali Typography Canvas */
+        #bengali-ambient-canvas {
             position: fixed;
             top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 1;
+        }
+
+        /* Radial Atmospheric Horizon Lighting */
+        .ambient-horizon {
+            position: fixed;
+            top: -20vh;
             left: 50%;
             transform: translateX(-50%);
-            width: 100vw;
-            max-width: 1400px;
-            height: 600px;
-            background: radial-gradient(ellipse 60% 45% at 50% 0%, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 50%, transparent 75%);
+            width: 90vw;
+            max-width: 1200px;
+            height: 550px;
+            background: radial-gradient(ellipse at center, rgba(59, 130, 246, 0.14) 0%, rgba(56, 189, 248, 0.05) 40%, transparent 75%);
+            filter: blur(80px);
             pointer-events: none;
             z-index: 0;
         }
 
-        .ambient-beam {
-            position: fixed;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 700px;
-            height: 1px;
-            background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.3) 50%, transparent 100%);
-            box-shadow: 0 0 25px 1px rgba(255, 255, 255, 0.2);
-            pointer-events: none;
-            z-index: 1001;
+        /* Layout Container */
+        .container {
+            width: 100%;
+            max-width: 1160px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            position: relative;
+            z-index: 1;
         }
 
-        /* Header */
+        /* Header Navigation */
         header {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            background: rgba(4, 4, 6, 0.8);
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            position: fixed;
+            top: 1.25rem;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: center;
+            padding: 0 1rem;
+            pointer-events: none;
         }
 
         .header-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0.85rem 1.5rem;
+            pointer-events: auto;
             display: flex;
             align-items: center;
             justify-content: space-between;
+            gap: 1.5rem;
+            background: rgba(10, 10, 15, 0.82);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--border-subtle);
+            border-radius: 9999px;
+            padding: 0.5rem 0.85rem 0.5rem 1.1rem;
+            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45), 0 0 1px rgba(255, 255, 255, 0.15);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            max-width: 980px;
+            width: 100%;
+        }
+
+        .header-inner:hover {
+            border-color: rgba(255, 255, 255, 0.18);
         }
 
         .brand {
-            display: flex;
+            display: inline-flex;
             align-items: center;
-            gap: 0.75rem;
+            gap: 0.65rem;
             text-decoration: none;
             color: #fff;
         }
 
         .brand-logo-img {
-            height: 32px;
-            width: auto;
-            filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.2));
+            width: 26px;
+            height: 26px;
+            border-radius: 7px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
         }
 
-        .brand-name {
+        .brand-text {
+            font-size: 1rem;
             font-weight: 700;
-            font-size: 1.15rem;
             letter-spacing: -0.02em;
-            display: flex;
-            align-items: center;
-            gap: 0.45rem;
+            color: #ffffff;
         }
 
-        .brand-version {
-            font-size: 0.7rem;
-            padding: 0.12rem 0.45rem;
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            color: #f1f5f9;
-            border-radius: 999px;
-            font-weight: 600;
+        .brand-ver-badge {
+            font-size: 0.65rem;
             font-family: var(--font-mono);
-        }
-
-        nav {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
+            padding: 0.15rem 0.45rem;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 999px;
+            color: var(--text-secondary);
         }
 
         .nav-links {
             display: flex;
             align-items: center;
-            gap: 1.4rem;
+            gap: 1.25rem;
             list-style: none;
         }
 
-        .nav-links a {
+        .nav-link {
+            font-size: 0.85rem;
+            font-weight: 500;
             color: var(--text-secondary);
             text-decoration: none;
-            font-size: 0.92rem;
-            font-weight: 500;
-            transition: color 0.15s ease;
+            transition: color 0.2s ease;
         }
 
-        .nav-links a:hover {
-            color: #fff;
+        .nav-link:hover {
+            color: #ffffff;
         }
 
         .nav-actions {
@@ -179,1047 +204,932 @@
             gap: 0.75rem;
         }
 
-        .lang-switch {
+        .lang-pill {
             display: inline-flex;
             align-items: center;
-            padding: 0.3rem 0.75rem;
-            border-radius: 999px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            gap: 0.35rem;
+            padding: 0.35rem 0.75rem;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.09);
+            border-radius: 9999px;
+            font-size: 0.78rem;
+            font-weight: 600;
             color: var(--text-secondary);
             text-decoration: none;
-            font-size: 0.8rem;
-            font-weight: 600;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            transition: all 0.2s;
+            transition: all 0.2s ease;
         }
 
-        .lang-switch:hover {
-            background: rgba(255, 255, 255, 0.12);
-            color: #fff;
+        .lang-pill:hover {
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.09);
+            border-color: rgba(255, 255, 255, 0.2);
         }
 
         .nav-btn-download {
-            background: #ffffff;
-            color: #030305;
-            text-decoration: none;
-            padding: 0.42rem 1.05rem;
-            border-radius: 999px;
-            font-size: 0.88rem;
-            font-weight: 600;
             display: inline-flex;
             align-items: center;
-            gap: 0.4rem;
-            box-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);
-            transition: all 0.2s;
+            gap: 0.45rem;
+            padding: 0.42rem 0.95rem;
+            background: #ffffff;
+            color: #030305;
+            border-radius: 9999px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            text-decoration: none;
+            letter-spacing: -0.01em;
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 4px 14px rgba(255, 255, 255, 0.15);
         }
 
         .nav-btn-download:hover {
             transform: translateY(-1px);
             background: #f1f5f9;
-            box-shadow: 0 4px 16px rgba(255, 255, 255, 0.2);
+            box-shadow: 0 6px 20px rgba(255, 255, 255, 0.25);
         }
 
-        /* Container */
-        .container {
-            position: relative;
-            z-index: 1;
-            max-width: 1140px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-
-        
-        .hero-brand-badge {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-            padding: 0.85rem 2.2rem;
-            background: radial-gradient(circle at 50% 50%, rgba(37, 99, 235, 0.12), rgba(15, 23, 42, 0.45));
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            border-radius: 24px;
-            box-shadow: 0 12px 36px rgba(0, 0, 0, 0.4), 0 0 35px rgba(37, 99, 235, 0.18);
-            backdrop-filter: blur(16px);
-            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .hero-brand-badge:hover {
-            transform: translateY(-2px) scale(1.02);
-            border-color: rgba(37, 99, 235, 0.45);
-            box-shadow: 0 16px 44px rgba(0, 0, 0, 0.5), 0 0 45px rgba(37, 99, 235, 0.3);
-        }
-
-        .hero-logo-img {
-            height: 72px;
-            width: auto;
-            max-width: 88vw;
-            object-fit: contain;
-            filter: drop-shadow(0 4px 16px rgba(37, 99, 235, 0.35));
-        }
-
-        /* Hero */
+        /* Hero Section */
         .hero {
-            padding: 4.8rem 0 3rem;
+            padding: 10.5rem 0 4.5rem;
             text-align: center;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
-        .status-pill {
+        .hero-badge-wrap {
             display: inline-flex;
             align-items: center;
-            gap: 0.55rem;
-            padding: 0.32rem 0.85rem;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            border-radius: 999px;
-            font-size: 0.85rem;
-            color: #e2e8f0;
-            margin-bottom: 1.6rem;
+            gap: 0.6rem;
+            padding: 0.35rem 0.9rem;
+            background: rgba(255, 255, 255, 0.035);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 9999px;
+            font-size: 0.78rem;
             font-weight: 500;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
         }
 
-        .live-dot {
+        .hero-pulse-dot {
             width: 7px;
             height: 7px;
             border-radius: 50%;
-            background: #ffffff;
-            box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
-            animation: pulse-dot 2s infinite ease-in-out;
+            background: var(--accent-green);
+            box-shadow: 0 0 10px var(--accent-green);
+            animation: pulse-green 2s infinite;
         }
 
-        @keyframes pulse-dot {
+        @keyframes pulse-green {
             0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.3; transform: scale(0.8); }
+            50% { opacity: 0.6; transform: scale(0.85); }
         }
 
         .hero h1 {
-            font-family: var(--font-heading);
-            font-size: clamp(2.4rem, 5.8vw, 4.4rem);
+            font-size: 3.8rem;
+            line-height: 1.08;
             font-weight: 800;
-            line-height: 1.15;
-            letter-spacing: -0.02em;
-            max-width: 900px;
-            margin-bottom: 1.2rem;
-            background: linear-gradient(180deg, #ffffff 30%, #888899 100%);
+            letter-spacing: -0.04em;
+            margin-bottom: 1.4rem;
+            max-width: 880px;
+        }
+
+        .gradient-headline {
+            background: linear-gradient(135deg, #ffffff 30%, #94a3b8 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-wrap: balance;
-            hyphens: none;
-            -webkit-hyphens: none;
-            word-break: normal;
+        }
+
+        .gradient-accent {
+            background: linear-gradient(135deg, #60a5fa 0%, #38bdf8 50%, #c084fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .hero p {
-            font-size: 1.2rem;
+            font-size: 1.15rem;
+            line-height: 1.65;
             color: var(--text-secondary);
-            max-width: 680px;
-            margin-bottom: 2.2rem;
-            line-height: 1.6;
+            max-width: 660px;
+            margin-bottom: 2.25rem;
+            font-weight: 400;
+        }
+
+        .hero-os-detected {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            font-size: 0.74rem;
+            font-family: var(--font-mono);
+            color: #60a5fa;
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.25);
+            padding: 0.22rem 0.65rem;
+            border-radius: 999px;
+            margin-bottom: 1.25rem;
         }
 
         .hero-actions {
             display: flex;
-            flex-wrap: wrap;
-            gap: 0.9rem;
-            justify-content: center;
             align-items: center;
-            margin-bottom: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2.75rem;
         }
 
         .btn-main {
-            padding: 0.8rem 1.6rem;
-            border-radius: 999px;
-            font-weight: 600;
-            font-size: 0.96rem;
             display: inline-flex;
             align-items: center;
-            gap: 0.55rem;
+            gap: 0.6rem;
+            padding: 0.75rem 1.65rem;
+            border-radius: 14px;
+            font-size: 0.95rem;
+            font-weight: 700;
             text-decoration: none;
-            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+            letter-spacing: -0.01em;
+            transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
         }
 
         .btn-mac {
             background: #ffffff;
             color: #030305;
-            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8), 0 4px 20px rgba(255, 255, 255, 0.1);
+            border: 1px solid #ffffff;
+            box-shadow: 0 10px 25px rgba(255, 255, 255, 0.15), 0 2px 6px rgba(0, 0, 0, 0.3);
         }
 
         .btn-mac:hover {
             transform: translateY(-2px);
-            background: #f1f5f9;
-            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 1), 0 8px 25px rgba(255, 255, 255, 0.18);
+            background: #f8fafc;
+            box-shadow: 0 14px 32px rgba(255, 255, 255, 0.25);
         }
 
         .btn-win {
             background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.12);
             color: #ffffff;
+            border: 1px solid var(--border-subtle);
             backdrop-filter: blur(12px);
         }
 
         .btn-win:hover {
+            transform: translateY(-2px);
             background: rgba(255, 255, 255, 0.1);
             border-color: rgba(255, 255, 255, 0.25);
-            transform: translateY(-2px);
         }
 
-        /* 1-Line Terminal Commands */
-        .terminal-container {
+        .btn-primary-highlight {
+            border-color: #60a5fa !important;
+            box-shadow: 0 0 25px rgba(59, 130, 246, 0.35) !important;
+        }
+
+        .btn-sub {
+            font-size: 0.72rem;
+            font-weight: 400;
+            opacity: 0.75;
+            margin-left: 0.2rem;
+            font-family: var(--font-mono);
+        }
+
+        /* Quick Terminal Box */
+        .terminal-box {
+            background: rgba(10, 10, 16, 0.75);
+            border: 1px solid var(--border-subtle);
+            border-radius: 14px;
             width: 100%;
-            max-width: 620px;
-            background: rgba(14, 14, 18, 0.7);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 10px;
-            padding: 0.45rem 0.5rem 0.45rem 0.9rem;
+            max-width: 580px;
+            backdrop-filter: blur(16px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            margin-bottom: 3.5rem;
+            text-align: left;
+        }
+
+        .terminal-header {
+            background: rgba(255, 255, 255, 0.03);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 0.55rem 0.9rem;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 0.75rem;
-            margin-bottom: 2rem;
-            backdrop-filter: blur(16px);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.4);
         }
+
+        .terminal-dots {
+            display: flex;
+            gap: 6px;
+        }
+
+        .terminal-dot {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+        }
+
+        .dot-red { background: #ef4444; }
+        .dot-yellow { background: #eab308; }
+        .dot-green { background: #22c55e; }
 
         .terminal-tabs {
             display: flex;
-            gap: 0.3rem;
+            gap: 0.4rem;
         }
 
-        .term-tab {
+        .terminal-tab {
+            font-size: 0.72rem;
+            font-family: var(--font-mono);
+            color: var(--text-muted);
             background: transparent;
             border: none;
-            color: var(--text-muted);
-            font-size: 0.76rem;
-            font-weight: 600;
-            padding: 0.2rem 0.45rem;
+            padding: 0.2rem 0.55rem;
             border-radius: 5px;
             cursor: pointer;
-            transition: all 0.15s;
+            transition: all 0.2s;
         }
 
-        .term-tab.active {
-            color: #fff;
+        .terminal-tab.active {
+            color: #ffffff;
             background: rgba(255, 255, 255, 0.08);
         }
 
-        .term-code {
-            font-family: var(--font-mono);
-            font-size: 0.8rem;
-            color: #f1f5f9;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            text-align: left;
-            flex-grow: 1;
+        .terminal-body {
+            padding: 0.85rem 1.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
         }
 
-        .btn-copy-term {
+        .terminal-code {
+            font-family: var(--font-mono);
+            font-size: 0.82rem;
+            color: #38bdf8;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+
+        .terminal-code span.prompt {
+            color: #64748b;
+            user-select: none;
+            margin-right: 0.4rem;
+        }
+
+        .btn-copy {
             background: rgba(255, 255, 255, 0.06);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            color: #fff;
-            padding: 0.3rem 0.7rem;
-            border-radius: 6px;
-            font-size: 0.76rem;
-            font-weight: 500;
+            color: var(--text-secondary);
+            border-radius: 7px;
+            padding: 0.32rem 0.65rem;
+            font-size: 0.72rem;
+            font-family: var(--font-mono);
             cursor: pointer;
-            transition: all 0.15s;
-            display: inline-flex;
+            display: flex;
             align-items: center;
             gap: 0.35rem;
+            transition: all 0.2s;
+            flex-shrink: 0;
         }
 
-        .btn-copy-term:hover {
-            background: rgba(255, 255, 255, 0.14);
+        .btn-copy:hover {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(255, 255, 255, 0.25);
         }
 
-        .btn-copy-term.copied {
-            background: #ffffff;
-            color: #000;
-            font-weight: 700;
-            border-color: #ffffff;
-        }
-
-        /* Pro Telemetry Spec Bar */
+        /* Spec Badges Strip */
         .spec-strip {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 1px;
+            gap: 1rem;
             width: 100%;
-            max-width: 820px;
-            margin: 0 auto 3rem;
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 12px;
-            overflow: hidden;
-            backdrop-filter: blur(16px);
+            margin-bottom: 6rem;
         }
 
-        .spec-item {
-            background: rgba(10, 10, 14, 0.9);
-            padding: 0.9rem 1rem;
-            text-align: center;
+        .spec-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            padding: 1.25rem 1.1rem;
+            text-align: left;
+            transition: all 0.25s ease;
         }
 
-        .spec-value {
-            font-size: 1.15rem;
+        .spec-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-2px);
+            background: var(--bg-card-hover);
+        }
+
+        .spec-num {
+            font-size: 1.65rem;
             font-weight: 800;
-            color: #fff;
+            color: #ffffff;
+            letter-spacing: -0.03em;
+            margin-bottom: 0.25rem;
             font-family: var(--font-mono);
         }
 
         .spec-label {
-            font-size: 0.76rem;
-            color: var(--text-muted);
-            margin-top: 0.15rem;
-            font-weight: 600;
-        }
-
-        /* Interactive Live Studio Playground */
-        .studio-card {
-            width: 100%;
-            max-width: 780px;
-            margin: 0 auto 4rem;
-            background: rgba(14, 14, 18, 0.75);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 14px;
-            overflow: hidden;
-            box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.8);
-            text-align: left;
-            backdrop-filter: blur(20px);
-        }
-
-        .studio-topbar {
-            padding: 0.75rem 1.1rem;
-            background: rgba(8, 8, 11, 0.95);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .studio-dots {
-            display: flex;
-            gap: 7px;
-            align-items: center;
-        }
-
-        .dot {
-            width: 11px;
-            height: 11px;
-            border-radius: 50%;
-            transition: all 0.15s ease;
-        }
-        .dot-r {
-            background: #ff5f56;
-            box-shadow: inset 0 0 0 1px rgba(224, 68, 62, 0.3);
-        }
-        .dot-y {
-            background: #ffbd2e;
-            box-shadow: inset 0 0 0 1px rgba(222, 161, 35, 0.3);
-        }
-        .dot-g {
-            background: #27c93f;
-            box-shadow: inset 0 0 0 1px rgba(26, 171, 41, 0.3);
-        }
-
-        .studio-title {
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--text-secondary);
-            display: flex;
-            align-items: center;
-            gap: 0.45rem;
-        }
-
-        .studio-controls {
-            display: flex;
-            gap: 0.4rem;
-            align-items: center;
-        }
-
-        .studio-pill-btn {
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            color: var(--text-secondary);
-            font-size: 0.75rem;
-            font-weight: 600;
-            padding: 0.22rem 0.55rem;
-            border-radius: 999px;
-            cursor: pointer;
-            transition: all 0.15s;
-        }
-
-        .studio-pill-btn.active {
-            background: rgba(255, 255, 255, 0.15);
-            color: #ffffff;
-            border-color: rgba(255, 255, 255, 0.3);
-        }
-
-        .studio-body {
-            padding: 1.4rem;
-        }
-
-        .studio-input-label {
             font-size: 0.8rem;
-            font-weight: 700;
-            color: var(--text-muted);
-            margin-bottom: 0.45rem;
-        }
-
-        .studio-input {
-            width: 100%;
-            background: rgba(8, 8, 11, 0.9);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 8px;
-            padding: 0.75rem 1rem;
-            color: #fff;
-            font-family: var(--font-mono);
-            font-size: 0.95rem;
-            outline: none;
-            transition: border-color 0.2s, box-shadow 0.2s;
-            margin-bottom: 1.1rem;
-        }
-
-        .studio-input:focus {
-            border-color: rgba(255, 255, 255, 0.3);
-            box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.08);
-        }
-
-        .studio-output-box {
-            background: rgba(8, 8, 11, 0.9);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 8px;
-            padding: 0.9rem 1.1rem;
-            font-family: var(--font-main);
-            font-size: 1.55rem;
-            font-weight: 600;
-            color: #f8fafc;
-            min-height: 60px;
-            display: flex;
-            align-items: center;
-            margin-bottom: 1.1rem;
-            word-break: break-word;
-        }
-
-        .studio-chips {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 0.45rem;
-            margin-bottom: 1.1rem;
-            font-size: 0.8rem;
-            color: var(--text-muted);
-        }
-
-        .chip-btn {
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.07);
             color: var(--text-secondary);
-            font-family: var(--font-mono);
-            font-size: 0.74rem;
-            padding: 0.22rem 0.5rem;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: all 0.15s;
+            font-weight: 500;
         }
 
-        .chip-btn:hover {
-            background: rgba(255, 255, 255, 0.1);
-            color: #fff;
-            border-color: rgba(255, 255, 255, 0.15);
-        }
-
-        .studio-footer-status {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border-top: 1px solid rgba(255, 255, 255, 0.06);
-            padding-top: 0.75rem;
-            font-size: 0.75rem;
-            color: var(--text-muted);
-        }
-
-        /* Section Headings */
+        /* Section Typography */
         .section-header {
             text-align: center;
-            max-width: 680px;
-            margin: 0 auto 3rem;
+            margin-bottom: 3.5rem;
         }
 
-        .section-tag {
+        .section-eyebrow {
+            display: inline-block;
             font-size: 0.74rem;
             font-weight: 700;
-            color: var(--text-muted);
             letter-spacing: 0.08em;
             text-transform: uppercase;
-            margin-bottom: 0.5rem;
+            color: #60a5fa;
+            margin-bottom: 0.75rem;
+            font-family: var(--font-mono);
         }
 
         .section-title {
-            font-family: var(--font-heading);
-            font-size: clamp(1.8rem, 4vw, 2.6rem);
+            font-size: 2.35rem;
             font-weight: 800;
-            line-height: 1.2;
-            letter-spacing: -0.02em;
-            margin-bottom: 0.75rem;
-            background: linear-gradient(180deg, #ffffff 40%, #9999aa 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.03em;
+            color: #fff;
+            margin-bottom: 1rem;
         }
 
         .section-desc {
             font-size: 1.05rem;
             color: var(--text-secondary);
-            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
-        /* Bento Grid Layout */
+        /* Interactive Live Playground */
+        .playground-section {
+            padding: 3rem 0 6rem;
+        }
+
+        .playground-wrapper {
+            background: rgba(12, 12, 18, 0.85);
+            border: 1px solid var(--border-subtle);
+            border-radius: 24px;
+            padding: 2.25rem;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), 0 0 1px rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+        }
+
+        .playground-ctrls {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.25rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .playground-title {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .playground-title h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .playground-live-badge {
+            font-size: 0.68rem;
+            font-family: var(--font-mono);
+            background: rgba(34, 197, 94, 0.12);
+            color: #4ade80;
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            padding: 0.18rem 0.55rem;
+            border-radius: 999px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+
+        .live-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #22c55e;
+            animation: pulse-green 1.5s infinite;
+        }
+
+        .enc-toggle-wrap {
+            display: flex;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 0.25rem;
+            gap: 0.25rem;
+        }
+
+        .enc-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 0.78rem;
+            font-weight: 600;
+            padding: 0.35rem 0.75rem;
+            border-radius: 7px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .enc-btn.active {
+            background: #ffffff;
+            color: #030305;
+        }
+
+        .playground-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .playground-grid { grid-template-columns: 1fr; }
+        }
+
+        .playground-col {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+
+        .col-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.78rem;
+            font-family: var(--font-mono);
+            color: var(--text-secondary);
+        }
+
+        .playground-input, .playground-output {
+            width: 100%;
+            height: 140px;
+            background: rgba(0, 0, 0, 0.45);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            padding: 1rem 1.15rem;
+            font-size: 1.15rem;
+            line-height: 1.6;
+            resize: none;
+            color: #ffffff;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .playground-input {
+            font-family: var(--font-main);
+        }
+
+        .playground-input:focus {
+            border-color: rgba(96, 165, 250, 0.5);
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.15);
+        }
+
+        .playground-output {
+            font-family: var(--font-bangla);
+            color: #60a5fa;
+            user-select: all;
+            overflow-y: auto;
+        }
+
+        .playground-output.ansi-mode {
+            font-family: var(--font-mono);
+            color: #38bdf8;
+        }
+
+        .demo-samples {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        .sample-chip {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: #e2e8f0;
+            padding: 0.25rem 0.6rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: var(--font-mono);
+            transition: all 0.2s;
+        }
+
+        .sample-chip:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+            color: #fff;
+        }
+
+        /* Bento Grid Showcase */
+        .bento-section {
+            padding: 3rem 0 6rem;
+        }
+
         .bento-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 1.25rem;
-            margin-bottom: 5.5rem;
         }
 
         .bento-card {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-radius: 14px;
-            padding: 1.75rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 20px;
+            padding: 1.85rem;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
             position: relative;
-            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-            backdrop-filter: blur(16px);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .bento-card:hover {
-            border-color: var(--card-border-hover);
-            transform: translateY(-2px);
-            box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.6);
+            border-color: var(--border-hover);
+            transform: translateY(-3px);
+            background: var(--bg-card-hover);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
         }
 
         .bento-span-2 {
             grid-column: span 2;
         }
 
-        .bento-icon {
-            width: 38px;
-            height: 38px;
-            border-radius: 8px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+        .bento-icon-wrap {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.2);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #f1f5f9;
-            margin-bottom: 1.1rem;
+            color: #60a5fa;
+            margin-bottom: 1.25rem;
         }
 
         .bento-card h3 {
-            font-size: 1.2rem;
+            font-size: 1.25rem;
             font-weight: 700;
-            margin-bottom: 0.5rem;
             color: #fff;
+            margin-bottom: 0.65rem;
+            letter-spacing: -0.02em;
         }
 
         .bento-card p {
-            font-size: 0.92rem;
+            font-size: 0.9rem;
             color: var(--text-secondary);
             line-height: 1.6;
         }
 
-        /* Dual Encoding Showcase */
-        .encoding-box {
-            background: linear-gradient(180deg, rgba(16, 16, 22, 0.8) 0%, rgba(8, 8, 12, 0.9) 100%);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 16px;
-            padding: 2.75rem 2rem;
-            margin-bottom: 5.5rem;
-            backdrop-filter: blur(20px);
-            text-align: center;
+        .bento-visual {
+            margin-top: 1.5rem;
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 12px;
+            padding: 1rem;
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            color: #94a3b8;
+        }
+
+        /* Dual Encoding Section */
+        .encoding-section {
+            padding: 3rem 0 6rem;
+        }
+
+        .encoding-card {
+            background: linear-gradient(180deg, rgba(16, 16, 26, 0.8) 0%, rgba(9, 9, 14, 0.9) 100%);
+            border: 1px solid var(--border-subtle);
+            border-radius: 24px;
+            padding: 3rem 2.5rem;
+            position: relative;
+            overflow: hidden;
         }
 
         .encoding-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-            margin-top: 2rem;
-            text-align: left;
+            gap: 2rem;
+            margin-top: 2.5rem;
         }
 
-        .encoding-col {
-            background: rgba(8, 8, 12, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            border-radius: 12px;
-            padding: 1.6rem;
-            transition: all 0.2s;
+        .enc-box {
+            background: rgba(0, 0, 0, 0.35);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 1.5rem;
         }
 
-        .encoding-col.highlight {
-            border-color: rgba(255, 255, 255, 0.2);
-            background: rgba(255, 255, 255, 0.03);
+        .enc-box-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1rem;
         }
 
-        .encoding-badge {
-            display: inline-block;
+        .enc-badge {
             font-size: 0.72rem;
-            font-weight: 700;
-            padding: 0.2rem 0.55rem;
-            border-radius: 999px;
-            margin-bottom: 0.75rem;
-            letter-spacing: 0.05em;
             font-family: var(--font-mono);
+            padding: 0.2rem 0.55rem;
+            border-radius: 6px;
+            background: rgba(59, 130, 246, 0.15);
+            color: #93c5fd;
+            border: 1px solid rgba(59, 130, 246, 0.3);
         }
 
-        .badge-uni {
-            background: rgba(255, 255, 255, 0.08);
-            color: #f1f5f9;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-        }
-
-        .badge-ansi {
-            background: rgba(255, 255, 255, 0.12);
-            color: #ffffff;
-            border: 1px solid rgba(255, 255, 255, 0.22);
-        }
-
-        .encoding-col h4 {
-            font-size: 1.15rem;
+        .enc-box-title {
+            font-size: 1.05rem;
             font-weight: 700;
-            margin-bottom: 0.4rem;
             color: #fff;
         }
 
-        .encoding-col ul {
-            list-style: none;
-            margin-top: 0.9rem;
-        }
-
-        .encoding-col li {
-            font-size: 0.88rem;
+        .enc-desc {
+            font-size: 0.85rem;
             color: var(--text-secondary);
-            margin-bottom: 0.35rem;
+            margin-bottom: 1.25rem;
+            line-height: 1.55;
+        }
+
+        .enc-example {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            padding: 0.85rem 1rem;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            gap: 0.5rem;
         }
 
-        .encoding-col li::before {
-            content: "✓";
-            color: #ffffff;
-            font-weight: bold;
-            font-size: 0.75rem;
+        /* Keyboard Layouts Section */
+        .layouts-section {
+            padding: 3rem 0 6rem;
         }
 
-        /* Layouts Showcase */
         .layouts-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 1.25rem;
-            margin-bottom: 5.5rem;
+            gap: 1.5rem;
         }
 
-        /* Interactive Cheatsheet Search (Compact & Minimal) */
+        .layout-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 18px;
+            padding: 1.75rem;
+            transition: all 0.25s;
+        }
+
+        .layout-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-2px);
+        }
+
+        .layout-badge {
+            font-size: 0.68rem;
+            font-family: var(--font-mono);
+            padding: 0.2rem 0.5rem;
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.06);
+            color: var(--text-secondary);
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .layout-card h4 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 0.6rem;
+        }
+
+        .layout-card p {
+            font-size: 0.86rem;
+            color: var(--text-secondary);
+            line-height: 1.55;
+        }
+
+        /* Cheatsheet Table */
         .cheatsheet-section {
-            margin-bottom: 5.5rem;
+            padding: 3rem 0 6rem;
+        }
+
+        .cheatsheet-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 20px;
+            padding: 2rem;
+            overflow: hidden;
         }
 
         .cheat-search-bar {
             width: 100%;
-            max-width: 360px;
-            margin: 0 auto 1.25rem;
-            position: relative;
-        }
-
-        .cheat-input {
-            width: 100%;
-            background: rgba(14, 14, 18, 0.85);
-            border: 1px solid var(--card-border);
-            border-radius: 999px;
-            padding: 0.48rem 0.9rem 0.48rem 2.3rem;
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 0.75rem 1.1rem;
+            font-size: 0.9rem;
             color: #fff;
-            font-size: 0.85rem;
             outline: none;
-            transition: all 0.2s;
+            margin-bottom: 1.5rem;
+            font-family: var(--font-main);
         }
 
-        .cheat-input:focus {
-            border-color: rgba(255, 255, 255, 0.3);
-            box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.08);
+        .cheat-search-bar:focus {
+            border-color: #60a5fa;
         }
 
-        .cheat-icon {
-            position: absolute;
-            left: 0.85rem;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 0.75rem;
-            color: var(--text-muted);
-        }
-
-        .table-wrap {
-            max-width: 740px;
-            margin: 0 auto;
-            max-height: 310px;
-            overflow-y: auto;
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
-            background: rgba(14, 14, 18, 0.8);
-            border: 1px solid var(--card-border);
-            border-radius: 10px;
-            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
-            backdrop-filter: blur(16px);
-        }
-
-        .table-wrap::-webkit-scrollbar {
-            width: 5px;
-        }
-        .table-wrap::-webkit-scrollbar-track {
-            background: rgba(10, 10, 14, 0.5);
-        }
-        .table-wrap::-webkit-scrollbar-thumb {
-            background: rgba(255, 255, 255, 0.15);
-            border-radius: 3px;
-        }
-
-        table {
+        .cheat-table {
             width: 100%;
             border-collapse: collapse;
+            font-size: 0.88rem;
             text-align: left;
         }
 
-        th {
-            position: sticky;
-            top: 0;
-            z-index: 2;
-            background: rgba(10, 10, 14, 0.98);
-            backdrop-filter: blur(8px);
-            padding: 0.6rem 1rem;
+        .cheat-table th {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-secondary);
+            font-family: var(--font-mono);
             font-size: 0.75rem;
-            font-weight: 700;
-            color: var(--text-muted);
             text-transform: uppercase;
             letter-spacing: 0.05em;
-            border-bottom: 1px solid var(--card-border);
         }
 
-        td {
-            padding: 0.45rem 1rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
-            font-size: 0.86rem;
+        .cheat-table td {
+            padding: 0.85rem 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-primary);
         }
 
-        tr:last-child td {
-            border-bottom: none;
-        }
-
-        .key-badge {
-            display: inline-block;
+        .cheat-key {
             font-family: var(--font-mono);
-            font-weight: 600;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 0.12rem 0.42rem;
-            border-radius: 4px;
-            color: #f8fafc;
-            font-size: 0.75rem;
-        }
-
-        .bng-out {
-            font-family: var(--font-main);
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: #f8fafc;
-        }
-
-        /* YazaType Converter Section */
-        .converter-section {
-            margin-bottom: 5.5rem;
-        }
-
-        .converter-card {
-            background: linear-gradient(180deg, rgba(16, 16, 22, 0.85) 0%, rgba(8, 8, 12, 0.95) 100%);
-            border: 1px solid var(--card-border);
-            border-radius: 16px;
-            padding: 2.5rem 2rem;
-            backdrop-filter: blur(20px);
-            box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.8);
-        }
-
-        .converter-header {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        .converter-badge-pill {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.35rem 0.9rem;
-            background: rgba(255, 255, 255, 0.06);
+            background: rgba(255, 255, 255, 0.07);
             border: 1px solid rgba(255, 255, 255, 0.12);
-            border-radius: 999px;
-            font-size: 0.76rem;
-            font-weight: 600;
-            color: #f1f5f9;
-            font-family: var(--font-mono);
-            margin-bottom: 0.8rem;
-        }
-
-        .converter-versions-bar {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 0.6rem;
-            margin-bottom: 2rem;
-        }
-
-        .conv-ver-tab {
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: var(--text-secondary);
-            font-size: 0.88rem;
-            font-weight: 600;
-            padding: 0.5rem 1.15rem;
-            border-radius: 999px;
-            cursor: pointer;
-            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-            display: inline-flex;
-            align-items: center;
-            gap: 0.45rem;
-            font-family: var(--font-main);
-        }
-
-        .conv-ver-tab:hover {
-            background: rgba(255, 255, 255, 0.09);
-            color: #fff;
-            border-color: rgba(255, 255, 255, 0.2);
-        }
-
-        .conv-ver-tab.active {
-            background: #ffffff;
-            color: #030305;
-            border-color: #ffffff;
-            font-weight: 700;
-            box-shadow: 0 4px 16px rgba(255, 255, 255, 0.15);
-        }
-
-        .converter-workspace {
-            display: grid;
-            grid-template-columns: 1fr auto 1fr;
-            gap: 1.25rem;
-            align-items: stretch;
-        }
-
-        .conv-panel {
-            background: rgba(10, 10, 14, 0.7);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 12px;
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-            transition: border-color 0.2s, box-shadow 0.2s;
-        }
-
-        .conv-panel:focus-within {
-            border-color: rgba(255, 255, 255, 0.25);
-            box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.06);
-        }
-
-        .conv-topbar {
-            padding: 0.75rem 1rem;
-            background: rgba(14, 14, 18, 0.9);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 0.75rem;
-        }
-
-        .conv-label {
-            font-size: 0.88rem;
-            font-weight: 700;
-            color: #ffffff;
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
-            letter-spacing: -0.01em;
-        }
-
-        .conv-label-tag {
-            font-size: 0.7rem;
             padding: 0.15rem 0.45rem;
-            background: rgba(255, 255, 255, 0.08);
-            border-radius: 4px;
-            color: var(--text-muted);
-            font-family: var(--font-mono);
-        }
-
-        .conv-actions {
-            display: flex;
-            align-items: center;
-            gap: 0.35rem;
-        }
-
-        .btn-conv-action {
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            color: var(--text-secondary);
-            padding: 0.28rem 0.6rem;
             border-radius: 6px;
-            font-size: 0.76rem;
+            font-size: 0.82rem;
+            color: #38bdf8;
+        }
+
+        .cheat-bangla {
+            font-family: var(--font-bangla);
+            font-size: 1.15rem;
             font-weight: 600;
-            cursor: pointer;
-            transition: all 0.15s;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.3rem;
-            font-family: var(--font-main);
+            color: #ffffff;
         }
 
-        .btn-conv-action:hover {
-            background: rgba(255, 255, 255, 0.12);
-            color: #fff;
-            border-color: rgba(255, 255, 255, 0.18);
+        /* Installation Guide */
+        .install-section {
+            padding: 3rem 0 6rem;
         }
 
-        .btn-conv-action.copied {
-            background: #ffffff;
-            color: #030305;
-            border-color: #ffffff;
-            font-weight: 700;
-        }
-
-        .conv-textarea {
-            width: 100%;
-            height: 240px;
-            padding: 1rem;
-            background: transparent;
-            border: none;
-            outline: none;
-            color: #f8fafc;
-            font-size: 1.05rem;
-            line-height: 1.6;
-            resize: vertical;
-            font-family: var(--font-main);
-        }
-
-        .conv-textarea.ansi-box {
-            font-family: var(--font-mono);
-            font-size: 0.92rem;
-            color: #cbd5e1;
-        }
-
-        .conv-footer-bar {
-            padding: 0.45rem 1rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.04);
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-family: var(--font-main);
-            background: rgba(6, 6, 9, 0.4);
-        }
-
-        .conv-sync-divider {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .conv-sync-badge {
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #f1f5f9;
-            font-size: 0.95rem;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-        }
-
-        .conv-presets {
-            margin-top: 1.5rem;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 0.5rem;
-            justify-content: center;
-            font-size: 0.8rem;
-            color: var(--text-muted);
-        }
-
-        /* Step by Step Install */
         .install-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 1.25rem;
-            margin-bottom: 5.5rem;
+            gap: 1.5rem;
+        }
+
+        .install-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 20px;
+            padding: 2rem;
+        }
+
+        .install-header {
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .install-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.06);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+        }
+
+        .install-header h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .install-steps {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .install-step {
+            display: flex;
+            gap: 0.85rem;
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .step-num {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.08);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.72rem;
+            font-family: var(--font-mono);
+            flex-shrink: 0;
+            margin-top: 0.15rem;
         }
 
         /* FAQ Section */
-        .faq-wrap {
-            max-width: 740px;
-            margin: 0 auto 6rem;
+        .faq-section {
+            padding: 3rem 0 6rem;
+        }
+
+        .faq-list {
+            max-width: 760px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
         }
 
         .faq-item {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-radius: 10px;
-            margin-bottom: 0.75rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 14px;
             overflow: hidden;
             transition: all 0.2s;
-            backdrop-filter: blur(12px);
         }
 
         .faq-question {
-            padding: 1.1rem 1.25rem;
+            padding: 1.15rem 1.35rem;
             font-weight: 600;
             font-size: 0.98rem;
+            color: #fff;
+            cursor: pointer;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            cursor: pointer;
             user-select: none;
         }
 
+        .faq-question:hover {
+            color: #60a5fa;
+        }
+
         .faq-answer {
-            padding: 0 1.25rem 1.1rem;
-            color: var(--text-secondary);
-            font-size: 0.92rem;
-            line-height: 1.6;
             display: none;
+            padding: 0 1.35rem 1.15rem;
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
         }
 
         .faq-item.open .faq-answer {
             display: block;
         }
 
-        .faq-item.open .faq-arrow {
-            transform: rotate(180deg);
-        }
-
-        .faq-arrow {
-            transition: transform 0.2s;
-            font-size: 0.75rem;
-            color: var(--text-muted);
-        }
-
-        /* Modern Professional Multi-Column Footer */
+        /* Modern Professional Footer */
         footer {
             border-top: 1px solid rgba(255, 255, 255, 0.08);
-            padding: 5rem 0 3rem;
+            padding: 5rem 0 3.5rem;
             background: #020204;
             color: var(--text-muted);
-            font-size: 0.92rem;
+            font-size: 0.88rem;
             position: relative;
+            z-index: 10;
         }
 
         .footer-grid {
@@ -1242,15 +1152,15 @@
         }
 
         .footer-brand-title {
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             font-weight: 700;
             color: #fff;
-            letter-spacing: -0.02em;
+            letter-spacing: -0.01em;
         }
 
         .footer-desc {
             color: var(--text-secondary);
-            font-size: 0.9rem;
+            font-size: 0.86rem;
             line-height: 1.6;
             max-width: 320px;
         }
@@ -1263,7 +1173,7 @@
             background: rgba(255, 255, 255, 0.04);
             border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 999px;
-            font-size: 0.75rem;
+            font-size: 0.72rem;
             font-family: var(--font-mono);
             color: var(--text-secondary);
             width: fit-content;
@@ -1273,12 +1183,12 @@
             width: 6px;
             height: 6px;
             border-radius: 50%;
-            background: #ffffff;
-            box-shadow: 0 0 6px rgba(255, 255, 255, 0.8);
+            background: #22c55e;
+            box-shadow: 0 0 6px #22c55e;
         }
 
         .footer-col h4 {
-            font-size: 0.8rem;
+            font-size: 0.76rem;
             font-weight: 700;
             color: #fff;
             text-transform: uppercase;
@@ -1297,7 +1207,7 @@
         .footer-col a {
             color: var(--text-secondary);
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             transition: all 0.15s ease;
             display: inline-block;
         }
@@ -1307,6 +1217,19 @@
             transform: translateX(2px);
         }
 
+        .creator-tag {
+            font-size: 0.65rem;
+            font-family: var(--font-mono);
+            background: rgba(59, 130, 246, 0.18);
+            color: #93c5fd;
+            border: 1px solid rgba(59, 130, 246, 0.35);
+            padding: 0.1rem 0.35rem;
+            border-radius: 4px;
+            margin-left: 0.35rem;
+            vertical-align: middle;
+        }
+
+        /* Luminous Horizon Divider */
         .footer-bottom-divider {
             width: 100%;
             height: 1px;
@@ -1329,9 +1252,9 @@
             top: -1px;
             left: 50%;
             transform: translateX(-50%);
-            width: 160px;
+            width: 180px;
             height: 2px;
-            background: radial-gradient(ellipse at center, rgba(96, 165, 250, 0.85) 0%, transparent 75%);
+            background: radial-gradient(ellipse at center, rgba(96, 165, 250, 0.9) 0%, transparent 75%);
             filter: blur(0.5px);
         }
 
@@ -1343,6 +1266,7 @@
             gap: 1.25rem;
             font-size: 0.82rem;
             padding-bottom: 0.5rem;
+            position: relative;
         }
 
         .footer-bottom-left {
@@ -1376,43 +1300,53 @@
             font-size: 0.8rem;
         }
 
+        /* Author Social Popover Trigger & Container */
+        .author-badge-container {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            z-index: 1000;
+        }
+
         .author-badge {
             display: inline-flex;
             align-items: center;
             gap: 0.48rem;
-            padding: 0.22rem 0.65rem 0.22rem 0.3rem;
-            background: rgba(255, 255, 255, 0.035);
-            border: 1px solid rgba(255, 255, 255, 0.09);
+            padding: 0.28rem 0.75rem 0.28rem 0.35rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.12);
             border-radius: 9999px;
             color: #ffffff;
-            text-decoration: none;
+            font-family: inherit;
             font-size: 0.8rem;
             font-weight: 600;
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
-            vertical-align: middle;
+            cursor: pointer;
+            user-select: none;
+            outline: none;
         }
 
-        .author-badge:hover {
-            background: rgba(255, 255, 255, 0.08);
-            border-color: rgba(96, 165, 250, 0.4);
+        .author-badge:hover, .author-badge.active {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(96, 165, 250, 0.55);
             transform: translateY(-1.5px);
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4), 0 0 14px rgba(59, 130, 246, 0.2);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.45), 0 0 16px rgba(59, 130, 246, 0.3);
             color: #ffffff;
         }
 
         .author-avatar-ring {
-            width: 20px;
-            height: 20px;
+            width: 22px;
+            height: 22px;
             border-radius: 50%;
             overflow: hidden;
             display: inline-flex;
             align-items: center;
             justify-content: center;
             background: #181822;
-            border: 1.5px solid rgba(255, 255, 255, 0.25);
+            border: 1.5px solid rgba(255, 255, 255, 0.3);
             flex-shrink: 0;
         }
 
@@ -1437,29 +1371,281 @@
 
         .author-name {
             color: #f1f5f9;
-            font-size: 0.8rem;
+            font-size: 0.82rem;
             font-weight: 600;
             letter-spacing: -0.01em;
         }
 
         .author-dot-indicator {
-            width: 5px;
-            height: 5px;
+            width: 6px;
+            height: 6px;
             border-radius: 50%;
             background: #22c55e;
-            box-shadow: 0 0 6px #22c55e;
+            box-shadow: 0 0 8px #22c55e;
             flex-shrink: 0;
             display: inline-block;
         }
 
-        .author-ext-icon {
-            color: #64748b;
-            transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s;
+        .author-badge .chevron-icon {
+            transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s;
+            color: #94a3b8;
+        }
+
+        .author-badge.active .chevron-icon, .author-badge:hover .chevron-icon {
+            color: #60a5fa;
+        }
+
+        .author-badge.active .chevron-icon {
+            transform: rotate(180deg);
+        }
+
+        /* Floating Social Popover Card */
+        .author-social-popover {
+            position: absolute;
+            bottom: calc(100% + 14px);
+            left: 0;
+            width: 320px;
+            max-width: calc(100vw - 32px);
+            background: rgba(10, 10, 16, 0.98);
+            backdrop-filter: blur(28px);
+            -webkit-backdrop-filter: blur(28px);
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            border-radius: 20px;
+            padding: 1.25rem;
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.9), 0 0 35px rgba(59, 130, 246, 0.25);
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transform: translateY(12px) scale(0.96);
+            transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.25s;
+            z-index: 99999;
+        }
+
+        .author-social-popover.open {
+            opacity: 1 !important;
+            visibility: visible !important;
+            pointer-events: auto !important;
+            transform: translateY(0) scale(1) !important;
+        }
+
+        .author-social-popover::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 36px;
+            border-width: 8px 8px 0 8px;
+            border-style: solid;
+            border-color: rgba(10, 10, 16, 0.98) transparent transparent transparent;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+        }
+
+        .author-popover-header {
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+            position: relative;
+        }
+
+        .popover-avatar-wrap {
+            position: relative;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            overflow: visible;
             flex-shrink: 0;
         }
 
-        .author-badge:hover .author-ext-icon {
-            transform: translate(1px, -1px);
+        .popover-avatar-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid rgba(255, 255, 255, 0.25);
+            display: block;
+        }
+
+        .popover-avatar-fallback {
+            display: none;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: #fff;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .popover-status-dot {
+            position: absolute;
+            bottom: 1px;
+            right: 1px;
+            width: 11px;
+            height: 11px;
+            border-radius: 50%;
+            background: #22c55e;
+            border: 2px solid #0b0b12;
+            box-shadow: 0 0 6px #22c55e;
+        }
+
+        .popover-user-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .popover-user-name {
+            display: flex;
+            align-items: center;
+            gap: 0.45rem;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: -0.01em;
+            line-height: 1.2;
+        }
+
+        .popover-role-badge {
+            font-size: 0.64rem;
+            font-family: var(--font-mono);
+            padding: 0.12rem 0.42rem;
+            border-radius: 5px;
+            background: rgba(59, 130, 246, 0.18);
+            border: 1px solid rgba(59, 130, 246, 0.35);
+            color: #93c5fd;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+        }
+
+        .popover-user-bio {
+            font-size: 0.74rem;
+            color: var(--text-secondary);
+            margin-top: 0.2rem;
+            line-height: 1.35;
+        }
+
+        .popover-close-btn {
+            position: absolute;
+            top: -2px;
+            right: -2px;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .popover-close-btn:hover {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .popover-divider {
+            height: 1px;
+            background: rgba(255, 255, 255, 0.08);
+            margin: 0.95rem 0;
+        }
+
+        .author-social-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.45rem;
+        }
+
+        .author-social-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.55rem 0.75rem;
+            background: rgba(255, 255, 255, 0.035);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            border-radius: 12px;
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+            user-select: none;
+        }
+
+        .author-social-item:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateX(3px);
+            color: #ffffff;
+        }
+
+        .social-item-icon {
+            width: 30px;
+            height: 30px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: transform 0.2s;
+        }
+
+        .author-social-item:hover .social-item-icon {
+            transform: scale(1.1);
+        }
+
+        .item-github .social-item-icon {
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+        }
+        .item-facebook .social-item-icon {
+            background: rgba(24, 119, 242, 0.18);
+            color: #1877f2;
+        }
+        .item-instagram .social-item-icon {
+            background: rgba(225, 48, 108, 0.18);
+            color: #e1306c;
+        }
+        .item-linkedin .social-item-icon {
+            background: rgba(10, 102, 194, 0.18);
+            color: #0a66c2;
+        }
+
+        .social-item-text {
+            flex: 1;
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .social-item-label {
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: #ffffff;
+            line-height: 1.2;
+        }
+
+        .social-item-handle {
+            font-size: 0.68rem;
+            font-family: var(--font-mono);
+            color: var(--text-muted);
+            margin-top: 0.1rem;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .author-social-item:hover .social-item-handle {
+            color: var(--text-secondary);
+        }
+
+        .social-arrow {
+            color: var(--text-muted);
+            transition: transform 0.2s, color 0.2s;
+        }
+
+        .author-social-item:hover .social-arrow {
+            transform: translate(2px, -2px);
             color: #60a5fa;
         }
 
@@ -1544,650 +1730,47 @@
             transform: rotate(15deg);
         }
 
-        /* Complete Mobile Optimization & Responsive Engine */
+        /* Responsive Design */
         @media (max-width: 900px) {
-            .footer-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 2.5rem;
-            }
-            .bento-grid {
-                grid-template-columns: 1fr;
-            }
-            .bento-span-2 {
-                grid-column: span 1;
-            }
-            .encoding-grid, .layouts-grid, .install-grid {
-                grid-template-columns: 1fr;
-            }
-            .converter-workspace {
-                grid-template-columns: 1fr;
-            }
-            .conv-sync-divider {
-                padding: 0.4rem 0;
-                transform: rotate(90deg);
-            }
-            .spec-strip {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .nav-links {
-                display: none;
-            }
+            .hero h1 { font-size: 2.8rem; }
+            .spec-strip { grid-template-columns: repeat(2, 1fr); }
+            .bento-grid { grid-template-columns: 1fr; }
+            .bento-card.bento-span-2 { grid-column: span 1; }
+            .encoding-grid { grid-template-columns: 1fr; }
+            .layouts-grid { grid-template-columns: 1fr; }
+            .install-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+            .nav-links { display: none; }
         }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 0 1.15rem;
-            }
-            .hero {
-                padding: 3.2rem 0 2rem;
-            }
-            .hero h1 {
-                font-size: clamp(2rem, 7vw, 3rem);
-                margin-bottom: 1rem;
-            }
-            .hero p {
-                font-size: 1rem;
-                margin-bottom: 1.8rem;
-            }
-            .encoding-box {
-                padding: 2rem 1.25rem;
-            }
-            .section-title {
-                font-size: clamp(1.6rem, 5.5vw, 2.2rem);
-            }
-            .section-header {
-                margin-bottom: 2rem;
-            }
-            .bento-grid, .layouts-grid, .install-grid, .cheatsheet-section {
-                margin-bottom: 3.8rem;
-            }
-            .faq-wrap {
-                margin-bottom: 4rem;
-            }
-        }
-
-        @media (max-width: 580px) {
-            header {
-                padding: 0;
-            }
-            .header-inner {
-                padding: 0.65rem 1rem;
-            }
-            .brand {
-                gap: 0.55rem;
-            }
-            .brand-logo-img {
-                height: 28px;
-            }
-            .brand-name {
-                font-size: 0.98rem;
-            }
-            .brand-version {
-                font-size: 0.65rem;
-                padding: 0.08rem 0.35rem;
-            }
-            .nav-actions {
-                gap: 0.45rem;
-            }
-            .lang-switch {
-                padding: 0.28rem 0.6rem;
-                font-size: 0.76rem;
-            }
-            .nav-btn-download {
-                padding: 0.32rem 0.8rem;
-                font-size: 0.78rem;
-            }
-
-            .hero {
-                padding: 2.2rem 0 1.5rem;
-            }
-            .status-pill {
-                font-size: 0.72rem;
-                padding: 0.28rem 0.75rem;
-                margin-bottom: 1.2rem;
-                text-align: center;
-                line-height: 1.35;
-            }
-            .hero h1 {
-                font-size: 1.85rem;
-                letter-spacing: -0.035em;
-                line-height: 1.15;
-            }
-            .hero p {
-                font-size: 0.92rem;
-                line-height: 1.55;
-            }
-            .hero-actions {
-                flex-direction: column;
-                width: 100%;
-                gap: 0.65rem;
-                margin-bottom: 1.6rem;
-            }
-            .btn-main {
-                width: 100%;
-                justify-content: center;
-                padding: 0.75rem 1.2rem;
-                font-size: 0.9rem;
-            }
-
-            /* Terminal responsive */
-            .terminal-container {
-                flex-wrap: wrap;
-                padding: 0.6rem 0.75rem;
-                gap: 0.5rem;
-                border-radius: 8px;
-                margin-bottom: 1.6rem;
-            }
-            .terminal-tabs {
-                width: auto;
-            }
-            .term-code {
-                order: 3;
-                width: 100%;
-                font-size: 0.72rem;
-                padding: 0.45rem 0.6rem;
-                background: rgba(0, 0, 0, 0.4);
-                border-radius: 6px;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                white-space: nowrap;
-                scrollbar-width: none;
-                -ms-overflow-style: none;
-            }
-            .term-code::-webkit-scrollbar {
-                display: none;
-            }
-            .btn-copy-term {
-                margin-left: auto;
-                padding: 0.25rem 0.6rem;
-                font-size: 0.72rem;
-            }
-
-            /* Spec Strip 2-col */
-            .spec-strip {
-                grid-template-columns: repeat(2, 1fr);
-                margin-bottom: 2.2rem;
-                border-radius: 10px;
-            }
-            .spec-item {
-                padding: 0.75rem 0.6rem;
-            }
-            .spec-value {
-                font-size: 1rem;
-            }
-            .spec-label {
-                font-size: 0.66rem;
-            }
-
-            /* Studio Card */
-            .studio-card {
-                margin-bottom: 3rem;
-                border-radius: 12px;
-            }
-            .studio-topbar {
-                padding: 0.6rem 0.8rem;
-                flex-wrap: wrap;
-                gap: 0.5rem;
-            }
-            .studio-title {
-                font-size: 0.75rem;
-            }
-            .studio-controls {
-                gap: 0.3rem;
-            }
-            .studio-pill-btn {
-                padding: 0.2rem 0.5rem;
-                font-size: 0.68rem;
-            }
-            .studio-body {
-                padding: 1rem;
-            }
-            .studio-input {
-                font-size: 0.88rem;
-                padding: 0.65rem 0.8rem;
-                margin-bottom: 0.85rem;
-            }
-            .studio-output-box {
-                font-size: 1.25rem;
-                min-height: 52px;
-                padding: 0.75rem 0.85rem;
-                margin-bottom: 0.85rem;
-            }
-            .studio-chips {
-                gap: 0.35rem;
-                font-size: 0.7rem;
-                margin-bottom: 0.85rem;
-            }
-            .chip-btn {
-                padding: 0.2rem 0.45rem;
-                font-size: 0.68rem;
-            }
-            .studio-footer-status {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 0.25rem;
-                font-size: 0.68rem;
-            }
-
-            /* Bento Cards */
-            .bento-card {
-                padding: 1.35rem 1.15rem;
-                border-radius: 12px;
-            }
-            .bento-icon {
-                width: 34px;
-                height: 34px;
-                margin-bottom: 0.85rem;
-            }
-            .bento-card h3 {
-                font-size: 1.05rem;
-            }
-            .bento-card p {
-                font-size: 0.84rem;
-            }
-
-            /* Encoding Box */
-            .encoding-box {
-                padding: 1.75rem 1rem;
-                border-radius: 14px;
-            }
-            .encoding-col {
-                padding: 1.25rem 1rem;
-                border-radius: 10px;
-            }
-            .encoding-col h4 {
-                font-size: 1rem;
-            }
-            .encoding-col li {
-                font-size: 0.8rem;
-            }
-
-            /* Cheatsheet Table */
-            .cheat-search-bar {
-                max-width: 100%;
-            }
-            .table-wrap {
-                border-radius: 8px;
-                max-height: 280px;
-            }
-            th, td {
-                padding: 0.45rem 0.65rem;
-                font-size: 0.78rem;
-            }
-            .key-badge {
-                font-size: 0.7rem;
-                padding: 0.1rem 0.35rem;
-            }
-            .bng-out {
-                font-size: 0.95rem;
-            }
-
-            /* FAQ */
-            .faq-question {
-                padding: 0.9rem 1rem;
-                font-size: 0.88rem;
-            }
-            .faq-answer {
-                padding: 0 1rem 0.9rem;
-                font-size: 0.82rem;
-            }
-
-            /* Footer */
-            footer {
-                padding: 3.5rem 0 2rem;
-            }
-            .footer-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-                margin-bottom: 2.5rem;
-            }
-            .footer-brand-title {
-                font-size: 1.05rem;
-            }
-            .footer-desc {
-                font-size: 0.82rem;
-                max-width: 100%;
-            }
-            .footer-bottom {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-                gap: 1.25rem;
-            }
-            .footer-bottom-left {
-                justify-content: center;
-                text-align: center;
-            }
-            .footer-bottom-actions {
-                justify-content: center;
-                width: 100%;
-                gap: 0.65rem;
-            }
-        }
-
-        @media (max-width: 380px) {
-            .header-inner {
-                padding: 0.6rem 0.75rem;
-            }
-            .brand-name {
-                font-size: 0.9rem;
-            }
-            .brand-version {
-                display: none;
-            }
-            .hero h1 {
-                font-size: 1.65rem;
-            }
-            .spec-strip {
-                grid-template-columns: 1fr;
-            }
-            .studio-topbar {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-        }
-
-        /* Author Social Popover System */
-        .author-badge-container {
-            position: relative;
-            display: inline-flex;
-            align-items: center;
-        }
-
-        .author-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.48rem;
-            padding: 0.22rem 0.65rem 0.22rem 0.3rem;
-            background: rgba(255, 255, 255, 0.035);
-            border: 1px solid rgba(255, 255, 255, 0.09);
-            border-radius: 9999px;
-            color: #ffffff;
-            font-family: inherit;
-            font-size: 0.8rem;
-            font-weight: 600;
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
-            cursor: pointer;
-            user-select: none;
-        }
-
-        .author-badge:hover, .author-badge.active {
-            background: rgba(255, 255, 255, 0.08);
-            border-color: rgba(96, 165, 250, 0.45);
-            transform: translateY(-1.5px);
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4), 0 0 14px rgba(59, 130, 246, 0.22);
-            color: #ffffff;
-        }
-
-        .author-badge .chevron-icon {
-            transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s;
-            color: #64748b;
-        }
-
-        .author-badge.active .chevron-icon, .author-badge:hover .chevron-icon {
-            color: #60a5fa;
-        }
-
-        .author-badge.active .chevron-icon {
-            transform: rotate(180deg);
-        }
-
-        .author-social-popover {
-            position: absolute;
-            bottom: calc(100% + 14px);
-            left: 0;
-            width: 290px;
-            background: rgba(10, 10, 16, 0.95);
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            border-radius: 18px;
-            padding: 1.1rem;
-            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.7), 0 0 30px rgba(59, 130, 246, 0.15);
-            opacity: 0;
-            pointer-events: none;
-            transform: translateY(8px) scale(0.96);
-            transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-            z-index: 1000;
-        }
-
-        .author-social-popover::after {
-            content: "";
-            position: absolute;
-            top: 100%;
-            left: 32px;
-            border-width: 7px 7px 0 7px;
-            border-style: solid;
-            border-color: rgba(10, 10, 16, 0.96) transparent transparent transparent;
-            filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.5));
-        }
-
-        .author-social-popover.open {
-            opacity: 1;
-            pointer-events: auto;
-            transform: translateY(0) scale(1);
-        }
-
-        .author-popover-header {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        .popover-avatar-wrap {
-            position: relative;
-            width: 42px;
-            height: 42px;
-            border-radius: 50%;
-            overflow: hidden;
-            border: 1.5px solid rgba(255, 255, 255, 0.22);
-            flex-shrink: 0;
-            background: #181822;
-        }
-
-        .popover-avatar-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        .popover-avatar-fallback {
-            display: none;
-            width: 100%;
-            height: 100%;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.1rem;
-            font-weight: 800;
-            color: #fff;
-            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-        }
-
-        .popover-user-info {
-            display: flex;
-            flex-direction: column;
-            gap: 0.15rem;
-            overflow: hidden;
-        }
-
-        .popover-user-name {
-            display: flex;
-            align-items: center;
-            gap: 0.45rem;
-            font-size: 0.88rem;
-            font-weight: 700;
-            color: #f8fafc;
-            letter-spacing: -0.01em;
-        }
-
-        .popover-role-badge {
-            font-size: 0.62rem;
-            font-family: var(--font-mono);
-            font-weight: 700;
-            text-transform: uppercase;
-            padding: 0.1rem 0.35rem;
-            border-radius: 4px;
-            background: rgba(59, 130, 246, 0.18);
-            border: 1px solid rgba(59, 130, 246, 0.35);
-            color: #60a5fa;
-            letter-spacing: 0.04em;
-        }
-
-        .popover-user-bio {
-            font-size: 0.74rem;
-            color: var(--text-secondary);
-            line-height: 1.35;
-        }
-
-        .popover-divider {
-            width: 100%;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1) 20%, rgba(255, 255, 255, 0.1) 80%, transparent);
-            margin: 0.85rem 0;
-        }
-
-        .author-social-links {
-            display: flex;
-            flex-direction: column;
-            gap: 0.45rem;
-        }
-
-        .author-social-item {
-            display: flex;
-            align-items: center;
-            gap: 0.7rem;
-            padding: 0.55rem 0.75rem;
-            border-radius: 12px;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            color: var(--text-primary);
-            text-decoration: none;
-            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-            position: relative;
-        }
-
-        .social-item-icon {
-            width: 28px;
-            height: 28px;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(255, 255, 255, 0.05);
-            color: #94a3b8;
-            transition: all 0.2s ease;
-            flex-shrink: 0;
-        }
-
-        .social-item-text {
-            display: flex;
-            flex-direction: column;
-            gap: 0.05rem;
-            flex: 1;
-        }
-
-        .social-item-label {
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: #f1f5f9;
-        }
-
-        .social-item-handle {
-            font-size: 0.68rem;
-            font-family: var(--font-mono);
-            color: var(--text-muted);
-            transition: color 0.2s ease;
-        }
-
-        .social-arrow {
-            color: var(--text-muted);
-            transition: transform 0.2s ease, color 0.2s ease;
-            flex-shrink: 0;
-        }
-
-        .author-social-item:hover {
-            transform: translateX(2px);
-        }
-
-        .author-social-item:hover .social-arrow {
-            transform: translate(2px, -2px);
-        }
-
-        /* Brand hover themes */
-        .item-github:hover {
-            background: rgba(255, 255, 255, 0.07);
-            border-color: rgba(255, 255, 255, 0.2);
-        }
-        .item-github:hover .social-item-icon {
-            background: rgba(255, 255, 255, 0.15);
-            color: #ffffff;
-        }
-        .item-github:hover .social-arrow { color: #ffffff; }
-
-        .item-facebook:hover {
-            background: rgba(24, 119, 242, 0.1);
-            border-color: rgba(24, 119, 242, 0.35);
-        }
-        .item-facebook:hover .social-item-icon {
-            background: #1877f2;
-            color: #ffffff;
-        }
-        .item-facebook:hover .social-item-label, .item-facebook:hover .social-item-handle {
-            color: #60a5fa;
-        }
-        .item-facebook:hover .social-arrow { color: #1877f2; }
-
-        .item-instagram:hover {
-            background: rgba(225, 48, 108, 0.1);
-            border-color: rgba(225, 48, 108, 0.35);
-        }
-        .item-instagram:hover .social-item-icon {
-            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-            color: #ffffff;
-        }
-        .item-instagram:hover .social-item-label, .item-instagram:hover .social-item-handle {
-            color: #f472b6;
-        }
-        .item-instagram:hover .social-arrow { color: #e1306c; }
-
-        .item-linkedin:hover {
-            background: rgba(10, 102, 194, 0.1);
-            border-color: rgba(10, 102, 194, 0.35);
-        }
-        .item-linkedin:hover .social-item-icon {
-            background: #0a66c2;
-            color: #ffffff;
-        }
-        .item-linkedin:hover .social-item-label, .item-linkedin:hover .social-item-handle {
-            color: #38bdf8;
-        }
-        .item-linkedin:hover .social-arrow { color: #0a66c2; }
 
         @media (max-width: 640px) {
+            .hero { padding-top: 8rem; }
+            .hero h1 { font-size: 2.2rem; }
+            .hero p { font-size: 0.98rem; }
+            .spec-strip { grid-template-columns: 1fr; }
+            .footer-bottom { flex-direction: column; align-items: center; text-align: center; }
+            .footer-bottom-left { justify-content: center; }
+            .footer-bottom-actions { justify-content: center; width: 100%; }
             .author-social-popover {
-                left: 50%;
-                transform: translateX(-50%) translateY(8px) scale(0.96);
+                left: 50% !important;
+                transform: translateX(-50%) translateY(12px) scale(0.96) !important;
             }
             .author-social-popover.open {
-                transform: translateX(-50%) translateY(0) scale(1);
+                transform: translateX(-50%) translateY(0) scale(1) !important;
             }
             .author-social-popover::after {
-                left: 50%;
-                transform: translateX(-50%);
+                left: 50% !important;
+                transform: translateX(-50%) !important;
             }
         }
-
     </style>
 </head>
 <body>
-    <div class="ambient-glow"></div>
-    <div class="ambient-beam"></div>
+    <!-- Background Animated Bengali Canvas & Horizon Light -->
+    <canvas id="bengali-ambient-canvas"></canvas>
+    <div class="ambient-horizon"></div>
 
-    <!-- Header -->
+    <!-- Header Navigation -->
     <header>
         <div class="header-inner">
             <a href="#" class="brand">
@@ -2199,18 +1782,18 @@
 
             <nav>
                 <ul class="nav-links">
-                    <li><a href="#features">বৈশিষ্ট্যসমূহ</a></li>
-                    <li><a href="#encoding">ইউনিকোড ও অ্যানসি</a></li>
-                    <li><a href="converter.html">কনভার্টার</a></li>
+                    <li><a href="#features">ফিচারস</a></li>
+                    <li><a href="#encoding">ইউনিকোড ও আনসি</a></li>
+                    <li><a href="../converter.html">কনভার্টার</a></li>
                     <li><a href="#layouts">লেআউট</a></li>
                     <li><a href="#playground">লাইভ স্টুডিও</a></li>
                     <li><a href="#install">ইনস্টলেশন</a></li>
                     <li><a href="#cheatsheet">চিট-শিট</a></li>
-                    <li><a href="#faq">প্রশ্নোত্তর</a></li>
+                    <li><a href="#faq">জিজ্ঞাসা</a></li>
                 </ul>
 
                 <div class="nav-actions">
-                    <a href="../index.html" class="lang-switch">English</a>
+                    <a href="../index.html" class="lang-switch" title="Switch to English">English</a>
                     <a href="#install" class="nav-btn-download">ডাউনলোড</a>
                 </div>
             </nav>
@@ -2221,26 +1804,29 @@
     <div class="container">
         <!-- Hero Section -->
         <section class="hero">
-            <div class="hero-brand-badge">
-                <img src="../yazatype-logo-dark.png" alt="YazaType Official Logo" class="hero-logo-img" />
+            <div class="hero-badge-wrap">
+                <span class="hero-pulse-dot"></span>
+                <span>ওপেন সোর্স নেটিভ বাংলা ইনপুট ইঞ্জিন · ম্যাক ও উইন্ডোজ</span>
             </div>
 
-            <h1>বাংলা লিখুন, নিজের মতো।</h1>
+            <div class="hero-os-detected" id="hero-os-badge">শনাক্তকরণ: macOS (Apple Silicon &amp; Intel)</div>
+
+            <h1>নিখুঁত বাংলা টাইপিং।<br>গতি ও নান্দনিকতার সেরা মেলবন্ধন।</h1>
 
             <p>
-                YazaType ম্যাক ও উইন্ডোজের জন্য তৈরি একটি নতুন প্রজন্মের গতিশীল বাংলা কীবোর্ড।
-                সরাসরি টাইপিং, ব্যাকগ্রাউন্ড ব্যাটারি ড্রেন মুক্ত গতি এবং সাধারণ লেখার পাশাপাশি ফটোশপ ও ইলাস্ট্রেটরে <strong>ইউনিকোড ও অ্যানসি (ANSI)</strong> উভয় মোডে লেখার স্বাধীনতা।
+                <strong>ম্যাক</strong> এবং <strong>উইন্ডোজের</strong> জন্য দ্রুততম, আধুনিক ও নান্দনিক বাংলা কীবোর্ড—<strong>YazaType</strong>। 
+                কোনো ভারী ব্যাকগ্রাউন্ড প্রসেস ছাড়াই সরাসরি টাইপ করুন এবং পান <strong>ইউনিকোড ও অ্যাডোবি আনসি (ANSI)</strong> এর তাৎক্ষণিক সমর্থন।
             </p>
 
             <div class="hero-actions">
                 <a href="https://github.com/yahiabinzaman/yazatype/releases/latest/download/YazaType.dmg" class="btn-main btn-mac">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.61-.75 1.04-1.8 0.92-2.85-.92.04-2.06.62-2.73 1.39-.58.67-1.09 1.74-.96 2.77 1.03.08 2.16-.54 2.77-1.31z"/></svg>
-                    macOS-এর জন্য ডাউনলোড (.dmg)
+                    ম্যাকের জন্য ডাউনলোড (.dmg)
                 </a>
 
                 <a href="https://github.com/yahiabinzaman/yazatype/releases/download/v0.2.5/YazaType.exe" class="btn-main btn-win">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.949-1.801"/></svg>
-                    Windows-এর জন্য ডাউনলোড (.exe)
+                    উইন্ডোজের জন্য ডাউনলোড (.exe)
                 </a>
             </div>
 
@@ -2252,27 +1838,27 @@
                 </div>
                 <div class="term-code" id="term-text">curl -fsSL https://raw.githubusercontent.com/yahiabinzaman/yazatype/main/scripts/install.sh | bash</div>
                 <button class="btn-copy-term" id="copy-btn" onclick="copyTermCommand()">
-                    <span id="copy-label">কপি করুন</span>
+                    <span id="copy-label">কপি</span>
                 </button>
             </div>
 
             <!-- Pro Spec Strip -->
             <div class="spec-strip">
                 <div class="spec-item">
-                    <div class="spec-value">&lt; 0.2ms</div>
-                    <div class="spec-label">ইনপুট ল্যাটেন্সি</div>
+                    <div class="spec-value">&lt; ০.২ms</div>
+                    <div class="spec-label">ইনপুট লেটেন্সি</div>
                 </div>
                 <div class="spec-item">
-                    <div class="spec-value">0% CPU</div>
+                    <div class="spec-value">০% CPU</div>
                     <div class="spec-label">জিরো ব্যাকগ্রাউন্ড প্রসেস</div>
                 </div>
                 <div class="spec-item">
                     <div class="spec-value">ডুয়াল ইঞ্জিন</div>
-                    <div class="spec-label">ইউনিকোড ও অ্যানসি</div>
+                    <div class="spec-label">ইউনিকোড + আনসি</div>
                 </div>
                 <div class="spec-item">
-                    <div class="spec-value">১০০% অফলাইন</div>
-                    <div class="spec-label">সম্পূর্ণ ব্যক্তিগত ও নিরাপদ</div>
+                    <div class="spec-value">১০০% লোকাল</div>
+                    <div class="spec-label">সম্পূর্ণ অফলাইন প্রাইভেসি</div>
                 </div>
             </div>
 
@@ -2285,11 +1871,11 @@
                         <div class="dot dot-g"></div>
                     </div>
                     <div class="studio-title">
-                        <span>লাইভ ফোনেটিক ও অ্যানসি স্টুডিও</span>
+                        <span>লাইভ ফোনেটিক ও আনসি টেস্টিং স্টুডিও</span>
                     </div>
                     <div class="studio-controls">
                         <button class="studio-pill-btn active" id="enc-uni-btn" onclick="setPlaygroundEnc('unicode')">ইউনিকোড</button>
-                        <button class="studio-pill-btn" id="enc-ansi-btn" onclick="setPlaygroundEnc('ansi')">অ্যানসি (ইলাস্ট্রেটর)</button>
+                        <button class="studio-pill-btn" id="enc-ansi-btn" onclick="setPlaygroundEnc('ansi')">আনসি (ইলাস্ট্রেটর)</button>
                     </div>
                 </div>
                 <div class="studio-body">
@@ -2300,16 +1886,16 @@
                     <div class="studio-output-box" id="demo-output">আমার সোনার বাংলা</div>
 
                     <div class="studio-chips">
-                        <span>উদাহরণ ট্রাই করুন:</span>
-                        <button class="chip-btn" onclick="setDemoText('amar sonar bangla')">amar sonar bangla</button>
-                        <button class="chip-btn" onclick="setDemoText('kkhoma o shanti')">kkhoma o shanti</button>
-                        <button class="chip-btn" onclick="setDemoText('projukti o shrishti')">projukti o shrishti</button>
-                        <button class="chip-btn" onclick="setDemoText('bangladesh amar desh..')">bangladesh amar desh..</button>
+                        <span>দ্রুত পরীক্ষা:</span>
+                        <button class="chip-btn" onclick="setDemoText('amar sonar bangla')">আমার সোনার বাংলা</button>
+                        <button class="chip-btn" onclick="setDemoText('kkhoma o shanti')">ক্ষমা ও শান্তি</button>
+                        <button class="chip-btn" onclick="setDemoText('projukti o shrishti')">প্রযুক্তি ও সৃষ্টি</button>
+                        <button class="chip-btn" onclick="setDemoText('bangladesh amar desh..')">বাংলাদেশ আমার দেশ</button>
                     </div>
 
                     <div class="studio-footer-status">
-                        <span>ইঞ্জিন: Native Rust (riti) Transliteration</span>
-                        <span id="stats-latency">ল্যাটেন্সি: ~0.2ms · ডিরেক্ট স্ট্রিম</span>
+                        <span>ইঞ্জিন: নেটিভ রাস্ট (riti) ট্র্যান্সলিটারেশন</span>
+                        <span id="stats-latency">লেটেন্সি: ~০.২ms · সরাসরি স্ট্রিম</span>
                     </div>
                 </div>
             </div>
@@ -2318,9 +1904,9 @@
         <!-- Bento Grid Features -->
         <section id="features">
             <div class="section-header">
-                <div class="section-tag">ইঞ্জিনিয়ারিং হাইলাইটস</div>
-                <h2 class="section-title">গতি, নির্ভুলতা ও সর্বোচ্চ গোপনীয়তা</h2>
-                <p class="section-desc">কোনো ভাসমান ওভারলে উইন্ডো নেই, সরাসরি কার্সরে টাইপ এবং শতভাগ অফলাইন ও নিরাপদ।</p>
+                <div class="section-tag">ইঞ্জিনিয়ারিং আর্কিটেকচার</div>
+                <h2 class="section-title">অপ্রতিদ্বন্দ্বী গতি ও সম্পূর্ণ প্রাইভেসি</h2>
+                <p class="section-desc">কোনো ভাসমান অতিরিক্ত উইন্ডো ছাড়াই সরাসরি কার্সরে টাইপিং এবং ১০০% অফলাইন নির্ভরযোগ্যতা।</p>
             </div>
 
             <div class="bento-grid">
@@ -2328,8 +1914,8 @@
                     <div class="bento-icon">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
                     </div>
-                    <h3>সরাসরি ইন-মেমরি টাইপিং</h3>
-                    <p>কোনো প্রকার স্ক্রিন উইন্ডো ফ্লিকার বা ক্যান্ডিডেট পপআপ ছাড়াই প্রতিটি বাংলা অক্ষর সরাসরি আপনার কার্সরে চলে আসে। ব্যাকগ্রাউন্ডে কোনো প্রসেস ব্যাটারি নষ্ট করে না।</p>
+                    <h3>নেটিভ ইনপুট মেথড কিট ও Win32 ইন্টিগ্রেশন</h3>
+                    <p>ম্যাকের নেটিভ Text Services ও উইন্ডোজের লো-লেভেল হুকসের সাথে সরাসরি সংযুক্ত। কোনো উইন্ডো ফোকাস নষ্ট না করে সরাসরি কার্সরের জায়গায় মসৃণ টাইপিং সুবিধা দেয়।</p>
                 </div>
 
                 <div class="bento-card">
@@ -2337,7 +1923,7 @@
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
                     </div>
                     <h3>১০০% অফলাইন ও নিরাপদ</h3>
-                    <p>কোনো প্রকার ইন্টারনেট কানেকশন বা টেলিমেট্রি নেই। আপনার টাইপ করা প্রতিটি শব্দ সম্পূর্ণ নিরাপদ এবং ডিভাইসেই সংরক্ষিত থাকে।</p>
+                    <p>কোনো টেলিমেট্রি নেই, কোনো নেটওয়ার্ক পারমিশন প্রয়োজন হয় না। আপনার কোনো কি-স্ট্রোক ইন্টারনেটে পাঠানো হয় না।</p>
                 </div>
 
                 <div class="bento-card">
@@ -2345,15 +1931,15 @@
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3"/></svg>
                     </div>
                     <h3>নেটিভ রাস্ট কোর (riti)</h3>
-                    <p>অতি দ্রুতগতির রাস্ট ট্রান্সলিটারেশন কোর দ্বারা চালিত, যা সাব-মিলিমেকেন্ডে প্রতিটি কী-স্ট্রোক প্রসেস করে।</p>
+                    <p>দ্রুততম ও স্মৃতি-সাশ্রয়ী রাস্ট ট্রান্সলিটারেশন ইঞ্জিন দিয়ে পরিচালিত, যার এক্সিকিউশন সময় সাব-মিলিমিটার পর্যায়ের।</p>
                 </div>
 
                 <div class="bento-card bento-span-2">
                     <div class="bento-icon">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7V4h16v3M9 20h6M12 4v16"/></svg>
                     </div>
-                    <h3>ডুয়াল আউটপুট ইঞ্জিন (ইউনিকোড ও অ্যানসি)</h3>
-                    <p>সাধারণ ব্রাউজার ও অ্যাপের জন্য স্ট্যান্ডার্ড ইউনিকোড এবং অ্যাডোবি ইলাস্ট্রেটর/ফটোশপের জন্য স্বয়ংক্রিয় কার-পজিশনিং সহ অ্যানসি (ANSI) আউটপুট।</p>
+                    <h3>ডুয়াল আউটপুট ইঞ্জিন (ইউনিকোড ও আনসি)</h3>
+                    <p>ওয়েব ও সাধারণ অ্যাপসের জন্য সাধারণ ইউনিকোড এবং অ্যাডোবি ইলাস্ট্রেটর ও ফটোশপের জন্য কার-চিহ্ন ভাঙা ছাড়া সরাসরি আনসি টাইপ করার স্বাচ্ছন্দ্য।</p>
                 </div>
             </div>
         </section>
@@ -2361,47 +1947,47 @@
         <!-- Dual Encoding Section -->
         <section id="encoding">
             <div class="encoding-box">
-                <div class="section-tag">ডুয়াল এনকোডিং আর্কিটেকচার</div>
-                <h2 style="font-size: 2.1rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 0.6rem;">
-                    ডিজাইন সফটওয়্যারে ভাঙা কার ও যুক্তাক্ষরের স্থায়ী অবসান
+                <div class="section-tag">ডুয়াল এনকোডিং প্রযুক্তি</div>
+                <h2 style="font-size: 2.1rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 0.6rem;">
+                    ডিজাইন সফটওয়্যারে ভাঙা কার-চিহ্নের স্থায়ী অবসান
                 </h2>
-                <p style="color: var(--text-secondary); max-width: 680px; margin: 0 auto; font-size: 0.98rem;">
-                    ইলাস্ট্রেটর ও ফটোশপের মতো প্রফেশনাল ডিজাইন অ্যাপগুলোতে সহজে বাংলা টাইপ করতে YazaType-এ রয়েছে রিয়েল-টাইম ইউনিকোড ও অ্যানসি রূপান্তর ব্যবস্থা।
+                <p style="color: var(--text-secondary); max-width: 680px; margin: 0 auto; font-size: 0.95rem;">
+                    আধুনিক ইউনিকোড এবং প্রিন্ট ডিজাইনারদের জন্য প্রথাগত আনসি (ANSI)—উভয় ফরম্যাটেই সাবলীল কাজ করুন।
                 </p>
 
                 <div class="encoding-grid">
                     <div class="encoding-col">
                         <span class="encoding-badge badge-uni">ইউনিকোড মোড</span>
-                        <h4>আধুনিক ওয়েব ও দৈনন্দিন ব্যবহারের জন্য</h4>
-                        <p style="font-size: 0.88rem; color: var(--text-secondary);">
-                            স্ট্যান্ডার্ড UTF-8 বাংলা অক্ষর আউটপুট দেয়। সকল আধুনিক ব্রাউজার ও অফিস অ্যাপ্লিকেশনের জন্য উপযুক্ত।
+                        <h4>আধুনিক ওয়েব ও অ্যাপসের জন্য</h4>
+                        <p style="font-size: 0.86rem; color: var(--text-secondary);">
+                            স্ট্যান্ডার্ড UTF-8 বাংলা ক্যারেক্টার আউটপুট দেয়। ব্রাউজার, টেক্সট এডিটর ও সামাজিক যোগাযোগ মাধ্যমের জন্য আদর্শ।
                         </p>
                         <ul>
-                            <li>Chrome, Safari, Firefox, Edge</li>
-                            <li>Microsoft Word, Apple Pages ও Notes</li>
-                            <li>Figma, VS Code, Slack, WhatsApp</li>
+                            <li>ক্রোম, সাফারি, ফায়ারফক্স, এজ</li>
+                            <li>মাইক্রোসফট ওয়ার্ড, অ্যাপল পেজেস ও নোটস</li>
+                            <li>ফিগুমা, ভিএস কোড, স্ল্যাক, হোয়াটসঅ্যাপ</li>
                             <li>কালপুরুষ, সোলাইমানলিপি ও আনেক বাংলার সাথে সম্পূর্ণ সমর্থিত</li>
                         </ul>
                     </div>
 
                     <div class="encoding-col highlight">
-                        <span class="encoding-badge badge-ansi">অ্যানসি মোড</span>
+                        <span class="encoding-badge badge-ansi">আনসি (ANSI) মোড</span>
                         <h4>অ্যাডোবি ক্রিয়েটিভ ক্লাউডের জন্য</h4>
-                        <p style="font-size: 0.88rem; color: var(--text-secondary);">
-                            সরাসরি অ্যানসি গ্লিফে কনভার্ট করে দেয়। প্রিন্ট ও পাবলিশিং ডিজাইনে ই-কার, এ-কার বা র্ব ভাঙবে না।
+                        <p style="font-size: 0.86rem; color: var(--text-secondary);">
+                            সরাসরি আনসি গ্লিফে রিয়েল-টাইম কনভার্ট করে দেয়। প্রিন্ট পাবলিশিংয়ে কার-চিহ্ন ও যুক্তবর্ণ ভাঙার ঝামেলা দূর করে।
                         </p>
                         <ul>
-                            <li>Adobe Illustrator ও Photoshop</li>
-                            <li>Adobe InDesign ও Premiere Pro</li>
-                            <li>স্বয়ংক্রিয় প্রি-কার ও রেফ (র্) রি-অর্ডারিং</li>
-                            <li>বাহ্যিক কনভার্টার সফটওয়্যার ছাড়াই সরাসরি টাইপিং</li>
+                            <li>অ্যাডোবি ইলাস্ট্রেটর ও ফটোশপ</li>
+                            <li>অ্যাডোবি ইনডিজাইন ও প্রিমিয়ার প্রো</li>
+                            <li>প্রি-কার ও রেফ (র্) স্বয়ংক্রিয় সাজানো</li>
+                            <li>এক্সটার্নাল কনভার্টার ছাড়াই সরাসরি টাইপিং</li>
                         </ul>
                     </div>
                 </div>
 
                 <div style="text-align: center; margin-top: 2rem;">
-                    <a href="converter.html" class="btn-copy-term" style="padding: 0.55rem 1.35rem; font-size: 0.88rem; text-decoration: none; border-radius: 999px; background: rgba(255, 255, 255, 0.08); border-color: rgba(255, 255, 255, 0.18); font-family: var(--font-main);">
-                        <span>⚡ সার্বজনীন বাংলা স্ক্রিপ্ট কনভার্টার পেজ খুলুন</span>
+                    <a href="../converter.html" class="btn-copy-term" style="padding: 0.6rem 1.45rem; font-size: 0.88rem; text-decoration: none; border-radius: 999px; background: rgba(255, 255, 255, 0.08); border-color: rgba(255, 255, 255, 0.2);">
+                        <span>⚡ সার্বজনীন বাংলা স্ক্রিপ্ট কনভার্টার চালু করুন</span>
                         <span style="opacity: 0.7;">→</span>
                     </a>
                 </div>
@@ -2412,8 +1998,8 @@
         <section id="layouts">
             <div class="section-header">
                 <div class="section-tag">কীবোর্ড লেআউটসমূহ</div>
-                <h2 class="section-title">আপনার পছন্দের লেআউটে টাইপ করুন</h2>
-                <p class="section-desc">মেনু বার বা সেটিংস থেকে সহজেই ফোনেটিক ও ফিক্সড লেআউট পরিবর্তন করা যায়।</p>
+                <h2 class="section-title">আপনার পছন্দের লেআউটে সাবলীল টাইপিং</h2>
+                <p class="section-desc">মেনু বার বা সেটিংস থেকে সহজেই ফোনেটিক ও ফিক্সড লেআউটের মাঝে পরিবর্তন করুন।</p>
             </div>
 
             <div class="layouts-grid">
@@ -2422,7 +2008,7 @@
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M6 8h.01M10 8h.01M14 8h.01M18 8h.01M6 12h.01M10 12h.01M14 12h.01M18 12h.01M8 16h8"/></svg>
                     </div>
                     <h3>ফোনেটিক (YazaType)</h3>
-                    <p>সহজ ও সাবলীল ফোনেটিক টাইপিং (যেমন: <code>amar</code> → <code>আমার</code>)। ফুল যুক্তাক্ষর ও স্মার্ট কার লজিক সাপোর্ট।</p>
+                    <p>ইংরেজি অক্ষরে রোমানাইজড সহজ উচ্চারণ টাইপিং (যেমন: <code>amar</code> → <code>আমার</code>)। সম্পূর্ণ যুক্তবর্ণ ও স্বরচিহ্ন সমর্থন।</p>
                 </div>
 
                 <div class="bento-card">
@@ -2430,7 +2016,7 @@
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1zM4 22v-7"/></svg>
                     </div>
                     <h3>জাতীয় / বিজয় (National)</h3>
-                    <p>বাংলাদেশ সরকারের স্ট্যান্ডার্ড জাতীয় লেআউট। প্রফেশনাল টাইপিস্ট, সংবাদমাধ্যম ও প্রকাশনা শিল্পের জন্য উপযুক্ত।</p>
+                    <p>বাংলাদেশ সরকারের স্ট্যান্ডার্ড জাতীয় লেআউট। প্রফেশনাল টাইপিস্ট, সাংবাদিক ও প্রিন্ট প্রকাশকদের জন্য সেরা।</p>
                 </div>
 
                 <div class="bento-card">
@@ -2438,7 +2024,7 @@
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
                     </div>
                     <h3>প্রভাত (Probhat)</h3>
-                    <p>জনপ্রিয় প্রভাত ফিক্সড লেআউট ম্যাপিং, আধুনিক মডিফায়ার ও দ্রুতগতির টাইপিং সমর্থন করে।</p>
+                    <p>জনপ্রিয় প্রভাত ফিক্সড কীবোর্ড লেআউট ম্যাপিং, যা দ্রুত ও নির্ভুল টাইপিং নিশ্চিত করে।</p>
                 </div>
             </div>
         </section>
@@ -2446,42 +2032,42 @@
         <!-- Cheatsheet Section -->
         <section id="cheatsheet" class="cheatsheet-section">
             <div class="section-header" style="margin-bottom: 1.5rem;">
-                <div class="section-tag">কুইক রেফারেন্স</div>
-                <h2 class="section-title">ফোনেটিক টাইপিং চিট-শিট</h2>
-                <p class="section-desc">যেকোনো অক্ষর বা যুক্তাক্ষর খুঁজতে সার্চ করুন।</p>
+                <div class="section-tag">দ্রুত সহায়িকা</div>
+                <h2 class="section-title">ফোনেটিক কি-ম্যাপিং চিট-শিট</h2>
+                <p class="section-desc">যেকোনো বর্ণ, যুক্তবর্ণ বা কি-কম্বিনেশন সহজে খুঁজে নিন।</p>
             </div>
 
             <div class="cheat-search-bar">
                 <span class="cheat-icon">🔍</span>
-                <input type="text" id="cheat-search" class="cheat-input" placeholder="সার্চ করুন (যেমন: kkh, ri, ৳, ..)..." oninput="filterCheatsheet()" />
+                <input type="text" id="cheat-search" class="cheat-input" placeholder="কি বা বর্ণ দিয়ে খুঁজুন (যেমন: kkh, ri, ৳, ..)..." oninput="filterCheatsheet()" />
             </div>
 
             <div class="table-wrap">
                 <table id="cheat-table">
                     <thead>
                         <tr>
-                            <th>কী-কম্বিনেশন</th>
-                            <th>বাংলা অক্ষর</th>
+                            <th>কি কম্বিনেশন</th>
+                            <th>বাংলা বর্ণ / চিহ্ন</th>
                             <th>বিবরণ ও উদাহরণ</th>
                         </tr>
                     </thead>
                     <tbody id="cheat-tbody">
-                        <tr><td><span class="key-badge">a</span></td><td class="bng-out">আ / া</td><td>আ / আকার</td></tr>
-                        <tr><td><span class="key-badge">i</span></td><td class="bng-out">ই / ি</td><td>হ্রস্ব ই / ই-কার</td></tr>
-                        <tr><td><span class="key-badge">I</span></td><td class="bng-out">ঈ / ী</td><td>দীর্ঘ ঈ / ঈ-কার</td></tr>
-                        <tr><td><span class="key-badge">u</span></td><td class="bng-out">উ / ু</td><td>হ্রস্ব উ / উ-কার</td></tr>
-                        <tr><td><span class="key-badge">U</span></td><td class="bng-out">ঊ / ূ</td><td>দীর্ঘ ঊ / ঊ-কার</td></tr>
-                        <tr><td><span class="key-badge">rri</span></td><td class="bng-out">ঋ / ৃ</td><td>ঋ / ঋ-কার</td></tr>
-                        <tr><td><span class="key-badge">e</span></td><td class="bng-out">এ / ে</td><td>এ / এ-কার</td></tr>
-                        <tr><td><span class="key-badge">OI</span></td><td class="bng-out">ঐ / ৈ</td><td>ঐ / ঐ-কার</td></tr>
-                        <tr><td><span class="key-badge">O</span></td><td class="bng-out">ও / ো</td><td>ও / ও-কার</td></tr>
-                        <tr><td><span class="key-badge">OU</span></td><td class="bng-out">ঔ / ৌ</td><td>ঔ / ঔ-কার</td></tr>
+                        <tr><td><span class="key-badge">a</span></td><td class="bng-out">আ / া</td><td>আ-কার</td></tr>
+                        <tr><td><span class="key-badge">i</span></td><td class="bng-out">ই / ি</td><td>হ্রস্ব-ই</td></tr>
+                        <tr><td><span class="key-badge">I</span></td><td class="bng-out">ঈ / ী</td><td>দীর্ঘ-ঈ</td></tr>
+                        <tr><td><span class="key-badge">u</span></td><td class="bng-out">উ / ু</td><td>হ্রস্ব-উ</td></tr>
+                        <tr><td><span class="key-badge">U</span></td><td class="bng-out">ঊ / ূ</td><td>দীর্ঘ-ঊ</td></tr>
+                        <tr><td><span class="key-badge">rri</span></td><td class="bng-out">ঋ / ৃ</td><td>ঋ-কার</td></tr>
+                        <tr><td><span class="key-badge">e</span></td><td class="bng-out">এ / ে</td><td>এ-কার</td></tr>
+                        <tr><td><span class="key-badge">OI</span></td><td class="bng-out">ঐ / ৈ</td><td>ঐ-কার</td></tr>
+                        <tr><td><span class="key-badge">O</span></td><td class="bng-out">ও / ো</td><td>ও-কার</td></tr>
+                        <tr><td><span class="key-badge">OU</span></td><td class="bng-out">ঔ / ৌ</td><td>ঔ-কার</td></tr>
                         <tr><td><span class="key-badge">kkh</span></td><td class="bng-out">ক্ষ</td><td>ক + ষ (যেমন: kkhoma → ক্ষমা)</td></tr>
                         <tr><td><span class="key-badge">jng</span></td><td class="bng-out">জ্ঞ</td><td>জ + ঞ (যেমন: gyan → জ্ঞান)</td></tr>
-                        <tr><td><span class="key-badge">..</span></td><td class="bng-out">।</td><td>বাংলা দাঁড়ি</td></tr>
-                        <tr><td><span class="key-badge">$$</span></td><td class="bng-out">৳</td><td>টাকার প্রতীক</td></tr>
+                        <tr><td><span class="key-badge">..</span></td><td class="bng-out">।</td><td>বাংলা দাঁড়ি (।)</td></tr>
+                        <tr><td><span class="key-badge">$$</span></td><td class="bng-out">৳</td><td>টাকা চিহ্ন (৳)</td></tr>
                         <tr><td><span class="key-badge">,,</span></td><td class="bng-out">্</td><td>হসন্ত</td></tr>
-                        <tr><td><span class="key-badge">k-s</span></td><td class="bng-out">কস্</td><td>যুক্তাক্ষর ব্রেক (-)</td></tr>
+                        <tr><td><span class="key-badge">k-s</span></td><td class="bng-out">কস্</td><td>যুক্তবর্ণ ব্রেক (-)</td></tr>
                         <tr><td><span class="key-badge">rr</span></td><td class="bng-out">র্</td><td>রেফ (যেমন: rrk → র্ক)</td></tr>
                         <tr><td><span class="key-badge">w / v</span></td><td class="bng-out">্ব</td><td>ব-ফলা (যেমন: kw → ক্ব)</td></tr>
                         <tr><td><span class="key-badge">y / Z</span></td><td class="bng-out">্য</td><td>য-ফলা (যেমন: ky → ক্য)</td></tr>
@@ -2493,30 +2079,30 @@
         <!-- Installation Guide -->
         <section id="install">
             <div class="section-header">
-                <div class="section-tag">সহজ ইনস্টলেশন গাইড</div>
-                <h2 class="section-title">৩টি সহজ ধাপে শুরু করুন</h2>
+                <div class="section-tag">সহজ ইনস্টলেশন নির্দেশিকা</div>
+                <h2 class="section-title">মাত্র ৩টি ধাপে শুরু করুন</h2>
             </div>
 
             <div class="install-grid">
                 <div class="bento-card">
-                    <div style="font-size: 0.78rem; font-weight: 700; color: #f1f5f9; margin-bottom: 0.4rem; font-family: var(--font-mono);">macOS ইনস্টলেশন</div>
+                    <div style="font-size: 0.78rem; font-weight: 700; color: #f1f5f9; margin-bottom: 0.4rem; font-family: var(--font-mono);">ম্যাক ওএস সেটআপ</div>
                     <h3>macOS (Ventura, Sonoma, Sequoia)</h3>
-                    <p style="margin-bottom: 0.6rem; font-size: 0.88rem;">১. টার্মিনালে ১-লাইনের কমান্ডটি চালান অথবা <strong>YazaType.dmg</strong> ডাউনলোড করুন।</p>
-                    <p style="margin-bottom: 0.6rem; font-size: 0.88rem;">২. <strong>System Settings → Keyboard → Input Sources</strong> এ গিয়ে <strong>+</strong> বাটনে ক্লিক করে <strong>YazaType</strong> যুক্ত করুন।</p>
-                    <p style="margin-bottom: 1.1rem; font-size: 0.88rem;">৩. <strong>Control + Space</strong> অথবা <strong>Globe (🌐)</strong> কী চেপে সরাসরি টাইপ করা শুরু করুন।</p>
-                    <a href="https://github.com/yahiabinzaman/yazatype/releases/latest/download/YazaType.dmg" class="btn-main btn-mac" style="padding: 0.55rem 1.15rem; font-size: 0.88rem;">
-                        YazaType.dmg ডাউনলোড করুন
+                    <p style="margin-bottom: 0.6rem; font-size: 0.86rem;">১. ১-লাইনের টার্মিনাল কমান্ড চালান অথবা <strong>YazaType.dmg</strong> ডাউনলোড করুন।</p>
+                    <p style="margin-bottom: 0.6rem; font-size: 0.86rem;">২. <strong>System Settings → Keyboard → Input Sources</strong> এ গিয়ে <strong>+</strong> চেপে <strong>YazaType</strong> যুক্ত করুন।</p>
+                    <p style="margin-bottom: 1.1rem; font-size: 0.86rem;">৩. <strong>Control + Space</strong> বা <strong>Globe (🌐)</strong> কি চেপে যেকোনো সময় বাংলা ও ইংরেজিতে সুইচ করুন।</p>
+                    <a href="https://github.com/yahiabinzaman/yazatype/releases/latest/download/YazaType.dmg" class="btn-main btn-mac" style="padding: 0.55rem 1.15rem; font-size: 0.86rem;">
+                        YazaType.dmg ডাউনলোড
                     </a>
                 </div>
 
                 <div class="bento-card">
-                    <div style="font-size: 0.78rem; font-weight: 700; color: #f1f5f9; margin-bottom: 0.4rem; font-family: var(--font-mono);">WINDOWS ইনস্টলেশন</div>
+                    <div style="font-size: 0.78rem; font-weight: 700; color: #f1f5f9; margin-bottom: 0.4rem; font-family: var(--font-mono);">উইন্ডোজ সেটআপ</div>
                     <h3>Windows 10 / 11</h3>
-                    <p style="margin-bottom: 0.6rem; font-size: 0.88rem;">১. PowerShell-এ কমান্ডটি চালান অথবা <strong>YazaType.exe</strong> ডাউনলোড করুন।</p>
-                    <p style="margin-bottom: 0.6rem; font-size: 0.88rem;">২. যদি SmartScreen আসে তবে <strong>"More info" → "Run anyway"</strong> চাপুন।</p>
-                    <p style="margin-bottom: 1.1rem; font-size: 0.88rem;">৩. যেকোনো অ্যাপে বাংলা ও ইংরেজি সুইচ করতে কীবোর্ডের <strong>F12</strong> কী চাপুন।</p>
-                    <a href="https://github.com/yahiabinzaman/yazatype/releases/download/v0.2.5/YazaType.exe" class="btn-main btn-win" style="padding: 0.55rem 1.15rem; font-size: 0.88rem;">
-                        YazaType.exe ডাউনলোড করুন
+                    <p style="margin-bottom: 0.6rem; font-size: 0.86rem;">১. ১-লাইনের পাওয়ারশেল স্ক্রিপ্ট চালান অথবা <strong>YazaType.exe</strong> ডাউনলোড করুন।</p>
+                    <p style="margin-bottom: 0.6rem; font-size: 0.86rem;">২. উইন্ডোজ স্মার্ট-স্ক্রিন আসলে <strong>"More info" → "Run anyway"</strong> এ ক্লিক করুন।</p>
+                    <p style="margin-bottom: 1.1rem; font-size: 0.86rem;">৩. কীবোর্ডের <strong>F12</strong> চেপে যেকোনো সময় বাংলা ও ইংরেজি মোডে পরিবর্তন করুন।</p>
+                    <a href="https://github.com/yahiabinzaman/yazatype/releases/download/v0.2.5/YazaType.exe" class="btn-main btn-win" style="padding: 0.55rem 1.15rem; font-size: 0.86rem;">
+                        YazaType.exe ডাউনলোড
                     </a>
                 </div>
             </div>
@@ -2526,46 +2112,46 @@
         <section id="faq" class="faq-wrap">
             <div class="section-header">
                 <div class="section-tag">সাধারণ জিজ্ঞাসা</div>
-                <h2 class="section-title">সচরাচর জিজ্ঞাসিত প্রশ্নাবলী</h2>
+                <h2 class="section-title">বহুল জিজ্ঞাসিত প্রশ্নসমূহ</h2>
             </div>
 
             <div class="faq-item">
                 <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>উইন্ডোজে "Windows protected your PC" কেন দেখায়?</span>
+                    <span>উইন্ডোজে "Windows protected your PC" দেখালে কী করব?</span>
                     <span class="faq-arrow">▼</span>
                 </div>
                 <div class="faq-answer">
-                    YazaType একটি ১০০% ফ্রি ও ওপেন সোর্স সফটওয়্যার। উইন্ডোজের নিয়ম অনুযায়ী কোনো পেইড এন্টারপ্রাইজ সার্টিফিকেট না থাকলে SmartScreen নীল ব্যানারটি দেখায়। এটি সম্পূর্ণ নিরাপদ; <strong>"More info"</strong> এ ক্লিক করে <strong>"Run anyway"</strong> চাপলেই এটি চালু হয়ে যাবে।
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>অ্যাডোবি ইলাস্ট্রেটরে কীভাবে ভাঙা অক্ষর ছাড়া টাইপ করব?</span>
-                    <span class="faq-arrow">▼</span>
-                </div>
-                <div class="faq-answer">
-                    মেনু বার বা সেটিংস থেকে YazaType-র <strong>Output Encoding</strong> মোড <strong>ANSI</strong> তে পরিবর্তন করুন। এরপর ইলাস্ট্রেটরে আপনার ANSI ফন্ট (যেমন: SutonnyMJ) সিলেক্ট করে সরাসরি টাইপ করুন।
+                    YazaType সম্পূর্ণ ফ্রি ও ওপেন সোর্স হওয়ায় এতে কোনো বাণিজ্যিক ব্যয়বহুল ডিজিটাল সার্টিফিকেট নেই। উইন্ডোজ ডিফেন্ডার মেসেজ দেখালে <strong>"More info"</strong>-তে ক্লিক করে <strong>"Run anyway"</strong> চাপুন। এটি সম্পূর্ণ নিরাপদ, অফলাইন এবং কোনো ট্র্যাকিং ছাড়া কাজ করে।
                 </div>
             </div>
 
             <div class="faq-item">
                 <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>YazaType কি কোনো টাইপিং ডাটা বা কি-লগ সংরক্ষণ করে?</span>
+                    <span>ইলাস্ট্রেটর বা ফটোশপে ভাঙা কার-চিহ্ন ছাড়া কীভাবে লিখব?</span>
                     <span class="faq-arrow">▼</span>
                 </div>
                 <div class="faq-answer">
-                    না! YazaType সম্পূর্ণ ১০০% অফলাইন সফটওয়্যার। এর কোনো ইন্টারনেট অ্যাক্সেস বা টেলিমেট্রি নেই। আপনার টাইপ করা প্রতিটি তথ্য সম্পূর্ণ নিরাপদ।
+                    মেনু বার বা কীবোর্ড আইকন থেকে <strong>Output Encoding</strong> পরিবর্তন করে <strong>ANSI</strong> করে নিন। এবার ইলাস্ট্রেটর বা ফটোশপে আনসি ফন্ট (যেমন: SutonnyMJ) সিলেক্ট করে সরাসরি টাইপ করুন। YazaType স্বয়ংক্রিয়ভাবে সমস্ত যুক্তবর্ণ ও কার-চিহ্ন সাজিয়ে দেবে।
                 </div>
             </div>
 
             <div class="faq-item">
                 <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>ইংরেজি থেকে বাংলায় কীভাবে পরিবর্তন করব?</span>
+                    <span>YazaType কি আমার টাইপিং ডেটা সংরক্ষণ করে?</span>
                     <span class="faq-arrow">▼</span>
                 </div>
                 <div class="faq-answer">
-                    ম্যাকে <strong>Control + Space</strong> অথবা <strong>Globe (🌐)</strong> কী চাপুন। উইন্ডোজে <strong>F12</strong> চাপুন।
+                    একদমই না! YazaType ১০০% অফলাইন ও ওপেন সোর্স। এটি কোনো ডেটা ইন্টারনেটে পাঠায় না এবং এর কোনো নেটওয়ার্ক পারমিশনও নেই।
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>বাংলা ও ইংরেজিতে কীভাবে পরিবর্তন করব?</span>
+                    <span class="faq-arrow">▼</span>
+                </div>
+                <div class="faq-answer">
+                    ম্যাকে <strong>Control + Space</strong> অথবা <strong>Globe (🌐)</strong> বোতাম ব্যবহার করুন। উইন্ডোজে <strong>F12</strong> বোতাম চাপুন।
                 </div>
             </div>
         </section>
@@ -2583,11 +2169,11 @@
                         <span class="brand-version">v0.2.5</span>
                     </div>
                     <p class="footer-desc">
-                        ম্যাক ও উইন্ডোজের জন্য আধুনিক ও অতি দ্রুতগতির বাংলা কীবোর্ড। সরাসরি ইন-মেমরি টাইপিং, ইউনিকোড ও অ্যানসি সমর্থন এবং ১০০% অফলাইন নিরাপত্তা।
+                        ম্যাক ও উইন্ডোজের জন্য দ্রুততম ও আধুনিক বাংলা ইনপুট ইঞ্জিন। নির্ভুল টাইপিং, ইউনিকোড ও আনসি দ্বিমুখী সমর্থন এবং পূর্ণাঙ্গ অফলাইন প্রাইভেসি।
                     </p>
                     <div class="footer-telemetry">
                         <span class="footer-pulse"></span>
-                        <span>Universal Binary · সম্পূর্ণ ফ্রি ও ওপেন সোর্স</span>
+                        <span>ইউনিভার্সাল বাইনারি · ফ্রি ও ওপেন সোর্স</span>
                     </div>
                 </div>
 
@@ -2595,10 +2181,10 @@
                 <div class="footer-col">
                     <h4>ডাউনলোড</h4>
                     <ul>
-                        <li><a href="https://github.com/yahiabinzaman/yazatype/releases/latest/download/YazaType.dmg">macOS (.dmg)</a></li>
-                        <li><a href="https://github.com/yahiabinzaman/yazatype/releases/download/v0.2.5/YazaType.exe">Windows (.exe)</a></li>
-                        <li><a href="https://github.com/yahiabinzaman/yazatype/releases/download/v0.2.5/YazaType-Windows-x64.zip">Windows (.zip)</a></li>
-                        <li><a href="https://github.com/yahiabinzaman/yazatype/releases">GitHub রিলিজ</a></li>
+                        <li><a href="https://github.com/yahiabinzaman/yazatype/releases/latest/download/YazaType.dmg">ম্যাক ওএস (.dmg)</a></li>
+                        <li><a href="https://github.com/yahiabinzaman/yazatype/releases/download/v0.2.5/YazaType.exe">উইন্ডোজ (.exe)</a></li>
+                        <li><a href="https://github.com/yahiabinzaman/yazatype/releases/download/v0.2.5/YazaType-Windows-x64.zip">উইন্ডোজ (.zip)</a></li>
+                        <li><a href="https://github.com/yahiabinzaman/yazatype/releases">গিটহাব রিলিজ</a></li>
                     </ul>
                 </div>
 
@@ -2606,11 +2192,11 @@
                 <div class="footer-col">
                     <h4>প্রোডাক্ট</h4>
                     <ul>
-                        <li><a href="#features">বৈশিষ্ট্যসমূহ</a></li>
-                        <li><a href="#encoding">ইউনিকোড ও অ্যানসি</a></li>
+                        <li><a href="#features">ফিচারস</a></li>
+                        <li><a href="#encoding">ইউনিকোড ও আনসি</a></li>
                         <li><a href="#layouts">কীবোর্ড লেআউট</a></li>
-                        <li><a href="#playground">লাইভ স্টুডিও</a></li>
-                        <li><a href="#cheatsheet">টাইপিং চিট-শিট</a></li>
+                        <li><a href="#playground">লাইভ টেস্টিং স্টুডিও</a></li>
+                        <li><a href="#cheatsheet">ফোনেটিক চিট-শিট</a></li>
                     </ul>
                 </div>
 
@@ -2618,10 +2204,10 @@
                 <div class="footer-col">
                     <h4>ওপেন সোর্স</h4>
                     <ul>
-                        <li><a href="https://github.com/yahiabinzaman/yazatype" target="_blank" rel="noopener">GitHub রিপোজিটরি</a></li>
-                        <li><a href="https://github.com/yahiabinzaman/yazatype/issues" target="_blank" rel="noopener">সমস্যা রিপোর্ট করুন</a></li>
+                        <li><a href="https://github.com/yahiabinzaman/yazatype" target="_blank" rel="noopener">গিটহাব রিপোজিটরি</a></li>
+                        <li><a href="https://github.com/yahiabinzaman/yazatype/issues" target="_blank" rel="noopener">সমস্যা জানান (Issue)</a></li>
                         <li><a href="https://github.com/yahiabinzaman/yazatype/blob/main/LICENSE" target="_blank" rel="noopener">MIT লাইসেন্স</a></li>
-                        <li><a href="https://github.com/yahiabinzaman" target="_blank" rel="noopener">Yahia Bin Zaman</a></li>
+                        <li><a href="javascript:void(0)" onclick="openAuthorSocials(event)" class="footer-author-link">ইয়াহিয়া বিন জামান <span class="creator-tag">নির্মাতা</span></a></li>
                     </ul>
                 </div>
             </div>
@@ -2633,14 +2219,15 @@
                     <span class="footer-copy-text">© ২০২৬ <span class="footer-copy-brand">YazaType</span></span>
                     <span class="footer-dot-sep" aria-hidden="true">·</span>
                     <span class="footer-copy-craft">নিপুণতায় তৈরি করেছেন</span>
-                                        <div class="author-badge-container">
+
+                    <div class="author-badge-container">
                         <button type="button" class="author-badge" id="author-badge-btn" onclick="toggleAuthorSocials(event)" aria-expanded="false" aria-haspopup="true" title="ইয়াহিয়া বিন জামানের সোশ্যাল লিংক দেখতে ক্লিক করুন">
                             <span class="author-avatar-ring">
                                 <img src="https://github.com/yahiabinzaman.png" alt="Yahia Bin Zaman" class="author-avatar-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
                                 <span class="author-avatar-fallback">Y</span>
                             </span>
                             <span class="author-name">Yahia Bin Zaman</span>
-                            <span class="author-dot-indicator" title="Active Maintainer"></span>
+                            <span class="author-dot-indicator" title="সক্রিয় ডেভেলপার"></span>
                             <svg class="author-ext-icon chevron-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                                 <polyline points="6 9 12 15 18 9"></polyline>
                             </svg>
@@ -2652,6 +2239,7 @@
                                 <div class="popover-avatar-wrap">
                                     <img src="https://github.com/yahiabinzaman.png" alt="Yahia Bin Zaman" class="popover-avatar-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
                                     <span class="popover-avatar-fallback">Y</span>
+                                    <span class="popover-status-dot"></span>
                                 </div>
                                 <div class="popover-user-info">
                                     <div class="popover-user-name">
@@ -2660,11 +2248,18 @@
                                     </div>
                                     <div class="popover-user-bio">অ্যাপ্লাইড এআই ও ফুল-স্ট্যাক সফটওয়্যার ইঞ্জিনিয়ার</div>
                                 </div>
+                                <div class="popover-close-btn" onclick="toggleAuthorSocials(event)" title="বন্ধ করুন" aria-label="বন্ধ করুন">
+                                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                                    </svg>
+                                </div>
                             </div>
 
                             <div class="popover-divider"></div>
 
                             <div class="author-social-links">
+                                <!-- GitHub -->
                                 <a href="https://github.com/yahiabinzaman" target="_blank" rel="noopener" class="author-social-item item-github">
                                     <div class="social-item-icon">
                                         <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
@@ -2680,6 +2275,7 @@
                                     </svg>
                                 </a>
 
+                                <!-- Facebook -->
                                 <a href="https://facebook.com/yahiabinzaman" target="_blank" rel="noopener" class="author-social-item item-facebook">
                                     <div class="social-item-icon">
                                         <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
@@ -2695,6 +2291,7 @@
                                     </svg>
                                 </a>
 
+                                <!-- Instagram -->
                                 <a href="https://instagram.com/yahiabinzaman" target="_blank" rel="noopener" class="author-social-item item-instagram">
                                     <div class="social-item-icon">
                                         <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
@@ -2710,6 +2307,7 @@
                                     </svg>
                                 </a>
 
+                                <!-- LinkedIn -->
                                 <a href="https://linkedin.com/in/yahiabinzaman" target="_blank" rel="noopener" class="author-social-item item-linkedin">
                                     <div class="social-item-icon">
                                         <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
@@ -2728,6 +2326,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="footer-bottom-actions">
                     <a href="../index.html" class="footer-ctrl-btn" title="Switch to English version">
                         <svg class="footer-ctrl-icon globe-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -2749,9 +2348,257 @@
         </div>
     </footer>
 
-    <!-- Interactive JavaScript Engine -->
+    <!-- Interactive Engine Scripts -->
     <script>
-        // Terminal Tab Switcher
+        // ----------------------------------------------------
+        // High-Performance Ambient Bengali Typography Canvas
+        // ----------------------------------------------------
+        (function initBengaliAmbient() {
+            const canvas = document.getElementById('bengali-ambient-canvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            let width, height;
+            let particles = [];
+            
+            // Full set of Bengali alphabet: vowels, consonants, ligatures
+            const glyphs = [
+                'অ', 'আ', 'ই', 'ঈ', 'উ', 'ঊ', 'ঋ', 'এ', 'ঐ', 'ও', 'ঔ',
+                'ক', 'খ', 'গ', 'ঘ', 'ঙ', 'চ', 'ছ', 'জ', 'ঝ', 'ঞ',
+                'ট', 'ঠ', 'ড', 'ঢ', 'ণ', 'ত', 'থ', 'দ', 'ধ', 'ন',
+                'প', 'ফ', 'ব', 'ভ', 'ম', 'য', 'র', 'ল', 'শ', 'ষ',
+                'স', 'হ', 'ড়', 'ঢ়', 'য়', 'ৎ', 'ং', 'ঃ', 'ঁ',
+                'ক্ষ', 'জ্ঞ', 'শ্র', 'ত্র', 'ক্র', 'হ্ম'
+            ];
+            
+            let mouseX = 0, mouseY = 0;
+            let targetMouseX = 0, targetMouseY = 0;
+            let cursorActualX = -1000, cursorActualY = -1000;
+
+            function resize() {
+                width = canvas.width = window.innerWidth;
+                height = canvas.height = window.innerHeight;
+            }
+            window.addEventListener('resize', resize);
+            resize();
+
+            window.addEventListener('mousemove', (e) => {
+                cursorActualX = e.clientX;
+                cursorActualY = e.clientY;
+                targetMouseX = (e.clientX - width / 2) * 0.04;
+                targetMouseY = (e.clientY - height / 2) * 0.04;
+            });
+
+            // Density: ~60 particles on desktop for lush depth
+            const count = Math.min(68, Math.max(28, Math.floor(width / 24)));
+            for (let i = 0; i < count; i++) {
+                // 3 parallax depth layers
+                const layer = Math.random(); // 0 to 1
+                let size, baseOpacity, speedY, colorRgb, glow;
+                if (layer < 0.45) {
+                    // Far deep plane: small, slow, subtle
+                    size = 18 + Math.random() * 16;
+                    baseOpacity = 0.05 + Math.random() * 0.06;
+                    speedY = -0.15 - Math.random() * 0.25;
+                    colorRgb = '226, 232, 240';
+                    glow = false;
+                } else if (layer < 0.8) {
+                    // Mid plane: medium, gentle drift, soft glow
+                    size = 32 + Math.random() * 22;
+                    baseOpacity = 0.09 + Math.random() * 0.08;
+                    speedY = -0.3 - Math.random() * 0.35;
+                    colorRgb = '186, 230, 253';
+                    glow = true;
+                } else {
+                    // Near plane: prominent, luminous, majestic
+                    size = 52 + Math.random() * 26;
+                    baseOpacity = 0.14 + Math.random() * 0.10;
+                    speedY = -0.45 - Math.random() * 0.45;
+                    colorRgb = '240, 246, 255';
+                    glow = true;
+                }
+
+                particles.push({
+                    char: glyphs[Math.floor(Math.random() * glyphs.length)],
+                    x: Math.random() * width,
+                    y: Math.random() * height,
+                    size: size,
+                    speedX: (Math.random() - 0.5) * 0.25,
+                    speedY: speedY,
+                    opacity: baseOpacity,
+                    pulseSpeed: 0.015 + Math.random() * 0.025,
+                    pulseAngle: Math.random() * Math.PI * 2,
+                    depth: 0.2 + layer * 0.8,
+                    rot: (Math.random() - 0.5) * 0.2,
+                    rotSpeed: (Math.random() - 0.5) * 0.003,
+                    colorRgb: colorRgb,
+                    glow: glow
+                });
+            }
+
+            let isVisible = true;
+            document.addEventListener('visibilitychange', () => {
+                isVisible = !document.hidden;
+            });
+
+            function loop() {
+                if (isVisible) {
+                    ctx.clearRect(0, 0, width, height);
+                    mouseX += (targetMouseX - mouseX) * 0.05;
+                    mouseY += (targetMouseY - mouseY) * 0.05;
+
+                    for (let i = 0; i < particles.length; i++) {
+                        const p = particles[i];
+                        p.y += p.speedY;
+                        p.x += p.speedX;
+                        p.rot += p.rotSpeed;
+                        p.pulseAngle += p.pulseSpeed;
+
+                        // Soft mouse proximity deflection
+                        const dx = (p.x + mouseX * p.depth) - cursorActualX;
+                        const dy = (p.y + mouseY * p.depth) - cursorActualY;
+                        const dist = Math.sqrt(dx * dx + dy * dy);
+                        if (dist < 120 && dist > 0) {
+                            const force = (120 - dist) / 120 * 0.6;
+                            p.x += (dx / dist) * force;
+                            p.y += (dy / dist) * force;
+                        }
+
+                        if (p.y < -60) {
+                            p.y = height + 50;
+                            p.x = Math.random() * width;
+                            p.char = glyphs[Math.floor(Math.random() * glyphs.length)];
+                        }
+                        if (p.x < -60) p.x = width + 50;
+                        if (p.x > width + 60) p.x = -50;
+
+                        const currentAlpha = p.opacity + Math.sin(p.pulseAngle) * 0.025;
+                        const renderX = p.x + mouseX * p.depth;
+                        const renderY = p.y + mouseY * p.depth;
+
+                        ctx.save();
+                        ctx.translate(renderX, renderY);
+                        ctx.rotate(p.rot);
+                        ctx.font = `600 ${p.size}px "Anek Bangla", "Hind Siliguri", sans-serif`;
+                        
+                        if (p.glow) {
+                            ctx.shadowColor = 'rgba(96, 165, 250, 0.4)';
+                            ctx.shadowBlur = 8;
+                        }
+                        
+                        ctx.fillStyle = `rgba(${p.colorRgb}, ${Math.max(0.02, currentAlpha)})`;
+                        ctx.textAlign = 'center';
+                        ctx.textBaseline = 'middle';
+                        ctx.fillText(p.char, 0, 0);
+                        ctx.restore();
+                    }
+                }
+                requestAnimationFrame(loop);
+            }
+            loop();
+        })();
+
+        // ----------------------------------------------------
+        // Author Social Profiles Popover (100% Reliable Toggle)
+        // ----------------------------------------------------
+        window.toggleAuthorSocials = function(e) {
+            if (e) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+            const popover = document.getElementById('author-social-popover');
+            const btn = document.getElementById('author-badge-btn');
+            if (!popover) return;
+            const isOpen = popover.classList.contains('open');
+            if (isOpen) {
+                popover.classList.remove('open');
+                if (btn) {
+                    btn.classList.remove('active');
+                    btn.setAttribute('aria-expanded', 'false');
+                }
+            } else {
+                popover.classList.add('open');
+                if (btn) {
+                    btn.classList.add('active');
+                    btn.setAttribute('aria-expanded', 'true');
+                }
+            }
+        };
+
+        window.openAuthorSocials = function(e) {
+            if (e) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+            const popover = document.getElementById('author-social-popover');
+            const btn = document.getElementById('author-badge-btn');
+            if (!popover || !btn) return;
+            btn.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            popover.classList.add('open');
+            btn.classList.add('active');
+            btn.setAttribute('aria-expanded', 'true');
+        };
+
+        // Attach listeners securely when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            const btn = document.getElementById('author-badge-btn');
+            if (btn) {
+                btn.addEventListener('click', window.toggleAuthorSocials);
+            }
+        });
+
+        // Close Popover on Outside Click
+        document.addEventListener('click', function(e) {
+            const popover = document.getElementById('author-social-popover');
+            const btn = document.getElementById('author-badge-btn');
+            if (popover && popover.classList.contains('open')) {
+                if (!popover.contains(e.target) && (!btn || !btn.contains(e.target))) {
+                    popover.classList.remove('open');
+                    if (btn) {
+                        btn.classList.remove('active');
+                        btn.setAttribute('aria-expanded', 'false');
+                    }
+                }
+            }
+        });
+
+        // Close on Escape Key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const popover = document.getElementById('author-social-popover');
+                const btn = document.getElementById('author-badge-btn');
+                if (popover && popover.classList.contains('open')) {
+                    popover.classList.remove('open');
+                    if (btn) {
+                        btn.classList.remove('active');
+                        btn.setAttribute('aria-expanded', 'false');
+                    }
+                }
+            }
+        });
+
+        // ----------------------------------------------------
+        // Smart OS Detector for 1-Click Download Highlighting
+        // ----------------------------------------------------
+        (function detectUserOS() {
+            const ua = window.navigator.userAgent.toLowerCase();
+            const macBtns = document.querySelectorAll('.btn-mac');
+            const winBtns = document.querySelectorAll('.btn-win');
+            const isWin = ua.includes('win');
+            const isMac = ua.includes('mac') || ua.includes('iphone') || ua.includes('ipad');
+
+            const osBadge = document.getElementById('hero-os-badge');
+            if (isWin) {
+                winBtns.forEach(btn => btn.classList.add('btn-primary-highlight'));
+                if (osBadge) osBadge.innerText = "Detected: Windows 10 / 11";
+            } else if (isMac) {
+                macBtns.forEach(btn => btn.classList.add('btn-primary-highlight'));
+                if (osBadge) osBadge.innerText = "Detected: macOS (Apple Silicon & Intel)";
+            }
+        })();
+
+        // ----------------------------------------------------
+        // Terminal Tab Switcher & Clipboard Copy
+        // ----------------------------------------------------
         const commands = {
             mac: "curl -fsSL https://raw.githubusercontent.com/yahiabinzaman/yazatype/main/scripts/install.sh | bash",
             win: "irm https://raw.githubusercontent.com/yahiabinzaman/yazatype/main/scripts/install.ps1 | iex"
@@ -2760,68 +2607,74 @@
 
         function switchTerm(platform) {
             currentPlatform = platform;
-            document.getElementById('tab-mac').classList.toggle('active', platform === 'mac');
-            document.getElementById('tab-win').classList.toggle('active', platform === 'win');
-            document.getElementById('term-text').innerText = commands[platform];
+            const tabMac = document.getElementById('tab-mac');
+            const tabWin = document.getElementById('tab-win');
+            if (tabMac) tabMac.classList.toggle('active', platform === 'mac');
+            if (tabWin) tabWin.classList.toggle('active', platform === 'win');
+            const termText = document.getElementById('term-text');
+            if (termText) termText.innerText = commands[platform];
         }
 
         function copyTermCommand() {
-            const cmd = commands[currentPlatform];
-            navigator.clipboard.writeText(cmd).then(() => {
-                const btn = document.getElementById('copy-btn');
+            const text = commands[currentPlatform];
+            navigator.clipboard.writeText(text).then(() => {
                 const label = document.getElementById('copy-label');
-                btn.classList.add('copied');
-                label.innerText = 'কপি হয়েছে!';
-                setTimeout(() => {
-                    btn.classList.remove('copied');
-                    label.innerText = 'কপি করুন';
-                }, 2000);
+                if (label) {
+                    label.innerText = 'Copied!';
+                    setTimeout(() => { label.innerText = 'Copy'; }, 2000);
+                }
+            }).catch(err => {
+                console.warn('Clipboard write failed:', err);
             });
         }
 
-        // Live Playground Engine
+        // ----------------------------------------------------
+        // Interactive Live Testing Studio & Transliteration
+        // ----------------------------------------------------
         let currentEnc = 'unicode';
 
         function setPlaygroundEnc(enc) {
             currentEnc = enc;
-            document.getElementById('enc-uni-btn').classList.toggle('active', enc === 'unicode');
-            document.getElementById('enc-ansi-btn').classList.toggle('active', enc === 'ansi');
+            const uniBtn = document.getElementById('enc-uni-btn');
+            const ansiBtn = document.getElementById('enc-ansi-btn');
+            if (uniBtn) uniBtn.classList.toggle('active', enc === 'unicode');
+            if (ansiBtn) ansiBtn.classList.toggle('active', enc === 'ansi');
             updatePlayground();
         }
 
-        function setDemoText(text) {
-            document.getElementById('demo-input').value = text;
-            updatePlayground();
+        function setDemoText(txt) {
+            const input = document.getElementById('demo-input');
+            if (input) {
+                input.value = txt;
+                updatePlayground();
+            }
         }
 
-        // Lightweight Client-Side Transliteration for Web Demo
-        const vowelsMap = {
-            "a": "আ", "i": "ই", "I": "ঈ", "u": "উ", "U": "ঊ",
-            "rri": "ঋ", "e": "এ", "OI": "ঐ", "O": "ও", "OU": "ঔ"
-        };
         const consonantsMap = {
             "k": "ক", "kh": "খ", "g": "গ", "gh": "ঘ", "Ng": "ঙ",
             "c": "চ", "ch": "ছ", "j": "জ", "jh": "ঝ", "NG": "ঞ",
             "T": "ট", "Th": "ঠ", "D": "ড", "Dh": "ঢ", "N": "ণ",
             "t": "ত", "th": "থ", "d": "দ", "dh": "ধ", "n": "ন",
-            "p": "প", "ph": "ফ", "f": "ফ", "b": "ব", "bh": "ভ", "v": "ভ", "m": "ম",
-            "z": "য", "r": "র", "l": "ল", "sh": "শ", "S": "শ", "Sh": "ষ",
-            "s": "স", "h": "হ", "R": "ড়", "Rh": "ঢ়", "y": "য়",
-            "kkh": "ক্ষ", "jng": "জ্ঞ", "..": "।", "$$": "৳"
+            "p": "প", "f": "ফ", "ph": "ফ", "b": "ব", "bh": "ভ", "v": "ভ", "m": "ম",
+            "z": "য", "r": "র", "l": "ল", "sh": "শ", "S": "ষ", "s": "স", "h": "হ",
+            "R": "ড়", "Rh": "ঢ়", "y": "য়", "Y": "য়", "t``": "ৎ", "ng": "ং", ":": "ঃ", "^": "ঁ"
         };
 
-        function transliterateDemo(input) {
-            if (!input) return "";
-            
-            const wordDict = {
-                "amar": "আমার", "sonar": "সোনার", "bangla": "বাংলা",
-                "ami": "আমি", "tomay": "তোমায়", "bhalobashi": "ভালোবাসি",
-                "kkhoma": "ক্ষমা", "o": "ও", "shanti": "শান্তি",
-                "projukti": "প্রযুক্তি", "shrishti": "সৃষ্টি",
-                "bangladesh": "বাংলাদেশ", "desh": "দেশ"
-            };
+        const vowelsMap = {
+            "o": "", "a": "া", "i": "ি", "I": "ী", "u": "ু", "U": "ূ",
+            "e": "ে", "O": "ো", "OI": "ৈ", "OU": "ৌ"
+        };
 
-            const words = input.split(' ');
+        const wordDict = {
+            "amar": "আমার", "sonar": "সোনার", "bangla": "বাংলা",
+            "ami": "আমি", "tomay": "তোমায়", "bhalobashi": "ভালোবাসি",
+            "kkhoma": "ক্ষমা", "shanti": "শান্তি", "projukti": "প্রযুক্তি", "shrishti": "সৃষ্টি",
+            "bangladesh": "বাংলাদেশ", "desh": "দেশ"
+        };
+
+        function transliterateDemo(text) {
+            if (!text) return "";
+            const words = text.split(/\s+/);
             return words.map(w => {
                 if (wordDict[w.toLowerCase()]) return wordDict[w.toLowerCase()];
                 let out = "";
@@ -2856,22 +2709,31 @@
         }
 
         function updatePlayground() {
-            const val = document.getElementById('demo-input').value;
+            const input = document.getElementById('demo-input');
+            if (!input) return;
+            const val = input.value;
             const t0 = performance.now();
             let bng = transliterateDemo(val);
             if (currentEnc === 'ansi') {
                 bng = toAnsiDemo(bng);
             }
             const t1 = performance.now();
-            document.getElementById('demo-output').innerText = bng || "(উপরে কিছু টাইপ করুন...)";
-            document.getElementById('stats-latency').innerText = `ল্যাটেন্সি: ~${Math.max(0.1, (t1 - t0)).toFixed(1)}ms · ${currentEnc === 'ansi' ? 'ANSI' : 'Unicode'} মোড`;
+            const output = document.getElementById('demo-output');
+            if (output) output.innerText = bng || "(Type something above...)";
+            const stats = document.getElementById('stats-latency');
+            if (stats) stats.innerText = `Latency: ~${Math.max(0.1, (t1 - t0)).toFixed(1)}ms · ${currentEnc.toUpperCase()} Mode`;
         }
 
-        document.getElementById('demo-input').addEventListener('input', updatePlayground);
+        const inputElem = document.getElementById('demo-input');
+        if (inputElem) {
+            inputElem.addEventListener('input', updatePlayground);
+        }
 
         // Cheatsheet Search Filter
         function filterCheatsheet() {
-            const query = document.getElementById('cheat-search').value.toLowerCase().trim();
+            const input = document.getElementById('cheat-search');
+            if (!input) return;
+            const query = input.value.toLowerCase().trim();
             const rows = document.querySelectorAll('#cheat-tbody tr');
             rows.forEach(row => {
                 const text = row.innerText.toLowerCase();
@@ -2879,133 +2741,11 @@
             });
         }
 
-        // FAQ Toggle
+        // Accordion FAQ Toggle
         function toggleFaq(elem) {
             const item = elem.parentElement;
-            item.classList.toggle('open');
-        }
-
-        // ==========================================
-        // YazaType Converter Bi-directional Controller
-        // ==========================================
-        let convVersion = 'v1';
-        let isSyncingConv = false;
-
-        const convVersionMeta = {
-            'v1': { name: 'অ্যানসি V1', tag: 'বিজয় / সুতন্নিএমজে' },
-            'v2': { name: 'অ্যানসি V2', tag: 'স্ট্যান্ডার্ড অ্যানসি' },
-            'v3': { name: 'অ্যানসি V3', tag: 'মডার্ন ডিজাইন গ্লিফ' }
-        };
-
-        function setConverterVersion(ver) {
-            convVersion = ver;
-            ['v1', 'v2', 'v3'].forEach(v => {
-                const tab = document.getElementById(`conv-tab-${v}`);
-                if (tab) tab.classList.toggle('active', v === ver);
-            });
-            const meta = convVersionMeta[ver] || convVersionMeta['v1'];
-            const titleElem = document.getElementById('conv-ansi-title');
-            const tagElem = document.getElementById('conv-ansi-tag');
-            if (titleElem) titleElem.innerText = meta.name;
-            if (tagElem) tagElem.innerText = meta.tag;
-
-            syncFromUnicode();
-        }
-
-        function updateConvCounts() {
-            const uniVal = document.getElementById('conv-unicode-input').value;
-            const ansiVal = document.getElementById('conv-ansi-input').value;
-
-            const uniWords = uniVal.trim() ? uniVal.trim().split(/\s+/).length : 0;
-            const ansiWords = ansiVal.trim() ? ansiVal.trim().split(/\s+/).length : 0;
-
-            const toBnDigits = (n) => String(n).replace(/\d/g, d => "০১২৩৪৫৬৭৮৯"[d]);
-
-            const uniCountElem = document.getElementById('conv-uni-chars');
-            const ansiCountElem = document.getElementById('conv-ansi-chars');
-
-            if (uniCountElem) uniCountElem.innerText = `${toBnDigits(uniVal.length)} অক্ষর · ${toBnDigits(uniWords)} শব্দ`;
-            if (ansiCountElem) ansiCountElem.innerText = `${toBnDigits(ansiVal.length)} অক্ষর · ${toBnDigits(ansiWords)} শব্দ`;
-        }
-
-        function syncFromUnicode() {
-            if (isSyncingConv) return;
-            isSyncingConv = true;
-            try {
-                const uniText = document.getElementById('conv-unicode-input').value;
-                if (!window.YazaConverter) {
-                    console.warn('YazaConverter engine not loaded yet');
-                    return;
-                }
-                const converted = window.YazaConverter.unicodeToAnsi(uniText, convVersion);
-                document.getElementById('conv-ansi-input').value = converted;
-                updateConvCounts();
-            } finally {
-                isSyncingConv = false;
-            }
-        }
-
-        function syncFromAnsi() {
-            if (isSyncingConv) return;
-            isSyncingConv = true;
-            try {
-                const ansiText = document.getElementById('conv-ansi-input').value;
-                if (!window.YazaConverter) {
-                    console.warn('YazaConverter engine not loaded yet');
-                    return;
-                }
-                const converted = window.YazaConverter.ansiToUnicode(ansiText, convVersion);
-                document.getElementById('conv-unicode-input').value = converted;
-                updateConvCounts();
-            } finally {
-                isSyncingConv = false;
-            }
-        }
-
-        function copyConvText(type) {
-            const targetId = type === 'uni' ? 'conv-unicode-input' : 'conv-ansi-input';
-            const btnId = type === 'uni' ? 'btn-copy-uni' : 'btn-copy-ansi';
-            const txtId = type === 'uni' ? 'txt-copy-uni' : 'txt-copy-ansi';
-            const text = document.getElementById(targetId).value;
-
-            navigator.clipboard.writeText(text).then(() => {
-                const btn = document.getElementById(btnId);
-                const txt = document.getElementById(txtId);
-                if (btn) btn.classList.add('copied');
-                if (txt) txt.innerText = 'কপি হয়েছে!';
-                setTimeout(() => {
-                    if (btn) btn.classList.remove('copied');
-                    if (txt) txt.innerText = 'কপি';
-                }, 2000);
-            });
-        }
-
-        async function pasteConvText(type) {
-            try {
-                const text = await navigator.clipboard.readText();
-                if (type === 'uni') {
-                    document.getElementById('conv-unicode-input').value = text;
-                    syncFromUnicode();
-                } else {
-                    document.getElementById('conv-ansi-input').value = text;
-                    syncFromAnsi();
-                }
-            } catch (err) {
-                console.warn('Clipboard read permission denied or unavailable:', err);
-            }
-        }
-
-        function clearConvBoxes() {
-            document.getElementById('conv-unicode-input').value = '';
-            document.getElementById('conv-ansi-input').value = '';
-            updateConvCounts();
-        }
-
-        function setConvDemo(text) {
-            document.getElementById('conv-unicode-input').value = text;
-            syncFromUnicode();
+            if (item) item.classList.toggle('open');
         }
     </script>
-    <script src="../converter-engine.js"></script>
 </body>
 </html>
