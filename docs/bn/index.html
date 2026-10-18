@@ -1497,6 +1497,9 @@
             filter: blur(0.5px);
         }
 
+                        /* ==========================================================================
+           Footer Bottom Bar: Layout, Alignment & Interactive Controls
+           ========================================================================== */
         .footer-bottom {
             display: flex;
             justify-content: space-between;
@@ -1504,17 +1507,29 @@
             flex-wrap: wrap;
             gap: 1.25rem;
             font-size: 0.82rem;
-            padding-bottom: 0.5rem;
+            padding: 0.85rem 0 1.5rem;
             position: relative;
         }
 
         .footer-bottom-left {
-            display: flex;
+            display: inline-flex;
             align-items: center;
             flex-wrap: wrap;
-            gap: 0.6rem;
+            gap: 0.5rem;
             font-size: 0.82rem;
             color: var(--text-secondary);
+            line-height: 1;
+            height: 28px;
+        }
+
+        .footer-copy-text,
+        .footer-dot-sep,
+        .footer-copy-craft {
+            display: inline-flex;
+            align-items: center;
+            line-height: 1;
+            vertical-align: middle;
+            height: 24px;
         }
 
         .footer-copy-text {
@@ -1526,50 +1541,60 @@
             color: var(--text-primary);
             font-weight: 600;
             letter-spacing: -0.01em;
+            margin-left: 0.2rem;
         }
 
         .footer-dot-sep {
             color: var(--border-hover);
             font-size: 0.9rem;
             user-select: none;
+            padding: 0 0.1rem;
         }
 
         .footer-copy-craft {
             color: var(--text-secondary);
-            font-size: 0.8rem;
+            font-size: 0.82rem;
+            font-weight: 500;
         }
 
-                /* Author Social Popover Trigger & Container */
+        /* Author Badge Container & Alignments */
         .author-badge-container {
             position: relative;
             display: inline-flex;
             align-items: center;
+            line-height: 1;
+            vertical-align: middle;
+            height: 24px;
             z-index: 1000;
         }
 
         .author-badge {
             display: inline-flex;
             align-items: center;
-            gap: 0.35rem;
-            padding: 0.12rem 0.35rem 0.12rem 0.15rem;
-            background: transparent;
-            border: none;
-            border-radius: 6px;
+            gap: 0.38rem;
+            padding: 0.12rem 0.52rem 0.12rem 0.22rem;
+            background: var(--pill-bg);
+            border: 1px solid var(--border-subtle);
+            border-radius: 9999px;
             color: var(--text-primary);
             font-family: inherit;
-            font-size: 0.82rem;
+            font-size: 0.8rem;
             font-weight: 600;
-            transition: all 0.2s ease;
+            line-height: 1;
+            height: 24px;
+            box-sizing: border-box;
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
             cursor: pointer;
             user-select: none;
-            outline: none;
-            box-shadow: none;
             text-decoration: none;
+            vertical-align: middle;
         }
 
         .author-badge:hover, .author-badge.active {
             background: var(--nav-hover-bg);
+            border-color: var(--border-hover);
             color: var(--accent-blue);
+            transform: translateY(-1px);
         }
 
         .author-avatar-ring {
@@ -1587,6 +1612,10 @@
             background: var(--bg-surface);
             border: 1px solid var(--border-subtle);
             flex-shrink: 0;
+            line-height: 0;
+            margin: 0;
+            padding: 0;
+            vertical-align: middle;
             transition: transform 0.2s ease, border-color 0.2s ease;
         }
 
@@ -1619,18 +1648,139 @@
 
         .author-name {
             color: var(--text-primary);
-            font-size: 0.82rem;
+            font-size: 0.8rem;
             font-weight: 600;
+            line-height: 1;
             letter-spacing: -0.01em;
             transition: color 0.2s ease;
-            text-decoration: underline;
-            text-decoration-color: transparent;
-            text-underline-offset: 3px;
+            vertical-align: middle;
         }
 
         .author-badge:hover .author-name {
             color: var(--accent-blue);
-            text-decoration-color: var(--accent-blue);
+        }
+
+        /* Right Actions: Segmented Day/Night Switch & Ctrl Buttons */
+        .footer-bottom-actions {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.65rem;
+            flex-wrap: wrap;
+            line-height: 1;
+            height: 28px;
+        }
+
+        /* Tactile Segmented Day/Night Switch */
+        .theme-segmented-switch {
+            display: inline-flex;
+            align-items: center;
+            background: var(--pill-bg);
+            border: 1px solid var(--border-subtle);
+            border-radius: 9999px;
+            padding: 0.18rem;
+            gap: 0.15rem;
+            user-select: none;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+            line-height: 1;
+            height: 28px;
+            box-sizing: border-box;
+            vertical-align: middle;
+        }
+
+        .theme-seg-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.35rem;
+            padding: 0 0.65rem;
+            height: 22px;
+            box-sizing: border-box;
+            border-radius: 9999px;
+            border: none;
+            background: transparent;
+            color: var(--text-muted);
+            font-size: 0.74rem;
+            font-weight: 600;
+            font-family: inherit;
+            cursor: pointer;
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+            outline: none;
+            line-height: 1;
+        }
+
+        .theme-seg-btn svg {
+            display: block;
+            flex-shrink: 0;
+        }
+
+        .theme-seg-btn:hover {
+            color: var(--text-primary);
+        }
+
+        .theme-seg-btn.active {
+            background: var(--download-btn-bg);
+            color: var(--download-btn-text) !important;
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.18);
+        }
+
+        /* Footer Control Action Pills (Language Switcher, Back to top) */
+        .footer-ctrl-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            padding: 0 0.75rem;
+            height: 28px;
+            box-sizing: border-box;
+            background: var(--pill-bg);
+            border: 1px solid var(--border-subtle);
+            border-radius: 9999px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.76rem;
+            font-weight: 500;
+            line-height: 1;
+            vertical-align: middle;
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+            user-select: none;
+            cursor: pointer;
+        }
+
+        .footer-ctrl-btn:hover {
+            background: var(--nav-hover-bg);
+            border-color: var(--border-hover);
+            color: var(--text-primary);
+            transform: translateY(-1px);
+        }
+
+        .footer-ctrl-btn:active {
+            transform: translateY(0) scale(0.98);
+        }
+
+        .footer-ctrl-label {
+            font-size: 0.76rem;
+            font-weight: 500;
+            line-height: 1;
+        }
+
+        .footer-ctrl-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.1rem 0.34rem;
+            font-size: 0.62rem;
+            font-weight: 700;
+            font-family: var(--font-mono);
+            color: var(--accent-blue);
+            background: rgba(59, 130, 246, 0.12);
+            border: 1px solid rgba(59, 130, 246, 0.25);
+            border-radius: 4px;
+            line-height: 1;
+        }
+
+        .footer-ctrl-icon {
+            display: block;
+            flex-shrink: 0;
+            vertical-align: middle;
         }
 
         /* Author About Preview Popover Card (Hidden by default, shows on hover) */
@@ -4336,7 +4486,7 @@
                         <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
                     </div>
                     <div class="faq-answer">
-                        YazaType তৈরি করেছেন <strong><a href="about.html" style="color: inherit; text-decoration: underline;">ইয়াহিয়া বিন জামান</a></strong> (Yahia Bin Zaman)—যিনি কালারল্যাব (ColorLab)-এর সফটওয়্যার ইঞ্জিনিয়ার, সিস্টেমস আর্কিটেক্ট ও ক্রিয়েটিভ টেকনোলজিস্ট।
+                        YazaType ডেভেলপ করেছেন <strong><a href="about.html" style="color: inherit; text-decoration: underline;">ইয়াহিয়া বিন জামান</a></strong> (Yahia Bin Zaman)—যিনি কালারল্যাব (ColorLab)-এর সফটওয়্যার ইঞ্জিনিয়ার, সিস্টেমস আর্কিটেক্ট ও ক্রিয়েটিভ টেকনোলজিস্ট।
                     </div>
                 </div>
                 <div class="faq-item">
@@ -4443,7 +4593,7 @@
                 <div class="footer-bottom-left">
                     <span class="footer-copy-text">© ২০২৬ <span class="footer-copy-brand">YazaType</span></span>
                     <span class="footer-dot-sep" aria-hidden="true">·</span>
-                    <span class="footer-copy-craft">তৈরি করেছেন</span>
+                    <span class="footer-copy-craft">ডেভেলপ করেছেন</span>
 
                     <div class="author-badge-container">
                         <a href="about.html" class="author-badge" id="author-badge-btn" title="ইয়াহিয়া বিন জামান — পরিচিতি ও প্রোফাইল দেখুন">
