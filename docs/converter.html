@@ -1,10 +1,16 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
         <script>
         (function() {
-            const saved = localStorage.getItem('yazatype-theme');
-            const theme = saved || 'light';
+            const explicit = localStorage.getItem('yazatype-theme-explicit');
+            let theme = 'light';
+            if (explicit === 'dark') {
+                theme = 'dark';
+            } else {
+                theme = 'light';
+                try { localStorage.setItem('yazatype-theme', 'light'); } catch(e) {}
+            }
             document.documentElement.setAttribute('data-theme', theme);
         })();
     </script>
@@ -129,7 +135,7 @@
         /* ==========================================================================
            Complete Day (Light) and Night (Dark) Mode Variables for Converter
            ========================================================================== */
-        [data-theme="light"] {
+        :root, [data-theme="light"] {
             --bg: #f8fafc;
             --bg-subtle: #ffffff;
             --card-bg: rgba(255, 255, 255, 0.95);
@@ -176,7 +182,7 @@
             --horizon-glow: radial-gradient(ellipse at center, rgba(37, 99, 235, 0.09) 0%, rgba(56, 189, 248, 0.03) 45%, transparent 75%);
         }
 
-        :root {
+        [data-theme="dark"] {
             --bg: #030305;
             --bg-subtle: #08080c;
             --card-bg: rgba(14, 14, 20, 0.75);
@@ -813,7 +819,30 @@
                 </div>
             </a>
 
-            <div class="nav-actions">
+                        <div class="nav-actions">
+                <!-- Header Day/Night Switch -->
+                <div class="theme-segmented-switch header-theme-switch" role="radiogroup" aria-label="Toggle theme">
+                    <button type="button" class="theme-seg-btn active" id="header-theme-btn-light" onclick="setExplicitTheme('light')" aria-label="Day" title="Day Mode">
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                        <span>Day</span>
+                    </button>
+                    <button type="button" class="theme-seg-btn" id="header-theme-btn-dark" onclick="setExplicitTheme('dark')" aria-label="Night" title="Night Mode">
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                        <span>Night</span>
+                    </button>
+                </div>
                 <a href="index.html" class="btn-nav-link">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
                     <span>YazaType Keyboard</span>
@@ -1366,19 +1395,28 @@
             loop();
         })();
 
-        // ----------------------------------------------------
-        // Theme Engine (Defaults to Day Mode on Initial Land)
+                // ----------------------------------------------------
+        // Theme Engine (Enforces Day Mode by default, respects explicit choice)
         // ----------------------------------------------------
         window.initTheme = function() {
-            const saved = localStorage.getItem('yazatype-theme');
-            const theme = saved || 'light';
+            const explicit = localStorage.getItem('yazatype-theme-explicit');
+            let theme = 'light';
+            if (explicit === 'dark') {
+                theme = 'dark';
+            } else {
+                theme = 'light';
+                try { localStorage.setItem('yazatype-theme', 'light'); } catch(e) {}
+            }
             document.documentElement.setAttribute('data-theme', theme);
             window.updateThemeUI(theme);
         };
 
         window.setExplicitTheme = function(theme) {
             document.documentElement.setAttribute('data-theme', theme);
-            localStorage.setItem('yazatype-theme', theme);
+            try { 
+                localStorage.setItem('yazatype-theme', theme);
+                localStorage.setItem('yazatype-theme-explicit', theme);
+            } catch(e) {}
             window.updateThemeUI(theme);
         };
 
@@ -1390,10 +1428,14 @@
 
         window.updateThemeUI = function(theme) {
             const isDark = theme === 'dark';
-            const btnLight = document.getElementById('theme-btn-light');
-            const btnDark = document.getElementById('theme-btn-dark');
-            if (btnLight) btnLight.classList.toggle('active', !isDark);
-            if (btnDark) btnDark.classList.toggle('active', isDark);
+            ['theme-btn-light', 'header-theme-btn-light'].forEach(id => {
+                const btn = document.getElementById(id);
+                if (btn) btn.classList.toggle('active', !isDark);
+            });
+            ['theme-btn-dark', 'header-theme-btn-dark'].forEach(id => {
+                const btn = document.getElementById(id);
+                if (btn) btn.classList.toggle('active', isDark);
+            });
         };
 
         window.initTheme();

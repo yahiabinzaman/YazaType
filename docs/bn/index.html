@@ -1,10 +1,16 @@
 <!doctype html>
-<html lang="bn">
+<html lang="bn" data-theme="light">
 <head>
         <script>
         (function() {
-            const saved = localStorage.getItem('yazatype-theme');
-            const theme = saved || 'light';
+            const explicit = localStorage.getItem('yazatype-theme-explicit');
+            let theme = 'light';
+            if (explicit === 'dark') {
+                theme = 'dark';
+            } else {
+                theme = 'light';
+                try { localStorage.setItem('yazatype-theme', 'light'); } catch(e) {}
+            }
             document.documentElement.setAttribute('data-theme', theme);
         })();
     </script>
@@ -3494,16 +3500,24 @@
         // Theme Engine (Defaults to Day Mode on Initial Land)
         // ----------------------------------------------------
         window.initTheme = function() {
-            const saved = localStorage.getItem('yazatype-theme');
-            // Always default to 'light' (Day Mode) on initial landing!
-            const theme = saved || 'light';
+            const explicit = localStorage.getItem('yazatype-theme-explicit');
+            let theme = 'light';
+            if (explicit === 'dark') {
+                theme = 'dark';
+            } else {
+                theme = 'light';
+                try { localStorage.setItem('yazatype-theme', 'light'); } catch(e) {}
+            }
             document.documentElement.setAttribute('data-theme', theme);
             window.updateThemeUI(theme);
         };
 
         window.setExplicitTheme = function(theme) {
             document.documentElement.setAttribute('data-theme', theme);
-            localStorage.setItem('yazatype-theme', theme);
+            try { 
+                localStorage.setItem('yazatype-theme', theme);
+                localStorage.setItem('yazatype-theme-explicit', theme);
+            } catch(e) {}
             window.updateThemeUI(theme);
         };
 
