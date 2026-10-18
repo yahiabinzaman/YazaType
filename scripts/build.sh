@@ -52,6 +52,7 @@ fi
 echo ">>> Rust library built: $FINAL_LIB"
 
 # Step 2: Create .app bundle structure
+touch "$BUILD_DIR/.metadata_never_index" 2>/dev/null || true
 echo ">>> Creating app bundle..."
 rm -rf "$APP_BUNDLE"
 mkdir -p "$APP_BUNDLE/Contents/MacOS"

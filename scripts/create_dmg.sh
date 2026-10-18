@@ -75,12 +75,11 @@ chown -R "$REAL_USER" "$INSTALL_DIR/YazaType.app"
 # Clear quarantine flag
 xattr -cr "$INSTALL_DIR/YazaType.app" 2>/dev/null || true
 
-# Place a symlink in /Applications/ so the app shows in Launchpad/Spotlight
+# Clean up any duplicate symlink in /Applications
 rm -f "/Applications/YazaType.app" 2>/dev/null || true
 rm -rf "/Applications/YazaType.app" 2>/dev/null || true
 rm -f "/Applications/Borno.app" 2>/dev/null || true
 rm -rf "/Applications/Borno.app" 2>/dev/null || true
-ln -sf "$INSTALL_DIR/YazaType.app" "/Applications/YazaType.app"
 
 # Clean up old AvroBangla symlink/app from /Applications/
 rm -f "/Applications/AvroBangla.app" 2>/dev/null || true

@@ -82,10 +82,11 @@ fi
 echo ">>> Clearing quarantine security attributes..."
 xattr -cr "$INSTALL_DIR/$APP_NAME.app" 2>/dev/null || true
 
-# Symlink to /Applications for Spotlight/Launchpad
+# Clean up any duplicate in /Applications so only 1 copy is indexed
 rm -f "/Applications/$APP_NAME.app" 2>/dev/null || true
+rm -rf "/Applications/$APP_NAME.app" 2>/dev/null || true
 rm -f "/Applications/Borno.app" 2>/dev/null || true
-ln -sf "$INSTALL_DIR/$APP_NAME.app" "/Applications/$APP_NAME.app" 2>/dev/null || true
+rm -rf "/Applications/Borno.app" 2>/dev/null || true
 
 # Register user LaunchAgent for automatic startup & background keepalive
 LAUNCH_AGENT_DIR="$HOME/Library/LaunchAgents"
