@@ -1547,43 +1547,45 @@
         .author-badge {
             display: inline-flex;
             align-items: center;
-            gap: 0.48rem;
-            padding: 0.28rem 0.75rem 0.28rem 0.35rem;
-            background: var(--badge-bg);
-            border: 1px solid var(--border-subtle);
-            border-radius: 9999px;
+            gap: 0.35rem;
+            padding: 0.12rem 0.35rem 0.12rem 0.15rem;
+            background: transparent;
+            border: none;
+            border-radius: 6px;
             color: var(--text-primary);
             font-family: inherit;
-            font-size: 0.8rem;
+            font-size: 0.82rem;
             font-weight: 600;
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.2s ease;
             cursor: pointer;
             user-select: none;
             outline: none;
+            box-shadow: none;
+            text-decoration: none;
         }
 
         .author-badge:hover, .author-badge.active {
             background: var(--nav-hover-bg);
-            border-color: var(--border-accent);
-            transform: translateY(-1.5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2), 0 0 16px rgba(59, 130, 246, 0.2);
-            color: var(--text-primary);
+            color: var(--accent-blue);
         }
 
         .author-avatar-ring {
-            width: 22px;
-            height: 22px;
+            width: 18px;
+            height: 18px;
             border-radius: 50%;
             overflow: hidden;
             display: inline-flex;
             align-items: center;
             justify-content: center;
             background: var(--bg-surface);
-            border: 1.5px solid var(--border-subtle);
+            border: 1px solid var(--border-subtle);
             flex-shrink: 0;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .author-badge:hover .author-avatar-ring {
+            transform: scale(1.08);
+            border-color: var(--accent-blue);
         }
 
         .author-avatar-img {
@@ -1597,7 +1599,7 @@
             display: none;
             width: 100%;
             height: 100%;
-            font-size: 0.65rem;
+            font-size: 0.6rem;
             font-weight: 800;
             color: #fff;
             background: linear-gradient(135deg, #3b82f6, #8b5cf6);
@@ -1610,29 +1612,15 @@
             font-size: 0.82rem;
             font-weight: 600;
             letter-spacing: -0.01em;
+            transition: color 0.2s ease;
+            text-decoration: underline;
+            text-decoration-color: transparent;
+            text-underline-offset: 3px;
         }
 
-        .author-dot-indicator {
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: #22c55e;
-            box-shadow: 0 0 8px #22c55e;
-            flex-shrink: 0;
-            display: inline-block;
-        }
-
-        .author-badge .chevron-icon {
-            transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s;
-            color: var(--text-secondary);
-        }
-
-        .author-badge.active .chevron-icon, .author-badge:hover .chevron-icon {
+        .author-badge:hover .author-name {
             color: var(--accent-blue);
-        }
-
-        .author-badge.active .chevron-icon {
-            transform: rotate(180deg);
+            text-decoration-color: var(--accent-blue);
         }
 
         /* Floating Social Popover Card */
@@ -1677,11 +1665,7 @@
                 pointer-events: auto !important;
                 transform: translateY(0) scale(1) !important;
             }
-            .author-badge-container:hover .author-badge .chevron-icon {
-                transform: rotate(180deg) !important;
-                color: var(--accent-blue) !important;
-            }
-            .author-badge-container:hover .author-badge {
+                        .author-badge-container:hover .author-badge {
                 background: var(--nav-hover-bg) !important;
                 border-color: var(--border-accent) !important;
                 color: var(--text-primary) !important;
@@ -1699,7 +1683,7 @@
             content: "";
             position: absolute;
             top: 100%;
-            left: 36px;
+            left: 20px;
             border-width: 8px 8px 0 8px;
             border-style: solid;
             border-color: var(--popover-bg) transparent transparent transparent;
@@ -4617,19 +4601,15 @@
                 <div class="footer-bottom-left">
                     <span class="footer-copy-text">© 2026 <span class="footer-copy-brand">YazaType</span></span>
                     <span class="footer-dot-sep" aria-hidden="true">·</span>
-                    <span class="footer-copy-craft">Crafted with precision by</span>
+                    <span class="footer-copy-craft">Crafted by</span>
 
                     <div class="author-badge-container">
-                        <button type="button" class="author-badge" id="author-badge-btn" onclick="toggleAuthorSocials(event)" aria-expanded="false" aria-haspopup="true" title="Click to view Yahia Bin Zaman's social profiles">
+                        <button type="button" class="author-badge" id="author-badge-btn" onclick="toggleAuthorSocials(event)" aria-expanded="false" aria-haspopup="true" title="Yahia Bin Zaman — Social Profiles">
                             <span class="author-avatar-ring">
                                 <img src="https://github.com/yahiabinzaman.png" alt="Yahia Bin Zaman" class="author-avatar-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
                                 <span class="author-avatar-fallback">Y</span>
                             </span>
                             <span class="author-name">Yahia Bin Zaman</span>
-                            <span class="author-dot-indicator" title="Active Maintainer"></span>
-                            <svg class="author-ext-icon chevron-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="6 9 12 15 18 9"></polyline>
-                            </svg>
                         </button>
 
                         <!-- Social Profiles Popover Card -->
