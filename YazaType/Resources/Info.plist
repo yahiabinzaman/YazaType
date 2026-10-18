@@ -44,7 +44,7 @@
 		<string>bn</string>
 	</array>
 	<key>tsInputMethodIconFileKey</key>
-	<string>iconTemplate.pdf</string>
+	<string>icon.tiff</string>
 	<key>ComponentInputModeDict</key>
 	<dict>
 		<key>tsInputModeListKey</key>
@@ -71,9 +71,9 @@
 				<key>tsInputModeKeyEquivalentKey</key>
 				<string></string>
 				<key>tsInputModeMenuIconFileKey</key>
-				<string>iconTemplate.pdf</string>
+				<string>icon.tiff</string>
 				<key>tsInputModePaletteIconFileKey</key>
-				<string>iconTemplate.pdf</string>
+				<string>icon.tiff</string>
 				<key>tsInputModePrimaryInScriptKey</key>
 				<true/>
 				<key>tsInputModeScriptKey</key>

@@ -172,7 +172,7 @@ class ModernSidebarView: NSVisualEffectView {
         iconView.wantsLayer = true
         iconView.layer?.cornerRadius = 9
         iconView.layer?.masksToBounds = true
-        if let logoPath = Bundle.main.path(forResource: "YazaTypeGreenIcon", ofType: "png"),
+        if let logoPath = Bundle.main.path(forResource: "YazaTypeIcon", ofType: "png"),
            let img = NSImage(contentsOfFile: logoPath) {
             iconView.image = img
         } else {
@@ -1266,7 +1266,7 @@ class ModernAboutView: NSView {
         iconView.wantsLayer = true
         iconView.layer?.cornerRadius = 20
         iconView.layer?.masksToBounds = true
-        if let logoPath = Bundle.main.path(forResource: "YazaTypeGreenIcon", ofType: "png"),
+        if let logoPath = Bundle.main.path(forResource: "YazaTypeIcon", ofType: "png"),
            let img = NSImage(contentsOfFile: logoPath) {
             iconView.image = img
         } else {
