@@ -42,6 +42,32 @@
     <link href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Hind+Siliguri:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
 
     <style>
+        @font-face {
+            font-family: 'Siyam Rupali';
+            src: url('../fonts/Siyamrupali.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Bornomala';
+            src: url('../fonts/YazaFont-Regular.woff2') format('woff2'),
+                 url('../fonts/YazaFont-Regular.ttf') format('truetype'),
+                 url('../fonts/NahidaBornomala.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Bornomala';
+            src: url('../fonts/YazaFont-Bold.ttf') format('truetype');
+            font-weight: bold;
+            font-style: normal;
+            font-display: swap;
+        }
+
         :root {
             --bg: #030305;
             --bg-surface: #0a0a10;
@@ -80,8 +106,9 @@
             --footer-border: rgba(255, 255, 255, 0.08);
             --badge-bg: rgba(255, 255, 255, 0.035);
             --spec-num-color: #ffffff;
-            --font-main: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
-            --font-bangla: "Anek Bangla", "Hind Siliguri", -apple-system, sans-serif;
+            --font-heading: "Bornomala", "Siyam Rupali", sans-serif;
+            --font-main: "Bornomala", "Siyam Rupali", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            --font-bangla: "Bornomala", "Siyam Rupali", sans-serif;
             --font-mono: "JetBrains Mono", SFMono-Regular, monospace;
         }
 
@@ -2710,11 +2737,13 @@
             
             const glyphs = [
                 'অ', 'আ', 'ই', 'ঈ', 'উ', 'ঊ', 'ঋ', 'এ', 'ঐ', 'ও', 'ঔ',
-                'ক', 'খ', 'গ', 'ঘ', 'ঙ', 'চ', 'ছ', 'জ', 'ঝ', 'ঞ',
-                'ট', 'ঠ', 'ড', 'ঢ', 'ণ', 'ত', 'থ', 'দ', 'ধ', 'ন',
-                'প', 'ফ', 'ব', 'ভ', 'ম', 'য', 'র', 'ল', 'শ', 'ষ',
-                'স', 'হ', 'ড়', 'ঢ়', 'য়', 'ৎ', 'ং', 'ঃ', 'ঁ',
-                'ক্ষ', 'জ্ঞ', 'শ্র', 'ত্র', 'ক্র', 'হ্ম'
+                'ক', 'খ', 'গ', 'ঘ', 'ঙ',
+                'চ', 'ছ', 'জ', 'ঝ', 'ঞ',
+                'ট', 'ঠ', 'ড', 'ঢ', 'ণ',
+                'ত', 'থ', 'দ', 'ধ', 'ন',
+                'প', 'ফ', 'ব', 'ভ', 'ম',
+                'য', 'র', 'ল', 'শ', 'ষ',
+                'স', 'হ', 'ড়', 'ঢ়', 'য়', 'ৎ'
             ];
             
             let mouseX = 0, mouseY = 0;
@@ -2821,7 +2850,7 @@
                         ctx.save();
                         ctx.translate(renderX, renderY);
                         ctx.rotate(p.rot);
-                        ctx.font = `600 ${p.size}px "Anek Bangla", "Hind Siliguri", sans-serif`;
+                        ctx.font = `600 ${p.size}px "Bornomala", "Siyam Rupali", sans-serif`;
                         
                         if (isLight) {
                             if (p.glow) {

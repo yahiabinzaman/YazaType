@@ -40,6 +40,32 @@
 
     <style>
         @font-face {
+            font-family: 'Siyam Rupali';
+            src: url('fonts/Siyamrupali.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Bornomala';
+            src: url('fonts/YazaFont-Regular.woff2') format('woff2'),
+                 url('fonts/YazaFont-Regular.ttf') format('truetype'),
+                 url('fonts/NahidaBornomala.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Bornomala';
+            src: url('fonts/YazaFont-Bold.ttf') format('truetype');
+            font-weight: bold;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
             font-family: 'YazaFont';
             src: url('fonts/YazaFont-Regular.woff2') format('woff2'),
                  url('fonts/YazaFont-Regular.ttf') format('truetype');
@@ -148,7 +174,7 @@
             --horizon-glow: radial-gradient(ellipse at center, rgba(59, 130, 246, 0.14) 0%, rgba(56, 189, 248, 0.05) 40%, transparent 75%);
             --font-heading: "Plus Jakarta Sans", "Anek Bangla", -apple-system, sans-serif;
             --font-main: "Plus Jakarta Sans", "Hind Siliguri", -apple-system, sans-serif;
-            --font-bangla: "Hind Siliguri", "Anek Bangla", sans-serif;
+            --font-bangla: "Bornomala", "Siyam Rupali", sans-serif;
             --font-mono: "JetBrains Mono", SFMono-Regular, monospace;
         }
 
@@ -750,7 +776,7 @@
             font-size: 1.25rem;
             line-height: 1.65;
             resize: vertical;
-            font-family: 'YazaFont', 'YazaUnicode', 'Hind Siliguri', 'Anek Bangla', sans-serif;
+            font-family: 'Bornomala', 'Siyam Rupali', 'YazaFont', sans-serif;
         }
 
         .editor-textarea.ansi-box {
@@ -1277,11 +1303,13 @@
             
             const glyphs = [
                 'অ', 'আ', 'ই', 'ঈ', 'উ', 'ঊ', 'ঋ', 'এ', 'ঐ', 'ও', 'ঔ',
-                'ক', 'খ', 'গ', 'ঘ', 'ঙ', 'চ', 'ছ', 'জ', 'ঝ', 'ঞ',
-                'ট', 'ঠ', 'ড', 'ঢ', 'ণ', 'ত', 'থ', 'দ', 'ধ', 'ন',
-                'প', 'ফ', 'ব', 'ভ', 'ম', 'য', 'র', 'ল', 'শ', 'ষ',
-                'স', 'হ', 'ড়', 'ঢ়', 'য়', 'ৎ', 'ং', 'ঃ', 'ঁ',
-                'ক্ষ', 'জ্ঞ', 'শ্র', 'ত্র', 'ক্র', 'হ্ম'
+                'ক', 'খ', 'গ', 'ঘ', 'ঙ',
+                'চ', 'ছ', 'জ', 'ঝ', 'ঞ',
+                'ট', 'ঠ', 'ড', 'ঢ', 'ণ',
+                'ত', 'থ', 'দ', 'ধ', 'ন',
+                'প', 'ফ', 'ব', 'ভ', 'ম',
+                'য', 'র', 'ল', 'শ', 'ষ',
+                'স', 'হ', 'ড়', 'ঢ়', 'য়', 'ৎ'
             ];
             
             let mouseX = 0, mouseY = 0;
@@ -1388,7 +1416,7 @@
                         ctx.save();
                         ctx.translate(renderX, renderY);
                         ctx.rotate(p.rot);
-                        ctx.font = `600 ${p.size}px "Anek Bangla", "Hind Siliguri", sans-serif`;
+                        ctx.font = `600 ${p.size}px "Bornomala", "Siyam Rupali", sans-serif`;
                         
                         if (isLight) {
                             if (p.glow) {
