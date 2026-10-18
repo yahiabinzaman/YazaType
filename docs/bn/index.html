@@ -3756,6 +3756,105 @@
             .cheatsheet-card { padding: 2rem 1.25rem; }
         }
 
+
+        /* ==========================================================================
+           ULTRA-MINIMAL EXECUTIVE STYLING (STRIP GENERIC AI PILL CAPSULES)
+           ========================================================================== */
+        
+        /* 1. Minimalist Section Eyebrows (No capsule borders, pure editorial typography) */
+        .section-tag, .section-eyebrow {
+            display: inline-block !important;
+            font-size: 0.76rem !important;
+            font-weight: 700 !important;
+            letter-spacing: 0.12em !important;
+            text-transform: uppercase !important;
+            color: var(--accent-blue) !important;
+            margin-bottom: 0.65rem !important;
+            background: none !important;
+            border: none !important;
+            padding: 0 !important;
+            box-shadow: none !important;
+            border-radius: 0 !important;
+        }
+
+        .section-tag svg, .section-eyebrow svg {
+            display: none !important;
+        }
+
+        /* 2. Minimalist Status Indicator in Footer (No bulky pill capsule) */
+        .footer-telemetry {
+            display: inline-flex !important;
+            align-items: center !important;
+            gap: 0.5rem !important;
+            font-size: 0.8rem !important;
+            font-family: var(--font-main) !important;
+            font-weight: 500 !important;
+            color: var(--text-muted) !important;
+            background: none !important;
+            border: none !important;
+            padding: 0 !important;
+            box-shadow: none !important;
+            border-radius: 0 !important;
+        }
+
+        .footer-pulse {
+            width: 6px !important;
+            height: 6px !important;
+            border-radius: 50% !important;
+            background: #16a34a !important;
+            box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.2) !important;
+            animation: none !important;
+        }
+
+        /* 3. Minimalist Real-Time Status in Studio (No green pill capsule) */
+        .studio-live-pill {
+            display: inline-flex !important;
+            align-items: center !important;
+            gap: 0.38rem !important;
+            font-size: 0.72rem !important;
+            font-weight: 600 !important;
+            color: #16a34a !important;
+            background: none !important;
+            border: none !important;
+            padding: 0 !important;
+            box-shadow: none !important;
+            border-radius: 0 !important;
+        }
+
+        [data-theme="dark"] .studio-live-pill {
+            color: #4ade80 !important;
+        }
+
+        .live-dot-pulse {
+            width: 6px !important;
+            height: 6px !important;
+            border-radius: 50% !important;
+            background: currentColor !important;
+            display: inline-block !important;
+        }
+
+        /* 4. Minimal Hero Status Pill */
+        .hero-pill-badge {
+            box-shadow: none !important;
+            background: rgba(15, 23, 42, 0.03) !important;
+            border: 1px solid var(--border-subtle) !important;
+            padding: 0.28rem 0.85rem !important;
+            font-size: 0.78rem !important;
+        }
+
+        [data-theme="dark"] .hero-pill-badge {
+            background: rgba(255, 255, 255, 0.03) !important;
+        }
+
+        /* 5. Clean Bento & Encoding Badges */
+        .bento-badge {
+            background: transparent !important;
+            border: none !important;
+            padding: 0 !important;
+            font-size: 0.74rem !important;
+            color: var(--accent-blue) !important;
+        }
+
     </style>
     <!-- Schema.org Structured Data for Google SEO (Person + SoftwareApplication) -->
     <script type="application/ld+json">
@@ -4073,10 +4172,7 @@
         <!-- Bento Grid Features -->
                 <section id="features">
             <div class="section-header">
-                <div class="section-tag">
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-                    <span>প্রকৌশল ও আর্কিটেকচার</span>
-                </div>
+                <div class="section-tag">প্রকৌশল ও আর্কিটেকচার</div>
                 <h2 class="section-title">দ্রুততম গতি ও সম্পূর্ণ গোপনীয়তার নিশ্চয়তা</h2>
                 <p class="section-desc">কোনো পপ-আপ ঝামেলা নেই, কার্সরে সরাসরি টাইপিং এবং শতভাগ অফলাইন লোকাল এক্সিকিউশন।</p>
             </div>
@@ -4132,10 +4228,7 @@
                 <section id="encoding">
             <div class="encoding-card">
                 <div style="text-align: center;">
-                    <div class="section-tag">
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 7V4h16v3M9 20h6M12 4v16"/></svg>
-                        <span>ডুয়াল এনকোডিং প্রযুক্তি</span>
-                    </div>
+                    <div class="section-tag">ডুয়াল এনকোডিং প্রযুক্তি</div>
                     <h2 class="section-title" style="margin-bottom: 0.75rem;">ডিজাইন সফটওয়্যারে ভাঙা কার-চিহ্নের স্থায়ী অবসান</h2>
                     <p class="section-desc">আধুনিক ইউনিকোড এবং প্রিন্ট ডিজাইনারদের জন্য প্রথাগত আনসি (ANSI)—উভয় ফরম্যাটেই সাবলীল কাজ করুন।</p>
                 </div>
@@ -4220,10 +4313,7 @@
         <!-- Layouts Showcase -->
                 <section id="layouts">
             <div class="section-header">
-                <div class="section-tag">
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M6 8h.01M10 8h.01M14 8h.01M18 8h.01M6 12h.01M10 12h.01M14 12h.01M18 12h.01M8 16h8"/></svg>
-                    <span>কীবোর্ড লেআউটসমূহ</span>
-                </div>
+                <div class="section-tag">কীবোর্ড লেআউটসমূহ</div>
                 <h2 class="section-title">আপনার পছন্দের লেআউটে সাবলীল টাইপিং</h2>
                 <p class="section-desc">মেনু বার বা সেটিংস থেকে সহজেই ফোনেটিক ও ফিক্সড লেআউটের মাঝে পরিবর্তন করুন।</p>
             </div>
@@ -4286,10 +4376,7 @@
                 <section id="cheatsheet">
             <div class="cheatsheet-card">
                 <div style="text-align: center; margin-bottom: 2rem;">
-                    <div class="section-tag">
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-                        <span>দ্রুত সহায়িকা</span>
-                    </div>
+                    <div class="section-tag">দ্রুত সহায়িকা</div>
                     <h2 class="section-title">ফোনেটিক কি-ম্যাপিং চিট-শিট</h2>
                     <p class="section-desc">যেকোনো বর্ণ, যুক্তবর্ণ বা কি-কম্বিনেশন সহজে খুঁজে নিন।</p>
                 </div>
@@ -4379,10 +4466,7 @@
                 <!-- FAQ Section -->
                 <section id="faq" class="faq-wrap">
             <div class="section-header">
-                <div class="section-tag">
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-                    <span>সাধারণ জিজ্ঞাসা</span>
-                </div>
+                <div class="section-tag">সাধারণ জিজ্ঞাসা</div>
                 <h2 class="section-title">প্রায়শই জিজ্ঞাসিত প্রশ্নাবলী</h2>
             </div>
 
