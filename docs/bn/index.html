@@ -1655,6 +1655,37 @@
             z-index: 99999;
         }
 
+        
+        /* Hover & Focus Support for Author Social Popover */
+        .author-social-popover::before {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            height: 25px;
+            background: transparent;
+        }
+
+        @media (hover: hover) {
+            .author-badge-container:hover .author-social-popover,
+            .author-badge-container:focus-within .author-social-popover {
+                opacity: 1 !important;
+                visibility: visible !important;
+                pointer-events: auto !important;
+                transform: translateY(0) scale(1) !important;
+            }
+            .author-badge-container:hover .author-badge .chevron-icon {
+                transform: rotate(180deg) !important;
+                color: var(--accent-blue) !important;
+            }
+            .author-badge-container:hover .author-badge {
+                background: var(--nav-hover-bg) !important;
+                border-color: var(--border-accent) !important;
+                color: var(--text-primary) !important;
+            }
+        }
+
         .author-social-popover.open {
             opacity: 1 !important;
             visibility: visible !important;
@@ -2028,6 +2059,7 @@
                 left: 50% !important;
                 transform: translateX(-50%) translateY(12px) scale(0.96) !important;
             }
+
             .author-social-popover.open {
                 transform: translateX(-50%) translateY(0) scale(1) !important;
             }
@@ -5062,9 +5094,31 @@
 
         document.addEventListener('DOMContentLoaded', function() {
             window.updateThemeUI(document.documentElement.getAttribute('data-theme') || 'dark');
-            const btn = document.getElementById('author-badge-btn');
-            if (btn) {
-                btn.addEventListener('click', window.toggleAuthorSocials);
+            // Smooth hover & interaction support for author popover
+            const container = document.querySelector('.author-badge-container');
+            if (container) {
+                let hoverTimeout;
+                container.addEventListener('mouseenter', function() {
+                    clearTimeout(hoverTimeout);
+                    const popover = document.getElementById('author-social-popover');
+                    const btn = document.getElementById('author-badge-btn');
+                    if (popover) popover.classList.add('open');
+                    if (btn) {
+                        btn.classList.add('active');
+                        btn.setAttribute('aria-expanded', 'true');
+                    }
+                });
+                container.addEventListener('mouseleave', function() {
+                    hoverTimeout = setTimeout(function() {
+                        const popover = document.getElementById('author-social-popover');
+                        const btn = document.getElementById('author-badge-btn');
+                        if (popover) popover.classList.remove('open');
+                        if (btn) {
+                            btn.classList.remove('active');
+                            btn.setAttribute('aria-expanded', 'false');
+                        }
+                    }, 220);
+                });
             }
         });
 
