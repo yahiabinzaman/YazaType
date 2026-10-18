@@ -3110,6 +3110,651 @@
             }
         }
 
+
+        /* ==========================================================================
+           EXECUTIVE DESIGN & ALIGNMENT OVERHAUL (APPLE / LINEAR / RAYCAST QUALITY)
+           ========================================================================== */
+        
+        /* 1. Section Eyebrow / Tag Standard */
+        .section-tag, .section-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--accent-blue);
+            background: rgba(37, 99, 235, 0.08);
+            border: 1px solid rgba(37, 99, 235, 0.2);
+            padding: 0.3rem 0.85rem;
+            border-radius: 9999px;
+            margin-bottom: 0.9rem;
+            box-shadow: 0 2px 8px rgba(37, 99, 235, 0.05);
+            transition: all 0.25s ease;
+        }
+
+        .section-tag:hover, .section-eyebrow:hover {
+            border-color: rgba(37, 99, 235, 0.35);
+            background: rgba(37, 99, 235, 0.12);
+        }
+
+        /* 2. Executive 2x2 Bento Feature Grid */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.75rem;
+            margin-top: 2.5rem;
+        }
+
+        .bento-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 22px;
+            padding: 2.25rem 2rem;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: var(--card-shadow);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+
+        .bento-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-4px);
+            background: var(--bg-card-hover);
+            box-shadow: 0 20px 40px -12px rgba(15, 23, 42, 0.1);
+        }
+
+        [data-theme="dark"] .bento-card:hover {
+            box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.7), 0 0 25px rgba(59, 130, 246, 0.15);
+        }
+
+        .bento-icon-box {
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            background: rgba(37, 99, 235, 0.09);
+            border: 1px solid rgba(37, 99, 235, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-blue);
+            margin-bottom: 1.35rem;
+            transition: transform 0.25s ease;
+        }
+
+        .bento-card:hover .bento-icon-box {
+            transform: scale(1.08);
+            background: rgba(37, 99, 235, 0.15);
+            border-color: var(--accent-blue);
+        }
+
+        .bento-card h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.02em;
+            line-height: 1.3;
+        }
+
+        .bento-card p {
+            font-size: 0.94rem;
+            color: var(--text-secondary);
+            line-height: 1.65;
+            margin-bottom: 1.5rem;
+        }
+
+        .bento-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.75rem;
+            font-family: var(--font-mono);
+            font-weight: 600;
+            color: var(--accent-blue);
+            background: rgba(37, 99, 235, 0.06);
+            border: 1px solid rgba(37, 99, 235, 0.16);
+            padding: 0.35rem 0.75rem;
+            border-radius: 8px;
+            width: fit-content;
+        }
+
+        /* 3. Dual Encoding Architecture Card */
+        .encoding-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 28px;
+            padding: 3.5rem 3rem;
+            box-shadow: var(--card-shadow);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            margin: 4.5rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .encoding-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 2.75rem 0 2.25rem;
+        }
+
+        .encoding-col {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-subtle);
+            border-radius: 20px;
+            padding: 2.25rem 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.25s ease;
+        }
+
+        .encoding-col:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .encoding-col.highlight {
+            border-color: rgba(37, 99, 235, 0.3);
+            background: linear-gradient(180deg, rgba(37, 99, 235, 0.04) 0%, var(--bg-surface) 100%);
+        }
+
+        .enc-badge {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-family: var(--font-mono);
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            padding: 0.25rem 0.65rem;
+            border-radius: 6px;
+            margin-bottom: 1rem;
+            width: fit-content;
+        }
+
+        .badge-uni {
+            background: rgba(37, 99, 235, 0.1);
+            color: var(--accent-blue);
+            border: 1px solid rgba(37, 99, 235, 0.25);
+        }
+
+        .badge-ansi {
+            background: rgba(14, 165, 233, 0.12);
+            color: #0284c7;
+            border: 1px solid rgba(14, 165, 233, 0.28);
+        }
+
+        [data-theme="dark"] .badge-ansi {
+            color: #38bdf8;
+        }
+
+        .encoding-col h4 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.65rem;
+            letter-spacing: -0.01em;
+        }
+
+        .encoding-col p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .enc-chips-title {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--text-muted);
+            margin-bottom: 0.65rem;
+        }
+
+        .enc-chips-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.45rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .enc-chip {
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.25rem 0.6rem;
+            border-radius: 6px;
+            background: var(--pill-bg);
+            border: 1px solid var(--border-subtle);
+            color: var(--text-secondary);
+        }
+
+        .enc-features-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.65rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        .enc-feature-item {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            line-height: 1.45;
+        }
+
+        .enc-feature-item svg {
+            color: #16a34a;
+            flex-shrink: 0;
+        }
+
+        .enc-cta-wrap {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1.75rem;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .enc-cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.65rem;
+            padding: 0.75rem 1.75rem;
+            font-size: 0.92rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 9999px;
+            background: var(--download-btn-bg);
+            color: var(--download-btn-text) !important;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+        }
+
+        .enc-cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(37, 99, 235, 0.25);
+            background: var(--accent-blue);
+            color: #ffffff !important;
+        }
+
+        /* 4. Keyboard Layouts Section */
+        .layouts-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.75rem;
+            margin-top: 2.5rem;
+        }
+
+        .layout-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 22px;
+            padding: 2.25rem 1.85rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: var(--card-shadow);
+        }
+
+        .layout-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-4px);
+            background: var(--bg-card-hover);
+            box-shadow: 0 16px 36px -8px rgba(15, 23, 42, 0.08);
+        }
+
+        .layout-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.25rem;
+        }
+
+        .layout-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: rgba(37, 99, 235, 0.09);
+            border: 1px solid rgba(37, 99, 235, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-blue);
+        }
+
+        .layout-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.65rem;
+            letter-spacing: -0.01em;
+        }
+
+        .layout-card p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .layout-preview-box {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 0.85rem 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+        }
+
+        /* 5. Apple-Style Key Caps & Cheat-Sheet Table */
+        .cheatsheet-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 26px;
+            padding: 2.75rem 2.5rem;
+            box-shadow: var(--card-shadow);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            margin: 4.5rem 0;
+        }
+
+        .cheat-controls {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+            margin-bottom: 2rem;
+        }
+
+        .cheat-search-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 620px;
+            margin: 0 auto;
+        }
+
+        .cheat-search-icon {
+            position: absolute;
+            left: 1.15rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            pointer-events: none;
+        }
+
+        .cheat-search-field {
+            width: 100%;
+            padding: 0.85rem 1.15rem 0.85rem 3rem;
+            font-size: 0.95rem;
+            font-family: var(--font-main);
+            color: var(--text-primary);
+            background: var(--input-bg);
+            border: 1px solid var(--border-subtle);
+            border-radius: 9999px;
+            outline: none;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        .cheat-search-field:focus {
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.18);
+            background: var(--bg-surface);
+        }
+
+        .cheat-tabs-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .cheat-tab-btn {
+            padding: 0.35rem 0.9rem;
+            font-size: 0.78rem;
+            font-weight: 600;
+            border-radius: 9999px;
+            border: 1px solid var(--border-subtle);
+            background: var(--pill-bg);
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .cheat-tab-btn:hover {
+            color: var(--text-primary);
+            border-color: var(--border-hover);
+        }
+
+        .cheat-tab-btn.active {
+            background: var(--download-btn-bg);
+            color: var(--download-btn-text) !important;
+            border-color: var(--download-btn-bg);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .cheat-table-container {
+            width: 100%;
+            overflow-x: auto;
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            background: var(--bg-surface);
+        }
+
+        .cheat-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+            text-align: left;
+        }
+
+        .cheat-table th {
+            padding: 1rem 1.25rem;
+            background: rgba(15, 23, 42, 0.03);
+            border-bottom: 1px solid var(--border-subtle);
+            color: var(--text-secondary);
+            font-size: 0.76rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+
+        [data-theme="dark"] .cheat-table th {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .cheat-table td {
+            padding: 0.9rem 1.25rem;
+            border-bottom: 1px solid var(--border-subtle);
+            color: var(--text-primary);
+            vertical-align: middle;
+            transition: background 0.15s;
+        }
+
+        .cheat-table tbody tr:hover td {
+            background: rgba(37, 99, 235, 0.035);
+        }
+
+        .cheat-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Apple-Style Keyboard Key Cap */
+        .key-cap {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 28px;
+            height: 28px;
+            padding: 0 0.55rem;
+            font-family: var(--font-mono);
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            background: var(--bg-surface);
+            border: 1px solid var(--border-hover);
+            border-bottom: 2px solid rgba(15, 23, 42, 0.35);
+            border-radius: 6px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+            letter-spacing: 0.02em;
+        }
+
+        [data-theme="dark"] .key-cap {
+            border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .cheat-bangla-char {
+            font-family: var(--font-bangla);
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--accent-blue);
+            letter-spacing: 0.02em;
+        }
+
+        /* 6. FAQ Accordion Executive Styling */
+        .faq-wrap {
+            max-width: 820px;
+            margin: 0 auto 5rem;
+        }
+
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.85rem;
+            margin-top: 2rem;
+        }
+
+        .faq-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.25s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+        }
+
+        .faq-item:hover {
+            border-color: var(--border-hover);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+        }
+
+        .faq-item.open {
+            border-color: rgba(37, 99, 235, 0.35);
+            background: var(--bg-surface);
+        }
+
+        .faq-question {
+            padding: 1.25rem 1.5rem;
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text-primary);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+            gap: 1rem;
+            transition: color 0.2s;
+        }
+
+        .faq-question:hover {
+            color: var(--accent-blue);
+        }
+
+        .faq-chevron {
+            color: var(--text-muted);
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s;
+            flex-shrink: 0;
+        }
+
+        .faq-item.open .faq-chevron {
+            transform: rotate(180deg);
+            color: var(--accent-blue);
+        }
+
+        .faq-answer {
+            display: none;
+            padding: 0 1.5rem 1.35rem;
+            font-size: 0.92rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            border-top: 1px solid transparent;
+        }
+
+        .faq-item.open .faq-answer {
+            display: block;
+        }
+
+        /* 7. Footer Executive Fixes */
+        .brand-version {
+            font-size: 0.72rem;
+            font-family: var(--font-main);
+            font-weight: 600;
+            padding: 0.18rem 0.55rem;
+            background: rgba(37, 99, 235, 0.09);
+            border: 1px solid rgba(37, 99, 235, 0.22);
+            border-radius: 9999px;
+            color: var(--accent-blue);
+            letter-spacing: 0.02em;
+        }
+
+        .footer-telemetry {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+            padding: 0.35rem 0.85rem;
+            background: var(--pill-bg);
+            border: 1px solid var(--border-subtle);
+            border-radius: 9999px;
+            font-size: 0.78rem;
+            font-family: var(--font-main);
+            font-weight: 500;
+            color: var(--text-secondary);
+            width: fit-content;
+        }
+
+        .footer-pulse {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #22c55e;
+            box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.2);
+            animation: pulseEmerald 2.5s infinite;
+        }
+
+        @keyframes pulseEmerald {
+            0%, 100% { box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.2); }
+            50% { box-shadow: 0 0 0 6px rgba(34, 197, 94, 0.05); }
+        }
+
+        [data-theme="light"] .footer-bottom-divider::after {
+            display: none; /* Remove distracting blue streak in day mode */
+        }
+
+        @media (max-width: 900px) {
+            .bento-grid { grid-template-columns: 1fr; }
+            .encoding-grid { grid-template-columns: 1fr; }
+            .layouts-grid { grid-template-columns: 1fr; }
+            .encoding-card { padding: 2.5rem 1.5rem; }
+            .cheatsheet-card { padding: 2rem 1.25rem; }
+        }
+
     </style>
     <!-- Schema.org Structured Data for Google SEO (Person + SoftwareApplication) -->
     <script type="application/ld+json">
@@ -3427,177 +4072,276 @@
         </section>
 
         <!-- Bento Grid Features -->
-        <section id="features">
+                <section id="features">
             <div class="section-header">
-                <div class="section-tag">ENGINEERING ARCHITECTURE</div>
+                <div class="section-tag">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                    <span>ENGINEERING ARCHITECTURE</span>
+                </div>
                 <h2 class="section-title">Built for Unmatched Speed &amp; Privacy</h2>
-                <p class="section-desc">Zero floating window disruption, direct text streaming, and 100% offline local execution.</p>
+                <p class="section-desc">Zero floating window disruption, direct cursor stream, and 100% offline local execution.</p>
             </div>
 
             <div class="bento-grid">
-                <div class="bento-card bento-span-2">
-                    <div class="bento-icon">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                <div class="bento-card">
+                    <div class="bento-icon-box">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
                     </div>
-                    <h3>Native Input Method Kit &amp; Win32 Architecture</h3>
-                    <p>Direct integration into macOS Text Services Framework and Windows Text Services / Low-Level Hooks. Types directly at cursor position without awkward floating overlay windows or focus-stealing popups.</p>
+                    <div>
+                        <h3>Direct OS Input Architecture</h3>
+                        <p>Direct integration into macOS Text Services Framework (InputMethodKit) and Windows Win32 low-level hooks. Types directly into your active cursor without flickering popup overlays.</p>
+                    </div>
+                    <span class="bento-badge">Zero Floating Overlay · Native Cursor Flow</span>
                 </div>
 
                 <div class="bento-card">
-                    <div class="bento-icon">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    <div class="bento-icon-box">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3"/></svg>
                     </div>
-                    <h3>100% Offline &amp; Private</h3>
-                    <p>Zero telemetry, zero network permissions, and zero tracking. Your keystrokes never touch the internet.</p>
+                    <div>
+                        <h3>Sub-Millisecond Rust Engine (riti)</h3>
+                        <p>Powered by an ultra-optimized Rust core with zero heap-allocation transliteration logic. Executes in under 0.2 milliseconds with 0% background battery impact.</p>
+                    </div>
+                    <span class="bento-badge">Rust Core · &lt; 0.2ms Transliteration</span>
                 </div>
 
                 <div class="bento-card">
-                    <div class="bento-icon">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3"/></svg>
+                    <div class="bento-icon-box">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7V4h16v3M9 20h6M12 4v16"/></svg>
                     </div>
-                    <h3>Native Rust Core (riti)</h3>
-                    <p>Powered by an ultra-optimized Rust transliteration engine with deterministic sub-millisecond execution.</p>
+                    <div>
+                        <h3>Dual Engine (Unicode &amp; Adobe ANSI)</h3>
+                        <p>Seamlessly toggle between standard UTF-8 for web apps and real-time ANSI glyphs for Adobe Illustrator &amp; Photoshop with automatic vowel sign and Reph (র্) reordering.</p>
+                    </div>
+                    <span class="bento-badge">UTF-8 Web · 100% Adobe CC &amp; SutonnyMJ</span>
                 </div>
 
-                <div class="bento-card bento-span-2">
-                    <div class="bento-icon">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7V4h16v3M9 20h6M12 4v16"/></svg>
+                <div class="bento-card">
+                    <div class="bento-icon-box">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
                     </div>
-                    <h3>Dual Output Engine (Unicode &amp; ANSI)</h3>
-                    <p>Seamlessly toggle between standard Unicode for web &amp; modern apps, and direct ANSI for Adobe Illustrator &amp; Photoshop with automatic vowel reordering.</p>
+                    <div>
+                        <h3>100% Offline &amp; Zero Telemetry</h3>
+                        <p>Completely air-gapped with zero network calls, zero telemetry, and zero data logging. Keystrokes are processed strictly on your hardware and never leave your device.</p>
+                    </div>
+                    <span class="bento-badge">Zero Telemetry · 100% Local Device Privacy</span>
                 </div>
             </div>
         </section>
 
         <!-- Dual Encoding Section -->
-        <section id="encoding">
-            <div class="encoding-box">
-                <div class="section-tag">DUAL ENCODING ARCHITECTURE</div>
-                <h2 style="font-size: 2.1rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 0.6rem;">
-                    The End of Broken Vowel Boxes in Design Apps
-                </h2>
-                <p style="color: var(--text-secondary); max-width: 680px; margin: 0 auto; font-size: 0.95rem;">
-                    YazaType supports both modern Unicode and legacy ANSI output for Bengali writing and design workflows.
-                </p>
+                <section id="encoding">
+            <div class="encoding-card">
+                <div style="text-align: center;">
+                    <div class="section-tag">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 7V4h16v3M9 20h6M12 4v16"/></svg>
+                        <span>DUAL ENCODING ARCHITECTURE</span>
+                    </div>
+                    <h2 class="section-title" style="margin-bottom: 0.75rem;">The End of Broken Vowel Boxes in Design Apps</h2>
+                    <p class="section-desc">YazaType natively supports both modern UTF-8 Unicode and legacy ANSI glyphs for zero-compromise Bengali writing and publishing workflows.</p>
+                </div>
 
                 <div class="encoding-grid">
                     <div class="encoding-col">
-                        <span class="encoding-badge badge-uni">UNICODE MODE</span>
-                        <h4>For Modern Web &amp; Apps</h4>
-                        <p style="font-size: 0.86rem; color: var(--text-secondary);">
-                            Outputs standard UTF-8 Bengali characters. Perfect for typing across modern browsers, word processors, and communication tools.
-                        </p>
-                        <ul>
-                            <li>Chrome, Safari, Firefox, Edge</li>
-                            <li>Microsoft Word, Apple Pages &amp; Notes</li>
-                            <li>Figma, VS Code, Slack, WhatsApp</li>
-                            <li>Compatible with Kalpurush, SolaimanLipi, Anek Bangla</li>
-                        </ul>
+                        <div>
+                            <span class="enc-badge badge-uni">UNICODE MODE</span>
+                            <h4>For Modern Web &amp; Applications</h4>
+                            <p>Outputs standard UTF-8 Bengali characters. Designed for clean rendering across all modern operating systems and digital tools.</p>
+                            
+                            <div class="enc-chips-title">Verified Applications:</div>
+                            <div class="enc-chips-grid">
+                                <span class="enc-chip">Chrome &amp; Safari</span>
+                                <span class="enc-chip">Microsoft Word</span>
+                                <span class="enc-chip">Apple Pages &amp; Notes</span>
+                                <span class="enc-chip">Figma &amp; VS Code</span>
+                                <span class="enc-chip">Slack &amp; WhatsApp</span>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="enc-chips-title">Font Compatibility:</div>
+                            <ul class="enc-features-list">
+                                <li class="enc-feature-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                    <span>Kalpurush, SolaimanLipi, Bornomala, Noto Sans</span>
+                                </li>
+                                <li class="enc-feature-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                    <span>Seamless copy-paste across web and social platforms</span>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
 
                     <div class="encoding-col highlight">
-                        <span class="encoding-badge badge-ansi">ANSI MODE</span>
-                        <h4>For Adobe Creative Cloud</h4>
-                        <p style="font-size: 0.86rem; color: var(--text-secondary);">
-                            Converts text in real-time to direct ANSI glyphs. Eliminates broken Kar boxes (আ-কার, ই-কার) in print publishing.
-                        </p>
-                        <ul>
-                            <li>Adobe Illustrator &amp; Photoshop</li>
-                            <li>Adobe InDesign &amp; Premiere Pro</li>
-                            <li>Automatic Pre-Kar &amp; Reph (র্) reordering</li>
-                            <li>Direct typing without external converter tools</li>
-                        </ul>
+                        <div>
+                            <span class="enc-badge badge-ansi">ANSI MODE</span>
+                            <h4>For Adobe Creative Cloud &amp; Print</h4>
+                            <p>Converts keystrokes in real-time to direct ANSI glyphs. Completely eliminates broken Kar boxes (আ-কার, ই-কার) in print publishing.</p>
+                            
+                            <div class="enc-chips-title">Verified Adobe Apps:</div>
+                            <div class="enc-chips-grid">
+                                <span class="enc-chip">Adobe Illustrator</span>
+                                <span class="enc-chip">Adobe Photoshop</span>
+                                <span class="enc-chip">Adobe InDesign</span>
+                                <span class="enc-chip">Premiere Pro</span>
+                                <span class="enc-chip">After Effects</span>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="enc-chips-title">Core Capabilities:</div>
+                            <ul class="enc-features-list">
+                                <li class="enc-feature-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                    <span>Automatic Pre-Kar (ে, ি, ৈ) and Reph (র্) reordering</span>
+                                </li>
+                                <li class="enc-feature-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                    <span>Direct keyboard typing without external converter tools</span>
+                                </li>
+                                <li class="enc-feature-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                    <span>100% SutonnyMJ &amp; classic print font ready</span>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
 
-                <div style="text-align: center; margin-top: 2rem;">
-                    <a href="converter.html" class="btn-copy-term" style="padding: 0.6rem 1.45rem; font-size: 0.88rem; text-decoration: none; border-radius: 999px; background: rgba(255, 255, 255, 0.08); border-color: rgba(255, 255, 255, 0.2);">
-                        <span>⚡ Launch Standalone Universal Script Converter</span>
-                        <span style="opacity: 0.7;">→</span>
+                <div class="enc-cta-wrap">
+                    <a href="converter.html" class="enc-cta-btn">
+                        <span>Launch Standalone Universal Script Converter</span>
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                     </a>
                 </div>
             </div>
         </section>
 
         <!-- Layouts Showcase -->
-        <section id="layouts">
+                <section id="layouts">
             <div class="section-header">
-                <div class="section-tag">KEYBOARD LAYOUTS</div>
+                <div class="section-tag">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M6 8h.01M10 8h.01M14 8h.01M18 8h.01M6 12h.01M10 12h.01M14 12h.01M18 12h.01M8 16h8"/></svg>
+                    <span>KEYBOARD LAYOUTS</span>
+                </div>
                 <h2 class="section-title">Your Preferred Layout, Native &amp; Fast</h2>
                 <p class="section-desc">Switch seamlessly between Phonetic and fixed layouts from the menu bar or settings.</p>
             </div>
 
             <div class="layouts-grid">
-                <div class="bento-card">
-                    <div class="bento-icon">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M6 8h.01M10 8h.01M14 8h.01M18 8h.01M6 12h.01M10 12h.01M14 12h.01M18 12h.01M8 16h8"/></svg>
+                <div class="layout-card">
+                    <div>
+                        <div class="layout-header">
+                            <div class="layout-icon">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M6 8h.01M10 8h.01M14 8h.01M18 8h.01M6 12h.01M10 12h.01M14 12h.01M18 12h.01M8 16h8"/></svg>
+                            </div>
+                            <span class="enc-badge badge-uni">AVRO COMPATIBLE</span>
+                        </div>
+                        <h3>Phonetic (YazaType)</h3>
+                        <p>Intuitive Romanized phonetic typing. Write naturally as you speak with smart vowel logic and instant conjunct recognition.</p>
                     </div>
-                    <h3>Phonetic (YazaType)</h3>
-                    <p>Intuitive Romanized phonetic typing (e.g. <code>amar</code> → <code>আমার</code>). Full conjunct support and smart vowel logic.</p>
+                    <div class="layout-preview-box">
+                        <span>Typing: <span class="key-cap">a</span><span class="key-cap">m</span><span class="key-cap">a</span><span class="key-cap">r</span></span>
+                        <span style="font-weight: 700; color: var(--accent-blue); font-family: var(--font-bangla); font-size: 1.1rem;">আমার</span>
+                    </div>
                 </div>
 
-                <div class="bento-card">
-                    <div class="bento-icon">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1zM4 22v-7"/></svg>
+                <div class="layout-card">
+                    <div>
+                        <div class="layout-header">
+                            <div class="layout-icon">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1zM4 22v-7"/></svg>
+                            </div>
+                            <span class="enc-badge badge-uni">GOVERNMENT STANDARD</span>
+                        </div>
+                        <h3>National / Bijoy (জাতীয়)</h3>
+                        <p>Standard Bangladesh National layout. Essential for professional typists, journalists, government offices, and print publishers.</p>
                     </div>
-                    <h3>National / Bijoy (জাতীয়)</h3>
-                    <p>Standard Bangladesh National layout. Ideal for professional typists, journalists, and print media publishers.</p>
+                    <div class="layout-preview-box">
+                        <span>Typing: <span class="key-cap">A</span><span class="key-cap">v</span></span>
+                        <span style="font-weight: 700; color: var(--accent-blue); font-family: var(--font-bangla); font-size: 1.1rem;">আ</span>
+                    </div>
                 </div>
 
-                <div class="bento-card">
-                    <div class="bento-icon">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+                <div class="layout-card">
+                    <div>
+                        <div class="layout-header">
+                            <div class="layout-icon">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+                            </div>
+                            <span class="enc-badge badge-uni">CLASSIC FIXED</span>
+                        </div>
+                        <h3>Probhat (প্রভাত)</h3>
+                        <p>The beloved classic Probhat fixed layout mapping, built with modern responsive modifiers and full conjunct support.</p>
                     </div>
-                    <h3>Probhat (প্রভাত)</h3>
-                    <p>The classic Probhat fixed layout mapping, built with modern responsive modifiers and full conjunct support.</p>
+                    <div class="layout-preview-box">
+                        <span>Typing: <span class="key-cap">Shift</span> + <span class="key-cap">E</span></span>
+                        <span style="font-weight: 700; color: var(--accent-blue); font-family: var(--font-bangla); font-size: 1.1rem;">ঐ</span>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Cheatsheet Section -->
-        <section id="cheatsheet" class="cheatsheet-section">
-            <div class="section-header" style="margin-bottom: 1.5rem;">
-                <div class="section-tag">QUICK REFERENCE</div>
-                <h2 class="section-title">Phonetic Mapping Cheat-Sheet</h2>
-                <p class="section-desc">Search any letter, key, or conjunct for instant reference.</p>
-            </div>
+                <section id="cheatsheet">
+            <div class="cheatsheet-card">
+                <div style="text-align: center; margin-bottom: 2rem;">
+                    <div class="section-tag">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                        <span>QUICK REFERENCE</span>
+                    </div>
+                    <h2 class="section-title">Phonetic Mapping Cheat-Sheet</h2>
+                    <p class="section-desc">Search any letter, key, or conjunct for instant reference.</p>
+                </div>
 
-            <div class="cheat-search-bar">
-                <span class="cheat-icon">🔍</span>
-                <input type="text" id="cheat-search" class="cheat-input" placeholder="Search key or letter (e.g. kkh, ri, ৳, ..)..." oninput="filterCheatsheet()" />
-            </div>
+                <div class="cheat-controls">
+                    <div class="cheat-search-wrapper">
+                        <svg class="cheat-search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                        <input type="text" id="cheat-search" class="cheat-search-field" placeholder="Search key or letter (e.g. kkh, ri, ৳, ..)..." oninput="filterCheatsheet()" />
+                    </div>
 
-            <div class="table-wrap">
-                <table id="cheat-table">
-                    <thead>
-                        <tr>
-                            <th>Key Combination</th>
-                            <th>Bengali Character</th>
-                            <th>Description / Example</th>
-                        </tr>
-                    </thead>
-                    <tbody id="cheat-tbody">
-                        <tr><td><span class="key-badge">a</span></td><td class="bng-out">আ / া</td><td>Primary Aa-kar</td></tr>
-                        <tr><td><span class="key-badge">i</span></td><td class="bng-out">ই / ি</td><td>Hroshwo-I</td></tr>
-                        <tr><td><span class="key-badge">I</span></td><td class="bng-out">ঈ / ী</td><td>Dirgho-I</td></tr>
-                        <tr><td><span class="key-badge">u</span></td><td class="bng-out">উ / ু</td><td>Hroshwo-U</td></tr>
-                        <tr><td><span class="key-badge">U</span></td><td class="bng-out">ঊ / ূ</td><td>Dirgho-U</td></tr>
-                        <tr><td><span class="key-badge">rri</span></td><td class="bng-out">ঋ / ৃ</td><td>Rri-kar</td></tr>
-                        <tr><td><span class="key-badge">e</span></td><td class="bng-out">এ / ে</td><td>E-kar</td></tr>
-                        <tr><td><span class="key-badge">OI</span></td><td class="bng-out">ঐ / ৈ</td><td>Oi-kar</td></tr>
-                        <tr><td><span class="key-badge">O</span></td><td class="bng-out">ও / ো</td><td>O-kar</td></tr>
-                        <tr><td><span class="key-badge">OU</span></td><td class="bng-out">ঔ / ৌ</td><td>Ou-kar</td></tr>
-                        <tr><td><span class="key-badge">kkh</span></td><td class="bng-out">ক্ষ</td><td>ক + ষ (e.g. kkhoma → ক্ষমা)</td></tr>
-                        <tr><td><span class="key-badge">jng</span></td><td class="bng-out">জ্ঞ</td><td>জ + ঞ (e.g. gyan → জ্ঞান)</td></tr>
-                        <tr><td><span class="key-badge">..</span></td><td class="bng-out">।</td><td>Bengali Dari (দাঁড়ি)</td></tr>
-                        <tr><td><span class="key-badge">$$</span></td><td class="bng-out">৳</td><td>Taka Symbol (টাকা)</td></tr>
-                        <tr><td><span class="key-badge">,,</span></td><td class="bng-out">্</td><td>Explicit Hasanta</td></tr>
-                        <tr><td><span class="key-badge">k-s</span></td><td class="bng-out">কস্</td><td>Joiner Break (-)</td></tr>
-                        <tr><td><span class="key-badge">rr</span></td><td class="bng-out">র্</td><td>Reph (e.g. rrk → র্ক)</td></tr>
-                        <tr><td><span class="key-badge">w / v</span></td><td class="bng-out">্ব</td><td>Ba-fala (e.g. kw → ক্ব)</td></tr>
-                        <tr><td><span class="key-badge">y / Z</span></td><td class="bng-out">্য</td><td>Ja-fala (e.g. ky → ক্য)</td></tr>
-                    </tbody>
-                </table>
+                    <div class="cheat-tabs-row">
+                        <button type="button" class="cheat-tab-btn active" onclick="filterCheatCategory('all', this)">All (সকল)</button>
+                        <button type="button" class="cheat-tab-btn" onclick="filterCheatCategory('vowel', this)">Vowels (স্বরবর্ণ)</button>
+                        <button type="button" class="cheat-tab-btn" onclick="filterCheatCategory('consonant', this)">Consonants (ব্যঞ্জনবর্ণ)</button>
+                        <button type="button" class="cheat-tab-btn" onclick="filterCheatCategory('conjunct', this)">Conjuncts (যুক্তবর্ণ)</button>
+                        <button type="button" class="cheat-tab-btn" onclick="filterCheatCategory('special', this)">Special (চিহ্ন)</button>
+                    </div>
+                </div>
+
+                <div class="cheat-table-container">
+                    <table class="cheat-table" id="cheat-table">
+                        <thead>
+                            <tr>
+                                <th>Key Combination</th>
+                                <th>Bengali Output</th>
+                                <th>Description / Phonetic Example</th>
+                            </tr>
+                        </thead>
+                        <tbody id="cheat-tbody">
+                            <tr data-cat="vowel"><td><span class="key-cap">a</span></td><td class="cheat-bangla-char">আ / া</td><td>Primary Aa-kar</td></tr>
+                            <tr data-cat="vowel"><td><span class="key-cap">i</span></td><td class="cheat-bangla-char">ই / ি</td><td>Hroshwo-I</td></tr>
+                            <tr data-cat="vowel"><td><span class="key-cap">I</span></td><td class="cheat-bangla-char">ঈ / ী</td><td>Dirgho-I</td></tr>
+                            <tr data-cat="vowel"><td><span class="key-cap">u</span></td><td class="cheat-bangla-char">উ / ু</td><td>Hroshwo-U</td></tr>
+                            <tr data-cat="vowel"><td><span class="key-cap">U</span></td><td class="cheat-bangla-char">ঊ / ূ</td><td>Dirgho-U</td></tr>
+                            <tr data-cat="vowel"><td><span class="key-cap">rri</span></td><td class="cheat-bangla-char">ঋ / ৃ</td><td>Rri-kar</td></tr>
+                            <tr data-cat="vowel"><td><span class="key-cap">e</span></td><td class="cheat-bangla-char">এ / ে</td><td>E-kar</td></tr>
+                            <tr data-cat="vowel"><td><span class="key-cap">OI</span></td><td class="cheat-bangla-char">ঐ / ৈ</td><td>Oi-kar</td></tr>
+                            <tr data-cat="vowel"><td><span class="key-cap">O</span></td><td class="cheat-bangla-char">ও / ো</td><td>O-kar</td></tr>
+                            <tr data-cat="vowel"><td><span class="key-cap">OU</span></td><td class="cheat-bangla-char">ঔ / ৌ</td><td>Ou-kar</td></tr>
+                            <tr data-cat="conjunct"><td><span class="key-cap">kkh</span></td><td class="cheat-bangla-char">ক্ষ</td><td>ক + ষ (e.g. kkhoma → ক্ষমা)</td></tr>
+                            <tr data-cat="conjunct"><td><span class="key-cap">jng</span></td><td class="cheat-bangla-char">জ্ঞ</td><td>জ + ঞ (e.g. gyan → জ্ঞান)</td></tr>
+                            <tr data-cat="special"><td><span class="key-cap">..</span></td><td class="cheat-bangla-char">।</td><td>Bengali Dari (দাঁড়ি)</td></tr>
+                            <tr data-cat="special"><td><span class="key-cap">$$</span></td><td class="cheat-bangla-char">৳</td><td>Taka Currency Symbol (টাকা)</td></tr>
+                            <tr data-cat="special"><td><span class="key-cap">,,</span></td><td class="cheat-bangla-char">্</td><td>Explicit Hasanta (হসন্ত)</td></tr>
+                            <tr data-cat="special"><td><span class="key-cap">k-s</span></td><td class="cheat-bangla-char">কস্</td><td>Joiner Break (-)</td></tr>
+                            <tr data-cat="conjunct"><td><span class="key-cap">rr</span></td><td class="cheat-bangla-char">র্</td><td>Reph (e.g. rrk → র্ক)</td></tr>
+                            <tr data-cat="conjunct"><td><span class="key-cap">w / v</span></td><td class="cheat-bangla-char">্ব</td><td>Ba-fala (e.g. kw → ক্ব)</td></tr>
+                            <tr data-cat="conjunct"><td><span class="key-cap">y / Z</span></td><td class="cheat-bangla-char">্য</td><td>Ja-fala (e.g. ky → ক্য)</td></tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </section>
 
@@ -3634,49 +4378,54 @@
         </section>
 
                 <!-- FAQ Section -->
-        <section id="faq" class="faq-wrap">
+                <section id="faq" class="faq-wrap">
             <div class="section-header">
-                <div class="section-tag">COMMON QUESTIONS</div>
+                <div class="section-tag">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                    <span>COMMON QUESTIONS</span>
+                </div>
                 <h2 class="section-title">Frequently Asked Questions</h2>
             </div>
 
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>Why does Windows show "Windows protected your PC" when opening YazaType?</span>
-                    <span class="faq-arrow">▼</span>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Why does Windows show "Windows protected your PC" when opening YazaType?</span>
+                        <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </div>
+                    <div class="faq-answer">
+                        YazaType is 100% open-source, non-profit software without an expensive corporate digital signature certificate. When Windows Defender SmartScreen appears, simply click <strong>"More info"</strong> and then <strong>"Run anyway"</strong>. It is completely safe, offline, and contains zero tracking code.
+                    </div>
                 </div>
-                <div class="faq-answer">
-                    YazaType is 100% open-source and free software without an expensive corporate digital signature. When Windows Defender SmartScreen appears, simply click <strong>"More info"</strong> and then <strong>"Run anyway"</strong>. It is completely safe, offline, and contains zero telemetry.
-                </div>
-            </div>
 
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>How do I type in Adobe Illustrator without broken vowel boxes?</span>
-                    <span class="faq-arrow">▼</span>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>How do I type in Adobe Illustrator without broken vowel boxes?</span>
+                        <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </div>
+                    <div class="faq-answer">
+                        Simply switch YazaType's <strong>Output Encoding</strong> to <strong>ANSI</strong> from the macOS Menu Bar or Windows Tray. In Illustrator or Photoshop, select your ANSI font (e.g. SutonnyMJ) and type normally. YazaType automatically reorders all vowels and conjuncts in real-time.
+                    </div>
                 </div>
-                <div class="faq-answer">
-                    Simply switch YazaType's <strong>Output Encoding</strong> to <strong>ANSI</strong> from the Menu Bar or Settings. In Illustrator or Photoshop, select your ANSI font (e.g. SutonnyMJ) and type normally. YazaType automatically reorders all vowels and conjuncts in real-time.
-                </div>
-            </div>
 
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>Does YazaType collect any typing data or analytics?</span>
-                    <span class="faq-arrow">▼</span>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Does YazaType collect any typing data or keystrokes?</span>
+                        <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </div>
+                    <div class="faq-answer">
+                        No! YazaType is 100% offline, open-source, and has zero network permissions. None of your keystrokes or data ever leave your computer.
+                    </div>
                 </div>
-                <div class="faq-answer">
-                    No! YazaType is 100% offline, open-source, and has zero network permissions. None of your keystrokes or data ever leave your computer.
-                </div>
-            </div>
 
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>How do I toggle between English and Bengali?</span>
-                    <span class="faq-arrow">▼</span>
-                </div>
-                <div class="faq-answer">
-                    On macOS, use <strong>Control + Space</strong> or the <strong>Globe (🌐)</strong> key. On Windows, use <strong>F12</strong>.
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>How do I toggle between English and Bengali?</span>
+                        <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </div>
+                    <div class="faq-answer">
+                        On macOS, use <strong>Control + Space</strong> or the <strong>Globe</strong> key. On Windows, press <strong>F12</strong> anytime to toggle between English and Bengali mode.
+                    </div>
                 </div>
             </div>
         </section>
@@ -3691,7 +4440,7 @@
                     <div class="footer-logo-row">
                         <img src="yazatype-icon.png" alt="YazaType Logo" style="height: 32px; width: auto;" />
                         <span class="footer-brand-title">YazaType</span>
-                        <span class="brand-version">v0.2.5</span>
+                        <span class="brand-version">v0.4.2</span>
                     </div>
                     <p class="footer-desc">
                         The native, ultra-fast Bengali input engine for macOS and Windows. Designed for precision typing, dual Unicode &amp; ANSI support, and complete offline privacy.
@@ -4043,7 +4792,7 @@
             }
 
             // Balanced particle count to provide abundant breathing room and prevent crowding
-            const count = Math.min(32, Math.max(16, Math.floor(width / 52)));
+            const count = Math.min(20, Math.max(12, Math.floor(width / 75)));
             for (let i = 0; i < count; i++) {
                 const layer = Math.random();
                 let size, baseOpacity, speedY, colorRgb, glow;
@@ -4161,11 +4910,8 @@
                         ctx.font = `600 ${p.size}px "Bornomala", "Siyam Rupali", sans-serif`;
                         
                         if (isLight) {
-                            if (p.glow) {
-                                ctx.shadowColor = 'rgba(37, 99, 235, 0.15)';
-                                ctx.shadowBlur = 6;
-                            }
-                            ctx.fillStyle = `rgba(15, 23, 42, ${Math.max(0.025, currentAlpha * 0.75)})`;
+                            ctx.shadowBlur = 0;
+                            ctx.fillStyle = `rgba(15, 23, 42, ${Math.max(0.015, currentAlpha * 0.2)})`;
                         } else {
                             if (p.glow) {
                                 ctx.shadowColor = 'rgba(96, 165, 250, 0.4)';
