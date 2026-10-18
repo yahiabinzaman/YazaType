@@ -2773,7 +2773,410 @@
             .studio-bottom-bar { flex-direction: column; align-items: flex-start; }
         }
 
+    
+        /* ==========================================================================
+           About Yahia Bin Zaman (Meet the Creator) Section Styles
+           ========================================================================== */
+        .about-creator-section {
+            margin: 6rem 0 5rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .creator-grid {
+            display: grid;
+            grid-template-columns: 380px 1fr;
+            gap: 2.25rem;
+            align-items: stretch;
+            margin-top: 2.5rem;
+        }
+
+        .creator-profile-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-subtle);
+            border-radius: 24px;
+            padding: 2.25rem 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.05);
+            transition: border-color 0.3s, transform 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .creator-profile-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-2px);
+        }
+
+        .creator-avatar-wrap {
+            position: relative;
+            width: 170px;
+            height: 170px;
+            margin: 0 auto 1.5rem;
+        }
+
+        .creator-avatar-aura {
+            position: absolute;
+            inset: -8px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(37, 99, 235, 0.3) 0%, rgba(56, 189, 248, 0.15) 50%, transparent 75%);
+            animation: auraPulse 4s ease-in-out infinite alternate;
+            z-index: 0;
+        }
+
+        @keyframes auraPulse {
+            0% { transform: scale(0.95); opacity: 0.6; }
+            100% { transform: scale(1.06); opacity: 1; }
+        }
+
+        .creator-avatar-img {
+            position: relative;
+            z-index: 1;
+            width: 170px;
+            height: 170px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid rgba(255, 255, 255, 0.85);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+            background: #ffffff;
+            transition: transform 0.3s ease;
+        }
+
+        [data-theme="dark"] .creator-avatar-img {
+            border-color: rgba(255, 255, 255, 0.15);
+            background: #0d1117;
+            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5);
+        }
+
+        .creator-avatar-wrap:hover .creator-avatar-img {
+            transform: scale(1.03);
+        }
+
+        .creator-name {
+            font-size: 1.55rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            letter-spacing: -0.02em;
+            margin-bottom: 0.25rem;
+        }
+
+        .creator-role {
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: #2563eb;
+            margin-bottom: 0.4rem;
+        }
+
+        [data-theme="dark"] .creator-role {
+            color: #38bdf8;
+        }
+
+        .creator-company {
+            font-size: 0.84rem;
+            color: var(--text-muted);
+            margin-bottom: 1.25rem;
+        }
+
+        .creator-status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.35rem 0.9rem;
+            background: rgba(34, 197, 94, 0.08);
+            border: 1px solid rgba(34, 197, 94, 0.25);
+            border-radius: 9999px;
+            font-size: 0.74rem;
+            font-weight: 600;
+            color: #16a34a;
+            margin-bottom: 1.5rem;
+        }
+
+        [data-theme="dark"] .creator-status-badge {
+            background: rgba(34, 197, 94, 0.12);
+            color: #4ade80;
+            border-color: rgba(34, 197, 94, 0.3);
+        }
+
+        .creator-status-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #22c55e;
+            box-shadow: 0 0 8px #22c55e;
+            animation: statusGlow 2s infinite;
+        }
+
+        @keyframes statusGlow {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(0.85); }
+        }
+
+        .creator-social-links {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.55rem;
+            flex-wrap: wrap;
+            margin-top: auto;
+            padding-top: 1.25rem;
+            border-top: 1px solid var(--border-subtle);
+            width: 100%;
+        }
+
+        .social-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            background: var(--pill-bg);
+            border: 1px solid var(--border-subtle);
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .social-btn:hover {
+            color: #ffffff;
+            background: #0f172a;
+            border-color: #0f172a;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+        }
+
+        [data-theme="dark"] .social-btn:hover {
+            background: #2563eb;
+            border-color: #2563eb;
+            color: #ffffff;
+            box-shadow: 0 6px 16px rgba(37, 99, 235, 0.3);
+        }
+
+        .creator-narrative-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-subtle);
+            border-radius: 24px;
+            padding: 2.5rem;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .narrative-lead {
+            font-size: 1.15rem;
+            font-weight: 600;
+            line-height: 1.7;
+            color: var(--text-primary);
+            margin-bottom: 1.25rem;
+        }
+
+        .narrative-body {
+            font-size: 0.96rem;
+            line-height: 1.75;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .narrative-body strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .creator-systems-title {
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .creator-systems-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .system-mini-card {
+            background: var(--pill-bg);
+            border: 1px solid var(--border-subtle);
+            border-radius: 14px;
+            padding: 1.1rem 1.25rem;
+            transition: all 0.2s;
+        }
+
+        .system-mini-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+        }
+
+        .system-mini-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 0.35rem;
+        }
+
+        .system-mini-name {
+            font-size: 0.94rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .system-mini-name:hover {
+            color: #2563eb;
+        }
+
+        [data-theme="dark"] .system-mini-name:hover {
+            color: #38bdf8;
+        }
+
+        .system-mini-tag {
+            font-size: 0.68rem;
+            font-family: var(--font-mono);
+            font-weight: 600;
+            padding: 0.15rem 0.45rem;
+            border-radius: 4px;
+            background: rgba(37, 99, 235, 0.1);
+            color: #2563eb;
+        }
+
+        [data-theme="dark"] .system-mini-tag {
+            background: rgba(56, 189, 248, 0.12);
+            color: #38bdf8;
+        }
+
+        .system-mini-desc {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        .creator-stats-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            padding-top: 1.75rem;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .creator-stat-item {
+            text-align: left;
+        }
+
+        .creator-stat-num {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            margin-bottom: 0.25rem;
+            font-family: var(--font-bangla);
+        }
+
+        .creator-stat-lbl {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            font-weight: 600;
+            line-height: 1.35;
+        }
+
+        @media (max-width: 1024px) {
+            .creator-grid {
+                grid-template-columns: 1fr;
+            }
+            .creator-systems-grid {
+                grid-template-columns: 1fr;
+            }
+            .creator-stats-row {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+        }
+
     </style>
+    <!-- Schema.org Structured Data for Google SEO (Person + SoftwareApplication) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://yahiabinzaman.github.io/yazatype/bn/#about",
+          "name": "Yahia Bin Zaman",
+          "alternateName": ["ইয়াহিয়া বিন জামান", "Yahia Mahmud"],
+          "url": "https://yahiabinzaman.github.io/yazatype/bn/#about",
+          "image": {
+            "@type": "ImageObject",
+            "url": "https://yahiabinzaman.github.io/yazatype/yahia-bin-zaman.png",
+            "caption": "ইয়াহিয়া বিন জামান - সফটওয়্যার ইঞ্জিনিয়ার ও স্রষ্টা, YazaType"
+          },
+          "jobTitle": "ম্যানেজিং ইনচার্জ ও ফুল-স্ট্যাক সফটওয়্যার ইঞ্জিনিয়ার",
+          "worksFor": {
+            "@type": "Organization",
+            "name": "ColorLab",
+            "url": "https://github.com/yahiabinzaman"
+          },
+          "description": "সফটওয়্যার ইঞ্জিনিয়ার ও ক্রিয়েটিভ টেকনোলজিস্ট। কালারল্যাব-এ ৮+ বছরের ইন্ডাস্ট্রিয়াল প্রি-প্রেস ও ইআরপি পরিচালনা। YazaType, ColorLab Workspace ও VectorGuard PDF Pro-এর নির্মাতা।",
+          "sameAs": [
+            "https://github.com/yahiabinzaman",
+            "https://www.linkedin.com/in/yahia-mahmud-b4095b354/",
+            "https://www.behance.net/yahiamahmud",
+            "https://www.facebook.com/YahiaBinZaman",
+            "https://www.instagram.com/yahiabinzaman_official/"
+          ],
+          "knowsAbout": [
+            "Software Engineering",
+            "Bengali Typography",
+            "macOS Native Development",
+            "Windows Desktop Applications",
+            "Applied AI & LLM Agent Workflows",
+            "Adobe Illustrator Scripting & Automation",
+            "Industrial ERP Systems",
+            "Prepress Print Production"
+          ]
+        },
+        {
+          "@type": "SoftwareApplication",
+          "@id": "https://yahiabinzaman.github.io/yazatype/bn/#software",
+          "name": "YazaType",
+          "alternateName": "YazaType বাংলা কীবোর্ড",
+          "applicationCategory": "UtilitiesApplication",
+          "operatingSystem": "macOS 12+, Windows 10, Windows 11",
+          "url": "https://yahiabinzaman.github.io/yazatype/bn/",
+          "description": "ম্যাক ও উইন্ডোজের জন্য পরবর্তী প্রজন্মের দ্রুততম বাংলা টাইপিং ইঞ্জিন। জিরো ল্যাগ, ইউনিকোড ও বিজয় অ্যানসি ডুয়াল ইঞ্জিন এবং ১০০% অফলাইন সুরক্ষা।",
+          "author": {
+            "@id": "https://yahiabinzaman.github.io/yazatype/bn/#about"
+          },
+          "creator": {
+            "@id": "https://yahiabinzaman.github.io/yazatype/bn/#about"
+          },
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          }
+        }
+      ]
+    }
+    </script>
 </head>
 <body>
     <!-- Background Animated Bengali Canvas & Horizon Light -->
@@ -3225,6 +3628,152 @@
                     <a href="https://github.com/yahiabinzaman/yazatype/releases/download/v0.2.5/YazaType.exe" class="btn-main btn-win" style="padding: 0.55rem 1.15rem; font-size: 0.86rem;">
                         YazaType.exe ডাউনলোড
                     </a>
+                </div>
+            </div>
+        </section>
+
+                <!-- About Yahia Bin Zaman Section (Google SEO & Creator Profile) -->
+        <section id="about" class="about-creator-section" aria-label="ইয়াহিয়া বিন জামান পরিচিতি">
+            <div class="section-header">
+                <div class="section-tag">স্রষ্টা ও সফটওয়্যার প্রকৌশলী পরিচিতি</div>
+                <h2 class="section-title">প্রকৌশল ও উদ্ভাবন: ইয়াহিয়া বিন জামান</h2>
+                <p class="section-desc">
+                    YazaType-এর স্রষ্টা এবং কালারল্যাব (ColorLab)-এর ৮+ বছরের ইন্ডাস্ট্রিয়াল প্রি-প্রেস ও সফটওয়্যার সিস্টেম আর্কিটেক্ট।
+                </p>
+            </div>
+
+            <div class="creator-grid">
+                <!-- Creator Identity Card -->
+                <div class="creator-profile-card">
+                    <div class="creator-avatar-wrap">
+                        <div class="creator-avatar-aura"></div>
+                        <img src="../yahia-bin-zaman.png" alt="ইয়াহিয়া বিন জামান - সফটওয়্যার ইঞ্জিনিয়ার ও YazaType স্রষ্টা" class="creator-avatar-img" width="170" height="170" loading="lazy" />
+                    </div>
+
+                    <h3 class="creator-name">ইয়াহিয়া বিন জামান</h3>
+                    <div class="creator-role">সফটওয়্যার ইঞ্জিনিয়ার · ক্রিয়েটিভ টেকনোলজিস্ট</div>
+                    <div class="creator-company">ম্যানেজিং ইনচার্জ @ কালারল্যাব (৮+ বছর)</div>
+
+                    <div class="creator-status-badge">
+                        <span class="creator-status-dot"></span>
+                        <span>অ্যাক্টিভ সিস্টেম আর্কিটেক্ট · ৫+ প্রোডাকশন সিস্টেম</span>
+                    </div>
+
+                    <p style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.55; margin-bottom: 1.5rem;">
+                        ম্যাক ও উইন্ডোজের জন্য নেটিভ ডেস্কটপ ইঞ্জিন, টাইপোগ্রাফি আর্কিটেকচার, ফলিত এআই (Applied AI) এবং ইন্ডাস্ট্রিয়াল ইআরপি ও প্রি-প্রেস অটোমেশন বিশেষজ্ঞ।
+                    </p>
+
+                    <!-- Verified Social Badges -->
+                    <div class="creator-social-links">
+                        <a href="https://github.com/yahiabinzaman" target="_blank" rel="noopener" class="social-btn" title="GitHub - @yahiabinzaman" aria-label="GitHub প্রোফাইল">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                        </a>
+                        <a href="https://www.linkedin.com/in/yahia-mahmud-b4095b354/" target="_blank" rel="noopener" class="social-btn" title="LinkedIn - Yahia Mahmud" aria-label="LinkedIn প্রোফাইল">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                        </a>
+                        <a href="https://www.behance.net/yahiamahmud" target="_blank" rel="noopener" class="social-btn" title="Behance - yahiamahmud" aria-label="Behance পোর্টফোলিও">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22 7h-7v-2h7v2zm1.726 10c-.442 1.297-2.029 3-4.726 3-3.031 0-5.5-2.062-5.5-5.5s2.391-5.5 5.438-5.5c3.219 0 5.062 2.344 5.062 5.5v1h-7.5c.062 1.484 1.109 2.5 2.5 2.5 1.094 0 1.875-.578 2.281-1.359l2.445.859zm-2.484-3.5c-.078-1.297-1-2-2.25-2s-2.094.703-2.25 2h4.5zm-14.242-6.5h-7v14h7c2.761 0 5-1.789 5-4.5 0-1.57-.75-2.859-1.891-3.641 1.031-.797 1.391-1.875 1.391-3.109 0-2.484-2-2.75-4.5-2.75zm-3.5 5.5v-3.5h3c1.379 0 2 .621 2 1.75s-.621 1.75-2 1.75h-3zm0 6.5v-4.5h3.5c1.379 0 2 .871 2 2.25s-.621 2.25-2 2.25h-3.5z"/></svg>
+                        </a>
+                        <a href="https://www.facebook.com/YahiaBinZaman" target="_blank" rel="noopener" class="social-btn" title="Facebook - Yahia Bin Zaman" aria-label="Facebook প্রোফাইল">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        </a>
+                        <a href="https://www.instagram.com/yahiabinzaman_official/" target="_blank" rel="noopener" class="social-btn" title="Instagram - @yahiabinzaman_official" aria-label="Instagram প্রোফাইল">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                        </a>
+                        <a href="mailto:yahiamahmud10@gmail.com" class="social-btn" title="ইমেইল করুন" aria-label="সরাসরি ইমেইল">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Creator Narrative & Built Systems -->
+                <div class="creator-narrative-card">
+                    <div>
+                        <p class="narrative-lead">
+                            "সৃজনশীল ভিজ্যুয়াল ডিজাইন এবং সফটওয়্যার আর্কিটেকচারের মধ্যকার দূরত্ব দূর করাই আমার কাজের মূল লক্ষ্য। কালারল্যাব-এ ৮+ বছর প্রি-প্রেস ও ইন্ডাস্ট্রিয়াল ইআরপি পরিচালনার অভিজ্ঞতা থেকে আমি ম্যাক ও উইন্ডোজের জন্য <strong>YazaType</strong> তৈরি করেছি — যেন বাংলা টাইপিংয়ে আর কোনো আপস করতে না হয়।"
+                        </p>
+
+                        <p class="narrative-body">
+                            ম্যাক ও উইন্ডোজে বাংলা টাইপিংয়ের সবচেয়ে বড় সংকট ছিল ফটোশপ ও ইলাস্ট্রেটরে ভাঙা কার-চিহ্ন, ভুল যুক্তবর্ণ এবং অস্বস্তিকর ইনপুট ল্যাগ। একজন <strong>সফটওয়্যার ইঞ্জিনিয়ার</strong> ও <strong>প্রি-প্রেস ডিজাইন ডিরেক্টর</strong> হিসেবে ইয়াহিয়া বিন জামান সম্পূর্ণ নতুন আর্কিটেকচারে YazaType তৈরি করেছেন — যাতে একই সাথে ইউনিকোড ও বিজয় অ্যানসি নির্ভুলভাবে এবং শূন্য মিলি-সেকেন্ড ল্যাটেন্সিতে টাইপ করা যায়।
+                        </p>
+
+                        <div class="creator-systems-title">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg>
+                            <span>ইয়াহিয়া বিন জামানের উল্লেখযোগ্য ফ্ল্যাগশিপ সিস্টেম ও উদ্ভাবন</span>
+                        </div>
+
+                        <!-- Systems Bento Grid -->
+                        <div class="creator-systems-grid">
+                            <div class="system-mini-card">
+                                <div class="system-mini-header">
+                                    <a href="https://github.com/yahiabinzaman/YazaType" target="_blank" rel="noopener" class="system-mini-name">
+                                        <span>YazaType কীবোর্ড</span>
+                                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
+                                    </a>
+                                    <span class="system-mini-tag">macOS / Windows</span>
+                                </div>
+                                <div class="system-mini-desc">
+                                    বাংলাদেশের প্রথম ০-ল্যাগ ডুয়াল বাংলা ইনপুট ইঞ্জিন যা ইউনিকোড ও বিজয় (সুতন্নিএমজে) একই সাথে রিয়েল-টাইমে সমর্থন করে।
+                                </div>
+                            </div>
+
+                            <div class="system-mini-card">
+                                <div class="system-mini-header">
+                                    <span class="system-mini-name">ColorLab Workspace</span>
+                                    <span class="system-mini-tag">ইন্ডাস্ট্রিয়াল ERP</span>
+                                </div>
+                                <div class="system-mini-desc">
+                                    অফসেট প্রিন্টিং ও ম্যানুফ্যাকচারিংয়ের জন্য স্বয়ংক্রিয় পেপার কাটিং অপটিমাইজার ও লাইভ ক্যাশফ্লো লেজার ওএস।
+                                </div>
+                            </div>
+
+                            <div class="system-mini-card">
+                                <div class="system-mini-header">
+                                    <a href="https://github.com/yahiabinzaman/VectorGuard-PDF-Pro" target="_blank" rel="noopener" class="system-mini-name">
+                                        <span>VectorGuard PDF Pro</span>
+                                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
+                                    </a>
+                                    <span class="system-mini-tag">প্রি-প্রেস অটোমেশন</span>
+                                </div>
+                                <div class="system-mini-desc">
+                                    অ্যাডোবি ইলাস্ট্রেটর ও পিডিএফ অটোমেশন টুলস যা বাণিজ্যিক প্রি-প্রেস প্রোডাকশন সময় ৮০% সাশ্রয় করে।
+                                </div>
+                            </div>
+
+                            <div class="system-mini-card">
+                                <div class="system-mini-header">
+                                    <a href="https://github.com/yahiabinzaman/DisplayFlow" target="_blank" rel="noopener" class="system-mini-name">
+                                        <span>DisplayFlow</span>
+                                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
+                                    </a>
+                                    <span class="system-mini-tag">ম্যাক ইউটিলিটি</span>
+                                </div>
+                                <div class="system-mini-desc">
+                                    ডিজাইনার ও ইঞ্জিনিয়ারদের মাল্টি-মনিটর রেজোলিউশন ও সিমলেস ম্যাক উইন্ডো স্পেস ম্যানেজমেন্ট ইউটিলিটি।
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Executive Stats Row -->
+                    <div class="creator-stats-row">
+                        <div class="creator-stat-item">
+                            <div class="creator-stat-num">৮+ বছর</div>
+                            <div class="creator-stat-lbl">কালারল্যাব ইন্ডাস্ট্রিয়াল ও প্রযুক্তিগত নেতৃত্ব</div>
+                        </div>
+                        <div class="creator-stat-item">
+                            <div class="creator-stat-num">১ম ম্যাকে</div>
+                            <div class="creator-stat-lbl">জিরো-ল্যাগ ডুয়াল ইউনিকোড ও বিজয় ইঞ্জিন</div>
+                        </div>
+                        <div class="creator-stat-item">
+                            <div class="creator-stat-num">৫+ সিস্টেম</div>
+                            <div class="creator-stat-lbl">সফলভাবে তৈরি নেটিভ ও ওয়েব অ্যাপ্লিকেশন</div>
+                        </div>
+                        <div class="creator-stat-item">
+                            <div class="creator-stat-num">১০০% লোকাল</div>
+                            <div class="creator-stat-lbl">সম্পূর্ণ অফলাইন ও প্রাইভেসি-সুরক্ষিত</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
