@@ -1538,7 +1538,7 @@
             font-size: 0.8rem;
         }
 
-        /* Author Social Popover Trigger & Container */
+                /* Author Social Popover Trigger & Container */
         .author-badge-container {
             position: relative;
             display: inline-flex;
@@ -1572,10 +1572,14 @@
         }
 
         .author-avatar-ring {
-            width: 18px;
-            height: 18px;
-            border-radius: 50%;
-            overflow: hidden;
+            width: 18px !important;
+            height: 18px !important;
+            min-width: 18px !important;
+            min-height: 18px !important;
+            max-width: 18px !important;
+            max-height: 18px !important;
+            border-radius: 50% !important;
+            overflow: hidden !important;
             display: inline-flex;
             align-items: center;
             justify-content: center;
@@ -1591,10 +1595,13 @@
         }
 
         .author-avatar-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
+            width: 18px !important;
+            height: 18px !important;
+            max-width: 18px !important;
+            max-height: 18px !important;
+            border-radius: 50% !important;
+            object-fit: cover !important;
+            display: block !important;
         }
 
         .author-avatar-fallback {
@@ -1625,438 +1632,270 @@
             text-decoration-color: var(--accent-blue);
         }
 
-        /* Floating Social Popover Card */
-        .author-social-popover {
+        /* Author About Preview Popover Card (Hidden by default, shows on hover) */
+        .author-about-popover {
             position: absolute;
             bottom: calc(100% + 14px);
             left: 0;
-            width: 320px;
+            width: 330px;
             max-width: calc(100vw - 32px);
-            background: var(--popover-bg);
+            background: rgba(15, 23, 42, 0.95);
             backdrop-filter: blur(28px);
             -webkit-backdrop-filter: blur(28px);
-            border: 1px solid var(--popover-border);
-            border-radius: 20px;
-            padding: 1.25rem;
-            box-shadow: var(--popover-shadow);
-            opacity: 0;
-            visibility: hidden;
-            pointer-events: none;
-            transform: translateY(12px) scale(0.96);
-            transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.25s;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 18px;
+            padding: 1.15rem;
+            box-shadow: 0 20px 48px rgba(0, 0, 0, 0.5);
+            text-align: left;
+            opacity: 0 !important;
+            visibility: hidden !important;
+            pointer-events: none !important;
+            transform: translateY(10px) scale(0.96);
+            transition: opacity 0.22s cubic-bezier(0.16, 1, 0.3, 1), transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.22s;
             z-index: 99999;
         }
 
-        
-        /* Hover & Focus Support for Author Social Popover */
-        .author-social-popover::before {
-            content: "";
-            position: absolute;
-            top: 100%;
-            left: 0;
-            width: 100%;
-            height: 25px;
-            background: transparent;
+        [data-theme="light"] .author-about-popover {
+            background: rgba(255, 255, 255, 0.98);
+            border-color: rgba(15, 23, 42, 0.12);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
         }
 
-        @media (hover: hover) {
-            .author-badge-container:hover .author-social-popover,
-            .author-badge-container:focus-within .author-social-popover {
-                opacity: 1 !important;
-                visibility: visible !important;
-                pointer-events: auto !important;
-                transform: translateY(0) scale(1) !important;
-            }
-                        .author-badge-container:hover .author-badge {
-                background: var(--nav-hover-bg) !important;
-                border-color: var(--border-accent) !important;
-                color: var(--text-primary) !important;
-            }
-        }
-
-        .author-social-popover.open {
+        /* Hover Activation for Author Popover */
+        .author-badge-container:hover .author-about-popover,
+        .author-badge-container:focus-within .author-about-popover {
             opacity: 1 !important;
             visibility: visible !important;
             pointer-events: auto !important;
             transform: translateY(0) scale(1) !important;
         }
 
-        .author-social-popover::after {
+        .author-about-popover::after {
             content: "";
             position: absolute;
             top: 100%;
-            left: 20px;
-            border-width: 8px 8px 0 8px;
+            left: 28px;
+            border-width: 7px 7px 0 7px;
             border-style: solid;
-            border-color: var(--popover-bg) transparent transparent transparent;
-            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+            border-color: rgba(15, 23, 42, 0.95) transparent transparent transparent;
         }
 
-        .author-popover-header {
-            display: flex;
-            align-items: center;
-            gap: 0.85rem;
-            position: relative;
+        [data-theme="light"] .author-about-popover::after {
+            border-color: rgba(255, 255, 255, 0.98) transparent transparent transparent;
         }
 
-        .popover-avatar-wrap {
-            position: relative;
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            overflow: visible;
-            flex-shrink: 0;
-        }
-
-        .popover-avatar-img {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid var(--border-subtle);
-            display: block;
-        }
-
-        .popover-avatar-fallback {
-            display: none;
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            font-size: 1.1rem;
-            font-weight: 800;
-            color: #fff;
-            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-            align-items: center;
-            justify-content: center;
-        }
-
-        .popover-status-dot {
+        .author-about-popover::before {
+            content: "";
             position: absolute;
-            bottom: 1px;
-            right: 1px;
-            width: 11px;
-            height: 11px;
-            border-radius: 50%;
-            background: #22c55e;
-            border: 2px solid var(--popover-bg);
-            box-shadow: 0 0 6px #22c55e;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            height: 20px;
+            background: transparent;
         }
 
-        .popover-user-info {
-            flex: 1;
-            min-width: 0;
-        }
-
-        .popover-user-name {
-            display: flex;
-            align-items: center;
-            gap: 0.45rem;
-            font-size: 0.95rem;
-            font-weight: 700;
-            color: var(--text-primary);
-            letter-spacing: -0.01em;
-            line-height: 1.2;
-        }
-
-        .popover-role-badge {
-            font-size: 0.64rem;
-            font-family: var(--font-mono);
-            padding: 0.12rem 0.42rem;
-            border-radius: 5px;
-            background: rgba(59, 130, 246, 0.15);
-            border: 1px solid rgba(59, 130, 246, 0.3);
-            color: var(--accent-blue);
-            font-weight: 600;
-            letter-spacing: 0.02em;
-        }
-
-        .popover-user-bio {
-            font-size: 0.74rem;
-            color: var(--text-secondary);
-            margin-top: 0.2rem;
-            line-height: 1.35;
-        }
-
-        .popover-close-btn {
-            position: absolute;
-            top: -2px;
-            right: -2px;
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            background: var(--badge-bg);
-            border: 1px solid var(--border-subtle);
-            color: var(--text-secondary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .popover-close-btn:hover {
-            color: var(--text-primary);
-            background: var(--nav-hover-bg);
-        }
-
-        .popover-divider {
-            height: 1px;
-            background: var(--border-subtle);
-            margin: 0.95rem 0;
-        }
-
-        .author-social-links {
-            display: flex;
-            flex-direction: column;
-            gap: 0.45rem;
-        }
-
-        .author-social-item {
+        .about-popover-top {
             display: flex;
             align-items: center;
             gap: 0.75rem;
-            padding: 0.55rem 0.75rem;
-            background: var(--popover-item-bg);
-            border: 1px solid var(--border-subtle);
-            border-radius: 12px;
-            color: var(--text-primary);
-            text-decoration: none;
-            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-            user-select: none;
+            margin-bottom: 0.75rem;
         }
 
-        .author-social-item:hover {
-            background: var(--popover-item-hover);
-            border-color: var(--border-hover);
-            transform: translateX(3px);
-            color: var(--text-primary);
-        }
-
-        .social-item-icon {
-            width: 30px;
-            height: 30px;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .about-popover-avatar-wrap {
+            position: relative;
+            width: 44px !important;
+            height: 44px !important;
+            min-width: 44px !important;
+            min-height: 44px !important;
+            max-width: 44px !important;
+            max-height: 44px !important;
+            border-radius: 50% !important;
             flex-shrink: 0;
-            transition: transform 0.2s;
+            overflow: hidden !important;
         }
 
-        .author-social-item:hover .social-item-icon {
-            transform: scale(1.1);
+        .about-popover-avatar {
+            width: 44px !important;
+            height: 44px !important;
+            max-width: 44px !important;
+            max-height: 44px !important;
+            border-radius: 50% !important;
+            object-fit: cover !important;
+            border: 1.5px solid var(--accent-blue);
+            display: block !important;
         }
 
-        .item-github .social-item-icon {
-            background: rgba(15, 23, 42, 0.1);
-            color: var(--text-primary);
-        }
-        [data-theme="dark"] .item-github .social-item-icon {
-            background: rgba(255, 255, 255, 0.1);
-            color: #ffffff;
-        }
-        .item-facebook .social-item-icon {
-            background: rgba(24, 119, 242, 0.18);
-            color: #1877f2;
-        }
-        .item-instagram .social-item-icon {
-            background: rgba(225, 48, 108, 0.18);
-            color: #e1306c;
-        }
-        .item-linkedin .social-item-icon {
-            background: rgba(10, 102, 194, 0.18);
-            color: #0a66c2;
+        .about-popover-dot {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: #22c55e;
+            border: 1.5px solid var(--bg-surface);
+            box-shadow: 0 0 6px #22c55e;
         }
 
-        .social-item-text {
+        .about-popover-info {
             flex: 1;
             min-width: 0;
-            display: flex;
-            flex-direction: column;
         }
 
-        .social-item-label {
-            font-size: 0.82rem;
-            font-weight: 600;
-            color: var(--text-primary);
+        .about-popover-name-row {
+            display: flex;
+            align-items: center;
+            gap: 0.45rem;
             line-height: 1.2;
         }
 
-        .social-item-handle {
+        .about-popover-name {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: -0.015em;
+        }
+
+        .about-popover-badge {
+            font-size: 0.65rem;
+            font-weight: 600;
+            padding: 0.1rem 0.38rem;
+            background: rgba(59, 130, 246, 0.14);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 4px;
+            color: #60a5fa;
+            line-height: 1.2;
+        }
+
+        .about-popover-role {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            margin-top: 0.2rem;
+            line-height: 1.3;
+        }
+
+        .about-popover-company {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            font-family: var(--font-mono);
+            margin-top: 0.15rem;
+        }
+
+        .about-popover-bio {
+            font-size: 0.78rem;
+            color: var(--text-secondary);
+            line-height: 1.55;
+            margin: 0 0 0.75rem 0;
+            border-top: 1px solid var(--border-subtle);
+            padding-top: 0.7rem;
+        }
+
+        .about-popover-stats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.35rem;
+            margin-bottom: 0.85rem;
+        }
+
+        .about-stat-tag {
             font-size: 0.68rem;
             font-family: var(--font-mono);
-            color: var(--text-muted);
-            margin-top: 0.1rem;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-        }
-
-        .author-social-item:hover .social-item-handle {
-            color: var(--text-secondary);
-        }
-
-        .social-arrow {
-            color: var(--text-muted);
-            transition: transform 0.2s, color 0.2s;
-        }
-
-        .author-social-item:hover .social-arrow {
-            transform: translate(2px, -2px);
-            color: var(--accent-blue);
-        }
-
-        .footer-bottom-actions {
-            display: flex;
-            align-items: center;
-            gap: 0.65rem;
-            flex-wrap: wrap;
-        }
-
-        
-        /* Tactile Segmented Day/Night Switch in Footer */
-        .theme-segmented-switch {
-            display: inline-flex;
-            align-items: center;
+            padding: 0.15rem 0.45rem;
             background: var(--pill-bg);
             border: 1px solid var(--border-subtle);
-            border-radius: 9999px;
-            padding: 0.18rem;
-            gap: 0.15rem;
-            user-select: none;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
-        }
-
-        .theme-seg-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.38rem;
-            padding: 0.28rem 0.68rem;
-            border-radius: 9999px;
-            border: none;
-            background: transparent;
+            border-radius: 4px;
             color: var(--text-muted);
-            font-size: 0.76rem;
-            font-weight: 600;
-            font-family: inherit;
-            cursor: pointer;
-            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-            outline: none;
         }
 
-        .theme-seg-btn:hover {
-            color: var(--text-primary);
-        }
-
-        .theme-seg-btn.active {
-            background: var(--download-btn-bg);
-            color: var(--download-btn-text) !important;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-        }
-        
-        .footer-ctrl-btn {
-            display: inline-flex;
+        .about-popover-footer {
+            display: flex;
             align-items: center;
+            justify-content: space-between;
+            padding-top: 0.7rem;
+            border-top: 1px solid var(--border-subtle);
             gap: 0.5rem;
-            padding: 0.42rem 0.88rem;
-            background: var(--badge-bg);
-            border: 1px solid var(--border-subtle);
-            border-radius: 9999px;
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 0.78rem;
-            font-weight: 500;
-            letter-spacing: -0.01em;
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
-            user-select: none;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-            cursor: pointer;
         }
 
-        .footer-ctrl-btn:hover {
-            background: var(--nav-hover-bg);
-            border-color: var(--border-hover);
-            color: var(--text-primary);
-            transform: translateY(-1.5px);
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+        .about-popover-socials {
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
         }
 
-        .footer-ctrl-btn:active {
-            transform: translateY(0) scale(0.98);
-        }
-
-        .footer-ctrl-badge {
+        .about-social-icon-btn {
+            width: 28px;
+            height: 28px;
+            border-radius: 6px;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 0.1rem 0.38rem;
-            font-size: 0.64rem;
-            font-weight: 700;
-            font-family: var(--font-mono);
-            color: var(--text-secondary);
-            background: var(--border-subtle);
-            border-radius: 4px;
-            line-height: 1;
-            letter-spacing: 0.03em;
-            transition: all 0.2s;
+            color: var(--text-muted);
+            background: var(--pill-bg);
+            border: 1px solid var(--border-subtle);
+            text-decoration: none;
+            transition: all 0.15s ease;
         }
 
-        .arrow-top-icon {
-            transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s;
+        .about-social-icon-btn:hover {
+            color: var(--text-primary);
+            background: var(--nav-hover-bg);
+            border-color: var(--border-hover);
+            transform: translateY(-1px);
         }
 
-        .footer-ctrl-btn:hover .arrow-top-icon {
-            transform: translateY(-2px);
-            color: var(--accent-blue);
+        .about-popover-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #ffffff !important;
+            background: var(--accent-blue);
+            padding: 0.32rem 0.65rem;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: all 0.18s ease;
+            box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
         }
 
-        .globe-icon {
-            transition: transform 0.3s ease, color 0.2s;
+        .about-popover-cta:hover {
+            background: #2563eb;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
         }
 
-        .footer-ctrl-btn:hover .globe-icon {
-            color: var(--accent-blue);
-            transform: rotate(15deg);
+        /* Fail-safe image size clamp */
+        img.about-popover-avatar {
+            width: 44px !important;
+            height: 44px !important;
+            max-width: 44px !important;
+            max-height: 44px !important;
+            object-fit: cover !important;
         }
 
-        /* Responsive Design */
-        @media (max-width: 960px) {
-            .nav-links { display: none; }
-            .mobile-menu-btn { display: flex; }
-            .hero h1 { font-size: 2.8rem; }
-            .spec-strip { grid-template-columns: repeat(2, 1fr); }
-            .bento-grid { grid-template-columns: 1fr; }
-            .bento-card.bento-span-2 { grid-column: span 1; }
-            .encoding-grid { grid-template-columns: 1fr; }
-            .layouts-grid { grid-template-columns: 1fr; }
-            .install-grid { grid-template-columns: 1fr; }
-            .footer-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+        img.author-avatar-img {
+            width: 18px !important;
+            height: 18px !important;
+            max-width: 18px !important;
+            max-height: 18px !important;
+            object-fit: cover !important;
         }
 
-        @media (max-width: 640px) {
-            .hero { padding-top: 8rem; }
-            .hero h1 { font-size: 2.2rem; }
-            .hero p { font-size: 0.98rem; }
-            .spec-strip { grid-template-columns: 1fr; }
-            .footer-bottom { flex-direction: column; align-items: center; text-align: center; }
-            .footer-bottom-left { justify-content: center; }
-            .footer-bottom-actions { justify-content: center; width: 100%; }
-            .author-social-popover {
+        @media (max-width: 768px) {
+            .author-about-popover {
                 left: 50% !important;
-                transform: translateX(-50%) translateY(12px) scale(0.96) !important;
+                transform: translateX(-50%) translateY(10px) scale(0.96) !important;
+                width: 300px !important;
             }
-
-            .author-social-popover.open {
+            .author-badge-container:hover .author-about-popover {
                 transform: translateX(-50%) translateY(0) scale(1) !important;
             }
-            .author-social-popover::after {
+            .author-about-popover::after {
                 left: 50% !important;
                 transform: translateX(-50%) !important;
             }
         }
-    
+
         /* ==========================================================================
            Modernized Hero Section, Terminal Window, Spec Cards & Testing Studio
            ========================================================================== */
@@ -4591,57 +4430,7 @@
                         <li><a href="https://github.com/yahiabinzaman/yazatype" target="_blank" rel="noopener">গিটহাব রিপোজিটরি</a></li>
                         <li><a href="https://github.com/yahiabinzaman/yazatype/issues" target="_blank" rel="noopener">সমস্যা জানান (Issue)</a></li>
                         <li><a href="https://github.com/yahiabinzaman/yazatype/blob/main/LICENSE" target="_blank" rel="noopener">MIT লাইসেন্স</a></li>
-                        <li class="footer-author-wrap">
-                            <a href="about.html" class="footer-author-link">ইয়াহিয়া বিন জামান <span class="creator-tag">ডেভেলপার</span></a>
-                            <div class="author-about-popover" role="tooltip">
-                            <div class="about-popover-top">
-                                <div class="about-popover-avatar-wrap">
-                                    <img src="../yahia-bin-zaman.png" alt="ইয়াহিয়া বিন জামান" class="about-popover-avatar" onerror="this.src='https://github.com/yahiabinzaman.png'" />
-                                    <span class="about-popover-dot"></span>
-                                </div>
-                                <div class="about-popover-info">
-                                    <div class="about-popover-name-row">
-                                        <span class="about-popover-name">ইয়াহিয়া বিন জামান</span>
-                                        <span class="about-popover-badge">ডেভেলপার</span>
-                                    </div>
-                                    <div class="about-popover-role">সফটওয়্যার ইঞ্জিনিয়ার ও সিস্টেমস আর্কিটেক্ট</div>
-                                    <div class="about-popover-company">ম্যানেজিং ইনচার্জ @ কালারল্যাব (৮+ বছর)</div>
-                                </div>
-                            </div>
-
-                            <p class="about-popover-bio">
-                                কালারল্যাবে ৮+ বছর ধরে ইন্ডাস্ট্রিয়াল প্রি-প্রেস ও ইআরপি সিস্টেমের নেতৃত্ব দিচ্ছেন। দেশীয় ম্যাক ও উইন্ডোজ টাইপোগ্রাফি সফটওয়্যার YazaType-এর রূপকার।
-                            </p>
-
-                            <div class="about-popover-stats">
-                                <span class="about-stat-tag">৮+ বছর অভিজ্ঞতা</span>
-                                <span class="about-stat-tag">কালারল্যাব</span>
-                                <span class="about-stat-tag">ম্যাক ও উইন্ডোজ</span>
-                                <span class="about-stat-tag">নেটিভ আইএমই</span>
-                            </div>
-
-                            <div class="about-popover-footer">
-                                <div class="about-popover-socials">
-                                    <a href="https://github.com/yahiabinzaman" target="_blank" rel="noopener" class="about-social-icon-btn" title="GitHub">
-                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-                                    </a>
-                                    <a href="https://www.linkedin.com/in/yahia-mahmud-b4095b354/" target="_blank" rel="noopener" class="about-social-icon-btn" title="LinkedIn">
-                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                                    </a>
-                                    <a href="https://www.behance.net/yahiamahmud" target="_blank" rel="noopener" class="about-social-icon-btn" title="Behance">
-                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M22 7h-7v-2h7v2zm1.726 10c-.442 1.297-2.029 3-4.726 3-3.031 0-5.5-2.062-5.5-5.5s2.391-5.5 5.438-5.5c3.219 0 5.062 2.344 5.062 5.5v1h-7.5c.062 1.484 1.109 2.5 2.5 2.5 1.094 0 1.875-.578 2.281-1.359l2.445.859zm-2.484-3.5c-.078-1.297-1-2-2.25-2s-2.094.703-2.25 2h4.5zm-14.242-6.5h-7v14h7c2.761 0 5-1.789 5-4.5 0-1.57-.75-2.859-1.891-3.641 1.031-.797 1.391-1.875 1.391-3.109 0-2.484-2-2.75-4.5-2.75zm-3.5 5.5v-3.5h3c1.379 0 2 .621 2 1.75s-.621 1.75-2 1.75h-3zm0 6.5v-4.5h3.5c1.379 0 2 .871 2 2.25s-.621 2.25-2 2.25h-3.5z"/></svg>
-                                    </a>
-                                    <a href="https://www.facebook.com/YahiaBinZaman" target="_blank" rel="noopener" class="about-social-icon-btn" title="Facebook">
-                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-                                    </a>
-                                </div>
-                                <a href="about.html" class="about-popover-cta">
-                                    <span>পরিচিতি দেখুন</span>
-                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                                </a>
-                            </div>
-                        </div>
-                        </li>
+                        <li><a href="about.html" class="footer-author-link">ইয়াহিয়া বিন জামান <span class="creator-tag">ডেভেলপার</span></a></li>
                     </ul>
                 </div>
             </div>
