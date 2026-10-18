@@ -33,50 +33,50 @@
 
     <style>
         @font-face {
-            font-family: 'Bornomala';
-            src: url('../fonts/Bornomala-Regular.woff2') format('woff2'),
-                 url('../fonts/Bornomala-Regular.ttf') format('truetype');
+            font-family: 'YazaFont';
+            src: url('../fonts/YazaFont-Regular.woff2') format('woff2'),
+                 url('../fonts/YazaFont-Regular.ttf') format('truetype');
             font-weight: normal;
             font-style: normal;
             font-display: swap;
         }
 
         @font-face {
-            font-family: 'Bornomala';
-            src: url('../fonts/Bornomala-Bold.ttf') format('truetype');
+            font-family: 'YazaFont';
+            src: url('../fonts/YazaFont-Bold.ttf') format('truetype');
             font-weight: bold;
             font-style: normal;
             font-display: swap;
         }
 
         @font-face {
-            font-family: 'BornomalaUnicode';
-            src: url('../fonts/Bornomala-Regular.woff2') format('woff2'),
-                 url('../fonts/Bornomala-Regular.ttf') format('truetype');
+            font-family: 'YazaUnicode';
+            src: url('../fonts/YazaFont-Regular.woff2') format('woff2'),
+                 url('../fonts/YazaFont-Regular.ttf') format('truetype');
             font-weight: normal;
             font-style: normal;
             font-display: swap;
         }
 
         @font-face {
-            font-family: 'BornomalaUnicode';
-            src: url('../fonts/Bornomala-Bold.ttf') format('truetype');
+            font-family: 'YazaUnicode';
+            src: url('../fonts/YazaFont-Bold.ttf') format('truetype');
             font-weight: bold;
             font-style: normal;
             font-display: swap;
         }
 
         @font-face {
-            font-family: 'BornomalaANSI';
-            src: url('../fonts/BornomalaANSI.ttf') format('truetype');
+            font-family: 'YazaANSI';
+            src: url('../fonts/YazaFontANSI.ttf') format('truetype');
             font-weight: normal;
             font-style: normal;
             font-display: swap;
         }
 
         @font-face {
-            font-family: 'BornomalaANSI';
-            src: url('../fonts/BornomalaANSI-Bold.ttf') format('truetype');
+            font-family: 'YazaANSI';
+            src: url('../fonts/YazaFontANSI-Bold.ttf') format('truetype');
             font-weight: bold;
             font-style: normal;
             font-display: swap;
@@ -455,11 +455,11 @@
             font-size: 1.25rem;
             line-height: 1.65;
             resize: vertical;
-            font-family: 'Bornomala', 'BornomalaUnicode', 'Hind Siliguri', 'Anek Bangla', sans-serif;
+            font-family: 'YazaFont', 'YazaUnicode', 'Hind Siliguri', 'Anek Bangla', sans-serif;
         }
 
         .editor-textarea.ansi-box {
-            font-family: 'BornomalaANSI', 'SutonnyMJ', sans-serif;
+            font-family: 'YazaANSI', 'SutonnyMJ', sans-serif;
             font-size: 1.25rem;
             line-height: 1.65;
             color: #f8fafc;
@@ -842,7 +842,7 @@
         function applyAnsiFont() {
             if (isRawMode) return;
             const ansiBox = document.getElementById('ansi-input');
-            ansiBox.style.fontFamily = "'BornomalaANSI', 'SutonnyMJ', sans-serif";
+            ansiBox.style.fontFamily = "'YazaANSI', 'SutonnyMJ', sans-serif";
         }
 
         const toBnDigits = (n) => String(n).replace(/\d/g, d => "০১২৩৪৫৬৭৮৯"[d]);
