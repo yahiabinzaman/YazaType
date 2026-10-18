@@ -131,9 +131,22 @@
             font-display: swap;
         }
 
-        
-        
-        /* ==========================================================================
+        @font-face {
+            font-family: 'AnsiV1Font';
+            src: url('fonts/AnsiV1.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'AnsiV2Font';
+            src: url('fonts/AnsiV2.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+/* ==========================================================================
            Complete Day (Light) and Night (Dark) Mode Variables for Converter
            ========================================================================== */
         :root, [data-theme="light"] {
@@ -800,6 +813,126 @@
                 height: 250px;
             }
         }
+    
+        /* Centered & Minimal Versions Bar */
+        .versions-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            margin-bottom: 2.25rem;
+        }
+
+        .versions-bar {
+            display: inline-flex;
+            background: var(--ver-bar-bg) !important;
+            border: 1px solid var(--card-border) !important;
+            border-radius: 9999px;
+            padding: 0.22rem;
+            gap: 0.25rem;
+            margin: 0 !important;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+            user-select: none;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .ver-tab {
+            padding: 0.42rem 1.15rem;
+            border-radius: 9999px;
+            background: transparent;
+            color: var(--ver-tab-color) !important;
+            font-size: 0.82rem;
+            font-weight: 600;
+            cursor: pointer;
+            border: 1px solid transparent;
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+            font-family: inherit;
+            outline: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+
+        .ver-tab:hover {
+            color: var(--text-primary) !important;
+            background: var(--btn-act-hover);
+        }
+
+        .ver-tab.active {
+            background: var(--ver-tab-active-bg) !important;
+            color: var(--ver-tab-active-text) !important;
+            border-color: var(--ver-tab-active-bg) !important;
+            font-weight: 700;
+            box-shadow: var(--ver-tab-active-shadow) !important;
+        }
+
+        /* Preset Strip Centered */
+        .preset-strip {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.85rem 1.25rem;
+            background: var(--preset-bg) !important;
+            border: 1px solid var(--card-border) !important;
+            border-radius: 12px;
+            margin: 0 auto 3.5rem !important;
+            max-width: 100%;
+            font-size: 0.82rem;
+            color: var(--text-muted) !important;
+        }
+
+        /* Pure Minimal ANSI Preview & Standard Placeholder */
+        .editor-textarea.ansi-box {
+            font-family: 'SutonnyMJ', 'AnsiV1Font', 'YazaANSI', sans-serif !important;
+            font-size: 1.25rem;
+            line-height: 1.65;
+            color: var(--editor-textarea-color) !important;
+            letter-spacing: normal;
+        }
+
+        .editor-textarea.ansi-box::placeholder,
+        .editor-textarea::placeholder {
+            font-family: var(--font-main), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif !important;
+            font-size: 1.02rem !important;
+            color: var(--text-muted) !important;
+            opacity: 0.55 !important;
+            letter-spacing: normal !important;
+        }
+
+        .editor-textarea.ansi-box.raw-mode {
+            font-family: var(--font-mono) !important;
+            font-size: 0.95rem;
+            color: var(--text-secondary) !important;
+        }
+
+        /* Minimal Feature Card Icons (SVG based, No Emojis) */
+        .feature-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: var(--btn-act-bg) !important;
+            border: 1px solid var(--card-border) !important;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-blue);
+            margin-bottom: 1.1rem;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .feature-card:hover .feature-icon {
+            transform: translateY(-2px);
+            border-color: var(--accent-blue) !important;
+        }
+
+        .feature-icon svg {
+            display: block;
+        }
+
     </style>
 </head>
 <body>
@@ -861,16 +994,18 @@
         </div>
 
         <!-- Version Selector Tabs -->
-        <div class="versions-bar">
-            <button class="ver-tab active" id="tab-v1" onclick="setVersion('v1')">
-                <span>Unicode</span> <span style="opacity: 0.5;">⟷</span> <span>ANSI V1 (Bijoy / SutonnyMJ)</span>
-            </button>
-            <button class="ver-tab" id="tab-v2" onclick="setVersion('v2')">
-                <span>Unicode</span> <span style="opacity: 0.5;">⟷</span> <span>ANSI V2 (Standard ANSI)</span>
-            </button>
-            <button class="ver-tab" id="tab-v3" onclick="setVersion('v3')">
-                <span>Unicode</span> <span style="opacity: 0.5;">⟷</span> <span>ANSI V3 (Modern Design Glyphs)</span>
-            </button>
+        <div class="versions-wrapper">
+            <div class="versions-bar">
+                <button class="ver-tab active" id="tab-v1" onclick="setVersion('v1')">
+                    <span>ANSI V1 (Bijoy / SutonnyMJ)</span>
+                </button>
+                <button class="ver-tab" id="tab-v2" onclick="setVersion('v2')">
+                    <span>ANSI V2 (Standard ANSI)</span>
+                </button>
+                <button class="ver-tab" id="tab-v3" onclick="setVersion('v3')">
+                    <span>ANSI V3 (Modern Design Glyphs)</span>
+                </button>
+            </div>
         </div>
 
         <!-- Dual Editors Workspace -->
@@ -923,7 +1058,8 @@
                     </div>
                     <div class="editor-actions">
                         <button class="btn-act" id="btn-font-mode" onclick="toggleFontMode()" title="Toggle between Bengali Font Preview and Raw ANSI characters">
-                            <span id="lbl-font-mode">👁️ Raw Code</span>
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                            <span id="lbl-font-mode">Raw Code</span>
                         </button>
                         <button class="btn-act" id="btn-copy-ansi" onclick="copyText('ansi')">
                             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
@@ -943,7 +1079,7 @@
                         </button>
                     </div>
                 </div>
-                <textarea id="ansi-input" class="editor-textarea ansi-box" placeholder="Type or paste ANSI (Bijoy / SutonnyMJ) text here..." oninput="onAnsiInput()"></textarea>
+                <textarea id="ansi-input" class="editor-textarea ansi-box" placeholder="ANSI (Bijoy / SutonnyMJ) converted text will appear here..." oninput="onAnsiInput()"></textarea>
                 <div class="editor-footer">
                     <span id="ansi-counts">0 characters · 0 words</span>
                     <span id="ansi-footer-note">Bengali Preview (Illustrator Ready)</span>
@@ -963,17 +1099,17 @@
         <!-- Features Matrix -->
         <div class="features-grid">
             <div class="feature-card">
-                <div class="feature-icon">⚡</div>
+                <div class="feature-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
                 <h3>Bi-directional Engine</h3>
                 <p>Instantly convert Unicode to ANSI for printing or convert legacy Bijoy / ANSI files back to modern UTF-8 Unicode with zero data loss.</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon">🔒</div>
+                <div class="feature-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
                 <h3>100% Offline & Private</h3>
                 <p>Execution happens entirely inside your browser memory using JavaScript. No text is ever uploaded or transmitted over the internet.</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon">🎨</div>
+                <div class="feature-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.563-2.512 5.563-5.563C22 6.5 17.5 2 12 2z"/></svg></div>
                 <h3>Adobe CC Compatibility</h3>
                 <p>Eliminates broken Kar boxes (আ-কার, ই-কার) and faulty Reph ordering in Adobe Illustrator, Photoshop, InDesign, and Premiere Pro.</p>
             </div>
@@ -1055,10 +1191,10 @@
             const footerNote = document.getElementById('ansi-footer-note');
             ansiBox.classList.toggle('raw-mode', isRawMode);
             if (isRawMode) {
-                lbl.innerText = '👁️ Bengali Preview';
+                lbl.innerText = 'Bengali Preview';
                 footerNote.innerText = 'Raw ANSI Code (Illustrator Ready)';
             } else {
-                lbl.innerText = '👁️ Raw Code';
+                lbl.innerText = 'Raw Code';
                 footerNote.innerText = 'Bengali Preview (Illustrator Ready)';
                 applyAnsiFont();
             }
@@ -1067,7 +1203,13 @@
         function applyAnsiFont() {
             if (isRawMode) return;
             const ansiBox = document.getElementById('ansi-input');
-            ansiBox.style.fontFamily = "'YazaANSI', 'SutonnyMJ', sans-serif";
+            if (currentVersion === 'v2') {
+                ansiBox.style.fontFamily = "'AnsiV2Font', 'SutonnyMJ', sans-serif";
+            } else if (currentVersion === 'v3') {
+                ansiBox.style.fontFamily = "'YazaANSI', 'SutonnyMJ', sans-serif";
+            } else {
+                ansiBox.style.fontFamily = "'SutonnyMJ', 'AnsiV1Font', 'YazaANSI', sans-serif";
+            }
         }
 
         function updateCounts() {
@@ -1434,6 +1576,7 @@
         };
 
         window.initTheme();
+        applyAnsiFont();
         
     </script>
 </body>
