@@ -1,37 +1,55 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://yahiabinzaman.github.io/yazatype/</loc>
+    <lastmod>2026-10-18</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://yahiabinzaman.github.io/yazatype/" />
     <xhtml:link rel="alternate" hreflang="bn" href="https://yahiabinzaman.github.io/yazatype/bn/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://yahiabinzaman.github.io/yazatype/" />
   </url>
   <url>
     <loc>https://yahiabinzaman.github.io/yazatype/bn/</loc>
+    <lastmod>2026-10-18</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.95</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://yahiabinzaman.github.io/yazatype/" />
     <xhtml:link rel="alternate" hreflang="bn" href="https://yahiabinzaman.github.io/yazatype/bn/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://yahiabinzaman.github.io/yazatype/" />
   </url>
   <url>
     <loc>https://yahiabinzaman.github.io/yazatype/converter.html</loc>
+    <lastmod>2026-10-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://yahiabinzaman.github.io/yazatype/converter.html" />
     <xhtml:link rel="alternate" hreflang="bn" href="https://yahiabinzaman.github.io/yazatype/bn/converter.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://yahiabinzaman.github.io/yazatype/converter.html" />
   </url>
   <url>
     <loc>https://yahiabinzaman.github.io/yazatype/bn/converter.html</loc>
+    <lastmod>2026-10-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://yahiabinzaman.github.io/yazatype/converter.html" />
     <xhtml:link rel="alternate" hreflang="bn" href="https://yahiabinzaman.github.io/yazatype/bn/converter.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://yahiabinzaman.github.io/yazatype/converter.html" />
   </url>
   <url>
     <loc>https://yahiabinzaman.github.io/yazatype/about.html</loc>
+    <lastmod>2026-10-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://yahiabinzaman.github.io/yazatype/about.html" />
     <xhtml:link rel="alternate" hreflang="bn" href="https://yahiabinzaman.github.io/yazatype/bn/about.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://yahiabinzaman.github.io/yazatype/about.html" />
   </url>
   <url>
     <loc>https://yahiabinzaman.github.io/yazatype/bn/about.html</loc>
+    <lastmod>2026-10-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://yahiabinzaman.github.io/yazatype/about.html" />
     <xhtml:link rel="alternate" hreflang="bn" href="https://yahiabinzaman.github.io/yazatype/bn/about.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://yahiabinzaman.github.io/yazatype/about.html" />
