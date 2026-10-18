@@ -1,22 +1,27 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
-    <url>
-        <loc>https://yahiabinzaman.github.io/borno-keyboard/</loc>
-        <lastmod>2026-05-12</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>1.0</priority>
-        <xhtml:link rel="alternate" hreflang="en" href="https://yahiabinzaman.github.io/borno-keyboard/"/>
-        <xhtml:link rel="alternate" hreflang="bn" href="https://yahiabinzaman.github.io/borno-keyboard/bn/"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://yahiabinzaman.github.io/borno-keyboard/"/>
-    </url>
-    <url>
-        <loc>https://yahiabinzaman.github.io/borno-keyboard/bn/</loc>
-        <lastmod>2026-05-12</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-        <xhtml:link rel="alternate" hreflang="en" href="https://yahiabinzaman.github.io/borno-keyboard/"/>
-        <xhtml:link rel="alternate" hreflang="bn" href="https://yahiabinzaman.github.io/borno-keyboard/bn/"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://yahiabinzaman.github.io/borno-keyboard/"/>
-    </url>
+<?xml version='1.0' encoding='utf-8'?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://yahiabinzaman.github.io/borno-keyboard/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahiabinzaman.github.io/borno-keyboard/" />
+    <xhtml:link rel="alternate" hreflang="bn" href="https://yahiabinzaman.github.io/borno-keyboard/bn/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahiabinzaman.github.io/borno-keyboard/" />
+  </url>
+  <url>
+    <loc>https://yahiabinzaman.github.io/borno-keyboard/bn/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahiabinzaman.github.io/borno-keyboard/" />
+    <xhtml:link rel="alternate" hreflang="bn" href="https://yahiabinzaman.github.io/borno-keyboard/bn/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahiabinzaman.github.io/borno-keyboard/" />
+  </url>
+  <url>
+    <loc>https://yahiabinzaman.github.io/borno-keyboard/converter.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahiabinzaman.github.io/borno-keyboard/converter.html" />
+    <xhtml:link rel="alternate" hreflang="bn" href="https://yahiabinzaman.github.io/borno-keyboard/bn/converter.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahiabinzaman.github.io/borno-keyboard/converter.html" />
+  </url>
+  <url>
+    <loc>https://yahiabinzaman.github.io/borno-keyboard/bn/converter.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yahiabinzaman.github.io/borno-keyboard/converter.html" />
+    <xhtml:link rel="alternate" hreflang="bn" href="https://yahiabinzaman.github.io/borno-keyboard/bn/converter.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yahiabinzaman.github.io/borno-keyboard/converter.html" />
+  </url>
 </urlset>
