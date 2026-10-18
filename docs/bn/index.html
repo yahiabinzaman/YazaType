@@ -4941,9 +4941,53 @@
         });
 
                 // ----------------------------------------------------
+        // ----------------------------------------------------
+        // Terminal Tab Switcher & Clipboard Copy
+        // ----------------------------------------------------
+        const commands = {
+            mac: "curl -fsSL https://raw.githubusercontent.com/yahiabinzaman/YazaType/main/scripts/install.sh | bash",
+            win: "irm https://raw.githubusercontent.com/yahiabinzaman/YazaType/main/scripts/install.ps1 | iex"
+        };
+        let currentPlatform = 'mac';
+
+        function switchTerm(platform) {
+            currentPlatform = platform;
+            const tabMac = document.getElementById('tab-mac');
+            const tabWin = document.getElementById('tab-win');
+            if (tabMac) {
+                if (platform === 'mac') {
+                    tabMac.classList.add('active');
+                } else {
+                    tabMac.classList.remove('active');
+                }
+            }
+            if (tabWin) {
+                if (platform === 'win') {
+                    tabWin.classList.add('active');
+                } else {
+                    tabWin.classList.remove('active');
+                }
+            }
+            const termText = document.getElementById('term-text');
+            if (termText && commands[platform]) {
+                termText.innerText = commands[platform];
+            }
+        }
+
+        // Attach direct click listeners as fail-safe
+        if (typeof document !== 'undefined') {
+            document.addEventListener('DOMContentLoaded', function() {
+                const tabMac = document.getElementById('tab-mac');
+                const tabWin = document.getElementById('tab-win');
+                if (tabMac) tabMac.addEventListener('click', function(e) { e.preventDefault(); switchTerm('mac'); });
+                if (tabWin) tabWin.addEventListener('click', function(e) { e.preventDefault(); switchTerm('win'); });
+            });
+        }
+
+        // ----------------------------------------------------
         // Smart OS Detector for 1-Click Download Highlighting
         // ----------------------------------------------------
-        (function detectUserOS() {
+        function detectUserOS() {
             const ua = window.navigator.userAgent.toLowerCase();
             const macBtns = document.querySelectorAll('.btn-mac, #cta-mac-btn');
             const winBtns = document.querySelectorAll('.btn-win, #cta-win-btn');
@@ -4960,26 +5004,8 @@
                 if (osName) osName.innerText = "macOS সংস্করণ";
                 switchTerm('mac');
             }
-        })();
-
-        // ----------------------------------------------------
-        // Terminal Tab Switcher & Clipboard Copy
-        // ----------------------------------------------------
-        const commands = {
-            mac: "curl -fsSL https://raw.githubusercontent.com/yahiabinzaman/yazatype/main/scripts/install.sh | bash",
-            win: "irm https://raw.githubusercontent.com/yahiabinzaman/yazatype/main/scripts/install.ps1 | iex"
-        };
-        let currentPlatform = 'mac';
-
-        function switchTerm(platform) {
-            currentPlatform = platform;
-            const tabMac = document.getElementById('tab-mac');
-            const tabWin = document.getElementById('tab-win');
-            if (tabMac) tabMac.classList.toggle('active', platform === 'mac');
-            if (tabWin) tabWin.classList.toggle('active', platform === 'win');
-            const termText = document.getElementById('term-text');
-            if (termText) termText.innerText = commands[platform];
         }
+        detectUserOS();
 
         function copyTermCommand() {
             const text = commands[currentPlatform];
