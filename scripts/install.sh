@@ -1,13 +1,13 @@
 #!/bin/bash
 set -euo pipefail
 
-APP_NAME="Borno"
+APP_NAME="YazaType"
 INSTALL_DIR="$HOME/Library/Input Methods"
-REPO_URL="https://github.com/yahiabinzaman/borno-keyboard"
-RAW_URL="https://raw.githubusercontent.com/yahiabinzaman/borno-keyboard/main"
+REPO_URL="https://github.com/yahiabinzaman/yazatype"
+RAW_URL="https://raw.githubusercontent.com/yahiabinzaman/yazatype/main"
 
 echo "======================================================"
-echo "    Installing Borno (বর্ণ) — Avro Keyboard for Mac    "
+echo "    Installing YazaType — Bengali Keyboard for Mac    "
 echo "======================================================"
 echo ""
 
@@ -22,51 +22,56 @@ elif [ -d "./build/$APP_NAME.app" ]; then
 fi
 
 mkdir -p "$SCRIPT_DIR/../tmp" 2>/dev/null || true
-TMP_WORK_DIR=$(mktemp -d "${SCRIPT_DIR:-.}/../tmp/borno_install.XXXXXX" 2>/dev/null || mktemp -d "./tmp/borno_install.XXXXXX")
+TMP_WORK_DIR=$(mktemp -d "${SCRIPT_DIR:-.}/../tmp/yazatype_install.XXXXXX" 2>/dev/null || mktemp -d "./tmp/yazatype_install.XXXXXX")
 trap 'rm -rf "$TMP_WORK_DIR"' EXIT
 
 if [ -n "$LOCAL_APP" ] && [ -d "$LOCAL_APP" ]; then
     echo ">>> Installing from local build..."
     APP_SOURCE="$LOCAL_APP"
 else
-    echo ">>> Downloading latest Borno for macOS from GitHub..."
-    DMG_DOWNLOAD_URL="https://raw.githubusercontent.com/yahiabinzaman/borno-keyboard/main/docs/Borno.dmg"
-    curl -fSL --progress-bar "$DMG_DOWNLOAD_URL" -o "$TMP_WORK_DIR/Borno.dmg"
+    echo ">>> Downloading latest YazaType for macOS from GitHub..."
+    DMG_DOWNLOAD_URL="$RAW_URL/docs/YazaType.dmg"
+    curl -fSL --progress-bar "$DMG_DOWNLOAD_URL" -o "$TMP_WORK_DIR/YazaType.dmg"
 
     echo ">>> Extracting installer package..."
-    hdiutil attach "$TMP_WORK_DIR/Borno.dmg" -mountpoint "$TMP_WORK_DIR/mnt" -nobrowse -quiet
+    hdiutil attach "$TMP_WORK_DIR/YazaType.dmg" -mountpoint "$TMP_WORK_DIR/mnt" -nobrowse -quiet
     
-    if [ -f "$TMP_WORK_DIR/mnt/Install Borno.pkg" ]; then
-        pkgutil --expand-full "$TMP_WORK_DIR/mnt/Install Borno.pkg" "$TMP_WORK_DIR/pkg_expanded" 2>/dev/null || true
-        if [ -d "$TMP_WORK_DIR/pkg_expanded/Scripts/Borno.app" ]; then
-            APP_SOURCE="$TMP_WORK_DIR/pkg_expanded/Scripts/Borno.app"
-        elif [ -d "$TMP_WORK_DIR/pkg_expanded/Borno.app" ]; then
-            APP_SOURCE="$TMP_WORK_DIR/pkg_expanded/Borno.app"
+    for pkg_name in "Install YazaType.pkg"; do
+        if [ -f "$TMP_WORK_DIR/mnt/$pkg_name" ]; then
+            pkgutil --expand-full "$TMP_WORK_DIR/mnt/$pkg_name" "$TMP_WORK_DIR/pkg_expanded" 2>/dev/null || true
+            if [ -d "$TMP_WORK_DIR/pkg_expanded/Scripts/YazaType.app" ]; then
+                APP_SOURCE="$TMP_WORK_DIR/pkg_expanded/Scripts/YazaType.app"
+            elif [ -d "$TMP_WORK_DIR/pkg_expanded/YazaType.app" ]; then
+                APP_SOURCE="$TMP_WORK_DIR/pkg_expanded/YazaType.app"
+            fi
+            break
         fi
-    fi
+    done
     
     if [ -z "${APP_SOURCE:-}" ]; then
         # Direct payload search
-        APP_SOURCE=$(find "$TMP_WORK_DIR" -name "Borno.app" -type d | head -n 1)
+        APP_SOURCE=$(find "$TMP_WORK_DIR" -name "YazaType.app" -type d | head -n 1)
     fi
 fi
 
 if [ -z "${APP_SOURCE:-}" ] || [ ! -d "$APP_SOURCE" ]; then
-    echo "❌ Error: Could not locate Borno.app payload."
+    echo "❌ Error: Could not locate YazaType.app payload."
     exit 1
 fi
 
 echo ">>> Stopping any existing instances..."
 killall "$APP_NAME" 2>/dev/null || true
+killall "Borno" 2>/dev/null || true
 killall "AvroBangla" 2>/dev/null || true
 sleep 1
 
 mkdir -p "$INSTALL_DIR"
 rm -rf "$INSTALL_DIR/$APP_NAME.app" 2>/dev/null || true
+rm -rf "$INSTALL_DIR/Borno.app" 2>/dev/null || true
 rm -rf "$INSTALL_DIR/AvroBangla.app" 2>/dev/null || true
 
 echo ">>> Copying $APP_NAME.app to $INSTALL_DIR/..."
-cp -R "$APP_SOURCE" "$INSTALL_DIR/"
+cp -R "$APP_SOURCE" "$INSTALL_DIR/$APP_NAME.app"
 
 # Detach DMG if mounted
 if [ -d "$TMP_WORK_DIR/mnt" ]; then
@@ -79,12 +84,16 @@ xattr -cr "$INSTALL_DIR/$APP_NAME.app" 2>/dev/null || true
 
 # Symlink to /Applications for Spotlight/Launchpad
 rm -f "/Applications/$APP_NAME.app" 2>/dev/null || true
+rm -f "/Applications/Borno.app" 2>/dev/null || true
 ln -sf "$INSTALL_DIR/$APP_NAME.app" "/Applications/$APP_NAME.app" 2>/dev/null || true
 
 # Register user LaunchAgent for automatic startup & background keepalive
 LAUNCH_AGENT_DIR="$HOME/Library/LaunchAgents"
-LAUNCH_AGENT_PLIST="$LAUNCH_AGENT_DIR/com.borno.inputmethod.Borno.plist"
+LAUNCH_AGENT_PLIST="$LAUNCH_AGENT_DIR/com.yaza.inputmethod.YazaType.plist"
+OLD_LAUNCH_AGENT_PLIST="$LAUNCH_AGENT_DIR/com.borno.inputmethod.Borno.plist"
 mkdir -p "$LAUNCH_AGENT_DIR"
+launchctl unload "$OLD_LAUNCH_AGENT_PLIST" 2>/dev/null || true
+rm -f "$OLD_LAUNCH_AGENT_PLIST" 2>/dev/null || true
 launchctl unload "$LAUNCH_AGENT_PLIST" 2>/dev/null || true
 
 cat <<EOF > "$LAUNCH_AGENT_PLIST"
@@ -93,7 +102,7 @@ cat <<EOF > "$LAUNCH_AGENT_PLIST"
 <plist version="1.0">
 <dict>
     <key>Label</key>
-    <string>com.borno.inputmethod.Borno</string>
+    <string>com.yaza.inputmethod.YazaType</string>
     <key>ProgramArguments</key>
     <array>
         <string>$INSTALL_DIR/$APP_NAME.app/Contents/MacOS/$APP_NAME</string>
@@ -109,21 +118,21 @@ cat <<EOF > "$LAUNCH_AGENT_PLIST"
 EOF
 
 # Load and launch IME service
-echo ">>> Starting Borno background service..."
+echo ">>> Starting YazaType background service..."
 launchctl load "$LAUNCH_AGENT_PLIST" 2>/dev/null || true
 open "$INSTALL_DIR/$APP_NAME.app" 2>/dev/null || true
 
 echo ""
 echo "======================================================"
-echo "      ✅ Borno (বর্ণ) successfully installed!         "
+echo "          ✅ YazaType successfully installed!         "
 echo "======================================================"
 echo ""
 echo "Setup Instructions:"
 echo " 1. Open System Settings -> Keyboard -> Input Sources (Click Edit...)"
 echo " 2. Click '+' at the bottom left"
-echo " 3. Search for 'Borno' in the language list and click 'Add'"
+echo " 3. Search for 'YazaType' in the language list and click 'Add'"
 echo " 4. Switch anytime using Globe key or Ctrl + Space"
 echo ""
 echo "Developed & Maintained by Yahia Bin Zaman"
-echo "GitHub: https://github.com/yahiabinzaman/borno-keyboard"
+echo "GitHub: https://github.com/yahiabinzaman/yazatype"
 echo "======================================================"

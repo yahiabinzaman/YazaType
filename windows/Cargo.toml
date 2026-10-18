@@ -1,9 +1,9 @@
 [package]
-name = "borno-windows"
+name = "yazatype-windows"
 version = "0.2.5"
 edition = "2021"
 authors = ["Yahia Bin Zaman <yahiabinzaman@gmail.com>"]
-description = "Borno (বর্ণ) - Native Avro Phonetic Bengali Input Method for Windows"
+description = "YazaType - Native Avro Phonetic Bengali Input Method for Windows"
 license = "MIT"
 
 [dependencies]
@@ -23,5 +23,5 @@ once_cell = "1.19"
 winres = "0.1"
 
 [[bin]]
-name = "Borno"
+name = "YazaType"
 path = "src/main.rs"

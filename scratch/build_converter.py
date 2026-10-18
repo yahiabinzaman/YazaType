@@ -150,7 +150,7 @@ window.YazaConverter = {{
 }};
 '''
 
-with open('/Users/colorlab/Downloads/borno/docs/converter-engine.js', 'w', encoding='utf-8') as f:
+with open('/Users/colorlab/Downloads/yazatype/docs/converter-engine.js', 'w', encoding='utf-8') as f:
     f.write(full_script)
 
 print('Updated docs/converter-engine.js successfully!')

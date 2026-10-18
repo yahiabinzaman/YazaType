@@ -1,8 +1,8 @@
 import Cocoa
 import InputMethodKit
 
-@objc(BornoInputController)
-class BornoInputController: IMKInputController {
+@objc(YazaTypeInputController)
+class YazaTypeInputController: IMKInputController {
 
     // MARK: - Settings
 
@@ -26,22 +26,26 @@ class BornoInputController: IMKInputController {
         case ansi = "ANSI"
     }
 
-    static let typingModeKey = "BornoTypingMode"
-    static let outputEncodingKey = "BornoOutputEncoding"
-    static let keyboardLayoutKey = "BornoKeyboardLayout"
+    static let typingModeKey = "YazaTypeTypingMode"
+    static let outputEncodingKey = "YazaTypeOutputEncoding"
+    static let keyboardLayoutKey = "YazaTypeKeyboardLayout"
 
     static func currentOutputEncoding() -> OutputEncoding {
-        let raw = UserDefaults.standard.string(forKey: outputEncodingKey) ?? "Unicode"
+        let raw = UserDefaults.standard.string(forKey: outputEncodingKey)
+            ?? UserDefaults.standard.string(forKey: "BornoOutputEncoding")
+            ?? "Unicode"
         return OutputEncoding(rawValue: raw) ?? .unicode
     }
 
     static func currentKeyboardLayout() -> String {
-        return UserDefaults.standard.string(forKey: keyboardLayoutKey) ?? "avro_phonetic"
+        return UserDefaults.standard.string(forKey: keyboardLayoutKey)
+            ?? UserDefaults.standard.string(forKey: "BornoKeyboardLayout")
+            ?? "avro_phonetic"
     }
 
     /// Legacy bool key (pre-multi-mode). Read only for one-time migration into
     /// `typingModeKey`: true → `.phoneticOnly`, false → `.smart`.
-    static let phoneticOnlyModeKey = "BornoPhoneticOnlyMode"
+    static let phoneticOnlyModeKey = "YazaTypePhoneticOnlyMode"
 
     /// Resolve the current typing mode, migrating from the legacy bool when the
     /// new key hasn't been written yet. Default (and recommended) is `.phoneticFirst`.
@@ -90,19 +94,19 @@ class BornoInputController: IMKInputController {
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(typingModeChanged),
-            name: .bornoTypingModeChanged,
+            name: .yazaTypeTypingModeChanged,
             object: nil
         )
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(layoutChanged),
-            name: .bornoLayoutChanged,
+            name: .yazaTypeLayoutChanged,
             object: nil
         )
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(layoutChanged),
-            name: .bornoEncodingChanged,
+            name: .yazaTypeEncodingChanged,
             object: nil
         )
         mouseMonitor = NSEvent.addGlobalMonitorForEvents(matching: [.leftMouseDown, .rightMouseDown]) { [weak self] _ in
@@ -143,7 +147,7 @@ class BornoInputController: IMKInputController {
     private func makeConfig(phoneticSuggestion: Bool) -> OpaquePointer? {
         let config = riti_config_new()
 
-        let selectedLayout = BornoInputController.currentKeyboardLayout()
+        let selectedLayout = YazaTypeInputController.currentKeyboardLayout()
         let dataDir = Bundle.main.resourcePath! + "/data"
 
         if selectedLayout == "avro_phonetic" {
@@ -301,7 +305,7 @@ class BornoInputController: IMKInputController {
         let appSupport = FileManager.default.urls(
             for: .applicationSupportDirectory,
             in: .userDomainMask
-        ).first!.appendingPathComponent("Borno")
+        ).first!.appendingPathComponent("YazaType")
 
         // Create directory if it doesn't exist
         try? FileManager.default.createDirectory(
@@ -459,8 +463,8 @@ class BornoInputController: IMKInputController {
            let chars = event.characters,
            let digit = chars.first,
            digit >= "0" && digit <= "9" {
-            let isANSI = (BornoInputController.currentOutputEncoding() == .ansi)
-            let digitString = isANSI ? String(digit) : String(BornoInputController.bengaliDigits[Int(String(digit))!])
+            let isANSI = (YazaTypeInputController.currentOutputEncoding() == .ansi)
+            let digitString = isANSI ? String(digit) : String(YazaTypeInputController.bengaliDigits[Int(String(digit))!])
             client.insertText(
                 digitString as NSString,
                 replacementRange: NSRange(location: NSNotFound, length: NSNotFound)
@@ -478,8 +482,8 @@ class BornoInputController: IMKInputController {
                 // type the digit as a Bengali numeral (matches no-session behavior).
                 commitTopCandidate(client: client)
                 let digitValue = Int(String(digit))!
-                let isANSI = (BornoInputController.currentOutputEncoding() == .ansi)
-                let digitString = isANSI ? String(digit) : String(BornoInputController.bengaliDigits[digitValue])
+                let isANSI = (YazaTypeInputController.currentOutputEncoding() == .ansi)
+                let digitString = isANSI ? String(digit) : String(YazaTypeInputController.bengaliDigits[digitValue])
                 client.insertText(
                     digitString as NSString,
                     replacementRange: NSRange(location: NSNotFound, length: NSNotFound)
@@ -569,7 +573,7 @@ class BornoInputController: IMKInputController {
                     if let textPtr = textPtr {
                         let text = String(cString: textPtr)
                         var finalText = text
-                        if BornoInputController.currentOutputEncoding() == .ansi {
+                        if YazaTypeInputController.currentOutputEncoding() == .ansi {
                             finalText = UnicodeToBijoy.convert(text)
                         }
                         client.insertText(
@@ -614,7 +618,7 @@ class BornoInputController: IMKInputController {
         riti_string_free(preEditPtr)
 
         var displayMarkedText = preEditText
-        if BornoInputController.currentOutputEncoding() == .ansi {
+        if YazaTypeInputController.currentOutputEncoding() == .ansi {
             displayMarkedText = UnicodeToBijoy.convert(preEditText)
         }
 
@@ -666,7 +670,7 @@ class BornoInputController: IMKInputController {
         }
 
         var finalText = text
-        if BornoInputController.currentOutputEncoding() == .ansi {
+        if YazaTypeInputController.currentOutputEncoding() == .ansi {
             finalText = UnicodeToBijoy.convert(text)
         }
         client.insertText(
@@ -767,7 +771,7 @@ class BornoInputController: IMKInputController {
 
         let length = riti_suggestion_get_length(suggestion)
         var candidates: [String] = []
-        let isANSI = (BornoInputController.currentOutputEncoding() == .ansi)
+        let isANSI = (YazaTypeInputController.currentOutputEncoding() == .ansi)
         for i in 0..<length {
             let ptr = riti_suggestion_get_suggestion(suggestion, i)
             if let ptr = ptr {
@@ -896,17 +900,17 @@ class BornoInputController: IMKInputController {
     // MARK: - Input Method Menu
 
     override func menu() -> NSMenu! {
-        let menu = NSMenu(title: "Borno")
+        let menu = NSMenu(title: "YazaType")
 
-        let titleItem = NSMenuItem(title: "Borno (বর্ণ) v0.2.5", action: nil, keyEquivalent: "")
+        let titleItem = NSMenuItem(title: "YazaType v0.2.5", action: nil, keyEquivalent: "")
         titleItem.isEnabled = false
         menu.addItem(titleItem)
         menu.addItem(NSMenuItem.separator())
 
         // Layouts section
-        let currentLayout = BornoInputController.currentKeyboardLayout()
+        let currentLayout = YazaTypeInputController.currentKeyboardLayout()
 
-        let phoneticItem = NSMenuItem(title: "Borno (Phonetic)", action: #selector(setLayoutPhonetic(_:)), keyEquivalent: "")
+        let phoneticItem = NSMenuItem(title: "YazaType (Phonetic)", action: #selector(setLayoutPhonetic(_:)), keyEquivalent: "")
         phoneticItem.target = self
         phoneticItem.state = (currentLayout == "avro_phonetic") ? .on : .off
         menu.addItem(phoneticItem)
@@ -924,7 +928,7 @@ class BornoInputController: IMKInputController {
         menu.addItem(NSMenuItem.separator())
 
         // Encodings section
-        let isANSI = (BornoInputController.currentOutputEncoding() == .ansi)
+        let isANSI = (YazaTypeInputController.currentOutputEncoding() == .ansi)
         let unicodeItem = NSMenuItem(title: "Unicode", action: #selector(setOutputUnicode(_:)), keyEquivalent: "")
         unicodeItem.target = self
         unicodeItem.state = isANSI ? .off : .on
@@ -941,7 +945,7 @@ class BornoInputController: IMKInputController {
         startItem.target = self
         menu.addItem(startItem)
 
-        let layoutItem = NSMenuItem(title: "Borno Keyboard Layout...", action: #selector(openLayoutGuide(_:)), keyEquivalent: "")
+        let layoutItem = NSMenuItem(title: "YazaType Keyboard Layout...", action: #selector(openLayoutGuide(_:)), keyEquivalent: "")
         layoutItem.target = self
         menu.addItem(layoutItem)
 
@@ -951,7 +955,7 @@ class BornoInputController: IMKInputController {
 
         menu.addItem(NSMenuItem.separator())
 
-        let aboutItem = NSMenuItem(title: "About Borno", action: #selector(openAboutWindow(_:)), keyEquivalent: "")
+        let aboutItem = NSMenuItem(title: "About YazaType", action: #selector(openAboutWindow(_:)), keyEquivalent: "")
         aboutItem.target = self
         menu.addItem(aboutItem)
 
@@ -959,18 +963,18 @@ class BornoInputController: IMKInputController {
     }
 
     @objc func setLayoutPhonetic(_ sender: Any? = nil) {
-        UserDefaults.standard.set("avro_phonetic", forKey: BornoInputController.keyboardLayoutKey)
-        NotificationCenter.default.post(name: .bornoLayoutChanged, object: nil)
+        UserDefaults.standard.set("avro_phonetic", forKey: YazaTypeInputController.keyboardLayoutKey)
+        NotificationCenter.default.post(name: .yazaTypeLayoutChanged, object: nil)
     }
 
     @objc func setLayoutNational(_ sender: Any? = nil) {
-        UserDefaults.standard.set("National", forKey: BornoInputController.keyboardLayoutKey)
-        NotificationCenter.default.post(name: .bornoLayoutChanged, object: nil)
+        UserDefaults.standard.set("National", forKey: YazaTypeInputController.keyboardLayoutKey)
+        NotificationCenter.default.post(name: .yazaTypeLayoutChanged, object: nil)
     }
 
     @objc func setLayoutProbhat(_ sender: Any? = nil) {
-        UserDefaults.standard.set("Probhat", forKey: BornoInputController.keyboardLayoutKey)
-        NotificationCenter.default.post(name: .bornoLayoutChanged, object: nil)
+        UserDefaults.standard.set("Probhat", forKey: YazaTypeInputController.keyboardLayoutKey)
+        NotificationCenter.default.post(name: .yazaTypeLayoutChanged, object: nil)
     }
 
     @objc func layoutChanged() {
@@ -978,13 +982,13 @@ class BornoInputController: IMKInputController {
     }
 
     @objc func setOutputUnicode(_ sender: Any? = nil) {
-        UserDefaults.standard.set("Unicode", forKey: BornoInputController.outputEncodingKey)
-        NotificationCenter.default.post(name: .bornoEncodingChanged, object: nil)
+        UserDefaults.standard.set("Unicode", forKey: YazaTypeInputController.outputEncodingKey)
+        NotificationCenter.default.post(name: .yazaTypeEncodingChanged, object: nil)
     }
 
     @objc func setOutputANSI(_ sender: Any? = nil) {
-        UserDefaults.standard.set("ANSI", forKey: BornoInputController.outputEncodingKey)
-        NotificationCenter.default.post(name: .bornoEncodingChanged, object: nil)
+        UserDefaults.standard.set("ANSI", forKey: YazaTypeInputController.outputEncodingKey)
+        NotificationCenter.default.post(name: .yazaTypeEncodingChanged, object: nil)
     }
 
     @objc func openGettingStarted(_ sender: Any? = nil) {
@@ -1005,7 +1009,7 @@ class BornoInputController: IMKInputController {
 }
 
 extension Notification.Name {
-    static let bornoTypingModeChanged = Notification.Name("BornoTypingModeChanged")
-    static let bornoEncodingChanged = Notification.Name("BornoEncodingChanged")
-    static let bornoLayoutChanged = Notification.Name("BornoLayoutChanged")
+    static let yazaTypeTypingModeChanged = Notification.Name("YazaTypeTypingModeChanged")
+    static let yazaTypeEncodingChanged = Notification.Name("YazaTypeEncodingChanged")
+    static let yazaTypeLayoutChanged = Notification.Name("YazaTypeLayoutChanged")
 }

@@ -46,7 +46,7 @@ const IDC_RADIO_ANSI: isize = 2005;
 fn main() -> Result<()> {
     unsafe {
         let instance = GetModuleHandleW(None)?;
-        let class_name = w!("BornoWindowsClass");
+        let class_name = w!("YazaTypeWindowsClass");
 
         let h_icon = LoadImageW(
             instance,
@@ -82,7 +82,7 @@ fn main() -> Result<()> {
         let hwnd = CreateWindowExW(
             WINDOW_EX_STYLE::default(),
             class_name,
-            w!("Borno (বর্ণ) — Bengali Keyboard & Preferences"),
+            w!("YazaType — Bengali Keyboard & Preferences"),
             WS_OVERLAPPED | WS_CAPTION | WS_SYSMENU | WS_MINIMIZEBOX | WS_VISIBLE,
             pos_x,
             pos_y,
@@ -139,7 +139,7 @@ fn setup_tray_icon(hwnd: HWND, h_icon: HICON) -> Result<()> {
             ..Default::default()
         };
 
-        let tooltip = "Borno (বর্ণ) - Bengali Keyboard (Press F12 to Toggle)";
+        let tooltip = "YazaType - Bengali Keyboard (Press F12 to Toggle)";
         let wide_tip: Vec<u16> = tooltip.encode_utf16().chain(std::iter::once(0)).collect();
         for (i, &ch) in wide_tip.iter().enumerate().take(127) {
             nid.szTip[i] = ch;
@@ -177,7 +177,7 @@ unsafe extern "system" fn wnd_proc(
             CreateWindowExW(
                 WINDOW_EX_STYLE::default(),
                 w!("STATIC"),
-                w!("Borno (বর্ণ) — Preferences & Guide"),
+                w!("YazaType — Preferences & Guide"),
                 WS_VISIBLE | WS_CHILD | WINDOW_STYLE(SS_CENTER as u32),
                 20, 20, 620, 32,
                 hwnd, None, instance, None
@@ -267,7 +267,7 @@ unsafe extern "system" fn wnd_proc(
             CreateWindowExW(
                 WINDOW_EX_STYLE::default(),
                 w!("STATIC"),
-                w!("Borno v0.2.5 · 100% Offline & Open Source · Developer: Yahia Bin Zaman · MIT License"),
+                w!("YazaType v0.2.5 · 100% Offline & Open Source · Developer: Yahia Bin Zaman · MIT License"),
                 WS_VISIBLE | WS_CHILD | WINDOW_STYLE(SS_CENTER as u32),
                 20, 460, 620, 20,
                 hwnd, None, instance, None
@@ -291,10 +291,10 @@ unsafe extern "system" fn wnd_proc(
                 AppendMenuW(hmenu, MF_STRING, IDM_TOGGLE, PCWSTR(w_status.as_ptr())).unwrap_or_default();
                 AppendMenuW(hmenu, MF_SEPARATOR, 0, PCWSTR::null()).unwrap_or_default();
 
-                let w_show: Vec<u16> = "Show Borno Window".encode_utf16().chain(std::iter::once(0)).collect();
+                let w_show: Vec<u16> = "Show YazaType Window".encode_utf16().chain(std::iter::once(0)).collect();
                 AppendMenuW(hmenu, MF_STRING, IDM_SHOW, PCWSTR(w_show.as_ptr())).unwrap_or_default();
 
-                let w_about: Vec<u16> = "About Borno...".encode_utf16().chain(std::iter::once(0)).collect();
+                let w_about: Vec<u16> = "About YazaType...".encode_utf16().chain(std::iter::once(0)).collect();
                 AppendMenuW(hmenu, MF_STRING, IDM_ABOUT, PCWSTR(w_about.as_ptr())).unwrap_or_default();
 
                 let w_exit: Vec<u16> = "Exit".encode_utf16().chain(std::iter::once(0)).collect();
@@ -338,8 +338,8 @@ unsafe extern "system" fn wnd_proc(
                 IDM_ABOUT => {
                     MessageBoxW(
                         hwnd,
-                        w!("Borno (বর্ণ) v0.2.5 for Windows\n\nFast Native Avro Phonetic Bengali Keyboard.\nFeaturing pure direct typing and dual Unicode & ANSI support.\n\nDeveloped & Maintained by Yahia Bin Zaman.\nLicense: MIT License"),
-                        w!("About Borno"),
+                        w!("YazaType v0.2.5 for Windows\n\nFast Native Avro Phonetic Bengali Keyboard.\nFeaturing pure direct typing and dual Unicode & ANSI support.\n\nDeveloped & Maintained by Yahia Bin Zaman.\nLicense: MIT License"),
+                        w!("About YazaType"),
                         MB_OK | MB_ICONINFORMATION,
                     );
                 }

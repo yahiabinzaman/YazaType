@@ -18,7 +18,7 @@ class WelcomeWindowController: NSObject, NSWindowDelegate {
                     backing: .buffered,
                     defer: false
                 )
-                win.title = "Borno (বর্ণ) — Preferences & Guide"
+                win.title = "YazaType — Preferences & Guide"
                 win.titleVisibility = .hidden
                 win.titlebarAppearsTransparent = true
                 win.isReleasedWhenClosed = false
@@ -172,7 +172,7 @@ class ModernSidebarView: NSVisualEffectView {
         iconView.wantsLayer = true
         iconView.layer?.cornerRadius = 9
         iconView.layer?.masksToBounds = true
-        if let logoPath = Bundle.main.path(forResource: "BornoGreenIcon", ofType: "png"),
+        if let logoPath = Bundle.main.path(forResource: "YazaTypeGreenIcon", ofType: "png"),
            let img = NSImage(contentsOfFile: logoPath) {
             iconView.image = img
         } else {
@@ -189,11 +189,11 @@ class ModernSidebarView: NSVisualEffectView {
         titleStack.alignment = .leading
         titleStack.spacing = 1
 
-        let appTitle = NSTextField(labelWithString: "Borno (বর্ণ)")
+        let appTitle = NSTextField(labelWithString: "YazaType")
         appTitle.font = NSFont.systemFont(ofSize: 15, weight: .bold)
         appTitle.textColor = .labelColor
 
-        let appSub = NSTextField(labelWithString: "Borno Bengali Keyboard")
+        let appSub = NSTextField(labelWithString: "YazaType Bengali Keyboard")
         appSub.font = NSFont.systemFont(ofSize: 11, weight: .medium)
         appSub.textColor = .secondaryLabelColor
 
@@ -217,7 +217,7 @@ class ModernSidebarView: NSVisualEffectView {
 
         let items: [(String, String, NSColor, Int)] = [
             ("sparkles", "Getting Started", .systemBlue, 0),
-            ("character.book.closed.fill", "Borno Layout", .systemIndigo, 1),
+            ("character.book.closed.fill", "YazaType Layout", .systemIndigo, 1),
             ("gearshape.fill", "Typing Settings", .systemOrange, 2)
         ]
 
@@ -240,7 +240,7 @@ class ModernSidebarView: NSVisualEffectView {
         let appSectionLabel = makeSectionLabel("SYSTEM")
         navContainer.addArrangedSubview(appSectionLabel)
 
-        let aboutBtn = SidebarRowButton(symbol: "info.circle.fill", title: "About Borno", accentColor: .systemGreen, index: 3)
+        let aboutBtn = SidebarRowButton(symbol: "info.circle.fill", title: "About YazaType", accentColor: .systemGreen, index: 3)
         aboutBtn.onClick = { [weak self] idx in
             self?.selectTab(idx)
         }
@@ -263,7 +263,7 @@ class ModernSidebarView: NSVisualEffectView {
         dot.layer?.backgroundColor = NSColor.systemGreen.cgColor
         dot.translatesAutoresizingMaskIntoConstraints = false
 
-        let statusLabel = NSTextField(labelWithString: "Borno Engine · Ready")
+        let statusLabel = NSTextField(labelWithString: "YazaType Engine · Ready")
         statusLabel.font = NSFont.systemFont(ofSize: 11, weight: .medium)
         statusLabel.textColor = .secondaryLabelColor
         statusLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -486,7 +486,7 @@ class ModernGettingStartedView: NSView {
         header.font = NSFont.systemFont(ofSize: 22, weight: .bold)
         header.textColor = .labelColor
 
-        let subtitle = NSTextField(wrappingLabelWithString: "Learn how to switch input modes and type Bengali phonetically with Borno.")
+        let subtitle = NSTextField(wrappingLabelWithString: "Learn how to switch input modes and type Bengali phonetically with YazaType.")
         subtitle.font = NSFont.systemFont(ofSize: 13, weight: .regular)
         subtitle.textColor = .secondaryLabelColor
 
@@ -498,8 +498,8 @@ class ModernGettingStartedView: NSView {
         // Guide Step Cards
         let step1 = makeStepCard(
             stepNumber: "1",
-            title: "Switching to Borno Keyboard",
-            desc: "Press Control + Space or tap the Globe key (🌐) anytime to toggle between English and Borno.",
+            title: "Switching to YazaType Keyboard",
+            desc: "Press Control + Space or tap the Globe key (🌐) anytime to toggle between English and YazaType.",
             badgeText: "⌃ Space  /  🌐 Globe"
         )
         content.addArrangedSubview(step1)
@@ -604,7 +604,7 @@ class ModernGettingStartedView: NSView {
         stack.spacing = 8
         stack.alignment = .leading
 
-        let desc = NSTextField(labelWithString: "Switch input method to Borno and practice typing Bengali here:")
+        let desc = NSTextField(labelWithString: "Switch input method to YazaType and practice typing Bengali here:")
         desc.font = NSFont.systemFont(ofSize: 12, weight: .medium)
         desc.textColor = .secondaryLabelColor
 
@@ -732,7 +732,7 @@ class ModernAvroLayoutView: NSView {
         addSubview(content)
 
         // Header Title
-        let header = NSTextField(labelWithString: "Borno Keyboard Layout")
+        let header = NSTextField(labelWithString: "YazaType Keyboard Layout")
         header.font = NSFont.systemFont(ofSize: 22, weight: .bold)
         header.textColor = .labelColor
         content.addArrangedSubview(header)
@@ -928,10 +928,12 @@ class ModernSettingsView: NSView {
         layoutSectionLabel.textColor = .secondaryLabelColor
         content.addArrangedSubview(layoutSectionLabel)
 
-        let currentLayout = UserDefaults.standard.string(forKey: "BornoKeyboardLayout") ?? "avro_phonetic"
+        let currentLayout = UserDefaults.standard.string(forKey: "YazaTypeKeyboardLayout")
+            ?? UserDefaults.standard.string(forKey: "BornoKeyboardLayout")
+            ?? "avro_phonetic"
 
         let layoutOptions: [(id: String, title: String, badge: String?, desc: String)] = [
-            ("avro_phonetic", "Borno (Phonetic)", "Default", "Avro-style phonetic transliteration (type 'amar' → 'আমার')."),
+            ("avro_phonetic", "YazaType (Phonetic)", "Default", "Avro-style phonetic transliteration (type 'amar' → 'আমার')."),
             ("National", "National / Bijoy (জাতীয়)", "Bijoy Standard", "Bangladesh National / Bijoy layout standard (type 'Av' → 'আ', 'g' → 'ম')."),
             ("Probhat", "Probhat (প্রভাত)", nil, "Standard Probhat fixed keyboard layout.")
         ]
@@ -967,10 +969,12 @@ class ModernSettingsView: NSView {
         encSectionLabel.textColor = .secondaryLabelColor
         content.addArrangedSubview(encSectionLabel)
 
-        let currentEncoding = UserDefaults.standard.string(forKey: "BornoOutputEncoding") ?? "Unicode"
+        let currentEncoding = UserDefaults.standard.string(forKey: "YazaTypeOutputEncoding")
+            ?? UserDefaults.standard.string(forKey: "BornoOutputEncoding")
+            ?? "Unicode"
 
         let encOptions: [(id: String, title: String, badge: String?, desc: String)] = [
-            ("Unicode", "Unicode", "Default", "For Web, MS Word, Notes, Messenger, Figma & standard Unicode Bengali fonts (Kalpurush, Bornomala, SolaimanLipi)."),
+            ("Unicode", "Unicode", "Default", "For Web, MS Word, Notes, Messenger, Figma & standard Unicode Bengali fonts (Kalpurush, SolaimanLipi, Anek Bangla)."),
             ("ANSI", "ANSI", nil, "Outputs direct ANSI characters for Adobe Illustrator, Photoshop, InDesign, and print publishing.")
         ]
 
@@ -1005,7 +1009,9 @@ class ModernSettingsView: NSView {
         modeSectionLabel.textColor = .secondaryLabelColor
         content.addArrangedSubview(modeSectionLabel)
 
-        let currentMode = UserDefaults.standard.string(forKey: "BornoTypingMode") ?? "phoneticFirst"
+        let currentMode = UserDefaults.standard.string(forKey: "YazaTypeTypingMode")
+            ?? UserDefaults.standard.string(forKey: "BornoTypingMode")
+            ?? "phoneticFirst"
 
         let modes: [(id: String, title: String, badge: String?, desc: String)] = [
             ("phoneticFirst", "Phonetic-first (Standard Avro)", "Recommended", "Your exact phonetic spelling commits by default, with suggestion list instantly available."),
@@ -1051,8 +1057,8 @@ class ModernSettingsView: NSView {
     }
 
     private func selectLayout(_ layoutId: String) {
-        UserDefaults.standard.set(layoutId, forKey: "BornoKeyboardLayout")
-        NotificationCenter.default.post(name: .bornoLayoutChanged, object: nil)
+        UserDefaults.standard.set(layoutId, forKey: "YazaTypeKeyboardLayout")
+        NotificationCenter.default.post(name: .yazaTypeLayoutChanged, object: nil)
 
         for card in layoutCards {
             card.isSelected = (card.modeId == layoutId)
@@ -1060,8 +1066,8 @@ class ModernSettingsView: NSView {
     }
 
     private func selectEncoding(_ encodingId: String) {
-        UserDefaults.standard.set(encodingId, forKey: "BornoOutputEncoding")
-        NotificationCenter.default.post(name: .bornoEncodingChanged, object: nil)
+        UserDefaults.standard.set(encodingId, forKey: "YazaTypeOutputEncoding")
+        NotificationCenter.default.post(name: .yazaTypeEncodingChanged, object: nil)
 
         for card in encodingCards {
             card.isSelected = (card.modeId == encodingId)
@@ -1069,8 +1075,8 @@ class ModernSettingsView: NSView {
     }
 
     private func selectMode(_ modeId: String) {
-        UserDefaults.standard.set(modeId, forKey: "BornoTypingMode")
-        NotificationCenter.default.post(name: .bornoTypingModeChanged, object: nil)
+        UserDefaults.standard.set(modeId, forKey: "YazaTypeTypingMode")
+        NotificationCenter.default.post(name: .yazaTypeTypingModeChanged, object: nil)
 
         for card in modeCards {
             card.isSelected = (card.modeId == modeId)
@@ -1260,7 +1266,7 @@ class ModernAboutView: NSView {
         iconView.wantsLayer = true
         iconView.layer?.cornerRadius = 20
         iconView.layer?.masksToBounds = true
-        if let logoPath = Bundle.main.path(forResource: "BornoGreenIcon", ofType: "png"),
+        if let logoPath = Bundle.main.path(forResource: "YazaTypeGreenIcon", ofType: "png"),
            let img = NSImage(contentsOfFile: logoPath) {
             iconView.image = img
         } else {
@@ -1274,7 +1280,7 @@ class ModernAboutView: NSView {
         centerStack.addArrangedSubview(iconView)
 
         // Title
-        let title = NSTextField(labelWithString: "Borno (বর্ণ)")
+        let title = NSTextField(labelWithString: "YazaType")
         title.font = NSFont.systemFont(ofSize: 24, weight: .bold)
         title.textColor = .labelColor
         centerStack.addArrangedSubview(title)
@@ -1364,7 +1370,7 @@ class ModernAboutView: NSView {
         let rows = [
             ("Version", "0.2.5 (Universal Binary)"),
             ("Encodings", "Unicode & ANSI"),
-            ("Layouts", "Borno (Phonetic) · National (জাতীয়) · Probhat"),
+            ("Layouts", "YazaType (Phonetic) · National (জাতীয়) · Probhat"),
             ("Engine", "Rust (riti) Native Core + Swift IME"),
             ("Architecture", "Apple Silicon (ARM64) + Intel (x86_64)"),
             ("Compatibility", "macOS 13.0+ & Windows 10/11"),
@@ -1398,13 +1404,13 @@ class ModernAboutView: NSView {
     }
 
     @objc private func checkForUpdates() {
-        if let url = URL(string: "https://github.com/yahiabinzaman/borno-keyboard/releases") {
+        if let url = URL(string: "https://github.com/yahiabinzaman/yazatype/releases") {
             NSWorkspace.shared.open(url)
         }
     }
 
     @objc private func openGitHub() {
-        if let url = URL(string: "https://github.com/yahiabinzaman/borno-keyboard") {
+        if let url = URL(string: "https://github.com/yahiabinzaman/yazatype") {
             NSWorkspace.shared.open(url)
         }
     }

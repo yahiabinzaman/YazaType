@@ -1,19 +1,17 @@
 # YazaType — Bengali Keyboard for macOS & Windows
 
-[![macOS](https://img.shields.io/badge/macOS-13.0%2B-black?logo=apple&logoColor=white)](https://github.com/yahiabinzaman/borno-keyboard)
-[![Windows](https://img.shields.io/badge/Windows-10%2F11-0078D6?logo=windows&logoColor=white)](https://github.com/yahiabinzaman/borno-keyboard)
-[![Apple Silicon](https://img.shields.io/badge/Apple%20Silicon-Universal%20Binary-blue)](https://github.com/yahiabinzaman/borno-keyboard)
-[![Output](https://img.shields.io/badge/Encoding-Unicode%20%2B%20ANSI-purple)](https://github.com/yahiabinzaman/borno-keyboard)
-[![Privacy](https://img.shields.io/badge/Privacy-100%25%20Offline-success)](https://github.com/yahiabinzaman/borno-keyboard)
+[![macOS](https://img.shields.io/badge/macOS-13.0%2B-black?logo=apple&logoColor=white)](https://github.com/yahiabinzaman/yazatype)
+[![Windows](https://img.shields.io/badge/Windows-10%2F11-0078D6?logo=windows&logoColor=white)](https://github.com/yahiabinzaman/yazatype)
+[![Apple Silicon](https://img.shields.io/badge/Apple%20Silicon-Universal%20Binary-blue)](https://github.com/yahiabinzaman/yazatype)
+[![Output](https://img.shields.io/badge/Encoding-Unicode%20%2B%20ANSI-purple)](https://github.com/yahiabinzaman/yazatype)
+[![Privacy](https://img.shields.io/badge/Privacy-100%25%20Offline-success)](https://github.com/yahiabinzaman/yazatype)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 **YazaType** is a fast, minimal, native Bengali input method built for **macOS** and **Windows**. Designed for maximum typing speed, pure direct typing with zero floating popup disruption, and seamless dual-encoding support across **Unicode** and **ANSI** for professional graphic design in Adobe Illustrator, Photoshop, InDesign, Figma, MS Office, and all modern applications.
 
 **বাংলা লিখুন, নিজের মতো।** Built by Yahia Bin Zaman.
 
-[Website](https://yahiabinzaman.github.io/borno-keyboard/) · [বাংলা](https://yahiabinzaman.github.io/borno-keyboard/bn/) · [Unicode / ANSI converter](https://yahiabinzaman.github.io/borno-keyboard/converter.html)
-
-> YazaType is the new name of this project, previously Borno by Yahia. Current v0.2.5 installers, app menus and input-source names still say **Borno**. Follow the existing installation names below; the repository and download URLs remain unchanged. This project is independent of Codepotro’s Borno keyboard.
+[Website](https://yahiabinzaman.github.io/yazatype/) · [বাংলা](https://yahiabinzaman.github.io/yazatype/bn/) · [Unicode / ANSI converter](https://yahiabinzaman.github.io/yazatype/converter.html)
 
 ---
 
@@ -24,7 +22,7 @@
   - **Unicode Mode**: Standard Bengali for Web, Chrome, Word, Notes, Messenger, Figma, and modern Unicode fonts (*Kalpurush, SolaimanLipi, Bornomala, Noto Sans*).
   - **ANSI Mode**: Real-time conversion to ANSI characters for **Adobe Illustrator, Photoshop, InDesign, and print publishing**. Automatically reorders pre-vowel signs (`ে`, `ি`, `ৈ`, `ো`, `ৌ`), Reph (`র্`), and complex Bengali conjuncts (যুক্তবর্ণ).
 - ⌨️ **Multiple Keyboard Layouts**:
-  - **Borno (Phonetic)**: Intuitive Avro-compatible phonetic transliteration (`ami` → `আমি`, `bangla` → `বাংলা`).
+  - **YazaType (Phonetic)**: Intuitive Avro-compatible phonetic transliteration (`ami` → `আমি`, `bangla` → `বাংলা`).
   - **National / Bijoy (জাতীয়)**: Standard Bangladesh National (Bijoy) layout (`Av` → `আ`, `g` → `ম`, `h` → `ব`, `j` → `ক`).
   - **Probhat (প্রভাত)**: Classic Probhat fixed keyboard layout.
 - ⚡️ **Native Performance**: Powered by a sub-millisecond Rust engine core (`riti`) paired with native macOS Swift IME and Windows Win32 integration.
@@ -37,18 +35,18 @@
 ### 🍎 For macOS:
 Open **Terminal** (`Command + Space` → search `Terminal`), paste this command and press **Return**:
 ```bash
-curl -fsSL https://raw.githubusercontent.com/yahiabinzaman/borno-keyboard/main/scripts/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/yahiabinzaman/yazatype/main/scripts/install.sh | bash
 ```
-> Or download the pre-packaged **[Borno.dmg](https://github.com/yahiabinzaman/borno-keyboard/releases/latest/download/Borno.dmg)**.
+> Or download the pre-packaged **[YazaType.dmg](https://raw.githubusercontent.com/yahiabinzaman/yazatype/main/docs/YazaType.dmg)**.
 
 ---
 
 ### 🪟 For Windows:
 Open **PowerShell** or **Windows Terminal**, paste this command and press **Enter**:
 ```powershell
-irm https://raw.githubusercontent.com/yahiabinzaman/borno-keyboard/main/scripts/install.ps1 | iex
+irm https://raw.githubusercontent.com/yahiabinzaman/yazatype/main/scripts/install.ps1 | iex
 ```
-> Or download the standalone **[Borno-Setup-0.2.5.exe](https://github.com/yahiabinzaman/borno-keyboard/releases)** installer.
+> Or download the standalone **[YazaType-Setup-0.2.5.exe](https://github.com/yahiabinzaman/yazatype/releases)** installer.
 
 ---
 
@@ -56,11 +54,11 @@ irm https://raw.githubusercontent.com/yahiabinzaman/borno-keyboard/main/scripts/
 
 ### 🍎 macOS:
 1. Open **System Settings** → **Keyboard** → **Input Sources** (Click *Edit...*).
-2. Click **`+`** (Add), search for **`Borno`**, select it and click **Add**.
-3. Toggle between English and Borno using **`Control + Space`** or the **Globe (🌐)** key.
+2. Click **`+`** (Add), search for **`YazaType`**, select it and click **Add**.
+3. Toggle between English and YazaType using **`Control + Space`** or the **Globe (🌐)** key.
 
 ### 🪟 Windows:
-1. Borno runs automatically in the **System Tray** (near the taskbar clock).
+1. YazaType runs automatically in the **System Tray** (near the taskbar clock).
 2. Press **`F12`** anytime to toggle between **English ⇋ Bengali** mode.
 3. Type in phonetic Avro or your selected layout across any Windows application.
 
@@ -68,15 +66,15 @@ irm https://raw.githubusercontent.com/yahiabinzaman/borno-keyboard/main/scripts/
 
 ## 🎨 How to Use ANSI Mode in Adobe Illustrator & Photoshop
 
-Borno allows you to type directly in ANSI without needing third-party converters or external copy-pasting:
+YazaType allows you to type directly in ANSI without needing third-party converters or external copy-pasting:
 
 1. **Switch Output Encoding to ANSI**:
-   - In the macOS Menu Bar (or Borno Settings), switch **Output Encoding** to **ANSI**.
+   - In the macOS Menu Bar (or YazaType Settings), switch **Output Encoding** to **ANSI**.
 2. **Select ANSI Font**:
    - In Adobe Illustrator, Photoshop, or InDesign, select your ANSI font in the Character panel.
 3. **Type Naturally**:
    - Type using your preferred layout (Phonetic or National / Bijoy).
-   - Borno automatically handles all vowel sign reordering (আ-কার, ই-কার, এ-কার, ও-কার), Reph (`র্`), and conjuncts (যেমন: ক্ষ, জ্ঞ, ষ্ণ, ক্ত, ন্ত) in real-time.
+   - YazaType automatically handles all vowel sign reordering (আ-কার, ই-কার, এ-কার, ও-কার), Reph (`র্`), and conjuncts (যেমন: ক্ষ, জ্ঞ, ষ্ণ, ক্ত, ন্ত) in real-time.
 
 ---
 
@@ -102,16 +100,16 @@ Borno allows you to type directly in ANSI without needing third-party converters
 
 ### macOS:
 ```bash
-git clone https://github.com/yahiabinzaman/borno-keyboard.git
-cd borno-keyboard
+git clone https://github.com/yahiabinzaman/yazatype.git
+cd yazatype
 make build
 make install
 ```
 
 ### Windows:
 ```bash
-git clone https://github.com/yahiabinzaman/borno-keyboard.git
-cd borno-keyboard/windows
+git clone https://github.com/yahiabinzaman/yazatype.git
+cd yazatype/windows
 cargo build --release
 ```
 
@@ -120,5 +118,5 @@ cargo build --release
 ## 👤 Credits & Author
 
 - **Developer & Maintainer**: [Yahia Bin Zaman](https://github.com/yahiabinzaman)
-- **Repository**: [https://github.com/yahiabinzaman/borno-keyboard](https://github.com/yahiabinzaman/borno-keyboard)
+- **Repository**: [https://github.com/yahiabinzaman/yazatype](https://github.com/yahiabinzaman/yazatype)
 - **License**: [MIT License](LICENSE)

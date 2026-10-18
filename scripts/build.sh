@@ -3,16 +3,16 @@ set -euo pipefail
 
 PROJECT_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 ENGINE_DIR="$PROJECT_ROOT/engine"
-SWIFT_DIR="$PROJECT_ROOT/Borno"
+SWIFT_DIR="$PROJECT_ROOT/YazaType"
 BUILD_DIR="$PROJECT_ROOT/build"
-APP_NAME="Borno"
+APP_NAME="YazaType"
 APP_BUNDLE="$BUILD_DIR/$APP_NAME.app"
 
 # Parse arguments
 BUILD_TYPE="${1:-release}"
 BUILD_UNIVERSAL="${2:-false}"
 
-echo "=== Borno Build ==="
+echo "=== YazaType Build ==="
 echo "Build type: $BUILD_TYPE"
 echo "Universal binary: $BUILD_UNIVERSAL"
 echo ""
@@ -141,8 +141,9 @@ fi
 
 # Step 4: Sign the app (ad-hoc)
 echo ">>> Signing app bundle..."
+xattr -cr "$APP_BUNDLE"
 codesign --force --sign - \
-    --entitlements "$SWIFT_DIR/Resources/Borno.entitlements" \
+    --entitlements "$SWIFT_DIR/Resources/YazaType.entitlements" \
     "$APP_BUNDLE"
 
 echo ""

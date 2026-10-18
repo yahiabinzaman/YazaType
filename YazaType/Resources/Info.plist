@@ -5,17 +5,17 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>Borno</string>
+	<string>YazaType</string>
 	<key>CFBundleExecutable</key>
-	<string>Borno</string>
+	<string>YazaType</string>
 	<key>CFBundleIconFile</key>
 	<string>AppIcon</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.borno.inputmethod.Borno</string>
+	<string>com.yaza.inputmethod.YazaType</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>Borno</string>
+	<string>YazaType</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
@@ -23,11 +23,11 @@
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>InputMethodConnectionName</key>
-	<string>com.borno.inputmethod.Borno_Connection</string>
+	<string>com.yaza.inputmethod.YazaType_Connection</string>
 	<key>InputMethodServerControllerClass</key>
-	<string>BornoInputController</string>
+	<string>YazaTypeInputController</string>
 	<key>InputMethodServerDelegateClass</key>
-	<string>BornoInputController</string>
+	<string>YazaTypeInputController</string>
 	<key>LSMinimumSystemVersion</key>
 	<string>13.0</string>
 	<key>LSUIElement</key>
@@ -49,10 +49,10 @@
 	<dict>
 		<key>tsInputModeListKey</key>
 		<dict>
-			<key>com.borno.inputmethod.Borno</key>
+			<key>com.yaza.inputmethod.YazaType</key>
 			<dict>
 				<key>TISInputSourceID</key>
-				<string>com.borno.inputmethod.Borno</string>
+				<string>com.yaza.inputmethod.YazaType</string>
 				<key>TISIntendedLanguage</key>
 				<string>bn</string>
 				<key>tsInputModeCharacterRepertoireKey</key>
@@ -82,7 +82,7 @@
 		</dict>
 		<key>tsVisibleInputModeOrderedArrayKey</key>
 		<array>
-			<string>com.borno.inputmethod.Borno</string>
+			<string>com.yaza.inputmethod.YazaType</string>
 		</array>
 	</dict>
 </dict>

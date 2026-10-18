@@ -2,21 +2,21 @@ import Cocoa
 import InputMethodKit
 
 // Connection name MUST match Info.plist's InputMethodConnectionName
-let kConnectionName = "com.borno.inputmethod.Borno_Connection"
+let kConnectionName = "com.yaza.inputmethod.YazaType_Connection"
 
 // IMKServer must be a global to stay alive for the process lifetime
 var server: IMKServer!
 
-// Build identifier — check Console.app for "Borno" to verify which build is running
-let lekhoBuildId = "borno-v0.2.5"
-NSLog("Borno: starting %@", lekhoBuildId)
+// Build identifier — check Console.app for "YazaType" to verify which build is running
+let lekhoBuildId = "yazatype-v0.2.5"
+NSLog("YazaType: starting %@", lekhoBuildId)
 
 func installMainMenu() {
     let mainMenu = NSMenu()
 
     let appMenuItem = NSMenuItem()
     mainMenu.addItem(appMenuItem)
-    let appMenu = NSMenu(title: "Borno")
+    let appMenu = NSMenu(title: "YazaType")
     appMenu.addItem(NSMenuItem(
         title: "Close Window",
         action: #selector(NSWindow.performClose(_:)),
@@ -26,7 +26,7 @@ func installMainMenu() {
         action: #selector(NSWindow.performClose(_:)),
         keyEquivalent: "q"))
     appMenu.addItem(NSMenuItem(
-        title: "Hide Borno",
+        title: "Hide YazaType",
         action: #selector(NSApplication.hide(_:)),
         keyEquivalent: "h"))
     appMenuItem.submenu = appMenu

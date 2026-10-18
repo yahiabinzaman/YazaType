@@ -2,13 +2,13 @@
 set -euo pipefail
 
 PROJECT_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
-APP_BUNDLE="$PROJECT_ROOT/build/Borno.app"
+APP_BUNDLE="$PROJECT_ROOT/build/YazaType.app"
 PKG_DIR="$PROJECT_ROOT/build/pkg_staging"
 DMG_DIR="$PROJECT_ROOT/build/dmg_staging"
 VERSION="0.2.5"
-PKG_OUTPUT="$PROJECT_ROOT/build/Borno.pkg"
-DMG_OUTPUT="$PROJECT_ROOT/build/Borno-${VERSION}.dmg"
-VOLUME_NAME="Borno"
+PKG_OUTPUT="$PROJECT_ROOT/build/YazaType.pkg"
+DMG_OUTPUT="$PROJECT_ROOT/build/YazaType-${VERSION}.dmg"
+VOLUME_NAME="YazaType"
 
 if [ ! -d "$APP_BUNDLE" ]; then
     echo "Error: $APP_BUNDLE not found. Run 'make build' first."
@@ -23,13 +23,10 @@ rm -f "$DMG_OUTPUT"
 
 # --- Step 1: Create the .pkg installer ---
 
-# Payload is empty — we use postinstall to copy the app from a nopayload pkg
-# Instead, we embed the app inside the scripts directory so the postinstall
-# can copy it to the correct user location.
 mkdir -p "$PKG_DIR/scripts"
 
 # Bundle the app inside the scripts dir (pkg scripts can access this)
-cp -R "$APP_BUNDLE" "$PKG_DIR/scripts/Borno.app"
+cp -R "$APP_BUNDLE" "$PKG_DIR/scripts/YazaType.app"
 
 # Preinstall: kill the running instance
 cat > "$PKG_DIR/scripts/preinstall" << 'SCRIPT'
@@ -38,15 +35,17 @@ cat > "$PKG_DIR/scripts/preinstall" << 'SCRIPT'
 REAL_USER=$(stat -f "%Su" /dev/console 2>/dev/null || echo "$USER")
 REAL_HOME=$(eval echo "~$REAL_USER")
 
-# Kill running Borno so the old .app can be replaced
+# Kill running instances so the old .app can be replaced
+killall YazaType 2>/dev/null || true
 killall Borno 2>/dev/null || true
-# Also kill old AvroBangla instances (from before rename)
 killall AvroBangla 2>/dev/null || true
 sleep 1
 
 # Remove old installations
+rm -rf "$REAL_HOME/Library/Input Methods/YazaType.app" 2>/dev/null || true
 rm -rf "$REAL_HOME/Library/Input Methods/Borno.app" 2>/dev/null || true
 rm -rf "$REAL_HOME/Library/Input Methods/AvroBangla.app" 2>/dev/null || true
+rm -rf "/Library/Input Methods/YazaType.app" 2>/dev/null || true
 rm -rf "/Library/Input Methods/Borno.app" 2>/dev/null || true
 rm -rf "/Library/Input Methods/AvroBangla.app" 2>/dev/null || true
 
@@ -68,18 +67,20 @@ SCRIPT_DIR="$(dirname "$0")"
 mkdir -p "$INSTALL_DIR"
 
 # Copy the app from the scripts directory
-cp -R "$SCRIPT_DIR/Borno.app" "$INSTALL_DIR/"
+cp -R "$SCRIPT_DIR/YazaType.app" "$INSTALL_DIR/"
 
 # Fix ownership (pkg runs as root, so files would be owned by root)
-chown -R "$REAL_USER" "$INSTALL_DIR/Borno.app"
+chown -R "$REAL_USER" "$INSTALL_DIR/YazaType.app"
 
 # Clear quarantine flag
-xattr -cr "$INSTALL_DIR/Borno.app" 2>/dev/null || true
+xattr -cr "$INSTALL_DIR/YazaType.app" 2>/dev/null || true
 
 # Place a symlink in /Applications/ so the app shows in Launchpad/Spotlight
+rm -f "/Applications/YazaType.app" 2>/dev/null || true
+rm -rf "/Applications/YazaType.app" 2>/dev/null || true
 rm -f "/Applications/Borno.app" 2>/dev/null || true
 rm -rf "/Applications/Borno.app" 2>/dev/null || true
-ln -sf "$INSTALL_DIR/Borno.app" "/Applications/Borno.app"
+ln -sf "$INSTALL_DIR/YazaType.app" "/Applications/YazaType.app"
 
 # Clean up old AvroBangla symlink/app from /Applications/
 rm -f "/Applications/AvroBangla.app" 2>/dev/null || true
@@ -87,9 +88,14 @@ rm -rf "/Applications/AvroBangla.app" 2>/dev/null || true
 
 # Register user LaunchAgent for automatic startup & background keepalive
 LAUNCH_AGENT_DIR="$REAL_HOME/Library/LaunchAgents"
-LAUNCH_AGENT_PLIST="$LAUNCH_AGENT_DIR/com.borno.inputmethod.Borno.plist"
+LAUNCH_AGENT_PLIST="$LAUNCH_AGENT_DIR/com.yaza.inputmethod.YazaType.plist"
+OLD_LAUNCH_AGENT_PLIST="$LAUNCH_AGENT_DIR/com.borno.inputmethod.Borno.plist"
 mkdir -p "$LAUNCH_AGENT_DIR"
 chown "$REAL_USER" "$LAUNCH_AGENT_DIR" 2>/dev/null || true
+
+# Remove old Borno launchagent
+su "$REAL_USER" -c "launchctl unload '$OLD_LAUNCH_AGENT_PLIST'" 2>/dev/null || true
+rm -f "$OLD_LAUNCH_AGENT_PLIST" 2>/dev/null || true
 
 cat <<EOF > "$LAUNCH_AGENT_PLIST"
 <?xml version="1.0" encoding="UTF-8"?>
@@ -97,10 +103,10 @@ cat <<EOF > "$LAUNCH_AGENT_PLIST"
 <plist version="1.0">
 <dict>
     <key>Label</key>
-    <string>com.borno.inputmethod.Borno</string>
+    <string>com.yaza.inputmethod.YazaType</string>
     <key>ProgramArguments</key>
     <array>
-        <string>$INSTALL_DIR/Borno.app/Contents/MacOS/Borno</string>
+        <string>$INSTALL_DIR/YazaType.app/Contents/MacOS/YazaType</string>
     </array>
     <key>RunAtLoad</key>
     <true/>
@@ -115,43 +121,41 @@ chown "$REAL_USER" "$LAUNCH_AGENT_PLIST" 2>/dev/null || true
 
 su "$REAL_USER" -c "launchctl load '$LAUNCH_AGENT_PLIST'" 2>/dev/null || true
 
-# Kill any auto-relaunched old instance (macOS may relaunch the IME
-# between preinstall kill and postinstall copy — the old binary runs
-# from cache, showing the wrong version)
+# Kill any auto-relaunched old instance
+killall YazaType 2>/dev/null || true
 killall Borno 2>/dev/null || true
 sleep 0.5
 
 # Launch the NEW binary as the real user
-su "$REAL_USER" -c "open '$INSTALL_DIR/Borno.app'" 2>/dev/null || true
+su "$REAL_USER" -c "open '$INSTALL_DIR/YazaType.app'" 2>/dev/null || true
 
 exit 0
 SCRIPT
 chmod +x "$PKG_DIR/scripts/postinstall"
 
 echo ">>> Building package..."
-# Use --nopayload since we handle installation in postinstall
 pkgbuild \
     --nopayload \
     --scripts "$PKG_DIR/scripts" \
-    --identifier "com.lekho.inputmethod.Borno" \
+    --identifier "com.yaza.inputmethod.YazaType" \
     --version "0.2.5" \
-    "$PKG_DIR/Borno-component.pkg"
+    "$PKG_DIR/YazaType-component.pkg"
 
 # Create a distribution XML for a nicer installer UI
 cat > "$PKG_DIR/distribution.xml" << 'DISTXML'
 <?xml version="1.0" encoding="utf-8"?>
 <installer-gui-script minSpecVersion="2">
-    <title>Borno</title>
+    <title>YazaType</title>
     <allowed-os-versions><os-version min="13.0"/></allowed-os-versions>
     <options hostArchitectures="arm64" customize="never" require-scripts="false"/>
     <welcome mime-type="text/plain"><![CDATA[
-Welcome to Borno — Avro Phonetic Bengali Keyboard for macOS.
+Welcome to YazaType — Bengali Keyboard for macOS.
 
-This will install the Avro Phonetic Bengali keyboard to your Mac.
+This will install the YazaType Bengali keyboard to your Mac.
 
 After installation:
   1. Open System Settings → Keyboard → Input Sources
-  2. Click + → search "Borno" → select Borno → Add
+  2. Click + → search "YazaType" → select YazaType → Add
   3. Use Globe key or Ctrl+Space to switch input methods
 
 Note: If this is a fresh install, you may need to log out
@@ -159,16 +163,16 @@ and log back in for the keyboard to appear.
     ]]></welcome>
     <choices-outline>
         <line choice="default">
-            <line choice="com.lekho.inputmethod.Borno"/>
+            <line choice="com.yaza.inputmethod.YazaType"/>
         </line>
     </choices-outline>
     <choice id="default"/>
-    <choice id="com.lekho.inputmethod.Borno" visible="false">
-        <pkg-ref id="com.lekho.inputmethod.Borno"/>
+    <choice id="com.yaza.inputmethod.YazaType" visible="false">
+        <pkg-ref id="com.yaza.inputmethod.YazaType"/>
     </choice>
-    <pkg-ref id="com.lekho.inputmethod.Borno"
+    <pkg-ref id="com.yaza.inputmethod.YazaType"
              version="0.2.5"
-             onConclusion="none">Borno-component.pkg</pkg-ref>
+             onConclusion="none">YazaType-component.pkg</pkg-ref>
 </installer-gui-script>
 DISTXML
 
@@ -186,7 +190,7 @@ echo ""
 echo "=== Creating DMG ==="
 
 mkdir -p "$DMG_DIR"
-cp "$PKG_OUTPUT" "$DMG_DIR/Install Borno.pkg"
+cp "$PKG_OUTPUT" "$DMG_DIR/Install YazaType.pkg"
 
 # Create the DMG
 hdiutil create \
@@ -204,4 +208,4 @@ echo "=== Done ==="
 echo "DMG: $DMG_OUTPUT ($(du -h "$DMG_OUTPUT" | cut -f1))"
 echo "PKG: $PKG_OUTPUT ($(du -h "$PKG_OUTPUT" | cut -f1))"
 echo ""
-echo "Users just: open DMG → double-click 'Install Borno.pkg' → done"
+echo "Users just: open DMG → double-click 'Install YazaType.pkg' → done"

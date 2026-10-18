@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://yahiabinzaman.github.io/borno-keyboard/sitemap.xml
+Sitemap: https://yahiabinzaman.github.io/yazatype/sitemap.xml
