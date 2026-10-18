@@ -4792,7 +4792,7 @@
             }
 
             // Balanced particle count to provide abundant breathing room and prevent crowding
-            const count = Math.min(20, Math.max(12, Math.floor(width / 75)));
+            const count = Math.min(28, Math.max(16, Math.floor(width / 56)));
             for (let i = 0; i < count; i++) {
                 const layer = Math.random();
                 let size, baseOpacity, speedY, colorRgb, glow;
@@ -4910,8 +4910,13 @@
                         ctx.font = `600 ${p.size}px "Bornomala", "Siyam Rupali", sans-serif`;
                         
                         if (isLight) {
-                            ctx.shadowBlur = 0;
-                            ctx.fillStyle = `rgba(15, 23, 42, ${Math.max(0.015, currentAlpha * 0.2)})`;
+                            if (p.glow) {
+                                ctx.shadowColor = 'rgba(37, 99, 235, 0.15)';
+                                ctx.shadowBlur = 5;
+                            } else {
+                                ctx.shadowBlur = 0;
+                            }
+                            ctx.fillStyle = `rgba(15, 23, 42, ${Math.max(0.065, currentAlpha * 0.85)})`;
                         } else {
                             if (p.glow) {
                                 ctx.shadowColor = 'rgba(96, 165, 250, 0.4)';
