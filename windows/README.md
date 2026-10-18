@@ -1,14 +1,14 @@
-# 🪟 YazaType for Windows
+# YazaType for Windows
 
 **YazaType** is a fast, native Avro Phonetic Bengali input method for Windows 10 & 11.
 
 ---
 
-## 📥 Installation Guide for Windows (ইনস্টলেশন নির্দেশিকা)
+## Installation Guide for Windows (ইনস্টলেশন নির্দেশিকা)
 
 ### ধাপ ১: ডাউনলোড (Download)
 1. GitHub Release পেইজ থেকে **`YazaType-Setup-0.2.5.exe`** বা পোর্টেবল **`YazaType.exe`** ডাউনলোড করুন।
-   - ডাউনলোড লিংক: [YazaType GitHub Releases](https://github.com/yahiabinzaman/yazatype/releases)
+ - ডাউনলোড লিংক: [YazaType GitHub Releases](https://github.com/yahiabinzaman/yazatype/releases)
 
 ### ধাপ ২: ইনস্টল (Install)
 1. ডাউনলোড করা `YazaType-Setup-0.2.5.exe` ফাইলে ডাবল-ক্লিক করুন।
@@ -22,7 +22,7 @@
 
 ---
 
-## 🛠️ Building from Source (ডেভেলপারদের জন্য)
+## Building from Source (ডেভেলপারদের জন্য)
 
 ### Prerequisites:
 - Rust (stable): `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`
