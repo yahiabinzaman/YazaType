@@ -1,4 +1,4 @@
-# বর্ণ (Borno) — Modern Native Bengali Keyboard for macOS & Windows
+# YazaType — Bengali Keyboard for macOS & Windows
 
 [![macOS](https://img.shields.io/badge/macOS-13.0%2B-black?logo=apple&logoColor=white)](https://github.com/yahiabinzaman/borno-keyboard)
 [![Windows](https://img.shields.io/badge/Windows-10%2F11-0078D6?logo=windows&logoColor=white)](https://github.com/yahiabinzaman/borno-keyboard)
@@ -7,7 +7,13 @@
 [![Privacy](https://img.shields.io/badge/Privacy-100%25%20Offline-success)](https://github.com/yahiabinzaman/borno-keyboard)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-**Borno (বর্ণ)** is a fast, minimal, native Bengali input method built for **macOS** and **Windows**. Designed for maximum typing speed, pure direct typing with zero floating popup disruption, and seamless dual-encoding support across **Unicode** and **ANSI** for professional graphic design in Adobe Illustrator, Photoshop, InDesign, Figma, MS Office, and all modern applications.
+**YazaType** is a fast, minimal, native Bengali input method built for **macOS** and **Windows**. Designed for maximum typing speed, pure direct typing with zero floating popup disruption, and seamless dual-encoding support across **Unicode** and **ANSI** for professional graphic design in Adobe Illustrator, Photoshop, InDesign, Figma, MS Office, and all modern applications.
+
+**বাংলা লিখুন, নিজের মতো।** Built by Yahia Bin Zaman.
+
+[Website](https://yahiabinzaman.github.io/borno-keyboard/) · [বাংলা](https://yahiabinzaman.github.io/borno-keyboard/bn/) · [Unicode / ANSI converter](https://yahiabinzaman.github.io/borno-keyboard/converter.html)
+
+> YazaType is the new name of this project, previously Borno by Yahia. Current v0.2.5 installers, app menus and input-source names still say **Borno**. Follow the existing installation names below; the repository and download URLs remain unchanged. This project is independent of Codepotro’s Borno keyboard.
 
 ---
 
