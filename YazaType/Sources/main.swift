@@ -50,16 +50,15 @@ func installMainMenu() {
 
 installMainMenu()
 
-// Register menu bar icons as template BEFORE IMKServer loads them
-for name in ["iconTemplate", "icon", "iconTemplate.pdf", "iconTemplate.tiff", "iconTemplate.png"] {
+// Register menu bar icons BEFORE IMKServer loads them (full-color icon, not template)
+for name in ["icon", "icon.tiff", "icon.png", "iconTemplate", "iconTemplate.tiff", "iconTemplate.png"] {
     let base = (name as NSString).deletingPathExtension
     let ext = (name as NSString).pathExtension.isEmpty ? nil : (name as NSString).pathExtension
     if let iconPath = Bundle.main.path(forResource: base, ofType: ext),
        let icon = NSImage(contentsOfFile: iconPath) {
-        icon.isTemplate = true
+        icon.isTemplate = false
         icon.setName(name)
         if ext == nil {
-            icon.setName("\(base).pdf")
             icon.setName("\(base).tiff")
             icon.setName("\(base).png")
         }

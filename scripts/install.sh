@@ -63,6 +63,8 @@ echo ">>> Stopping any existing instances..."
 killall "$APP_NAME" 2>/dev/null || true
 killall "Borno" 2>/dev/null || true
 killall "AvroBangla" 2>/dev/null || true
+killall TextInputMenuAgent 2>/dev/null || true
+killall TextInputSwitcher 2>/dev/null || true
 sleep 1
 
 mkdir -p "$INSTALL_DIR"
