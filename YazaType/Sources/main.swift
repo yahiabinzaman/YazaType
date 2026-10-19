@@ -56,7 +56,7 @@ for name in ["icon", "icon.tiff", "icon.png", "iconTemplate", "iconTemplate.tiff
     let ext = (name as NSString).pathExtension.isEmpty ? nil : (name as NSString).pathExtension
     if let iconPath = Bundle.main.path(forResource: base, ofType: ext),
        let icon = NSImage(contentsOfFile: iconPath) {
-        icon.isTemplate = false
+        icon.isTemplate = true
         icon.setName(name)
         if ext == nil {
             icon.setName("\(base).tiff")
