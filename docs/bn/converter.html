@@ -952,29 +952,6 @@
             </a>
 
                         <div class="nav-actions">
-                <!-- Header Day/Night Switch -->
-                <div class="theme-segmented-switch header-theme-switch" role="radiogroup" aria-label="থিম পরিবর্তন">
-                    <button type="button" class="theme-seg-btn active" id="header-theme-btn-light" onclick="setExplicitTheme('light')" aria-label="দিন" title="দিন (Day) মোড">
-                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="5"></circle>
-                            <line x1="12" y1="1" x2="12" y2="3"></line>
-                            <line x1="12" y1="21" x2="12" y2="23"></line>
-                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                            <line x1="1" y1="12" x2="3" y2="12"></line>
-                            <line x1="21" y1="12" x2="23" y2="12"></line>
-                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                        </svg>
-                        <span>দিন</span>
-                    </button>
-                    <button type="button" class="theme-seg-btn" id="header-theme-btn-dark" onclick="setExplicitTheme('dark')" aria-label="রাত" title="রাত (Night) মোড">
-                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                        </svg>
-                        <span>রাত</span>
-                    </button>
-                </div>
                 <a href="index.html" class="btn-nav-link">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
                     <span>YazaType কীবোর্ড</span>
@@ -1567,11 +1544,11 @@
 
         window.updateThemeUI = function(theme) {
             const isDark = theme === 'dark';
-            ['theme-btn-light', 'header-theme-btn-light'].forEach(id => {
+            ['theme-btn-light'].forEach(id => {
                 const btn = document.getElementById(id);
                 if (btn) btn.classList.toggle('active', !isDark);
             });
-            ['theme-btn-dark', 'header-theme-btn-dark'].forEach(id => {
+            ['theme-btn-dark'].forEach(id => {
                 const btn = document.getElementById(id);
                 if (btn) btn.classList.toggle('active', isDark);
             });

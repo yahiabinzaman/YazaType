@@ -145,27 +145,27 @@
             --pill-hover: rgba(15, 23, 42, 0.08);
             --accent-blue: #2563eb;
             --accent-glow: rgba(37, 99, 235, 0.12);
-            --font-heading: "Bornomala", "Siyam Rupali", -apple-system, sans-serif;
-            --font-main: "Bornomala", "Siyam Rupali", -apple-system, sans-serif;
+            --font-heading: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", -apple-system, "Segoe UI", Roboto, sans-serif;
+            --font-main: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", -apple-system, "Segoe UI", Roboto, sans-serif;
             --font-bangla: "Bornomala", "Siyam Rupali", sans-serif;
-            --font-mono: "JetBrains Mono", SFMono-Regular, monospace;
+            --font-mono: "JetBrains Mono", "SF Mono", Menlo, Consolas, monospace;
         }
 
         [data-theme="dark"] {
-            --bg: #030305;
-            --bg-subtle: #08080c;
-            --card-bg: rgba(14, 14, 20, 0.78);
+            --bg: #090a0f;
+            --bg-subtle: #0f1117;
+            --card-bg: rgba(15, 17, 23, 0.82);
             --card-border: rgba(255, 255, 255, 0.08);
-            --card-border-hover: rgba(255, 255, 255, 0.22);
-            --card-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.7);
+            --card-border-hover: rgba(255, 255, 255, 0.16);
+            --card-shadow: 0 20px 50px -12px rgba(0, 0, 0, 0.7);
             --text-primary: #f8fafc;
             --text-secondary: #94a3b8;
             --text-muted: #64748b;
-            --header-bg: rgba(10, 10, 16, 0.85);
-            --pill-bg: rgba(255, 255, 255, 0.05);
-            --pill-hover: rgba(255, 255, 255, 0.12);
+            --header-bg: rgba(9, 10, 15, 0.85);
+            --pill-bg: rgba(255, 255, 255, 0.04);
+            --pill-hover: rgba(255, 255, 255, 0.08);
             --accent-blue: #38bdf8;
-            --accent-glow: rgba(56, 189, 248, 0.15);
+            --accent-glow: rgba(56, 189, 248, 0.12);
         }
 
         * {
@@ -192,32 +192,21 @@
             transition: background-color 0.25s ease, color 0.25s ease;
         }
 
-        #bengali-ambient-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            pointer-events: none;
-            z-index: 0;
-            opacity: 1;
-        }
-
         .ambient-horizon {
             position: fixed;
             top: 0;
             left: 50%;
             transform: translateX(-50%);
             width: 100vw;
-            max-width: 1400px;
-            height: 520px;
-            background: radial-gradient(ellipse at center, rgba(37, 99, 235, 0.1) 0%, rgba(56, 189, 248, 0.04) 45%, transparent 75%);
+            max-width: 1300px;
+            height: 400px;
+            background: radial-gradient(ellipse at 50% -10%, rgba(37, 99, 235, 0.06) 0%, rgba(56, 189, 248, 0.02) 40%, transparent 70%);
             pointer-events: none;
             z-index: 0;
         }
 
         [data-theme="dark"] .ambient-horizon {
-            background: radial-gradient(ellipse at center, rgba(59, 130, 246, 0.14) 0%, rgba(56, 189, 248, 0.05) 40%, transparent 75%);
+            background: radial-gradient(ellipse at 50% -10%, rgba(59, 130, 246, 0.1) 0%, rgba(56, 189, 248, 0.03) 40%, transparent 70%);
         }
 
         header {
@@ -382,54 +371,62 @@
 
         .hero-banner {
             text-align: center;
-            margin-bottom: 2.75rem;
+            max-width: 780px;
+            margin: 0 auto 3rem;
         }
 
-        .pill-tag {
+        .hero-eyebrow {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            padding: 0.32rem 0.85rem;
+            padding: 0.32rem 0.9rem;
             background: var(--pill-bg);
             border: 1px solid var(--card-border);
             border-radius: 9999px;
-            font-size: 0.74rem;
-            font-family: var(--font-mono);
-            color: var(--text-secondary);
-            margin-bottom: 1.25rem;
-            letter-spacing: 0.05em;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--accent-blue);
+            margin-bottom: 1rem;
+        }
+
+        .hero-eyebrow-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent-blue);
         }
 
         .hero-banner h1 {
-            font-size: clamp(2rem, 4.2vw, 3rem);
+            font-size: clamp(2.1rem, 4.2vw, 2.85rem);
             font-weight: 800;
-            letter-spacing: -0.025em;
+            letter-spacing: -0.03em;
             color: var(--text-primary);
             margin-bottom: 0.85rem;
-            line-height: 1.2;
+            line-height: 1.18;
         }
 
         .hero-banner p {
             font-size: 1.05rem;
             color: var(--text-secondary);
-            max-width: 720px;
-            margin: 0 auto 2rem;
-            line-height: 1.6;
+            line-height: 1.65;
+            margin: 0 auto;
         }
 
         .creator-grid {
             display: grid;
-            grid-template-columns: 380px 1fr;
-            gap: 2.25rem;
-            align-items: stretch;
+            grid-template-columns: 360px 1fr;
+            gap: 2rem;
+            align-items: start;
             margin-top: 1rem;
         }
 
         .creator-profile-card {
             background: var(--card-bg);
             border: 1px solid var(--card-border);
-            border-radius: 24px;
-            padding: 2.5rem 2rem;
+            border-radius: 28px;
+            padding: 1.5rem 1.75rem 2.25rem;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -437,100 +434,136 @@
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             box-shadow: var(--card-shadow);
-            transition: border-color 0.3s, transform 0.3s;
+            transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
             position: relative;
             overflow: hidden;
         }
 
         .creator-profile-card:hover {
             border-color: var(--card-border-hover);
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.12);
         }
 
-        .creator-avatar-wrap {
+        [data-theme="dark"] .creator-profile-card:hover {
+            box-shadow: 0 28px 60px -10px rgba(0, 0, 0, 0.85);
+        }
+
+        /* Executive Hero Stage matching 2nd image */
+        .creator-portrait-stage {
             position: relative;
-            width: 175px;
-            height: 175px;
-            margin: 0 auto 1.5rem;
+            width: 100%;
+            max-width: 330px;
+            height: 400px;
+            margin: 0 auto 0.75rem;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            overflow: visible;
         }
 
-        .creator-avatar-aura {
+        .creator-portrait-ambient {
             position: absolute;
-            inset: -8px;
+            top: 35px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 250px;
+            height: 250px;
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(37, 99, 235, 0.3) 0%, rgba(56, 189, 248, 0.15) 50%, transparent 75%);
-            animation: auraPulse 4s ease-in-out infinite alternate;
+            background: radial-gradient(circle, rgba(37, 99, 235, 0.14) 0%, rgba(56, 189, 248, 0.07) 50%, transparent 72%);
+            filter: blur(32px);
+            pointer-events: none;
             z-index: 0;
+            animation: portraitPulse 6s ease-in-out infinite alternate;
         }
 
-        @keyframes auraPulse {
-            0% { transform: scale(0.95); opacity: 0.6; }
-            100% { transform: scale(1.06); opacity: 1; }
+        @keyframes portraitPulse {
+            0% { transform: translateX(-50%) scale(0.96); opacity: 0.65; }
+            100% { transform: translateX(-50%) scale(1.08); opacity: 1; }
         }
 
-        .creator-avatar-img {
+        [data-theme="dark"] .creator-portrait-ambient {
+            background: radial-gradient(circle, rgba(56, 189, 248, 0.18) 0%, rgba(99, 102, 241, 0.14) 50%, transparent 75%);
+            filter: blur(36px);
+        }
+
+        .creator-portrait-img {
             position: relative;
             z-index: 1;
-            width: 175px;
-            height: 175px;
-            object-fit: cover;
-            border-radius: 50%;
-            border: 3px solid rgba(255, 255, 255, 0.9);
-            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
-            background: #ffffff;
-            transition: transform 0.3s ease;
+            width: auto;
+            max-width: 100%;
+            height: 400px;
+            object-fit: contain;
+            object-position: bottom center;
+            display: block;
+            -webkit-mask-image: linear-gradient(to bottom, #000 66%, rgba(0, 0, 0, 0.5) 86%, transparent 100%);
+            mask-image: linear-gradient(to bottom, #000 66%, rgba(0, 0, 0, 0.5) 86%, transparent 100%);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
+            filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.08));
         }
 
-        [data-theme="dark"] .creator-avatar-img {
-            border-color: rgba(255, 255, 255, 0.15);
-            background: #0d1117;
-            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5);
+        [data-theme="dark"] .creator-portrait-img {
+            filter: drop-shadow(0 16px 36px rgba(0, 0, 0, 0.55));
         }
 
-        .creator-avatar-wrap:hover .creator-avatar-img {
-            transform: scale(1.03);
+        .creator-profile-card:hover .creator-portrait-img {
+            transform: scale(1.025) translateY(-3px);
         }
 
         .creator-name {
-            font-size: 1.6rem;
+            font-size: 1.65rem;
             font-weight: 800;
             color: var(--text-primary);
-            letter-spacing: -0.02em;
-            margin-bottom: 0.25rem;
+            letter-spacing: -0.025em;
+            margin-bottom: 0.3rem;
+            line-height: 1.2;
         }
 
         .creator-role {
-            font-size: 0.9rem;
+            font-size: 0.92rem;
             font-weight: 600;
             color: var(--accent-blue);
             margin-bottom: 0.35rem;
+            letter-spacing: 0.01em;
         }
 
         .creator-company {
             font-size: 0.84rem;
             color: var(--text-muted);
-            margin-bottom: 1.25rem;
+            margin-bottom: 1.15rem;
+            font-weight: 500;
         }
 
         .creator-status-badge {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            padding: 0.35rem 0.9rem;
+            padding: 0.38rem 0.95rem;
             background: rgba(34, 197, 94, 0.08);
             border: 1px solid rgba(34, 197, 94, 0.25);
             border-radius: 9999px;
             font-size: 0.74rem;
             font-weight: 600;
             color: #16a34a;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.35rem;
+            box-shadow: 0 2px 8px rgba(34, 197, 94, 0.06);
         }
 
         [data-theme="dark"] .creator-status-badge {
             background: rgba(34, 197, 94, 0.12);
             color: #4ade80;
             border-color: rgba(34, 197, 94, 0.3);
+            box-shadow: 0 2px 10px rgba(34, 197, 94, 0.15);
         }
+
+        .creator-bio {
+            font-size: 0.84rem;
+            color: var(--text-muted);
+            line-height: 1.65;
+            margin-bottom: 1.45rem;
+            max-width: 320px;
+        }
+
 
         .creator-status-dot {
             width: 7px;
@@ -648,136 +681,199 @@
             box-shadow: 0 6px 16px rgba(37, 99, 235, 0.3);
         }
 
-        .creator-narrative-card {
+        /* Right Column: Clean Modular Panels & Engineering Systems */
+        .creator-content-column {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .content-panel {
             background: var(--card-bg);
             border: 1px solid var(--card-border);
             border-radius: 24px;
-            padding: 2.75rem 2.5rem;
+            padding: 2rem 2.25rem;
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             box-shadow: var(--card-shadow);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            transition: border-color 0.25s, box-shadow 0.25s;
         }
 
-        .narrative-lead {
-            font-size: 1.15rem;
-            font-weight: 600;
-            line-height: 1.7;
-            color: var(--text-primary);
-            margin-bottom: 1.25rem;
+        .content-panel:hover {
+            border-color: var(--card-border-hover);
         }
 
-        .narrative-body {
-            font-size: 0.98rem;
-            line-height: 1.78;
-            color: var(--text-secondary);
-            margin-bottom: 1.25rem;
-        }
-
-        .narrative-body strong {
-            color: var(--text-primary);
-            font-weight: 600;
-        }
-
-        .creator-systems-title {
-            font-size: 0.78rem;
+        .panel-eyebrow {
+            font-size: 0.72rem;
             font-weight: 700;
             letter-spacing: 0.08em;
             text-transform: uppercase;
-            color: var(--text-muted);
-            margin: 2rem 0 1rem;
+            color: var(--accent-blue);
+            margin-bottom: 0.85rem;
             display: flex;
             align-items: center;
             gap: 0.5rem;
         }
 
-        .creator-systems-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.1rem;
-            margin-bottom: 2.25rem;
+        .panel-lead {
+            font-size: 1.08rem;
+            font-weight: 600;
+            line-height: 1.65;
+            color: var(--text-primary);
+            margin-bottom: 0.85rem;
+            letter-spacing: -0.015em;
         }
 
-        .system-mini-card {
+        .panel-body {
+            font-size: 0.92rem;
+            line-height: 1.75;
+            color: var(--text-secondary);
+            margin-bottom: 1.25rem;
+        }
+
+        .panel-body strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        /* Tech Stack Tags */
+        .tech-tags-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.45rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--card-border);
+        }
+
+        .tech-tag {
+            font-size: 0.74rem;
+            font-family: var(--font-mono);
+            font-weight: 500;
+            padding: 0.25rem 0.65rem;
+            border-radius: 6px;
             background: var(--pill-bg);
             border: 1px solid var(--card-border);
-            border-radius: 14px;
-            padding: 1.15rem 1.3rem;
-            transition: all 0.2s;
+            color: var(--text-secondary);
+            transition: all 0.15s ease;
         }
 
-        .system-mini-card:hover {
+        .tech-tag:hover {
+            color: var(--accent-blue);
+            border-color: var(--accent-blue);
+            background: var(--accent-glow);
+        }
+
+        /* Systems Grid inside panel */
+        .systems-grid-modern {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .modern-system-card {
+            background: var(--pill-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+        }
+
+        .modern-system-card:hover {
             border-color: var(--card-border-hover);
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+            background: rgba(255, 255, 255, 0.06);
+            box-shadow: 0 10px 24px -8px rgba(0, 0, 0, 0.08);
         }
 
-        .system-mini-header {
+        [data-theme="dark"] .modern-system-card:hover {
+            background: rgba(255, 255, 255, 0.04);
+            box-shadow: 0 10px 24px -8px rgba(0, 0, 0, 0.5);
+        }
+
+        .system-card-header {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             justify-content: space-between;
-            margin-bottom: 0.4rem;
+            gap: 0.5rem;
+            margin-bottom: 0.55rem;
         }
 
-        .system-mini-name {
+        .system-card-title {
             font-size: 0.96rem;
             font-weight: 700;
             color: var(--text-primary);
-            text-decoration: none;
+            letter-spacing: -0.01em;
             display: inline-flex;
             align-items: center;
-            gap: 0.4rem;
+            gap: 0.35rem;
         }
 
-        .system-mini-name:hover {
+        .system-card-arrow {
+            color: var(--text-muted);
+            transition: transform 0.2s ease, color 0.2s ease;
+        }
+
+        .modern-system-card:hover .system-card-arrow {
             color: var(--accent-blue);
+            transform: translate(2px, -2px);
         }
 
-        .system-mini-tag {
-            font-size: 0.68rem;
+        .system-platform-tag {
+            font-size: 0.65rem;
             font-family: var(--font-mono);
             font-weight: 600;
-            padding: 0.15rem 0.45rem;
-            border-radius: 4px;
+            padding: 0.15rem 0.5rem;
+            border-radius: 9999px;
             background: var(--accent-glow);
             color: var(--accent-blue);
+            white-space: nowrap;
         }
 
-        .system-mini-desc {
+        .system-card-desc {
             font-size: 0.82rem;
             color: var(--text-muted);
             line-height: 1.55;
         }
 
-        .creator-stats-row {
+        /* Metrics Strip */
+        .metrics-strip {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 1rem;
-            padding-top: 1.75rem;
-            border-top: 1px solid var(--card-border);
+            gap: 1.25rem;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 1.5rem 1.75rem;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: var(--card-shadow);
         }
 
-        .creator-stat-item {
+        .metric-cell {
             text-align: left;
         }
 
-        .creator-stat-num {
+        .metric-num {
             font-size: 1.65rem;
             font-weight: 800;
             color: var(--text-primary);
-            letter-spacing: -0.02em;
+            letter-spacing: -0.03em;
             line-height: 1.1;
             margin-bottom: 0.25rem;
-            font-family: var(--font-bangla);
         }
 
-        .creator-stat-lbl {
+        .metric-desc {
             font-size: 0.74rem;
             color: var(--text-muted);
-            font-weight: 600;
-            line-height: 1.35;
+            font-weight: 500;
+            line-height: 1.4;
         }
 
         footer {
@@ -819,18 +915,32 @@
             .creator-grid {
                 grid-template-columns: 1fr;
             }
-            .creator-systems-grid {
+            .creator-profile-card {
+                max-width: 440px;
+                margin: 0 auto;
+                width: 100%;
+            }
+            .systems-grid-modern {
                 grid-template-columns: 1fr;
             }
-            .creator-stats-row {
+            .metrics-strip {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .metrics-strip {
+                grid-template-columns: 1fr;
+                gap: 1.25rem;
+            }
+            .content-panel {
+                padding: 1.5rem 1.25rem;
             }
         }
     </style>
 </head>
 <body>
-    <canvas id="bengali-ambient-canvas"></canvas>
     <div class="ambient-horizon"></div>
 
     <header>
@@ -879,34 +989,43 @@
 
     <main class="main-container">
         <div class="hero-banner">
-            <h1>Engineered by Yahia Bin Zaman</h1>
-            <p>The creative technologist and systems architect behind YazaType, uniting 8+ years of industrial print prepress leadership with native desktop software.</p>
+            <div class="hero-eyebrow">
+                <span class="hero-eyebrow-dot"></span>
+                <span>Software Architecture &amp; Typography Systems</span>
+            </div>
+            <h1>Engineering &amp; Architecture</h1>
+            <p>The technical journey, systems engineering, and industrial prepress foundations behind YazaType.</p>
         </div>
 
         <div class="creator-grid">
             <div class="creator-profile-card">
-                <div class="creator-avatar-wrap">
-                    <div class="creator-avatar-aura"></div>
-                    <img src="yahia-bin-zaman.png" alt="Yahia Bin Zaman - Software Engineer &amp; Developer of YazaType" class="creator-avatar-img" width="175" height="175" />
+                <div class="creator-portrait-stage">
+                    <div class="creator-portrait-ambient"></div>
+                    <img src="yahia-bin-zaman-portrait.png" 
+                         alt="Yahia Bin Zaman - Software Engineer &amp; Systems Architect" 
+                         class="creator-portrait-img" 
+                         width="320" 
+                         height="400" 
+                         loading="eager" />
                 </div>
 
                 <h2 class="creator-name">Yahia Bin Zaman</h2>
-                <div class="creator-role">Software Engineer · Creative Technologist</div>
+                <div class="creator-role">Software Engineer · Systems Architect</div>
                 <div class="creator-company">Managing Incharge @ ColorLab (8+ Years)</div>
 
                 <div class="creator-status-badge">
                     <span class="creator-status-dot"></span>
-                    <span>Active System Architect · Shipped 5+ Native Builds</span>
+                    <span>Dhaka, Bangladesh · 5+ Shipped Systems</span>
                 </div>
 
-                <p style="font-size: 0.84rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 1.5rem;">
-                    Specializing in native macOS/Windows desktop engines, high-performance typography, applied AI agents, and enterprise industrial ERP automation.
+                <p class="creator-bio">
+                    Building native macOS/Windows desktop engines, zero-latency typography tools, and industrial manufacturing automation.
                 </p>
 
                 <div class="terminal-box">
                     <div class="terminal-box-title">
                         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" y1="19" x2="20" y2="19"></line></svg>
-                        <span>Direct GitHub Terminal Card:</span>
+                        <span>Direct Terminal Card:</span>
                     </div>
                     <div class="terminal-command-row">
                         <span class="terminal-cmd" id="terminal-cmd-text">npx github:yahiabinzaman/yahiabinzaman</span>
@@ -918,97 +1037,143 @@
 
                 <div class="creator-social-links">
                     <a href="https://github.com/yahiabinzaman" target="_blank" rel="noopener" class="social-btn" title="GitHub - @yahiabinzaman" aria-label="GitHub Profile">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                        <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
                     </a>
                     <a href="https://www.linkedin.com/in/yahia-bin-zaman-b4095b354" target="_blank" rel="noopener" class="social-btn" title="LinkedIn - Yahia Bin Zaman" aria-label="LinkedIn Profile">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                        <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                     </a>
                     <a href="https://www.behance.net/gallery/229758591/Portfolio-2024-Visual-Identity-Collection-Vol-01" target="_blank" rel="noopener" class="social-btn" title="Behance - yahiamahmud" aria-label="Behance Portfolio">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22 7h-7v-2h7v2zm1.726 10c-.442 1.297-2.029 3-4.726 3-3.031 0-5.5-2.062-5.5-5.5s2.391-5.5 5.438-5.5c3.219 0 5.062 2.344 5.062 5.5v1h-7.5c.062 1.484 1.109 2.5 2.5 2.5 1.094 0 1.875-.578 2.281-1.359l2.445.859zm-2.484-3.5c-.078-1.297-1-2-2.25-2s-2.094.703-2.25 2h4.5zm-14.242-6.5h-7v14h7c2.761 0 5-1.789 5-4.5 0-1.57-.75-2.859-1.891-3.641 1.031-.797 1.391-1.875 1.391-3.109 0-2.484-2-2.75-4.5-2.75zm-3.5 5.5v-3.5h3c1.379 0 2 .621 2 1.75s-.621 1.75-2 1.75h-3zm0 6.5v-4.5h3.5c1.379 0 2 .871 2 2.25s-.621 2.25-2 2.25h-3.5z"/></svg>
+                        <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M22 7h-7v-2h7v2zm1.726 10c-.442 1.297-2.029 3-4.726 3-3.031 0-5.5-2.062-5.5-5.5s2.391-5.5 5.438-5.5c3.219 0 5.062 2.344 5.062 5.5v1h-7.5c.062 1.484 1.109 2.5 2.5 2.5 1.094 0 1.875-.578 2.281-1.359l2.445.859zm-2.484-3.5c-.078-1.297-1-2-2.25-2s-2.094.703-2.25 2h4.5zm-14.242-6.5h-7v14h7c2.761 0 5-1.789 5-4.5 0-1.57-.75-2.859-1.891-3.641 1.031-.797 1.391-1.875 1.391-3.109 0-2.484-2-2.75-4.5-2.75zm-3.5 5.5v-3.5h3c1.379 0 2 .621 2 1.75s-.621 1.75-2 1.75h-3zm0 6.5v-4.5h3.5c1.379 0 2 .871 2 2.25s-.621 2.25-2 2.25h-3.5z"/></svg>
                     </a>
                     <a href="https://www.facebook.com/YahiaBinZaman" target="_blank" rel="noopener" class="social-btn" title="Facebook - Yahia Bin Zaman" aria-label="Facebook Profile">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
                     </a>
                     <a href="https://www.instagram.com/yahiabinzaman_official/" target="_blank" rel="noopener" class="social-btn" title="Instagram - @yahiabinzaman_official" aria-label="Instagram Profile">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                        <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
                     </a>
-                    <a href="mailto:yahiamahmud10@gmail.com" class="social-btn" title="Direct Email" aria-label="Direct Email">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                    <a href="mailto:yahiamahmud10@gmail.com" class="social-btn" title="Email" aria-label="Direct Email">
+                        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
                     </a>
                 </div>
             </div>
 
-            <div class="creator-narrative-card">
-                <div>
-                    <p class="narrative-lead">"Most modern software suffers from a divide between visual craftsmanship and system-level engineering. Having spent 8+ years directing prepress manufacturing and industrial ERP at <strong>ColorLab</strong>, I engineered YazaType to permanently eliminate broken Bengali typography."</p>
-                    <p class="narrative-body">Bengali computer typography has been hindered for decades by awkward vowel reordering, broken Adobe Illustrator/InDesign conjuncts, and input lag. As both a <strong>software engineer</strong> and <strong>prepress design director</strong>, Yahia Bin Zaman designed YazaType from scratch as a zero-latency native engine with dual Unicode and ANSI engines running simultaneously in real time.</p>
-                    <p class="narrative-body">Having spent over eight years directing enterprise brand identity, high-volume prepress packaging, and industrial ERP operations at ColorLab, Yahia operates at the intersection of engineering and visual craft. His work spans native desktop software in Swift and C++, production web architectures in Next.js and TypeScript, and intelligent AI agent pipelines.</p>
-
-                    <div class="creator-systems-title">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg>
-                        <span>Flagship Built Systems &amp; Technical Products</span>
+            <div class="creator-content-column">
+                <!-- Background & Mission Panel -->
+                <div class="content-panel">
+                    <div class="panel-eyebrow">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                        <span>Context &amp; Mission</span>
                     </div>
+                    <p class="panel-lead">
+                        Eliminating broken typography and typing latency at the operating system level.
+                    </p>
+                    <p class="panel-body">
+                        Bengali digital typography has been hindered for decades by awkward vowel reordering, broken conjuncts in Adobe Illustrator and InDesign, and typing latency. Having directed technical operations, prepress packaging, and industrial ERP at <strong>ColorLab</strong> for over eight years, I engineered YazaType from scratch as a native desktop engine for macOS and Windows.
+                    </p>
+                    <p class="panel-body">
+                        By running dual Unicode and Bijoy ANSI engines concurrently with zero input lag, YazaType provides seamless, real-time typing across all professional design and productivity applications—completely offline with zero telemetry.
+                    </p>
 
-                    <div class="creator-systems-grid">
-                        <div class="system-mini-card">
-                            <div class="system-mini-header">
-                                <a href="https://github.com/yahiabinzaman/YazaType" target="_blank" rel="noopener" class="system-mini-name">
-                                    <span>YazaType</span>
-                                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
-                                </a>
-                                <span class="system-mini-tag">macOS / Windows</span>
-                            </div>
-                            <div class="system-mini-desc">1st zero-lag Bengali keyboard engine supporting simultaneous Unicode and Bijoy ANSI with universal app compatibility.</div>
-                        </div>
-
-                        <div class="system-mini-card">
-                            <div class="system-mini-header">
-                                <span class="system-mini-name">ColorLab Workspace</span>
-                                <span class="system-mini-tag">Industrial ERP</span>
-                            </div>
-                            <div class="system-mini-desc">Enterprise production OS managing real-time offset paper layout optimization, diary costing, and financial ledgers.</div>
-                        </div>
-
-                        <div class="system-mini-card">
-                            <div class="system-mini-header">
-                                <a href="https://github.com/yahiabinzaman/VectorGuard-PDF-Pro" target="_blank" rel="noopener" class="system-mini-name">
-                                    <span>VectorGuard PDF Pro</span>
-                                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
-                                </a>
-                                <span class="system-mini-tag">Prepress Suite</span>
-                            </div>
-                            <div class="system-mini-desc">High-velocity Adobe Illustrator &amp; PDF automation engine cutting commercial prepress overhead by 80%.</div>
-                        </div>
-
-                        <div class="system-mini-card">
-                            <div class="system-mini-header">
-                                <a href="https://github.com/yahiabinzaman/DisplayFlow" target="_blank" rel="noopener" class="system-mini-name">
-                                    <span>DisplayFlow</span>
-                                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
-                                </a>
-                                <span class="system-mini-tag">macOS Utility</span>
-                            </div>
-                            <div class="system-mini-desc">Streamlined multi-display management utility and window flow control designed for creator workspaces.</div>
-                        </div>
+                    <div class="tech-tags-row">
+                        <span class="tech-tag">Swift</span>
+                        <span class="tech-tag">Objective-C</span>
+                        <span class="tech-tag">C++</span>
+                        <span class="tech-tag">macOS IMK</span>
+                        <span class="tech-tag">Windows TSF</span>
+                        <span class="tech-tag">OpenType Shaping</span>
+                        <span class="tech-tag">Prepress Automation</span>
+                        <span class="tech-tag">Industrial ERP</span>
                     </div>
                 </div>
 
-                <div class="creator-stats-row">
-                    <div class="creator-stat-item">
-                        <div class="creator-stat-num">8+ Years</div>
-                        <div class="creator-stat-lbl">Industrial Leadership at ColorLab</div>
+                <!-- Featured Systems Panel -->
+                <div class="content-panel">
+                    <div class="panel-eyebrow">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                        <span>Featured Engineering Work</span>
                     </div>
-                    <div class="creator-stat-item">
-                        <div class="creator-stat-num">1st on Mac</div>
-                        <div class="creator-stat-lbl">Zero-Lag Dual Unicode &amp; ANSI Engine</div>
+
+                    <div class="systems-grid-modern">
+                        <a href="https://github.com/yahiabinzaman/YazaType" target="_blank" rel="noopener" class="modern-system-card">
+                            <div>
+                                <div class="system-card-header">
+                                    <span class="system-card-title">YazaType</span>
+                                    <span class="system-platform-tag">macOS / Windows</span>
+                                </div>
+                                <p class="system-card-desc">1st zero-latency Bengali keyboard engine with real-time simultaneous Unicode and Bijoy ANSI output across all native apps.</p>
+                            </div>
+                            <div style="margin-top: 0.85rem; display: flex; align-items: center; justify-content: flex-end;">
+                                <span class="system-card-arrow" style="font-size: 0.72rem; font-weight: 600; display: inline-flex; align-items: center; gap: 0.25rem;">
+                                    Open Source
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
+                                </span>
+                            </div>
+                        </a>
+
+                        <div class="modern-system-card">
+                            <div>
+                                <div class="system-card-header">
+                                    <span class="system-card-title">ColorLab Workspace</span>
+                                    <span class="system-platform-tag">Industrial ERP</span>
+                                </div>
+                                <p class="system-card-desc">Enterprise manufacturing OS managing real-time offset paper layout optimization, diary costing calculation, and factory inventory.</p>
+                            </div>
+                            <div style="margin-top: 0.85rem; display: flex; align-items: center; justify-content: flex-end;">
+                                <span style="font-size: 0.72rem; font-weight: 600; color: var(--text-muted);">Enterprise Production</span>
+                            </div>
+                        </div>
+
+                        <a href="https://github.com/yahiabinzaman/VectorGuard-PDF-Pro" target="_blank" rel="noopener" class="modern-system-card">
+                            <div>
+                                <div class="system-card-header">
+                                    <span class="system-card-title">VectorGuard PDF Pro</span>
+                                    <span class="system-platform-tag">Prepress Suite</span>
+                                </div>
+                                <p class="system-card-desc">High-velocity Adobe Illustrator &amp; Acrobat automation engine cutting commercial print prepress preparation overhead by 80%.</p>
+                            </div>
+                            <div style="margin-top: 0.85rem; display: flex; align-items: center; justify-content: flex-end;">
+                                <span class="system-card-arrow" style="font-size: 0.72rem; font-weight: 600; display: inline-flex; align-items: center; gap: 0.25rem;">
+                                    SDK Automation
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
+                                </span>
+                            </div>
+                        </a>
+
+                        <a href="https://github.com/yahiabinzaman/DisplayFlow" target="_blank" rel="noopener" class="modern-system-card">
+                            <div>
+                                <div class="system-card-header">
+                                    <span class="system-card-title">DisplayFlow</span>
+                                    <span class="system-platform-tag">macOS Utility</span>
+                                </div>
+                                <p class="system-card-desc">Streamlined multi-display management utility and window geometry control designed for creator workspaces.</p>
+                            </div>
+                            <div style="margin-top: 0.85rem; display: flex; align-items: center; justify-content: flex-end;">
+                                <span class="system-card-arrow" style="font-size: 0.72rem; font-weight: 600; display: inline-flex; align-items: center; gap: 0.25rem;">
+                                    Native Swift
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
+                                </span>
+                            </div>
+                        </a>
                     </div>
-                    <div class="creator-stat-item">
-                        <div class="creator-stat-num">5+ Systems</div>
-                        <div class="creator-stat-lbl">Shipped Native &amp; Web Applications</div>
+                </div>
+
+                <!-- Metrics Strip -->
+                <div class="metrics-strip">
+                    <div class="metric-cell">
+                        <div class="metric-num">8+ Years</div>
+                        <div class="metric-desc">Industrial Prepress &amp; ERP Leadership</div>
                     </div>
-                    <div class="creator-stat-item">
-                        <div class="creator-stat-num">100% Local</div>
-                        <div class="creator-stat-lbl">Offline, Zero-Telemetry Privacy</div>
+                    <div class="metric-cell">
+                        <div class="metric-num">0 ms</div>
+                        <div class="metric-desc">Zero-Lag Dual Script Engine</div>
+                    </div>
+                    <div class="metric-cell">
+                        <div class="metric-num">5+ Systems</div>
+                        <div class="metric-desc">Shipped Production Software</div>
+                    </div>
+                    <div class="metric-cell">
+                        <div class="metric-num">100%</div>
+                        <div class="metric-desc">Offline, Zero-Telemetry Privacy</div>
                     </div>
                 </div>
             </div>
@@ -1044,82 +1209,6 @@
             });
         }
 
-        (function initBengaliAmbient() {
-            const canvas = document.getElementById('bengali-ambient-canvas');
-            if (!canvas) return;
-            const ctx = canvas.getContext('2d');
-            let width, height;
-            let particles = [];
-            const glyphs = ['অ', 'আ', 'ই', 'ঈ', 'উ', 'ঊ', 'ঋ', 'এ', 'ঐ', 'ও', 'ঔ', 'ক', 'খ', 'গ', 'ঘ', 'ঙ', 'চ', 'ছ', 'জ', 'ঝ', 'ঞ', 'ট', 'ঠ', 'ড', 'ঢ', 'ণ', 'ত', 'থ', 'দ', 'ধ', 'ন', 'প', 'ফ', 'ব', 'ভ', 'ম', 'য', 'র', 'ল', 'শ', 'ষ', 'স', 'হ', 'ড়', 'ঢ়', 'য়', 'ৎ'];
-            let mouseX = 0, mouseY = 0, targetMouseX = 0, targetMouseY = 0;
-            let cursorActualX = -1000, cursorActualY = -1000;
-
-            function resize() {
-                width = canvas.width = window.innerWidth;
-                height = canvas.height = window.innerHeight;
-            }
-            window.addEventListener('resize', resize);
-            resize();
-
-            window.addEventListener('mousemove', (e) => {
-                cursorActualX = e.clientX;
-                cursorActualY = e.clientY;
-                targetMouseX = (e.clientX - width / 2) * 0.04;
-                targetMouseY = (e.clientY - height / 2) * 0.04;
-            });
-
-            const count = Math.min(32, Math.max(16, Math.floor(width / 52)));
-            for (let i = 0; i < count; i++) {
-                particles.push({
-                    x: Math.random() * width,
-                    y: Math.random() * height,
-                    size: 20 + Math.random() * 32,
-                    speedY: -(0.18 + Math.random() * 0.35),
-                    speedX: (Math.random() - 0.5) * 0.2,
-                    rot: Math.random() * Math.PI * 2,
-                    rotSpeed: (Math.random() - 0.5) * 0.003,
-                    opacity: 0.035 + Math.random() * 0.07,
-                    pulseAngle: Math.random() * Math.PI * 2,
-                    pulseSpeed: 0.01 + Math.random() * 0.015,
-                    depth: 0.2 + Math.random() * 0.8,
-                    char: glyphs[Math.floor(Math.random() * glyphs.length)]
-                });
-            }
-
-            function loop() {
-                ctx.clearRect(0, 0, width, height);
-                mouseX += (targetMouseX - mouseX) * 0.05;
-                mouseY += (targetMouseY - mouseY) * 0.05;
-                const isLight = document.documentElement.getAttribute('data-theme') === 'light';
-
-                for (let i = 0; i < particles.length; i++) {
-                    const p = particles[i];
-                    p.y += p.speedY;
-                    p.x += p.speedX;
-                    p.rot += p.rotSpeed;
-                    p.pulseAngle += p.pulseSpeed;
-
-                    if (p.y < -70) {
-                        p.y = height + 50;
-                        p.x = Math.random() * width;
-                        p.char = glyphs[Math.floor(Math.random() * glyphs.length)];
-                    }
-
-                    const currentAlpha = p.opacity + Math.sin(p.pulseAngle) * 0.02;
-                    ctx.save();
-                    ctx.translate(p.x + mouseX * p.depth, p.y + mouseY * p.depth);
-                    ctx.rotate(p.rot);
-                    ctx.font = `600 ${p.size}px "Bornomala", "Siyam Rupali", sans-serif`;
-                    ctx.fillStyle = isLight ? `rgba(15, 23, 42, ${Math.max(0.02, currentAlpha * 0.7)})` : `rgba(148, 163, 184, ${Math.max(0.02, currentAlpha)})`;
-                    ctx.textAlign = 'center';
-                    ctx.textBaseline = 'middle';
-                    ctx.fillText(p.char, 0, 0);
-                    ctx.restore();
-                }
-                requestAnimationFrame(loop);
-            }
-            loop();
-        })();
 
         window.initTheme = function() {
             const explicit = localStorage.getItem('yazatype-theme-explicit');
